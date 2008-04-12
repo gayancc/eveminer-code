@@ -1,0 +1,290 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B77F50F2-A1A9-4DE2-8171-F6DE37601D55}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EveMiner</RootNamespace>
+    <AssemblyName>EveMiner</AssemblyName>
+    <ApplicationIcon>EVE_Yellow.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\CalculatorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CalculatorForm.Designer.cs">
+      <DependentUpon>CalculatorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config.cs" />
+    <Compile Include="Forms\AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OreCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\OreCtrl.Designer.cs">
+      <DependentUpon>OreCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OreForm.Designer.cs">
+      <DependentUpon>OreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MineralsOut.cs" />
+    <Compile Include="LaserUpgrade.cs" />
+    <Compile Include="MiningTurret.cs" />
+    <Compile Include="OreType.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AboutForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CalculatorForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CalculatorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OreCtrl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OreCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OreForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TimersForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>TimersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Ship.cs" />
+    <Compile Include="Skills.cs" />
+    <Compile Include="TimerListItem.cs" />
+    <Compile Include="Forms\TimersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TimersForm.Designer.cs">
+      <DependentUpon>TimersForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mediumSlot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lowSlot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highSlot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon05_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tech2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon05_12_t2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon12_08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon12_08_t2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon35_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon35_01_t2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon49_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon49_05_t2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level0.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level4.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\level5.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Volume.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zydrine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Isogen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Megacyte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mexallon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Morphite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Nocxium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pyerite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tritanium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon53_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Veldspar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arkonor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bistot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crokite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DarkOchre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gneiss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hedbergite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hemorphite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Jaspet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kernite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Mercoxit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Omber.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Plagioclase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pyroxeres.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scordite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spodumain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutEveMiner.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\zedgraph_source_v514_464\ZedGraph 5.1 %28.net 2%29\source\ZedGraph.csproj">
+      <Project>{2541686B-1673-43BF-AF89-3163945DB009}</Project>
+      <Name>ZedGraph</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EVE_Yellow.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
