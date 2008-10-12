@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\EveMiner.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -84,10 +85,11 @@
     <Compile Include="Forms\OreForm.Designer.cs">
       <DependentUpon>OreForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MineralsOut.cs" />
+    <Compile Include="Ores\MineralsOut.cs" />
     <Compile Include="LaserUpgrade.cs" />
     <Compile Include="MiningTurret.cs" />
-    <Compile Include="OreType.cs" />
+    <Compile Include="Ores\VeldsparMineralsOut.cs" />
+    <Compile Include="Ores\Ore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AboutForm.resx">

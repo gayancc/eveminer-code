@@ -1,3 +1,5 @@
+using OreType=EveMiner.Ores.OreType;
+
 namespace EveMiner.Forms
 {
 	partial class OreForm
@@ -51,8 +53,10 @@ namespace EveMiner.Forms
 			this.oreCtrl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.oreCtrl1.Location = new System.Drawing.Point(24, 12);
 			this.oreCtrl1.Name = "oreCtrl1";
+			this.oreCtrl1.OreType = OreType.Gneiss;
 			this.oreCtrl1.Size = new System.Drawing.Size(124, 32);
 			this.oreCtrl1.TabIndex = 2;
+			this.oreCtrl1.VolumePerMinute = 0;
 			// 
 			// OreForm
 			// 

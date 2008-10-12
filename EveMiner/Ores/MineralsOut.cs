@@ -1,4 +1,4 @@
-namespace EveMiner
+namespace EveMiner.Ores
 {
 	/// <summary>
 	/// Выход минералов для руды

@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
 using System.Windows.Forms;
+using EveMiner.Ores;
 
 namespace EveMiner.Forms
 {
@@ -13,7 +10,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Тип руды
 		/// </summary>
-		private Ore  ore;
+		private OreType  oreType;
 
 		/// <summary>
 		/// Время до выработки
@@ -34,11 +31,11 @@ namespace EveMiner.Forms
 		/// </summary>
 		[DisplayName("Ore type")]
 		[Category("Ore Control")]
-		[DefaultValue(Ore.Veldspar)]
-		public Ore Ore
+		[DefaultValue(OreType.Veldspar)]
+		public OreType OreType
 		{
-			get { return ore; }
-			set { ore = value; }
+			get { return oreType; }
+			set { oreType = value; }
 		}
 
 		[DisplayName("Ore type")]

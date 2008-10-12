@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using EveMiner.Forms;
+using EveMiner.Ores;
 using EveMiner.Properties;
 
 namespace EveMiner.Forms
@@ -10,7 +11,7 @@ namespace EveMiner.Forms
 	public partial class MainForm : Form
 	{
 		private readonly Dictionary<string, MiningTurret> turretsList = new Dictionary<string, MiningTurret>();
-		private readonly Dictionary<string, OreType> dictOre = new Dictionary<string, OreType>();
+		private readonly Dictionary<string, Ore> dictOre = new Dictionary<string, Ore>();
 		private readonly Dictionary<string, LaserUpgrade> dictMlu = new Dictionary<string, LaserUpgrade>();
 		private readonly Dictionary<string, Ship> dictShips = new Dictionary<string, Ship>();
 
@@ -113,10 +114,10 @@ namespace EveMiner.Forms
 
 			if (dictOre.ContainsKey(Config<Settings>.Instance.SelectedOre))
 			{
-				OreType oreType = dictOre[Config<Settings>.Instance.SelectedOre];
+				Ore ore = dictOre[Config<Settings>.Instance.SelectedOre];
 				for (int n = 0; n < comboBoxOre.Items.Count; n++)
 				{
-					if (comboBoxOre.Items[n] == oreType)
+					if (comboBoxOre.Items[n] == ore)
 						comboBoxOre.SelectedIndex = n;
 				}
 			}
@@ -279,190 +280,190 @@ namespace EveMiner.Forms
 		{
 			//Veldspar
 			MineralsOut mOut = new MineralsOut(1000, 0, 0, 0, 0, 0, 0, 0);
-			OreType oreType = new OreType("Veldspar", 0.1, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			Ore ore = new Ore("Veldspar", 0.1, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			mOut = new MineralsOut(1050, 0, 0, 0, 0, 0, 0, 0);
-			oreType = new OreType("Concentrated Veldspar", 0.1, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Concentrated Veldspar", 0.1, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			mOut = new MineralsOut(1100, 0, 0, 0, 0, 0, 0, 0);
-			oreType = new OreType("Dense Veldspar", 0.1, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Dense Veldspar", 0.1, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Scordite
 			mOut = new MineralsOut(833, 416, 0, 0, 0, 0, 0, 0);
-			oreType = new OreType("Scordite", 0.15, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Scordite", 0.15, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(875, 437, 0, 0, 0, 0, 0, 0);
-			oreType = new OreType("Condensed Scordite", 0.15, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Condensed Scordite", 0.15, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(916, 458, 0, 0, 0, 0, 0, 0);
-			oreType = new OreType("Massive Scordite", 0.15, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Massive Scordite", 0.15, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Pyroxeres
 			mOut = new MineralsOut(844, 59, 120, 0, 11, 0, 0, 0);
-			oreType = new OreType("Pyroxeres", 0.3, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Pyroxeres", 0.3, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(886, 62, 126, 0, 12, 0, 0, 0);
-			oreType = new OreType("Solid Pyroxeres", 0.3, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Solid Pyroxeres", 0.3, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(928, 65, 132, 0, 12, 0, 0, 0);
-			oreType = new OreType("Viscous Pyroxeres", 0.3, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Viscous Pyroxeres", 0.3, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Plagioclase
 			mOut = new MineralsOut(256, 512, 256, 0, 0, 0, 0, 0);
-			oreType = new OreType("Plagioclase", 0.35, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Plagioclase", 0.35, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(269, 538, 269, 0, 0, 0, 0, 0);
-			oreType = new OreType("Azure Plagioclase", 0.35, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Azure Plagioclase", 0.35, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(282, 563, 282, 0, 0, 0, 0, 0);
-			oreType = new OreType("Rich Plagioclase", 0.35, 333, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Rich Plagioclase", 0.35, 333, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Omber
 			mOut = new MineralsOut(307, 123, 0, 307, 0, 0, 0, 0);
-			oreType = new OreType("Omber", 0.6, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Omber", 0.6, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(322, 129, 0, 322, 0, 0, 0, 0);
-			oreType = new OreType("Silvery Omber", 0.6, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Silvery Omber", 0.6, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(338, 135, 0, 338, 0, 0, 0, 0);
-			oreType = new OreType("Golden Omber", 0.6, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Golden Omber", 0.6, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Kernite
 			mOut = new MineralsOut(386, 0, 773, 386, 0, 0, 0, 0);
-			oreType = new OreType("Kernite", 1.2, 400, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Kernite", 1.2, 400, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(405, 0, 812, 405, 0, 0, 0, 0);
-			oreType = new OreType("Luminous Kernite", 1.2, 400, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Luminous Kernite", 1.2, 400, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(425, 0, 850, 425, 0, 0, 0, 0);
-			oreType = new OreType("Fiery Kernite", 1.2, 400, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Fiery Kernite", 1.2, 400, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Jaspet
 			mOut = new MineralsOut(259, 259, 518, 0, 259, 8, 0, 0);
-			oreType = new OreType("Jaspet", 2.0, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Jaspet", 2.0, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(272, 272, 544, 0, 272, 8, 0, 0);
-			oreType = new OreType("Pure Jaspet", 2.0, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Pure Jaspet", 2.0, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(285, 285, 570, 0, 285, 9, 0, 0);
-			oreType = new OreType("Pristine Jaspet", 2.0, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Pristine Jaspet", 2.0, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Hemorphite
 			mOut = new MineralsOut(212, 0, 0, 212, 424, 28, 0, 0);
-			oreType = new OreType("Hemorphite", 3.0, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Hemorphite", 3.0, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(223, 0, 0, 223, 445, 29, 0, 0);
-			oreType = new OreType("Vivid Hemorphite", 3.0, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Vivid Hemorphite", 3.0, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(233, 0, 0, 233, 466, 31, 0, 0);
-			oreType = new OreType("Radiant Hemorphite", 3.0, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Radiant Hemorphite", 3.0, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Hedbergite
 			mOut = new MineralsOut(0, 0, 0, 708, 354, 32, 0, 0);
-			oreType = new OreType("Hedbergite", 3.0, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Hedbergite", 3.0, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(0, 0, 0, 743, 372, 34, 0, 0);
-			oreType = new OreType("Vitric Hedbergite", 3.0, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Vitric Hedbergite", 3.0, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(0, 0, 0, 779, 389, 35, 0, 0);
-			oreType = new OreType("Glazed Hedbergite", 3.0, 500, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Glazed Hedbergite", 3.0, 500, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Gneiss
 			mOut = new MineralsOut(171, 0, 171, 343, 0, 171, 0, 0);
-			oreType = new OreType("Gneiss", 5.0, 400, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Gneiss", 5.0, 400, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(180, 0, 180, 360, 0, 180, 0, 0);
-			oreType = new OreType("Iridescent Gneiss", 5.0, 400, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Iridescent Gneiss", 5.0, 400, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(188, 0, 188, 371, 0, 188, 0, 0);
-			oreType = new OreType("Prismatic Gneiss", 5.0, 400, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Prismatic Gneiss", 5.0, 400, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Dark Ochre
 			mOut = new MineralsOut(250, 0, 0, 0, 500, 250, 0, 0);
-			oreType = new OreType("Dark Ochre", 8.0, 400, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Dark Ochre", 8.0, 400, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(263, 0, 0, 0, 525, 263, 0, 0);
-			oreType = new OreType("Onyx Ochre", 8.0, 400, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Onyx Ochre", 8.0, 400, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(275, 0, 0, 0, 550, 275, 0, 0);
-			oreType = new OreType("Obsidian Ochre", 8.0, 400, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Obsidian Ochre", 8.0, 400, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Spodumain
 			mOut = new MineralsOut(700, 140, 0, 0, 0, 0, 140, 0);
-			oreType = new OreType("Spodumain", 16.0, 250, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Spodumain", 16.0, 250, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(735, 147, 0, 0, 0, 0, 147, 0);
-			oreType = new OreType("Bright Spodumain", 16.0, 250, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Bright Spodumain", 16.0, 250, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(770, 154, 0, 0, 0, 0, 154, 0);
-			oreType = new OreType("Gleaming Spodumain", 16.0, 250, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Gleaming Spodumain", 16.0, 250, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Crokite
 			mOut = new MineralsOut(331, 0, 0, 0, 331, 663, 0, 0);
-			oreType = new OreType("Crokite", 16.0, 250, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Crokite", 16.0, 250, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(348, 0, 0, 0, 348, 696, 0, 0);
-			oreType = new OreType("Sharp Crokite", 16.0, 250, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Sharp Crokite", 16.0, 250, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(364, 0, 0, 0, 364, 729, 0, 0);
-			oreType = new OreType("Crystalline Crokite", 16.0, 250, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Crystalline Crokite", 16.0, 250, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Bistot
 			mOut = new MineralsOut(0, 170, 0, 0, 0, 341, 170, 0);
-			oreType = new OreType("Bistot", 16.0, 200, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Bistot", 16.0, 200, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(0, 179, 0, 0, 0, 358, 179, 0);
-			oreType = new OreType("Triclinic Bistot", 16.0, 200, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Triclinic Bistot", 16.0, 200, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(0, 187, 0, 0, 0, 375, 187, 0);
-			oreType = new OreType("Monoclinic Bistot", 16.0, 200, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Monoclinic Bistot", 16.0, 200, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Arkonor
 			mOut = new MineralsOut(300, 0, 0, 0, 0, 166, 333, 0);
-			oreType = new OreType("Arkonor", 16.0, 200, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Arkonor", 16.0, 200, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(315, 0, 0, 0, 0, 174, 350, 0);
-			oreType = new OreType("Crimson Arkonor", 16.0, 200, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Crimson Arkonor", 16.0, 200, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(330, 0, 0, 0, 0, 183, 366, 0);
-			oreType = new OreType("Prime Arkonor", 16.0, 200, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Prime Arkonor", 16.0, 200, mOut);
+			dictOre.Add(ore.Name, ore);
 
 			//Mercoxit
 			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 509);
-			oreType = new OreType("Mercoxit", 40.0, 250, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Mercoxit", 40.0, 250, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 535);
-			oreType = new OreType("Magma Mercoxit", 40.0, 250, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Magma Mercoxit", 40.0, 250, mOut);
+			dictOre.Add(ore.Name, ore);
 			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 560);
-			oreType = new OreType("Vitreous Mercoxit", 40.0, 250, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Vitreous Mercoxit", 40.0, 250, mOut);
+			dictOre.Add(ore.Name, ore);
 
 
 			///ICE
 			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 0);
-			oreType = new OreType("Ice", 1000.0, 1, mOut);
-			dictOre.Add(oreType.Name, oreType);
+			ore = new Ore("Ice", 1000.0, 1, mOut);
+			dictOre.Add(ore.Name, ore);
 
 
-			foreach (KeyValuePair<string, OreType> pair in dictOre)
+			foreach (KeyValuePair<string, Ore> pair in dictOre)
 			{
 				comboBoxOre.Items.Add(pair.Value);
 			}
@@ -826,11 +827,11 @@ namespace EveMiner.Forms
 					toolTip1.ToolTipTitle = "Laser Upgrade";
 					tooltip = ctrl.Tag.ToString();
 				}
-				else if (ctrl is PictureBox && ctrl.Tag is OreType)
+				else if (ctrl is PictureBox && ctrl.Tag is Ore)
 				{
 					toolTip1.ToolTipTitle = "Ore";
 					if (ctrl.Tag != null)
-						tooltip = ((OreType) ctrl.Tag).Name;
+						tooltip = ((Ore) ctrl.Tag).Name;
 				}
 				else if (ctrl is PictureBox && ctrl.Tag is string)
 				{
@@ -893,7 +894,7 @@ namespace EveMiner.Forms
 		/// <param name="e"></param>
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
-			OreType oreType = dictOre[comboBoxOre.SelectedItem.ToString()];
+			Ore ore = dictOre[comboBoxOre.SelectedItem.ToString()];
 			try
 			{
 				double startVolume = Convert.ToDouble(textBoxStartValue.Text);
@@ -901,7 +902,7 @@ namespace EveMiner.Forms
 					return;
 				double cycle = Convert.ToDouble(textBoxCycle.Text);
 				double miningYield = Convert.ToDouble(textBoxMiningYield.Text);
-				TimerListItem timerListItem = new TimerListItem(oreType,
+				TimerListItem timerListItem = new TimerListItem(ore,
 				                                                startVolume,
 				                                                cycle,
 				                                                miningYield);
@@ -910,7 +911,7 @@ namespace EveMiner.Forms
 				row.Tag = timerListItem;
 				DataGridViewCell[] cells = new DataGridViewCell[dataGridViewTimers.ColumnCount];
 				cells[ColumnOre.Index] = new DataGridViewTextBoxCell();
-				cells[ColumnOre.Index].Value = timerListItem.oreType.Name;
+				cells[ColumnOre.Index].Value = timerListItem.ore.Name;
 				cells[ColumnStartQty.Index] = new DataGridViewTextBoxCell();
 				cells[ColumnStartQty.Index].Value = startVolume;
 				cells[ColumnCurrentQty.Index] = new DataGridViewTextBoxCell();
@@ -1339,12 +1340,12 @@ namespace EveMiner.Forms
 			Skills skills = Config<Settings>.Instance.skills;
 
 			dataGridViewCalc.Rows.Clear();
-			foreach (KeyValuePair<string, OreType> pair in dictOre)
+			foreach (KeyValuePair<string, Ore> pair in dictOre)
 			{
-				OreType oreType = pair.Value;
+				Ore ore = pair.Value;
 				double eff = NetYield +
 				             0.375 * (1 + skills.Refining * 0.02) * (1 + skills.EfficiencyRefining * 0.04) *
-				             (1 + GetProcessing(oreType) * 0.05);
+				             (1 + GetProcessing(ore) * 0.05);
 				if (eff > 1.0)
 					eff = 1.0;
 
@@ -1353,40 +1354,40 @@ namespace EveMiner.Forms
 					nal = 0;
 
 				if (sender == buttonCalculateCargoHold)
-					quantity = (int) (cargohold / oreType.Volume);
+					quantity = (int) (cargohold / ore.Volume);
 
-				int unitProcess = quantity - quantity % oreType.UnitsToRefine;
-				int p = quantity / oreType.UnitsToRefine;
+				int unitProcess = quantity - quantity % ore.UnitsToRefine;
+				int p = quantity / ore.UnitsToRefine;
 
-				CalculateProfit(oreType, eff, nal, p, unitProcess);
+				CalculateProfit(ore, eff, nal, p, unitProcess);
 			}
 		}
 
 		/// <summary>
 		/// ¬ычилсить прибыль и добавить строчку в таблицу
 		/// </summary>
-		/// <param name="oreType"></param>
+		/// <param name="ore"></param>
 		/// <param name="eff"></param>
 		/// <param name="nal"></param>
 		/// <param name="p"></param>
 		/// <param name="unitProcess"></param>
-		private void CalculateProfit(OreType oreType, double eff, double nal, int p, int unitProcess)
+		private void CalculateProfit(Ore ore, double eff, double nal, int p, int unitProcess)
 		{
-			int mineralsOut = (int) (oreType.MineralsOut.Tritanium * p * eff * (1 - nal));
+			int mineralsOut = (int) (ore.MineralsOut.Tritanium * p * eff * (1 - nal));
 			double profit = mineralsOut * Config<Settings>.Instance.PriceTritanium;
-			mineralsOut = (int) (oreType.MineralsOut.Pyerite * p * eff * (1 - nal));
+			mineralsOut = (int) (ore.MineralsOut.Pyerite * p * eff * (1 - nal));
 			profit += mineralsOut * Config<Settings>.Instance.PricePyerite;
-			mineralsOut = (int) (oreType.MineralsOut.Mexallon * p * eff * (1 - nal));
+			mineralsOut = (int) (ore.MineralsOut.Mexallon * p * eff * (1 - nal));
 			profit += mineralsOut * Config<Settings>.Instance.PriceMexallon;
-			mineralsOut = (int) (oreType.MineralsOut.Isogen * p * eff * (1 - nal));
+			mineralsOut = (int) (ore.MineralsOut.Isogen * p * eff * (1 - nal));
 			profit += mineralsOut * Config<Settings>.Instance.PriceIsogen;
-			mineralsOut = (int) (oreType.MineralsOut.Nocxium * p * eff * (1 - nal));
+			mineralsOut = (int) (ore.MineralsOut.Nocxium * p * eff * (1 - nal));
 			profit += mineralsOut * Config<Settings>.Instance.PriceNocxium;
-			mineralsOut = (int) (oreType.MineralsOut.Zydrine * p * eff * (1 - nal));
+			mineralsOut = (int) (ore.MineralsOut.Zydrine * p * eff * (1 - nal));
 			profit += mineralsOut * Config<Settings>.Instance.PriceZydrine;
-			mineralsOut = (int) (oreType.MineralsOut.Megacyte * p * eff * (1 - nal));
+			mineralsOut = (int) (ore.MineralsOut.Megacyte * p * eff * (1 - nal));
 			profit += mineralsOut * Config<Settings>.Instance.PriceMegacyte;
-			mineralsOut = (int) (oreType.MineralsOut.Morphite * p * eff * (1 - nal));
+			mineralsOut = (int) (ore.MineralsOut.Morphite * p * eff * (1 - nal));
 			profit += mineralsOut * Config<Settings>.Instance.PriceMorphite;
 
 
@@ -1395,18 +1396,18 @@ namespace EveMiner.Forms
 
 			DataGridViewCell[] cells = new DataGridViewCell[dataGridViewCalc.ColumnCount];
 			cells[ColumnOreCalc.Index] = new DataGridViewTextBoxCell();
-			cells[ColumnOreCalc.Index].Value = oreType.Name;
+			cells[ColumnOreCalc.Index].Value = ore.Name;
 			cells[ColumnVolume.Index] = new DataGridViewTextBoxCell();
-			cells[ColumnVolume.Index].Value = (unitProcess * oreType.Volume).ToString("F2") + " m3";
+			cells[ColumnVolume.Index].Value = (unitProcess * ore.Volume).ToString("F2") + " m3";
 			cells[ColumnRefVolume.Index] = new DataGridViewTextBoxCell();
-			cells[ColumnRefVolume.Index].Value = ((oreType.MineralsOut.Tritanium +
-			                                       oreType.MineralsOut.Pyerite +
-			                                       oreType.MineralsOut.Mexallon +
-			                                       oreType.MineralsOut.Isogen +
-			                                       oreType.MineralsOut.Nocxium +
-			                                       oreType.MineralsOut.Zydrine +
-			                                       oreType.MineralsOut.Megacyte +
-			                                       oreType.MineralsOut.Morphite) * p * eff * 0.01).ToString("F2") + " m3";
+			cells[ColumnRefVolume.Index].Value = ((ore.MineralsOut.Tritanium +
+			                                       ore.MineralsOut.Pyerite +
+			                                       ore.MineralsOut.Mexallon +
+			                                       ore.MineralsOut.Isogen +
+			                                       ore.MineralsOut.Nocxium +
+			                                       ore.MineralsOut.Zydrine +
+			                                       ore.MineralsOut.Megacyte +
+			                                       ore.MineralsOut.Morphite) * p * eff * 0.01).ToString("F2") + " m3";
 
 			cells[ColumnProfit.Index] = new DataGridViewTextBoxCell();
 			cells[ColumnProfit.Index].Value = profit.ToString("#,#.##") + " ISK";
@@ -1420,41 +1421,41 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// получить уровень процессинга дл€ руды
 		/// </summary>
-		/// <param name="oreType"></param>
+		/// <param name="ore"></param>
 		/// <returns></returns>
-		private static int GetProcessing(OreType oreType)
+		private static int GetProcessing(Ore ore)
 		{
-			if (oreType.Name.Contains("Veldspar"))
+			if (ore.Name.Contains("Veldspar"))
 				return Config<Settings>.Instance.skills.VeldsparProcessing;
-			if (oreType.Name.Contains("Scordite"))
+			if (ore.Name.Contains("Scordite"))
 				return Config<Settings>.Instance.skills.ScorditeProcessing;
-			if (oreType.Name.Contains("Pyroxeres"))
+			if (ore.Name.Contains("Pyroxeres"))
 				return Config<Settings>.Instance.skills.PyroxeresProcessing;
-			if (oreType.Name.Contains("Plagioclase"))
+			if (ore.Name.Contains("Plagioclase"))
 				return Config<Settings>.Instance.skills.PlagioclaseProcessing;
-			if (oreType.Name.Contains("Omber"))
+			if (ore.Name.Contains("Omber"))
 				return Config<Settings>.Instance.skills.OmberProcessing;
-			if (oreType.Name.Contains("Kernite"))
+			if (ore.Name.Contains("Kernite"))
 				return Config<Settings>.Instance.skills.KerniteProcessing;
-			if (oreType.Name.Contains("Jaspet"))
+			if (ore.Name.Contains("Jaspet"))
 				return Config<Settings>.Instance.skills.JaspetProcessing;
-			if (oreType.Name.Contains("Hemorphite"))
+			if (ore.Name.Contains("Hemorphite"))
 				return Config<Settings>.Instance.skills.HemorphiteProcessing;
-			if (oreType.Name.Contains("Hedbergite"))
+			if (ore.Name.Contains("Hedbergite"))
 				return Config<Settings>.Instance.skills.HedbergiteProcessing;
-			if (oreType.Name.Contains("Gneiss"))
+			if (ore.Name.Contains("Gneiss"))
 				return Config<Settings>.Instance.skills.GneissProcessing;
-			if (oreType.Name.Contains("Ochre"))
+			if (ore.Name.Contains("Ochre"))
 				return Config<Settings>.Instance.skills.DarkOchreProcessing;
-			if (oreType.Name.Contains("Bistot"))
+			if (ore.Name.Contains("Bistot"))
 				return Config<Settings>.Instance.skills.BistotProcessing;
-			if (oreType.Name.Contains("Spodumain"))
+			if (ore.Name.Contains("Spodumain"))
 				return Config<Settings>.Instance.skills.SpodumainProcessing;
-			if (oreType.Name.Contains("Crokite"))
+			if (ore.Name.Contains("Crokite"))
 				return Config<Settings>.Instance.skills.CrokiteProcessing;
-			if (oreType.Name.Contains("Arkonor"))
+			if (ore.Name.Contains("Arkonor"))
 				return Config<Settings>.Instance.skills.ArkonorProcessing;
-			if (oreType.Name.Contains("Mercoxit"))
+			if (ore.Name.Contains("Mercoxit"))
 				return Config<Settings>.Instance.skills.MercoxitProcessing;
 
 			return 0;

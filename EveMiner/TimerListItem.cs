@@ -1,5 +1,6 @@
 using System.IO;
 using System.Windows.Forms;
+using EveMiner.Ores;
 
 namespace EveMiner
 {
@@ -11,7 +12,7 @@ namespace EveMiner
 		/// <summary>
 		/// Руда
 		/// </summary>
-		public OreType oreType;
+		public Ore ore;
 		/// <summary>
 		/// Руды в астероиде 
 		/// </summary>
@@ -84,15 +85,15 @@ namespace EveMiner
 			set { timerStarted = value; }
 		}
 
-		public TimerListItem(OreType oreType, double startVolume, double cycle, double miningYield)
+		public TimerListItem(Ore ore, double startVolume, double cycle, double miningYield)
 		{
-			this.oreType = oreType;
+			this.ore = ore;
 			this.startVolume = startVolume;
 			currentVolume = StartVolume;
 			this.cycle = cycle;
 			timeToCycleEnd = cycle;
 
-			oreUnitPerSecond = miningYield / cycle / oreType.Volume;
+			oreUnitPerSecond = miningYield / cycle / ore.Volume;
 
 			timeToAsterEnd = (int)(startVolume / oreUnitPerSecond);
 		}
@@ -102,7 +103,7 @@ namespace EveMiner
 		/// <param name="miningYield"></param>
 		public void SetMiningYield(double  miningYield)
 		{
-			oreUnitPerSecond = miningYield / cycle / oreType.Volume;
+			oreUnitPerSecond = miningYield / cycle / ore.Volume;
 			timeToAsterEnd = (int)(currentVolume / oreUnitPerSecond);
 		}
 		/// <summary>
