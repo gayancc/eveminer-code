@@ -19,5 +19,10 @@ namespace EveMiner.Forms
 		{
 
 		}
+
+		private void btnEveCentral_Click(object sender, EventArgs e)
+		{
+			//TODO http://eve-central.com/api/evemon
+		}
 	}
 }

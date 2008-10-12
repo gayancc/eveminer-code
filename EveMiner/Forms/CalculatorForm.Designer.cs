@@ -57,6 +57,14 @@ namespace EveMiner.Forms
 			this.textBoxBistot10 = new System.Windows.Forms.TextBox();
 			this.textBoxArkonor10 = new System.Windows.Forms.TextBox();
 			this.textBoxMercoxit10 = new System.Windows.Forms.TextBox();
+			this.pictureBoxMercoxit = new System.Windows.Forms.PictureBox();
+			this.pictureBoxArkonor = new System.Windows.Forms.PictureBox();
+			this.pictureBoxBistot = new System.Windows.Forms.PictureBox();
+			this.pictureBoxCrokite = new System.Windows.Forms.PictureBox();
+			this.pictureBoxSpodumain = new System.Windows.Forms.PictureBox();
+			this.pictureBoxDarkOchre = new System.Windows.Forms.PictureBox();
+			this.pictureBoxGneiss = new System.Windows.Forms.PictureBox();
+			this.pictureBoxHedbergite = new System.Windows.Forms.PictureBox();
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.textBoxVeldspar0 = new System.Windows.Forms.TextBox();
 			this.textBoxVeldspar5 = new System.Windows.Forms.TextBox();
@@ -85,10 +93,26 @@ namespace EveMiner.Forms
 			this.textBoxKernite0 = new System.Windows.Forms.TextBox();
 			this.textBoxJaspet0 = new System.Windows.Forms.TextBox();
 			this.textBoxHemorphite0 = new System.Windows.Forms.TextBox();
+			this.pictureBoxHemorphite = new System.Windows.Forms.PictureBox();
+			this.pictureBoxJaspet = new System.Windows.Forms.PictureBox();
+			this.pictureBoxKernite = new System.Windows.Forms.PictureBox();
+			this.pictureBoxOmber = new System.Windows.Forms.PictureBox();
+			this.pictureBoxPlagioclase = new System.Windows.Forms.PictureBox();
+			this.pictureBoxPyroxeres = new System.Windows.Forms.PictureBox();
+			this.pictureBoxScordite = new System.Windows.Forms.PictureBox();
+			this.pictureBoxVeldspar = new System.Windows.Forms.PictureBox();
 			this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+			this.pictureBoxMorphite = new System.Windows.Forms.PictureBox();
+			this.pictureBoxPyerite = new System.Windows.Forms.PictureBox();
+			this.pictureBoxMegacyte = new System.Windows.Forms.PictureBox();
+			this.pictureBoxNocxium = new System.Windows.Forms.PictureBox();
+			this.pictureBoxZydrine = new System.Windows.Forms.PictureBox();
+			this.pictureBoxTritanium = new System.Windows.Forms.PictureBox();
 			this.textBoxPriceMorphite = new System.Windows.Forms.TextBox();
+			this.pictureBoxIsogen = new System.Windows.Forms.PictureBox();
 			this.label32 = new System.Windows.Forms.Label();
 			this.label33 = new System.Windows.Forms.Label();
+			this.pictureBoxMexallon = new System.Windows.Forms.PictureBox();
 			this.textBoxPriceTritanium = new System.Windows.Forms.TextBox();
 			this.textBoxPricePyerite = new System.Windows.Forms.TextBox();
 			this.textBoxPriceMexallon = new System.Windows.Forms.TextBox();
@@ -99,41 +123,8 @@ namespace EveMiner.Forms
 			this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
 			this.buttonReset = new System.Windows.Forms.Button();
 			this.buttonClose = new System.Windows.Forms.Button();
-			this.pictureBoxHemorphite = new System.Windows.Forms.PictureBox();
-			this.pictureBoxJaspet = new System.Windows.Forms.PictureBox();
-			this.pictureBoxKernite = new System.Windows.Forms.PictureBox();
-			this.pictureBoxOmber = new System.Windows.Forms.PictureBox();
-			this.pictureBoxPlagioclase = new System.Windows.Forms.PictureBox();
-			this.pictureBoxPyroxeres = new System.Windows.Forms.PictureBox();
-			this.pictureBoxScordite = new System.Windows.Forms.PictureBox();
-			this.pictureBoxVeldspar = new System.Windows.Forms.PictureBox();
-			this.pictureBoxMercoxit = new System.Windows.Forms.PictureBox();
-			this.pictureBoxArkonor = new System.Windows.Forms.PictureBox();
-			this.pictureBoxBistot = new System.Windows.Forms.PictureBox();
-			this.pictureBoxCrokite = new System.Windows.Forms.PictureBox();
-			this.pictureBoxSpodumain = new System.Windows.Forms.PictureBox();
-			this.pictureBoxDarkOchre = new System.Windows.Forms.PictureBox();
-			this.pictureBoxGneiss = new System.Windows.Forms.PictureBox();
-			this.pictureBoxHedbergite = new System.Windows.Forms.PictureBox();
-			this.pictureBoxMorphite = new System.Windows.Forms.PictureBox();
-			this.pictureBoxPyerite = new System.Windows.Forms.PictureBox();
-			this.pictureBoxMegacyte = new System.Windows.Forms.PictureBox();
-			this.pictureBoxNocxium = new System.Windows.Forms.PictureBox();
-			this.pictureBoxZydrine = new System.Windows.Forms.PictureBox();
-			this.pictureBoxTritanium = new System.Windows.Forms.PictureBox();
-			this.pictureBoxIsogen = new System.Windows.Forms.PictureBox();
-			this.pictureBoxMexallon = new System.Windows.Forms.PictureBox();
+			this.btnEveCentral = new System.Windows.Forms.Button();
 			this.tableLayoutPanel7.SuspendLayout();
-			this.tableLayoutPanel6.SuspendLayout();
-			this.tableLayoutPanel8.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxHemorphite)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJaspet)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxKernite)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxOmber)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlagioclase)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPyroxeres)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxScordite)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxVeldspar)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMercoxit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxArkonor)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxBistot)).BeginInit();
@@ -142,6 +133,16 @@ namespace EveMiner.Forms
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxDarkOchre)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxGneiss)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxHedbergite)).BeginInit();
+			this.tableLayoutPanel6.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxHemorphite)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJaspet)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxKernite)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxOmber)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlagioclase)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPyroxeres)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxScordite)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxVeldspar)).BeginInit();
+			this.tableLayoutPanel8.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMorphite)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPyerite)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMegacyte)).BeginInit();
@@ -194,7 +195,7 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel7.Controls.Add(this.pictureBoxDarkOchre, 0, 3);
 			this.tableLayoutPanel7.Controls.Add(this.pictureBoxGneiss, 0, 2);
 			this.tableLayoutPanel7.Controls.Add(this.pictureBoxHedbergite, 0, 1);
-			this.tableLayoutPanel7.Location = new System.Drawing.Point(277, 329);
+			this.tableLayoutPanel7.Location = new System.Drawing.Point(282, 12);
 			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
 			this.tableLayoutPanel7.RowCount = 9;
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -206,8 +207,8 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel7.Size = new System.Drawing.Size(261, 318);
-			this.tableLayoutPanel7.TabIndex = 35;
+			this.tableLayoutPanel7.Size = new System.Drawing.Size(257, 318);
+			this.tableLayoutPanel7.TabIndex = 1;
 			// 
 			// textBoxHedbergite0
 			// 
@@ -215,7 +216,7 @@ namespace EveMiner.Forms
 			this.textBoxHedbergite0.Location = new System.Drawing.Point(41, 22);
 			this.textBoxHedbergite0.Name = "textBoxHedbergite0";
 			this.textBoxHedbergite0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxHedbergite0.TabIndex = 36;
+			this.textBoxHedbergite0.TabIndex = 3;
 			this.textBoxHedbergite0.Text = "0";
 			// 
 			// textBoxHedbergite5
@@ -224,7 +225,7 @@ namespace EveMiner.Forms
 			this.textBoxHedbergite5.Location = new System.Drawing.Point(114, 22);
 			this.textBoxHedbergite5.Name = "textBoxHedbergite5";
 			this.textBoxHedbergite5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxHedbergite5.TabIndex = 36;
+			this.textBoxHedbergite5.TabIndex = 4;
 			this.textBoxHedbergite5.Text = "0";
 			// 
 			// textBoxHedbergite10
@@ -233,7 +234,7 @@ namespace EveMiner.Forms
 			this.textBoxHedbergite10.Location = new System.Drawing.Point(187, 22);
 			this.textBoxHedbergite10.Name = "textBoxHedbergite10";
 			this.textBoxHedbergite10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxHedbergite10.TabIndex = 36;
+			this.textBoxHedbergite10.TabIndex = 5;
 			this.textBoxHedbergite10.Text = "0";
 			// 
 			// label6
@@ -243,17 +244,17 @@ namespace EveMiner.Forms
 			this.label6.Location = new System.Drawing.Point(59, 0);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(31, 13);
-			this.label6.TabIndex = 37;
+			this.label6.TabIndex = 0;
 			this.label6.Text = "Base";
 			// 
 			// label4
 			// 
 			this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(192, 0);
+			this.label4.Location = new System.Drawing.Point(190, 0);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(60, 13);
-			this.label4.TabIndex = 37;
+			this.label4.TabIndex = 2;
 			this.label4.Text = "Base +10%";
 			// 
 			// label5
@@ -263,7 +264,7 @@ namespace EveMiner.Forms
 			this.label5.Location = new System.Drawing.Point(120, 0);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(54, 13);
-			this.label5.TabIndex = 37;
+			this.label5.TabIndex = 1;
 			this.label5.Text = "Base +5%";
 			// 
 			// textBoxGneiss0
@@ -272,7 +273,7 @@ namespace EveMiner.Forms
 			this.textBoxGneiss0.Location = new System.Drawing.Point(41, 60);
 			this.textBoxGneiss0.Name = "textBoxGneiss0";
 			this.textBoxGneiss0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxGneiss0.TabIndex = 36;
+			this.textBoxGneiss0.TabIndex = 6;
 			this.textBoxGneiss0.Text = "0";
 			// 
 			// textBoxDarkOchre0
@@ -281,7 +282,7 @@ namespace EveMiner.Forms
 			this.textBoxDarkOchre0.Location = new System.Drawing.Point(41, 98);
 			this.textBoxDarkOchre0.Name = "textBoxDarkOchre0";
 			this.textBoxDarkOchre0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxDarkOchre0.TabIndex = 36;
+			this.textBoxDarkOchre0.TabIndex = 9;
 			this.textBoxDarkOchre0.Text = "0";
 			// 
 			// textBoxSpodumain0
@@ -290,7 +291,7 @@ namespace EveMiner.Forms
 			this.textBoxSpodumain0.Location = new System.Drawing.Point(41, 136);
 			this.textBoxSpodumain0.Name = "textBoxSpodumain0";
 			this.textBoxSpodumain0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxSpodumain0.TabIndex = 36;
+			this.textBoxSpodumain0.TabIndex = 12;
 			this.textBoxSpodumain0.Text = "0";
 			// 
 			// textBoxCrockite0
@@ -299,7 +300,7 @@ namespace EveMiner.Forms
 			this.textBoxCrockite0.Location = new System.Drawing.Point(41, 174);
 			this.textBoxCrockite0.Name = "textBoxCrockite0";
 			this.textBoxCrockite0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxCrockite0.TabIndex = 36;
+			this.textBoxCrockite0.TabIndex = 15;
 			this.textBoxCrockite0.Text = "0";
 			// 
 			// textBoxBistot0
@@ -308,7 +309,7 @@ namespace EveMiner.Forms
 			this.textBoxBistot0.Location = new System.Drawing.Point(41, 212);
 			this.textBoxBistot0.Name = "textBoxBistot0";
 			this.textBoxBistot0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxBistot0.TabIndex = 36;
+			this.textBoxBistot0.TabIndex = 18;
 			this.textBoxBistot0.Text = "0";
 			// 
 			// textBoxArkonor0
@@ -317,7 +318,7 @@ namespace EveMiner.Forms
 			this.textBoxArkonor0.Location = new System.Drawing.Point(41, 250);
 			this.textBoxArkonor0.Name = "textBoxArkonor0";
 			this.textBoxArkonor0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxArkonor0.TabIndex = 36;
+			this.textBoxArkonor0.TabIndex = 21;
 			this.textBoxArkonor0.Text = "0";
 			// 
 			// textBoxMercoxit0
@@ -326,7 +327,7 @@ namespace EveMiner.Forms
 			this.textBoxMercoxit0.Location = new System.Drawing.Point(41, 288);
 			this.textBoxMercoxit0.Name = "textBoxMercoxit0";
 			this.textBoxMercoxit0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxMercoxit0.TabIndex = 36;
+			this.textBoxMercoxit0.TabIndex = 24;
 			this.textBoxMercoxit0.Text = "0";
 			// 
 			// textBoxGneiss5
@@ -335,7 +336,7 @@ namespace EveMiner.Forms
 			this.textBoxGneiss5.Location = new System.Drawing.Point(114, 60);
 			this.textBoxGneiss5.Name = "textBoxGneiss5";
 			this.textBoxGneiss5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxGneiss5.TabIndex = 36;
+			this.textBoxGneiss5.TabIndex = 7;
 			this.textBoxGneiss5.Text = "0";
 			// 
 			// textBoxDarkOchre5
@@ -344,7 +345,7 @@ namespace EveMiner.Forms
 			this.textBoxDarkOchre5.Location = new System.Drawing.Point(114, 98);
 			this.textBoxDarkOchre5.Name = "textBoxDarkOchre5";
 			this.textBoxDarkOchre5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxDarkOchre5.TabIndex = 36;
+			this.textBoxDarkOchre5.TabIndex = 10;
 			this.textBoxDarkOchre5.Text = "0";
 			// 
 			// textSpodumain5
@@ -353,7 +354,7 @@ namespace EveMiner.Forms
 			this.textSpodumain5.Location = new System.Drawing.Point(114, 136);
 			this.textSpodumain5.Name = "textSpodumain5";
 			this.textSpodumain5.Size = new System.Drawing.Size(67, 20);
-			this.textSpodumain5.TabIndex = 36;
+			this.textSpodumain5.TabIndex = 13;
 			this.textSpodumain5.Text = "0";
 			// 
 			// textBoxCrockite5
@@ -362,7 +363,7 @@ namespace EveMiner.Forms
 			this.textBoxCrockite5.Location = new System.Drawing.Point(114, 174);
 			this.textBoxCrockite5.Name = "textBoxCrockite5";
 			this.textBoxCrockite5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxCrockite5.TabIndex = 36;
+			this.textBoxCrockite5.TabIndex = 16;
 			this.textBoxCrockite5.Text = "0";
 			// 
 			// textBoxBistot5
@@ -371,7 +372,7 @@ namespace EveMiner.Forms
 			this.textBoxBistot5.Location = new System.Drawing.Point(114, 212);
 			this.textBoxBistot5.Name = "textBoxBistot5";
 			this.textBoxBistot5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxBistot5.TabIndex = 36;
+			this.textBoxBistot5.TabIndex = 19;
 			this.textBoxBistot5.Text = "0";
 			// 
 			// textBoxArkonor5
@@ -380,7 +381,7 @@ namespace EveMiner.Forms
 			this.textBoxArkonor5.Location = new System.Drawing.Point(114, 250);
 			this.textBoxArkonor5.Name = "textBoxArkonor5";
 			this.textBoxArkonor5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxArkonor5.TabIndex = 36;
+			this.textBoxArkonor5.TabIndex = 22;
 			this.textBoxArkonor5.Text = "0";
 			// 
 			// textBoxMercoxit5
@@ -389,7 +390,7 @@ namespace EveMiner.Forms
 			this.textBoxMercoxit5.Location = new System.Drawing.Point(114, 288);
 			this.textBoxMercoxit5.Name = "textBoxMercoxit5";
 			this.textBoxMercoxit5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxMercoxit5.TabIndex = 36;
+			this.textBoxMercoxit5.TabIndex = 25;
 			this.textBoxMercoxit5.Text = "0";
 			// 
 			// textGneiss10
@@ -398,7 +399,7 @@ namespace EveMiner.Forms
 			this.textGneiss10.Location = new System.Drawing.Point(187, 60);
 			this.textGneiss10.Name = "textGneiss10";
 			this.textGneiss10.Size = new System.Drawing.Size(67, 20);
-			this.textGneiss10.TabIndex = 36;
+			this.textGneiss10.TabIndex = 8;
 			this.textGneiss10.Text = "0";
 			// 
 			// textBoxDarkOchre10
@@ -407,7 +408,7 @@ namespace EveMiner.Forms
 			this.textBoxDarkOchre10.Location = new System.Drawing.Point(187, 98);
 			this.textBoxDarkOchre10.Name = "textBoxDarkOchre10";
 			this.textBoxDarkOchre10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxDarkOchre10.TabIndex = 36;
+			this.textBoxDarkOchre10.TabIndex = 11;
 			this.textBoxDarkOchre10.Text = "0";
 			// 
 			// textBoxSpodumain10
@@ -416,7 +417,7 @@ namespace EveMiner.Forms
 			this.textBoxSpodumain10.Location = new System.Drawing.Point(187, 136);
 			this.textBoxSpodumain10.Name = "textBoxSpodumain10";
 			this.textBoxSpodumain10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxSpodumain10.TabIndex = 36;
+			this.textBoxSpodumain10.TabIndex = 14;
 			this.textBoxSpodumain10.Text = "0";
 			// 
 			// textBoxCrockite10
@@ -425,7 +426,7 @@ namespace EveMiner.Forms
 			this.textBoxCrockite10.Location = new System.Drawing.Point(187, 174);
 			this.textBoxCrockite10.Name = "textBoxCrockite10";
 			this.textBoxCrockite10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxCrockite10.TabIndex = 36;
+			this.textBoxCrockite10.TabIndex = 17;
 			this.textBoxCrockite10.Text = "0";
 			// 
 			// textBoxBistot10
@@ -434,7 +435,7 @@ namespace EveMiner.Forms
 			this.textBoxBistot10.Location = new System.Drawing.Point(187, 212);
 			this.textBoxBistot10.Name = "textBoxBistot10";
 			this.textBoxBistot10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxBistot10.TabIndex = 36;
+			this.textBoxBistot10.TabIndex = 20;
 			this.textBoxBistot10.Text = "0";
 			// 
 			// textBoxArkonor10
@@ -443,7 +444,7 @@ namespace EveMiner.Forms
 			this.textBoxArkonor10.Location = new System.Drawing.Point(187, 250);
 			this.textBoxArkonor10.Name = "textBoxArkonor10";
 			this.textBoxArkonor10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxArkonor10.TabIndex = 36;
+			this.textBoxArkonor10.TabIndex = 23;
 			this.textBoxArkonor10.Text = "0";
 			// 
 			// textBoxMercoxit10
@@ -452,558 +453,8 @@ namespace EveMiner.Forms
 			this.textBoxMercoxit10.Location = new System.Drawing.Point(187, 288);
 			this.textBoxMercoxit10.Name = "textBoxMercoxit10";
 			this.textBoxMercoxit10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxMercoxit10.TabIndex = 36;
+			this.textBoxMercoxit10.TabIndex = 26;
 			this.textBoxMercoxit10.Text = "0";
-			// 
-			// tableLayoutPanel6
-			// 
-			this.tableLayoutPanel6.ColumnCount = 4;
-			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel6.Controls.Add(this.textBoxVeldspar0, 1, 1);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxVeldspar5, 2, 1);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxVeldspar10, 3, 1);
-			this.tableLayoutPanel6.Controls.Add(this.label1, 1, 0);
-			this.tableLayoutPanel6.Controls.Add(this.label2, 2, 0);
-			this.tableLayoutPanel6.Controls.Add(this.label3, 3, 0);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxScordite0, 1, 2);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxScordite5, 2, 2);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxScordite10, 3, 2);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxPyroxeres10, 3, 3);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxPlagioclase10, 3, 4);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxOmber10, 3, 5);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxKernite10, 3, 6);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxJaspet10, 3, 7);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxHemorphite10, 3, 8);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxPyroxeres5, 2, 3);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxPlagioclase5, 2, 4);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxOmber5, 2, 5);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxKernite5, 2, 6);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxJaspet5, 2, 7);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxHemorphite5, 2, 8);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxPyroxeres0, 1, 3);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxPlagioclase0, 1, 4);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxOmber0, 1, 5);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxKernite0, 1, 6);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxJaspet0, 1, 7);
-			this.tableLayoutPanel6.Controls.Add(this.textBoxHemorphite0, 1, 8);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxHemorphite, 0, 8);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxJaspet, 0, 7);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxKernite, 0, 6);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxOmber, 0, 5);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPlagioclase, 0, 4);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPyroxeres, 0, 3);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxScordite, 0, 2);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxVeldspar, 0, 1);
-			this.tableLayoutPanel6.Location = new System.Drawing.Point(12, 329);
-			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-			this.tableLayoutPanel6.RowCount = 9;
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel6.Size = new System.Drawing.Size(260, 318);
-			this.tableLayoutPanel6.TabIndex = 34;
-			// 
-			// textBoxVeldspar0
-			// 
-			this.textBoxVeldspar0.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxVeldspar0.Location = new System.Drawing.Point(41, 22);
-			this.textBoxVeldspar0.Name = "textBoxVeldspar0";
-			this.textBoxVeldspar0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxVeldspar0.TabIndex = 36;
-			this.textBoxVeldspar0.Text = "0";
-			// 
-			// textBoxVeldspar5
-			// 
-			this.textBoxVeldspar5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxVeldspar5.Location = new System.Drawing.Point(114, 22);
-			this.textBoxVeldspar5.Name = "textBoxVeldspar5";
-			this.textBoxVeldspar5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxVeldspar5.TabIndex = 36;
-			this.textBoxVeldspar5.Text = "0";
-			// 
-			// textBoxVeldspar10
-			// 
-			this.textBoxVeldspar10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxVeldspar10.Location = new System.Drawing.Point(187, 22);
-			this.textBoxVeldspar10.Name = "textBoxVeldspar10";
-			this.textBoxVeldspar10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxVeldspar10.TabIndex = 36;
-			this.textBoxVeldspar10.Text = "0";
-			// 
-			// label1
-			// 
-			this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(59, 0);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(31, 13);
-			this.label1.TabIndex = 37;
-			this.label1.Text = "Base";
-			// 
-			// label2
-			// 
-			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(120, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(54, 13);
-			this.label2.TabIndex = 37;
-			this.label2.Text = "Base +5%";
-			// 
-			// label3
-			// 
-			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(192, 0);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(60, 13);
-			this.label3.TabIndex = 37;
-			this.label3.Text = "Base +10%";
-			// 
-			// textBoxScordite0
-			// 
-			this.textBoxScordite0.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxScordite0.Location = new System.Drawing.Point(41, 60);
-			this.textBoxScordite0.Name = "textBoxScordite0";
-			this.textBoxScordite0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxScordite0.TabIndex = 36;
-			this.textBoxScordite0.Text = "0";
-			// 
-			// textBoxScordite5
-			// 
-			this.textBoxScordite5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxScordite5.Location = new System.Drawing.Point(114, 60);
-			this.textBoxScordite5.Name = "textBoxScordite5";
-			this.textBoxScordite5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxScordite5.TabIndex = 36;
-			this.textBoxScordite5.Text = "0";
-			// 
-			// textBoxScordite10
-			// 
-			this.textBoxScordite10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxScordite10.Location = new System.Drawing.Point(187, 60);
-			this.textBoxScordite10.Name = "textBoxScordite10";
-			this.textBoxScordite10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxScordite10.TabIndex = 36;
-			this.textBoxScordite10.Text = "0";
-			// 
-			// textBoxPyroxeres10
-			// 
-			this.textBoxPyroxeres10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPyroxeres10.Location = new System.Drawing.Point(187, 98);
-			this.textBoxPyroxeres10.Name = "textBoxPyroxeres10";
-			this.textBoxPyroxeres10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxPyroxeres10.TabIndex = 36;
-			this.textBoxPyroxeres10.Text = "0";
-			// 
-			// textBoxPlagioclase10
-			// 
-			this.textBoxPlagioclase10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPlagioclase10.Location = new System.Drawing.Point(187, 136);
-			this.textBoxPlagioclase10.Name = "textBoxPlagioclase10";
-			this.textBoxPlagioclase10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxPlagioclase10.TabIndex = 36;
-			this.textBoxPlagioclase10.Text = "0";
-			// 
-			// textBoxOmber10
-			// 
-			this.textBoxOmber10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxOmber10.Location = new System.Drawing.Point(187, 174);
-			this.textBoxOmber10.Name = "textBoxOmber10";
-			this.textBoxOmber10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxOmber10.TabIndex = 36;
-			this.textBoxOmber10.Text = "0";
-			// 
-			// textBoxKernite10
-			// 
-			this.textBoxKernite10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxKernite10.Location = new System.Drawing.Point(187, 212);
-			this.textBoxKernite10.Name = "textBoxKernite10";
-			this.textBoxKernite10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxKernite10.TabIndex = 36;
-			this.textBoxKernite10.Text = "0";
-			// 
-			// textBoxJaspet10
-			// 
-			this.textBoxJaspet10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxJaspet10.Location = new System.Drawing.Point(187, 250);
-			this.textBoxJaspet10.Name = "textBoxJaspet10";
-			this.textBoxJaspet10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxJaspet10.TabIndex = 36;
-			this.textBoxJaspet10.Text = "0";
-			// 
-			// textBoxHemorphite10
-			// 
-			this.textBoxHemorphite10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxHemorphite10.Location = new System.Drawing.Point(187, 288);
-			this.textBoxHemorphite10.Name = "textBoxHemorphite10";
-			this.textBoxHemorphite10.Size = new System.Drawing.Size(67, 20);
-			this.textBoxHemorphite10.TabIndex = 36;
-			this.textBoxHemorphite10.Text = "0";
-			// 
-			// textBoxPyroxeres5
-			// 
-			this.textBoxPyroxeres5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPyroxeres5.Location = new System.Drawing.Point(114, 98);
-			this.textBoxPyroxeres5.Name = "textBoxPyroxeres5";
-			this.textBoxPyroxeres5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxPyroxeres5.TabIndex = 36;
-			this.textBoxPyroxeres5.Text = "0";
-			// 
-			// textBoxPlagioclase5
-			// 
-			this.textBoxPlagioclase5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPlagioclase5.Location = new System.Drawing.Point(114, 136);
-			this.textBoxPlagioclase5.Name = "textBoxPlagioclase5";
-			this.textBoxPlagioclase5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxPlagioclase5.TabIndex = 36;
-			this.textBoxPlagioclase5.Text = "0";
-			// 
-			// textBoxOmber5
-			// 
-			this.textBoxOmber5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxOmber5.Location = new System.Drawing.Point(114, 174);
-			this.textBoxOmber5.Name = "textBoxOmber5";
-			this.textBoxOmber5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxOmber5.TabIndex = 36;
-			this.textBoxOmber5.Text = "0";
-			// 
-			// textBoxKernite5
-			// 
-			this.textBoxKernite5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxKernite5.Location = new System.Drawing.Point(114, 212);
-			this.textBoxKernite5.Name = "textBoxKernite5";
-			this.textBoxKernite5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxKernite5.TabIndex = 36;
-			this.textBoxKernite5.Text = "0";
-			// 
-			// textBoxJaspet5
-			// 
-			this.textBoxJaspet5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxJaspet5.Location = new System.Drawing.Point(114, 250);
-			this.textBoxJaspet5.Name = "textBoxJaspet5";
-			this.textBoxJaspet5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxJaspet5.TabIndex = 36;
-			this.textBoxJaspet5.Text = "0";
-			// 
-			// textBoxHemorphite5
-			// 
-			this.textBoxHemorphite5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxHemorphite5.Location = new System.Drawing.Point(114, 288);
-			this.textBoxHemorphite5.Name = "textBoxHemorphite5";
-			this.textBoxHemorphite5.Size = new System.Drawing.Size(67, 20);
-			this.textBoxHemorphite5.TabIndex = 36;
-			this.textBoxHemorphite5.Text = "0";
-			// 
-			// textBoxPyroxeres0
-			// 
-			this.textBoxPyroxeres0.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPyroxeres0.Location = new System.Drawing.Point(41, 98);
-			this.textBoxPyroxeres0.Name = "textBoxPyroxeres0";
-			this.textBoxPyroxeres0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxPyroxeres0.TabIndex = 36;
-			this.textBoxPyroxeres0.Text = "0";
-			// 
-			// textBoxPlagioclase0
-			// 
-			this.textBoxPlagioclase0.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPlagioclase0.Location = new System.Drawing.Point(41, 136);
-			this.textBoxPlagioclase0.Name = "textBoxPlagioclase0";
-			this.textBoxPlagioclase0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxPlagioclase0.TabIndex = 36;
-			this.textBoxPlagioclase0.Text = "0";
-			// 
-			// textBoxOmber0
-			// 
-			this.textBoxOmber0.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxOmber0.Location = new System.Drawing.Point(41, 174);
-			this.textBoxOmber0.Name = "textBoxOmber0";
-			this.textBoxOmber0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxOmber0.TabIndex = 36;
-			this.textBoxOmber0.Text = "0";
-			// 
-			// textBoxKernite0
-			// 
-			this.textBoxKernite0.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxKernite0.Location = new System.Drawing.Point(41, 212);
-			this.textBoxKernite0.Name = "textBoxKernite0";
-			this.textBoxKernite0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxKernite0.TabIndex = 36;
-			this.textBoxKernite0.Text = "0";
-			// 
-			// textBoxJaspet0
-			// 
-			this.textBoxJaspet0.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxJaspet0.Location = new System.Drawing.Point(41, 250);
-			this.textBoxJaspet0.Name = "textBoxJaspet0";
-			this.textBoxJaspet0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxJaspet0.TabIndex = 36;
-			this.textBoxJaspet0.Text = "0";
-			// 
-			// textBoxHemorphite0
-			// 
-			this.textBoxHemorphite0.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxHemorphite0.Location = new System.Drawing.Point(41, 288);
-			this.textBoxHemorphite0.Name = "textBoxHemorphite0";
-			this.textBoxHemorphite0.Size = new System.Drawing.Size(67, 20);
-			this.textBoxHemorphite0.TabIndex = 36;
-			this.textBoxHemorphite0.Text = "0";
-			// 
-			// tableLayoutPanel8
-			// 
-			this.tableLayoutPanel8.ColumnCount = 2;
-			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel8.Controls.Add(this.pictureBoxMorphite, 0, 8);
-			this.tableLayoutPanel8.Controls.Add(this.pictureBoxPyerite, 0, 2);
-			this.tableLayoutPanel8.Controls.Add(this.pictureBoxMegacyte, 0, 7);
-			this.tableLayoutPanel8.Controls.Add(this.pictureBoxNocxium, 0, 5);
-			this.tableLayoutPanel8.Controls.Add(this.pictureBoxZydrine, 0, 6);
-			this.tableLayoutPanel8.Controls.Add(this.pictureBoxTritanium, 0, 1);
-			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceMorphite, 1, 8);
-			this.tableLayoutPanel8.Controls.Add(this.pictureBoxIsogen, 0, 4);
-			this.tableLayoutPanel8.Controls.Add(this.label32, 0, 0);
-			this.tableLayoutPanel8.Controls.Add(this.label33, 1, 0);
-			this.tableLayoutPanel8.Controls.Add(this.pictureBoxMexallon, 0, 3);
-			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceTritanium, 1, 1);
-			this.tableLayoutPanel8.Controls.Add(this.textBoxPricePyerite, 1, 2);
-			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceMexallon, 1, 3);
-			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceIsogen, 1, 4);
-			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceNocxium, 1, 5);
-			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceZydrine, 1, 6);
-			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceMegacyte, 1, 7);
-			this.tableLayoutPanel8.Location = new System.Drawing.Point(11, 5);
-			this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-			this.tableLayoutPanel8.RowCount = 9;
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel8.Size = new System.Drawing.Size(108, 318);
-			this.tableLayoutPanel8.TabIndex = 36;
-			// 
-			// textBoxPriceMorphite
-			// 
-			this.textBoxPriceMorphite.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPriceMorphite.Location = new System.Drawing.Point(50, 288);
-			this.textBoxPriceMorphite.Name = "textBoxPriceMorphite";
-			this.textBoxPriceMorphite.Size = new System.Drawing.Size(55, 20);
-			this.textBoxPriceMorphite.TabIndex = 43;
-			this.textBoxPriceMorphite.Text = "8000";
-			// 
-			// label32
-			// 
-			this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label32.AutoSize = true;
-			this.label32.Location = new System.Drawing.Point(3, 0);
-			this.label32.Name = "label32";
-			this.label32.Size = new System.Drawing.Size(41, 13);
-			this.label32.TabIndex = 0;
-			this.label32.Text = "Mineral";
-			// 
-			// label33
-			// 
-			this.label33.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label33.AutoSize = true;
-			this.label33.Location = new System.Drawing.Point(62, 0);
-			this.label33.Name = "label33";
-			this.label33.Size = new System.Drawing.Size(31, 13);
-			this.label33.TabIndex = 0;
-			this.label33.Text = "Price";
-			// 
-			// textBoxPriceTritanium
-			// 
-			this.textBoxPriceTritanium.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPriceTritanium.Location = new System.Drawing.Point(50, 22);
-			this.textBoxPriceTritanium.Name = "textBoxPriceTritanium";
-			this.textBoxPriceTritanium.Size = new System.Drawing.Size(55, 20);
-			this.textBoxPriceTritanium.TabIndex = 36;
-			this.textBoxPriceTritanium.Text = "3";
-			// 
-			// textBoxPricePyerite
-			// 
-			this.textBoxPricePyerite.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPricePyerite.Location = new System.Drawing.Point(50, 60);
-			this.textBoxPricePyerite.Name = "textBoxPricePyerite";
-			this.textBoxPricePyerite.Size = new System.Drawing.Size(55, 20);
-			this.textBoxPricePyerite.TabIndex = 37;
-			this.textBoxPricePyerite.Text = "5";
-			// 
-			// textBoxPriceMexallon
-			// 
-			this.textBoxPriceMexallon.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPriceMexallon.Location = new System.Drawing.Point(50, 98);
-			this.textBoxPriceMexallon.Name = "textBoxPriceMexallon";
-			this.textBoxPriceMexallon.Size = new System.Drawing.Size(55, 20);
-			this.textBoxPriceMexallon.TabIndex = 38;
-			this.textBoxPriceMexallon.Text = "35";
-			// 
-			// textBoxPriceIsogen
-			// 
-			this.textBoxPriceIsogen.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPriceIsogen.Location = new System.Drawing.Point(50, 136);
-			this.textBoxPriceIsogen.Name = "textBoxPriceIsogen";
-			this.textBoxPriceIsogen.Size = new System.Drawing.Size(55, 20);
-			this.textBoxPriceIsogen.TabIndex = 39;
-			this.textBoxPriceIsogen.Text = "65";
-			// 
-			// textBoxPriceNocxium
-			// 
-			this.textBoxPriceNocxium.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPriceNocxium.Location = new System.Drawing.Point(50, 174);
-			this.textBoxPriceNocxium.Name = "textBoxPriceNocxium";
-			this.textBoxPriceNocxium.Size = new System.Drawing.Size(55, 20);
-			this.textBoxPriceNocxium.TabIndex = 40;
-			this.textBoxPriceNocxium.Text = "110";
-			// 
-			// textBoxPriceZydrine
-			// 
-			this.textBoxPriceZydrine.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPriceZydrine.Location = new System.Drawing.Point(50, 212);
-			this.textBoxPriceZydrine.Name = "textBoxPriceZydrine";
-			this.textBoxPriceZydrine.Size = new System.Drawing.Size(55, 20);
-			this.textBoxPriceZydrine.TabIndex = 41;
-			this.textBoxPriceZydrine.Text = "2300";
-			// 
-			// textBoxPriceMegacyte
-			// 
-			this.textBoxPriceMegacyte.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBoxPriceMegacyte.Location = new System.Drawing.Point(50, 250);
-			this.textBoxPriceMegacyte.Name = "textBoxPriceMegacyte";
-			this.textBoxPriceMegacyte.Size = new System.Drawing.Size(55, 20);
-			this.textBoxPriceMegacyte.TabIndex = 42;
-			this.textBoxPriceMegacyte.Text = "2500";
-			// 
-			// zedGraphControl1
-			// 
-			this.zedGraphControl1.IsEnableHPan = false;
-			this.zedGraphControl1.IsEnableHZoom = false;
-			this.zedGraphControl1.IsEnableVPan = false;
-			this.zedGraphControl1.IsEnableVZoom = false;
-			this.zedGraphControl1.Location = new System.Drawing.Point(125, 5);
-			this.zedGraphControl1.Name = "zedGraphControl1";
-			this.zedGraphControl1.ScrollGrace = 0;
-			this.zedGraphControl1.ScrollMaxX = 0;
-			this.zedGraphControl1.ScrollMaxY = 0;
-			this.zedGraphControl1.ScrollMaxY2 = 0;
-			this.zedGraphControl1.ScrollMinX = 0;
-			this.zedGraphControl1.ScrollMinY = 0;
-			this.zedGraphControl1.ScrollMinY2 = 0;
-			this.zedGraphControl1.Size = new System.Drawing.Size(413, 318);
-			this.zedGraphControl1.TabIndex = 37;
-			// 
-			// buttonReset
-			// 
-			this.buttonReset.Location = new System.Drawing.Point(379, 653);
-			this.buttonReset.Name = "buttonReset";
-			this.buttonReset.Size = new System.Drawing.Size(75, 23);
-			this.buttonReset.TabIndex = 38;
-			this.buttonReset.Text = "Reset";
-			this.buttonReset.UseVisualStyleBackColor = true;
-			// 
-			// buttonClose
-			// 
-			this.buttonClose.Location = new System.Drawing.Point(460, 653);
-			this.buttonClose.Name = "buttonClose";
-			this.buttonClose.Size = new System.Drawing.Size(75, 23);
-			this.buttonClose.TabIndex = 38;
-			this.buttonClose.Text = "Close";
-			this.buttonClose.UseVisualStyleBackColor = true;
-			// 
-			// pictureBoxHemorphite
-			// 
-			this.pictureBoxHemorphite.Image = global::EveMiner.Properties.Resources.Hemorphite;
-			this.pictureBoxHemorphite.Location = new System.Drawing.Point(3, 282);
-			this.pictureBoxHemorphite.Name = "pictureBoxHemorphite";
-			this.pictureBoxHemorphite.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxHemorphite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxHemorphite.TabIndex = 35;
-			this.pictureBoxHemorphite.TabStop = false;
-			// 
-			// pictureBoxJaspet
-			// 
-			this.pictureBoxJaspet.Image = global::EveMiner.Properties.Resources.Jaspet;
-			this.pictureBoxJaspet.Location = new System.Drawing.Point(3, 244);
-			this.pictureBoxJaspet.Name = "pictureBoxJaspet";
-			this.pictureBoxJaspet.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxJaspet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxJaspet.TabIndex = 35;
-			this.pictureBoxJaspet.TabStop = false;
-			// 
-			// pictureBoxKernite
-			// 
-			this.pictureBoxKernite.Image = global::EveMiner.Properties.Resources.Kernite;
-			this.pictureBoxKernite.Location = new System.Drawing.Point(3, 206);
-			this.pictureBoxKernite.Name = "pictureBoxKernite";
-			this.pictureBoxKernite.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxKernite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxKernite.TabIndex = 35;
-			this.pictureBoxKernite.TabStop = false;
-			// 
-			// pictureBoxOmber
-			// 
-			this.pictureBoxOmber.Image = global::EveMiner.Properties.Resources.Omber;
-			this.pictureBoxOmber.Location = new System.Drawing.Point(3, 168);
-			this.pictureBoxOmber.Name = "pictureBoxOmber";
-			this.pictureBoxOmber.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxOmber.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxOmber.TabIndex = 35;
-			this.pictureBoxOmber.TabStop = false;
-			// 
-			// pictureBoxPlagioclase
-			// 
-			this.pictureBoxPlagioclase.Image = global::EveMiner.Properties.Resources.Plagioclase;
-			this.pictureBoxPlagioclase.Location = new System.Drawing.Point(3, 130);
-			this.pictureBoxPlagioclase.Name = "pictureBoxPlagioclase";
-			this.pictureBoxPlagioclase.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxPlagioclase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxPlagioclase.TabIndex = 35;
-			this.pictureBoxPlagioclase.TabStop = false;
-			// 
-			// pictureBoxPyroxeres
-			// 
-			this.pictureBoxPyroxeres.Image = global::EveMiner.Properties.Resources.Pyroxeres;
-			this.pictureBoxPyroxeres.Location = new System.Drawing.Point(3, 92);
-			this.pictureBoxPyroxeres.Name = "pictureBoxPyroxeres";
-			this.pictureBoxPyroxeres.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxPyroxeres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxPyroxeres.TabIndex = 35;
-			this.pictureBoxPyroxeres.TabStop = false;
-			// 
-			// pictureBoxScordite
-			// 
-			this.pictureBoxScordite.Image = global::EveMiner.Properties.Resources.Scordite;
-			this.pictureBoxScordite.Location = new System.Drawing.Point(3, 54);
-			this.pictureBoxScordite.Name = "pictureBoxScordite";
-			this.pictureBoxScordite.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxScordite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxScordite.TabIndex = 35;
-			this.pictureBoxScordite.TabStop = false;
-			// 
-			// pictureBoxVeldspar
-			// 
-			this.pictureBoxVeldspar.Image = global::EveMiner.Properties.Resources.Veldspar;
-			this.pictureBoxVeldspar.Location = new System.Drawing.Point(3, 16);
-			this.pictureBoxVeldspar.Name = "pictureBoxVeldspar";
-			this.pictureBoxVeldspar.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxVeldspar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxVeldspar.TabIndex = 35;
-			this.pictureBoxVeldspar.TabStop = false;
 			// 
 			// pictureBoxMercoxit
 			// 
@@ -1085,6 +536,428 @@ namespace EveMiner.Forms
 			this.pictureBoxHedbergite.TabIndex = 35;
 			this.pictureBoxHedbergite.TabStop = false;
 			// 
+			// tableLayoutPanel6
+			// 
+			this.tableLayoutPanel6.ColumnCount = 4;
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel6.Controls.Add(this.textBoxVeldspar0, 1, 1);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxVeldspar5, 2, 1);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxVeldspar10, 3, 1);
+			this.tableLayoutPanel6.Controls.Add(this.label1, 1, 0);
+			this.tableLayoutPanel6.Controls.Add(this.label2, 2, 0);
+			this.tableLayoutPanel6.Controls.Add(this.label3, 3, 0);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxScordite0, 1, 2);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxScordite5, 2, 2);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxScordite10, 3, 2);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxPyroxeres10, 3, 3);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxPlagioclase10, 3, 4);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxOmber10, 3, 5);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxKernite10, 3, 6);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxJaspet10, 3, 7);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxHemorphite10, 3, 8);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxPyroxeres5, 2, 3);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxPlagioclase5, 2, 4);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxOmber5, 2, 5);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxKernite5, 2, 6);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxJaspet5, 2, 7);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxHemorphite5, 2, 8);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxPyroxeres0, 1, 3);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxPlagioclase0, 1, 4);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxOmber0, 1, 5);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxKernite0, 1, 6);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxJaspet0, 1, 7);
+			this.tableLayoutPanel6.Controls.Add(this.textBoxHemorphite0, 1, 8);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxHemorphite, 0, 8);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxJaspet, 0, 7);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxKernite, 0, 6);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxOmber, 0, 5);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPlagioclase, 0, 4);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPyroxeres, 0, 3);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxScordite, 0, 2);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxVeldspar, 0, 1);
+			this.tableLayoutPanel6.Location = new System.Drawing.Point(12, 12);
+			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+			this.tableLayoutPanel6.RowCount = 9;
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel6.Size = new System.Drawing.Size(260, 318);
+			this.tableLayoutPanel6.TabIndex = 0;
+			// 
+			// textBoxVeldspar0
+			// 
+			this.textBoxVeldspar0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxVeldspar0.Location = new System.Drawing.Point(41, 22);
+			this.textBoxVeldspar0.Name = "textBoxVeldspar0";
+			this.textBoxVeldspar0.Size = new System.Drawing.Size(67, 20);
+			this.textBoxVeldspar0.TabIndex = 3;
+			this.textBoxVeldspar0.Text = "0";
+			// 
+			// textBoxVeldspar5
+			// 
+			this.textBoxVeldspar5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxVeldspar5.Location = new System.Drawing.Point(114, 22);
+			this.textBoxVeldspar5.Name = "textBoxVeldspar5";
+			this.textBoxVeldspar5.Size = new System.Drawing.Size(67, 20);
+			this.textBoxVeldspar5.TabIndex = 4;
+			this.textBoxVeldspar5.Text = "0";
+			// 
+			// textBoxVeldspar10
+			// 
+			this.textBoxVeldspar10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxVeldspar10.Location = new System.Drawing.Point(187, 22);
+			this.textBoxVeldspar10.Name = "textBoxVeldspar10";
+			this.textBoxVeldspar10.Size = new System.Drawing.Size(67, 20);
+			this.textBoxVeldspar10.TabIndex = 5;
+			this.textBoxVeldspar10.Text = "0";
+			// 
+			// label1
+			// 
+			this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(59, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(31, 13);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Base";
+			// 
+			// label2
+			// 
+			this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(120, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(54, 13);
+			this.label2.TabIndex = 1;
+			this.label2.Text = "Base +5%";
+			// 
+			// label3
+			// 
+			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(192, 0);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(60, 13);
+			this.label3.TabIndex = 2;
+			this.label3.Text = "Base +10%";
+			// 
+			// textBoxScordite0
+			// 
+			this.textBoxScordite0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxScordite0.Location = new System.Drawing.Point(41, 60);
+			this.textBoxScordite0.Name = "textBoxScordite0";
+			this.textBoxScordite0.Size = new System.Drawing.Size(67, 20);
+			this.textBoxScordite0.TabIndex = 6;
+			this.textBoxScordite0.Text = "0";
+			// 
+			// textBoxScordite5
+			// 
+			this.textBoxScordite5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxScordite5.Location = new System.Drawing.Point(114, 60);
+			this.textBoxScordite5.Name = "textBoxScordite5";
+			this.textBoxScordite5.Size = new System.Drawing.Size(67, 20);
+			this.textBoxScordite5.TabIndex = 7;
+			this.textBoxScordite5.Text = "0";
+			// 
+			// textBoxScordite10
+			// 
+			this.textBoxScordite10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxScordite10.Location = new System.Drawing.Point(187, 60);
+			this.textBoxScordite10.Name = "textBoxScordite10";
+			this.textBoxScordite10.Size = new System.Drawing.Size(67, 20);
+			this.textBoxScordite10.TabIndex = 8;
+			this.textBoxScordite10.Text = "0";
+			// 
+			// textBoxPyroxeres10
+			// 
+			this.textBoxPyroxeres10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPyroxeres10.Location = new System.Drawing.Point(187, 98);
+			this.textBoxPyroxeres10.Name = "textBoxPyroxeres10";
+			this.textBoxPyroxeres10.Size = new System.Drawing.Size(67, 20);
+			this.textBoxPyroxeres10.TabIndex = 11;
+			this.textBoxPyroxeres10.Text = "0";
+			// 
+			// textBoxPlagioclase10
+			// 
+			this.textBoxPlagioclase10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPlagioclase10.Location = new System.Drawing.Point(187, 136);
+			this.textBoxPlagioclase10.Name = "textBoxPlagioclase10";
+			this.textBoxPlagioclase10.Size = new System.Drawing.Size(67, 20);
+			this.textBoxPlagioclase10.TabIndex = 14;
+			this.textBoxPlagioclase10.Text = "0";
+			// 
+			// textBoxOmber10
+			// 
+			this.textBoxOmber10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxOmber10.Location = new System.Drawing.Point(187, 174);
+			this.textBoxOmber10.Name = "textBoxOmber10";
+			this.textBoxOmber10.Size = new System.Drawing.Size(67, 20);
+			this.textBoxOmber10.TabIndex = 17;
+			this.textBoxOmber10.Text = "0";
+			// 
+			// textBoxKernite10
+			// 
+			this.textBoxKernite10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxKernite10.Location = new System.Drawing.Point(187, 212);
+			this.textBoxKernite10.Name = "textBoxKernite10";
+			this.textBoxKernite10.Size = new System.Drawing.Size(67, 20);
+			this.textBoxKernite10.TabIndex = 20;
+			this.textBoxKernite10.Text = "0";
+			// 
+			// textBoxJaspet10
+			// 
+			this.textBoxJaspet10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxJaspet10.Location = new System.Drawing.Point(187, 250);
+			this.textBoxJaspet10.Name = "textBoxJaspet10";
+			this.textBoxJaspet10.Size = new System.Drawing.Size(67, 20);
+			this.textBoxJaspet10.TabIndex = 23;
+			this.textBoxJaspet10.Text = "0";
+			// 
+			// textBoxHemorphite10
+			// 
+			this.textBoxHemorphite10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxHemorphite10.Location = new System.Drawing.Point(187, 288);
+			this.textBoxHemorphite10.Name = "textBoxHemorphite10";
+			this.textBoxHemorphite10.Size = new System.Drawing.Size(67, 20);
+			this.textBoxHemorphite10.TabIndex = 26;
+			this.textBoxHemorphite10.Text = "0";
+			// 
+			// textBoxPyroxeres5
+			// 
+			this.textBoxPyroxeres5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPyroxeres5.Location = new System.Drawing.Point(114, 98);
+			this.textBoxPyroxeres5.Name = "textBoxPyroxeres5";
+			this.textBoxPyroxeres5.Size = new System.Drawing.Size(67, 20);
+			this.textBoxPyroxeres5.TabIndex = 10;
+			this.textBoxPyroxeres5.Text = "0";
+			// 
+			// textBoxPlagioclase5
+			// 
+			this.textBoxPlagioclase5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPlagioclase5.Location = new System.Drawing.Point(114, 136);
+			this.textBoxPlagioclase5.Name = "textBoxPlagioclase5";
+			this.textBoxPlagioclase5.Size = new System.Drawing.Size(67, 20);
+			this.textBoxPlagioclase5.TabIndex = 13;
+			this.textBoxPlagioclase5.Text = "0";
+			// 
+			// textBoxOmber5
+			// 
+			this.textBoxOmber5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxOmber5.Location = new System.Drawing.Point(114, 174);
+			this.textBoxOmber5.Name = "textBoxOmber5";
+			this.textBoxOmber5.Size = new System.Drawing.Size(67, 20);
+			this.textBoxOmber5.TabIndex = 16;
+			this.textBoxOmber5.Text = "0";
+			// 
+			// textBoxKernite5
+			// 
+			this.textBoxKernite5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxKernite5.Location = new System.Drawing.Point(114, 212);
+			this.textBoxKernite5.Name = "textBoxKernite5";
+			this.textBoxKernite5.Size = new System.Drawing.Size(67, 20);
+			this.textBoxKernite5.TabIndex = 19;
+			this.textBoxKernite5.Text = "0";
+			// 
+			// textBoxJaspet5
+			// 
+			this.textBoxJaspet5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxJaspet5.Location = new System.Drawing.Point(114, 250);
+			this.textBoxJaspet5.Name = "textBoxJaspet5";
+			this.textBoxJaspet5.Size = new System.Drawing.Size(67, 20);
+			this.textBoxJaspet5.TabIndex = 22;
+			this.textBoxJaspet5.Text = "0";
+			// 
+			// textBoxHemorphite5
+			// 
+			this.textBoxHemorphite5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxHemorphite5.Location = new System.Drawing.Point(114, 288);
+			this.textBoxHemorphite5.Name = "textBoxHemorphite5";
+			this.textBoxHemorphite5.Size = new System.Drawing.Size(67, 20);
+			this.textBoxHemorphite5.TabIndex = 25;
+			this.textBoxHemorphite5.Text = "0";
+			// 
+			// textBoxPyroxeres0
+			// 
+			this.textBoxPyroxeres0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPyroxeres0.Location = new System.Drawing.Point(41, 98);
+			this.textBoxPyroxeres0.Name = "textBoxPyroxeres0";
+			this.textBoxPyroxeres0.Size = new System.Drawing.Size(67, 20);
+			this.textBoxPyroxeres0.TabIndex = 9;
+			this.textBoxPyroxeres0.Text = "0";
+			// 
+			// textBoxPlagioclase0
+			// 
+			this.textBoxPlagioclase0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPlagioclase0.Location = new System.Drawing.Point(41, 136);
+			this.textBoxPlagioclase0.Name = "textBoxPlagioclase0";
+			this.textBoxPlagioclase0.Size = new System.Drawing.Size(67, 20);
+			this.textBoxPlagioclase0.TabIndex = 12;
+			this.textBoxPlagioclase0.Text = "0";
+			// 
+			// textBoxOmber0
+			// 
+			this.textBoxOmber0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxOmber0.Location = new System.Drawing.Point(41, 174);
+			this.textBoxOmber0.Name = "textBoxOmber0";
+			this.textBoxOmber0.Size = new System.Drawing.Size(67, 20);
+			this.textBoxOmber0.TabIndex = 15;
+			this.textBoxOmber0.Text = "0";
+			// 
+			// textBoxKernite0
+			// 
+			this.textBoxKernite0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxKernite0.Location = new System.Drawing.Point(41, 212);
+			this.textBoxKernite0.Name = "textBoxKernite0";
+			this.textBoxKernite0.Size = new System.Drawing.Size(67, 20);
+			this.textBoxKernite0.TabIndex = 18;
+			this.textBoxKernite0.Text = "0";
+			// 
+			// textBoxJaspet0
+			// 
+			this.textBoxJaspet0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxJaspet0.Location = new System.Drawing.Point(41, 250);
+			this.textBoxJaspet0.Name = "textBoxJaspet0";
+			this.textBoxJaspet0.Size = new System.Drawing.Size(67, 20);
+			this.textBoxJaspet0.TabIndex = 21;
+			this.textBoxJaspet0.Text = "0";
+			// 
+			// textBoxHemorphite0
+			// 
+			this.textBoxHemorphite0.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxHemorphite0.Location = new System.Drawing.Point(41, 288);
+			this.textBoxHemorphite0.Name = "textBoxHemorphite0";
+			this.textBoxHemorphite0.Size = new System.Drawing.Size(67, 20);
+			this.textBoxHemorphite0.TabIndex = 24;
+			this.textBoxHemorphite0.Text = "0";
+			// 
+			// pictureBoxHemorphite
+			// 
+			this.pictureBoxHemorphite.Image = global::EveMiner.Properties.Resources.Hemorphite;
+			this.pictureBoxHemorphite.Location = new System.Drawing.Point(3, 282);
+			this.pictureBoxHemorphite.Name = "pictureBoxHemorphite";
+			this.pictureBoxHemorphite.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxHemorphite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxHemorphite.TabIndex = 35;
+			this.pictureBoxHemorphite.TabStop = false;
+			// 
+			// pictureBoxJaspet
+			// 
+			this.pictureBoxJaspet.Image = global::EveMiner.Properties.Resources.Jaspet;
+			this.pictureBoxJaspet.Location = new System.Drawing.Point(3, 244);
+			this.pictureBoxJaspet.Name = "pictureBoxJaspet";
+			this.pictureBoxJaspet.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxJaspet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxJaspet.TabIndex = 35;
+			this.pictureBoxJaspet.TabStop = false;
+			// 
+			// pictureBoxKernite
+			// 
+			this.pictureBoxKernite.Image = global::EveMiner.Properties.Resources.Kernite;
+			this.pictureBoxKernite.Location = new System.Drawing.Point(3, 206);
+			this.pictureBoxKernite.Name = "pictureBoxKernite";
+			this.pictureBoxKernite.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxKernite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxKernite.TabIndex = 35;
+			this.pictureBoxKernite.TabStop = false;
+			// 
+			// pictureBoxOmber
+			// 
+			this.pictureBoxOmber.Image = global::EveMiner.Properties.Resources.Omber;
+			this.pictureBoxOmber.Location = new System.Drawing.Point(3, 168);
+			this.pictureBoxOmber.Name = "pictureBoxOmber";
+			this.pictureBoxOmber.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxOmber.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxOmber.TabIndex = 35;
+			this.pictureBoxOmber.TabStop = false;
+			// 
+			// pictureBoxPlagioclase
+			// 
+			this.pictureBoxPlagioclase.Image = global::EveMiner.Properties.Resources.Plagioclase;
+			this.pictureBoxPlagioclase.Location = new System.Drawing.Point(3, 130);
+			this.pictureBoxPlagioclase.Name = "pictureBoxPlagioclase";
+			this.pictureBoxPlagioclase.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxPlagioclase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxPlagioclase.TabIndex = 35;
+			this.pictureBoxPlagioclase.TabStop = false;
+			// 
+			// pictureBoxPyroxeres
+			// 
+			this.pictureBoxPyroxeres.Image = global::EveMiner.Properties.Resources.Pyroxeres;
+			this.pictureBoxPyroxeres.Location = new System.Drawing.Point(3, 92);
+			this.pictureBoxPyroxeres.Name = "pictureBoxPyroxeres";
+			this.pictureBoxPyroxeres.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxPyroxeres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxPyroxeres.TabIndex = 35;
+			this.pictureBoxPyroxeres.TabStop = false;
+			// 
+			// pictureBoxScordite
+			// 
+			this.pictureBoxScordite.Image = global::EveMiner.Properties.Resources.Scordite;
+			this.pictureBoxScordite.Location = new System.Drawing.Point(3, 54);
+			this.pictureBoxScordite.Name = "pictureBoxScordite";
+			this.pictureBoxScordite.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxScordite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxScordite.TabIndex = 35;
+			this.pictureBoxScordite.TabStop = false;
+			// 
+			// pictureBoxVeldspar
+			// 
+			this.pictureBoxVeldspar.Image = global::EveMiner.Properties.Resources.Veldspar;
+			this.pictureBoxVeldspar.Location = new System.Drawing.Point(3, 16);
+			this.pictureBoxVeldspar.Name = "pictureBoxVeldspar";
+			this.pictureBoxVeldspar.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxVeldspar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxVeldspar.TabIndex = 35;
+			this.pictureBoxVeldspar.TabStop = false;
+			// 
+			// tableLayoutPanel8
+			// 
+			this.tableLayoutPanel8.ColumnCount = 2;
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel8.Controls.Add(this.pictureBoxMorphite, 0, 8);
+			this.tableLayoutPanel8.Controls.Add(this.pictureBoxPyerite, 0, 2);
+			this.tableLayoutPanel8.Controls.Add(this.pictureBoxMegacyte, 0, 7);
+			this.tableLayoutPanel8.Controls.Add(this.pictureBoxNocxium, 0, 5);
+			this.tableLayoutPanel8.Controls.Add(this.pictureBoxZydrine, 0, 6);
+			this.tableLayoutPanel8.Controls.Add(this.pictureBoxTritanium, 0, 1);
+			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceMorphite, 1, 8);
+			this.tableLayoutPanel8.Controls.Add(this.pictureBoxIsogen, 0, 4);
+			this.tableLayoutPanel8.Controls.Add(this.label32, 0, 0);
+			this.tableLayoutPanel8.Controls.Add(this.label33, 1, 0);
+			this.tableLayoutPanel8.Controls.Add(this.pictureBoxMexallon, 0, 3);
+			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceTritanium, 1, 1);
+			this.tableLayoutPanel8.Controls.Add(this.textBoxPricePyerite, 1, 2);
+			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceMexallon, 1, 3);
+			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceIsogen, 1, 4);
+			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceNocxium, 1, 5);
+			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceZydrine, 1, 6);
+			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceMegacyte, 1, 7);
+			this.tableLayoutPanel8.Location = new System.Drawing.Point(8, 336);
+			this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+			this.tableLayoutPanel8.RowCount = 9;
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel8.Size = new System.Drawing.Size(108, 318);
+			this.tableLayoutPanel8.TabIndex = 2;
+			// 
 			// pictureBoxMorphite
 			// 
 			this.pictureBoxMorphite.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1151,6 +1024,15 @@ namespace EveMiner.Forms
 			this.pictureBoxTritanium.TabIndex = 36;
 			this.pictureBoxTritanium.TabStop = false;
 			// 
+			// textBoxPriceMorphite
+			// 
+			this.textBoxPriceMorphite.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPriceMorphite.Location = new System.Drawing.Point(50, 288);
+			this.textBoxPriceMorphite.Name = "textBoxPriceMorphite";
+			this.textBoxPriceMorphite.Size = new System.Drawing.Size(55, 20);
+			this.textBoxPriceMorphite.TabIndex = 9;
+			this.textBoxPriceMorphite.Text = "8000";
+			// 
 			// pictureBoxIsogen
 			// 
 			this.pictureBoxIsogen.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1161,6 +1043,26 @@ namespace EveMiner.Forms
 			this.pictureBoxIsogen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxIsogen.TabIndex = 36;
 			this.pictureBoxIsogen.TabStop = false;
+			// 
+			// label32
+			// 
+			this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label32.AutoSize = true;
+			this.label32.Location = new System.Drawing.Point(3, 0);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(41, 13);
+			this.label32.TabIndex = 0;
+			this.label32.Text = "Mineral";
+			// 
+			// label33
+			// 
+			this.label33.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label33.AutoSize = true;
+			this.label33.Location = new System.Drawing.Point(62, 0);
+			this.label33.Name = "label33";
+			this.label33.Size = new System.Drawing.Size(31, 13);
+			this.label33.TabIndex = 1;
+			this.label33.Text = "Price";
 			// 
 			// pictureBoxMexallon
 			// 
@@ -1173,12 +1075,122 @@ namespace EveMiner.Forms
 			this.pictureBoxMexallon.TabIndex = 38;
 			this.pictureBoxMexallon.TabStop = false;
 			// 
+			// textBoxPriceTritanium
+			// 
+			this.textBoxPriceTritanium.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPriceTritanium.Location = new System.Drawing.Point(50, 22);
+			this.textBoxPriceTritanium.Name = "textBoxPriceTritanium";
+			this.textBoxPriceTritanium.Size = new System.Drawing.Size(55, 20);
+			this.textBoxPriceTritanium.TabIndex = 2;
+			this.textBoxPriceTritanium.Text = "3";
+			// 
+			// textBoxPricePyerite
+			// 
+			this.textBoxPricePyerite.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPricePyerite.Location = new System.Drawing.Point(50, 60);
+			this.textBoxPricePyerite.Name = "textBoxPricePyerite";
+			this.textBoxPricePyerite.Size = new System.Drawing.Size(55, 20);
+			this.textBoxPricePyerite.TabIndex = 3;
+			this.textBoxPricePyerite.Text = "5";
+			// 
+			// textBoxPriceMexallon
+			// 
+			this.textBoxPriceMexallon.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPriceMexallon.Location = new System.Drawing.Point(50, 98);
+			this.textBoxPriceMexallon.Name = "textBoxPriceMexallon";
+			this.textBoxPriceMexallon.Size = new System.Drawing.Size(55, 20);
+			this.textBoxPriceMexallon.TabIndex = 4;
+			this.textBoxPriceMexallon.Text = "35";
+			// 
+			// textBoxPriceIsogen
+			// 
+			this.textBoxPriceIsogen.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPriceIsogen.Location = new System.Drawing.Point(50, 136);
+			this.textBoxPriceIsogen.Name = "textBoxPriceIsogen";
+			this.textBoxPriceIsogen.Size = new System.Drawing.Size(55, 20);
+			this.textBoxPriceIsogen.TabIndex = 5;
+			this.textBoxPriceIsogen.Text = "65";
+			// 
+			// textBoxPriceNocxium
+			// 
+			this.textBoxPriceNocxium.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPriceNocxium.Location = new System.Drawing.Point(50, 174);
+			this.textBoxPriceNocxium.Name = "textBoxPriceNocxium";
+			this.textBoxPriceNocxium.Size = new System.Drawing.Size(55, 20);
+			this.textBoxPriceNocxium.TabIndex = 6;
+			this.textBoxPriceNocxium.Text = "110";
+			// 
+			// textBoxPriceZydrine
+			// 
+			this.textBoxPriceZydrine.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPriceZydrine.Location = new System.Drawing.Point(50, 212);
+			this.textBoxPriceZydrine.Name = "textBoxPriceZydrine";
+			this.textBoxPriceZydrine.Size = new System.Drawing.Size(55, 20);
+			this.textBoxPriceZydrine.TabIndex = 7;
+			this.textBoxPriceZydrine.Text = "2300";
+			// 
+			// textBoxPriceMegacyte
+			// 
+			this.textBoxPriceMegacyte.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxPriceMegacyte.Location = new System.Drawing.Point(50, 250);
+			this.textBoxPriceMegacyte.Name = "textBoxPriceMegacyte";
+			this.textBoxPriceMegacyte.Size = new System.Drawing.Size(55, 20);
+			this.textBoxPriceMegacyte.TabIndex = 8;
+			this.textBoxPriceMegacyte.Text = "2500";
+			// 
+			// zedGraphControl1
+			// 
+			this.zedGraphControl1.IsEnableHPan = false;
+			this.zedGraphControl1.IsEnableHZoom = false;
+			this.zedGraphControl1.IsEnableVPan = false;
+			this.zedGraphControl1.IsEnableVZoom = false;
+			this.zedGraphControl1.Location = new System.Drawing.Point(150, 336);
+			this.zedGraphControl1.Name = "zedGraphControl1";
+			this.zedGraphControl1.ScrollGrace = 0;
+			this.zedGraphControl1.ScrollMaxX = 0;
+			this.zedGraphControl1.ScrollMaxY = 0;
+			this.zedGraphControl1.ScrollMaxY2 = 0;
+			this.zedGraphControl1.ScrollMinX = 0;
+			this.zedGraphControl1.ScrollMinY = 0;
+			this.zedGraphControl1.ScrollMinY2 = 0;
+			this.zedGraphControl1.Size = new System.Drawing.Size(389, 314);
+			this.zedGraphControl1.TabIndex = 3;
+			// 
+			// buttonReset
+			// 
+			this.buttonReset.Location = new System.Drawing.Point(383, 660);
+			this.buttonReset.Name = "buttonReset";
+			this.buttonReset.Size = new System.Drawing.Size(75, 23);
+			this.buttonReset.TabIndex = 5;
+			this.buttonReset.Text = "Reset";
+			this.buttonReset.UseVisualStyleBackColor = true;
+			// 
+			// buttonClose
+			// 
+			this.buttonClose.Location = new System.Drawing.Point(464, 660);
+			this.buttonClose.Name = "buttonClose";
+			this.buttonClose.Size = new System.Drawing.Size(75, 23);
+			this.buttonClose.TabIndex = 6;
+			this.buttonClose.Text = "Close";
+			this.buttonClose.UseVisualStyleBackColor = true;
+			// 
+			// btnEveCentral
+			// 
+			this.btnEveCentral.Location = new System.Drawing.Point(14, 660);
+			this.btnEveCentral.Name = "btnEveCentral";
+			this.btnEveCentral.Size = new System.Drawing.Size(99, 23);
+			this.btnEveCentral.TabIndex = 4;
+			this.btnEveCentral.Text = "EVE Central";
+			this.btnEveCentral.UseVisualStyleBackColor = true;
+			this.btnEveCentral.Click += new System.EventHandler(this.btnEveCentral_Click);
+			// 
 			// CalculatorForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(547, 682);
+			this.ClientSize = new System.Drawing.Size(547, 690);
 			this.Controls.Add(this.buttonClose);
+			this.Controls.Add(this.btnEveCentral);
 			this.Controls.Add(this.buttonReset);
 			this.Controls.Add(this.zedGraphControl1);
 			this.Controls.Add(this.tableLayoutPanel6);
@@ -1189,18 +1201,6 @@ namespace EveMiner.Forms
 			this.Load += new System.EventHandler(this.CalculatorForm_Load);
 			this.tableLayoutPanel7.ResumeLayout(false);
 			this.tableLayoutPanel7.PerformLayout();
-			this.tableLayoutPanel6.ResumeLayout(false);
-			this.tableLayoutPanel6.PerformLayout();
-			this.tableLayoutPanel8.ResumeLayout(false);
-			this.tableLayoutPanel8.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxHemorphite)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJaspet)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxKernite)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxOmber)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlagioclase)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPyroxeres)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxScordite)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBoxVeldspar)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMercoxit)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxArkonor)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxBistot)).EndInit();
@@ -1209,6 +1209,18 @@ namespace EveMiner.Forms
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxDarkOchre)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxGneiss)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxHedbergite)).EndInit();
+			this.tableLayoutPanel6.ResumeLayout(false);
+			this.tableLayoutPanel6.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxHemorphite)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJaspet)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxKernite)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxOmber)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPlagioclase)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPyroxeres)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxScordite)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBoxVeldspar)).EndInit();
+			this.tableLayoutPanel8.ResumeLayout(false);
+			this.tableLayoutPanel8.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMorphite)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxPyerite)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMegacyte)).EndInit();
@@ -1317,5 +1329,6 @@ namespace EveMiner.Forms
 		private ZedGraph.ZedGraphControl zedGraphControl1;
 		private System.Windows.Forms.Button buttonReset;
 		private System.Windows.Forms.Button buttonClose;
+		private System.Windows.Forms.Button btnEveCentral;
 	}
 }
