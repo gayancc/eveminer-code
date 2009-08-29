@@ -8,35 +8,35 @@ namespace EveMiner.Ores
 		/// <summary>
 		///  Выход трита с одной единицы руды
 		/// </summary>
-		private readonly int tritanium;
+		private readonly int _tritanium;
 		/// <summary>
 		///  Выход пирита с одной единицы руды
 		/// </summary>
-		private readonly int pyerite;
+		private readonly int _pyerite;
 		/// <summary>
 		///  Выход мексаллона с одной единицы руды
 		/// </summary>
-		private readonly int mexallon;
+		private readonly int _mexallon;
 		/// <summary>
 		///  Выход изогена с одной единицы руды
 		/// </summary>
-		private readonly int isogen;
+		private readonly int _isogen;
 		/// <summary>
 		///  Выход ноксы с одной единицы руды
 		/// </summary>
-		private readonly int nocxium;
+		private readonly int _nocxium;
 		/// <summary>
 		///  Выход зидры с одной единицы руды
 		/// </summary>
-		private readonly int zydrine;
+		private readonly int _zydrine;
 		/// <summary>
 		///  Выход меги с одной единицы руды
 		/// </summary>
-		private readonly int megacyte;
+		private readonly int _megacyte;
 		/// <summary>
 		///  Выход морфита с одной единицы руды
 		/// </summary>
-		private readonly int morphite;
+		private readonly int _morphite;
 
 		/// <summary>
 		/// Конструктор по значениям выхода минералов
@@ -51,14 +51,14 @@ namespace EveMiner.Ores
 		/// <param name="morphite">выход морфита</param>
 		public MineralsOut(int tritanium, int pyerite, int mexallon, int isogen, int nocxium, int zydrine, int megacyte, int morphite)
 		{
-			this.tritanium = tritanium;
-			this.pyerite = pyerite;
-			this.mexallon = mexallon;
-			this.isogen = isogen;
-			this.nocxium = nocxium;
-			this.zydrine = zydrine;
-			this.megacyte = megacyte;
-			this.morphite = morphite;
+			_tritanium = tritanium;
+			_pyerite = pyerite;
+			_mexallon = mexallon;
+			_isogen = isogen;
+			_nocxium = nocxium;
+			_zydrine = zydrine;
+			_megacyte = megacyte;
+			_morphite = morphite;
 		}
 
 		/// <summary>
@@ -66,7 +66,7 @@ namespace EveMiner.Ores
 		/// </summary>
 		public int Tritanium
 		{
-			get { return tritanium; }
+			get { return _tritanium; }
 		}
 
 		/// <summary>
@@ -74,7 +74,7 @@ namespace EveMiner.Ores
 		/// </summary>
 		public int Pyerite
 		{
-			get { return pyerite; }
+			get { return _pyerite; }
 		}
 
 		/// <summary>
@@ -82,7 +82,7 @@ namespace EveMiner.Ores
 		/// </summary>
 		public int Mexallon
 		{
-			get { return mexallon; }
+			get { return _mexallon; }
 		}
 
 		/// <summary>
@@ -90,7 +90,7 @@ namespace EveMiner.Ores
 		/// </summary>
 		public int Isogen
 		{
-			get { return isogen; }
+			get { return _isogen; }
 		}
 
 		/// <summary>
@@ -98,7 +98,7 @@ namespace EveMiner.Ores
 		/// </summary>
 		public int Nocxium
 		{
-			get { return nocxium; }
+			get { return _nocxium; }
 		}
 
 		/// <summary>
@@ -106,7 +106,7 @@ namespace EveMiner.Ores
 		/// </summary>
 		public int Zydrine
 		{
-			get { return zydrine; }
+			get { return _zydrine; }
 		}
 
 		/// <summary>
@@ -114,7 +114,7 @@ namespace EveMiner.Ores
 		/// </summary>
 		public int Megacyte
 		{
-			get { return megacyte; }
+			get { return _megacyte; }
 		}
 
 		/// <summary>
@@ -122,7 +122,7 @@ namespace EveMiner.Ores
 		/// </summary>
 		public int Morphite
 		{
-			get { return morphite; }
+			get { return _morphite; }
 		}
 	}
 }

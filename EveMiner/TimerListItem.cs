@@ -131,11 +131,9 @@ namespace EveMiner
 			{
 				timeToAsterEnd = 0;
 			}
-			if (timeToAsterEnd == 0)
-			{
-				currentVolume = 0;
-				PlaySound(Config<Settings>.Instance.AsterEndFileName);
-			}
+		    if(timeToAsterEnd != 0) return;
+		    currentVolume = 0;
+		    PlaySound(Config<Settings>.Instance.AsterEndFileName);
 		}
 
 		private static void PlaySound(string filename)
