@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using EveMiner.Ores;
 
@@ -22,8 +19,6 @@ namespace EveMiner.Forms
 		{
 			InitializeComponent();
 			FillOreList();
-			
-			checkBoxUseGangBonuses.Checked = Config<Settings>.Instance.isGang;
 
 			_timer.Tick += TimerTick;
 			_timer.Interval = 1000;
