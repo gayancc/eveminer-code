@@ -296,6 +296,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EVE_Yellow.ico" />
+    <None Include="Resources\calculator_48.png" />
+    <None Include="Resources\clock_48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

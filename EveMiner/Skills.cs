@@ -18,6 +18,7 @@ namespace EveMiner
 		private int warfareLinkSpec;
 		private int frigates;
 		private int cruisers;
+		private int _industrialCommandShip;
 		private int veldsparProcessing;
 		private int scorditeProcessing;
 		private int pyroxeresProcessing;
@@ -37,6 +38,7 @@ namespace EveMiner
 		private int refining;
 		private int efficiencyRefining;
 		private int iceProcessing;
+		
 
 		/// <summary>
 		/// Gets or sets the mining.
@@ -326,6 +328,16 @@ namespace EveMiner
 		{
 			get { return iceProcessing; }
 			set { iceProcessing = value; }
+		}
+
+		/// <summary>
+		/// Gets or sets the industrial command ship.
+		/// </summary>
+		/// <value>The industrial command ship.</value>
+		public int IndustrialCommandShip
+		{
+			get { return _industrialCommandShip; }
+			set { _industrialCommandShip = value; }
 		}
 
 		/// <summary>

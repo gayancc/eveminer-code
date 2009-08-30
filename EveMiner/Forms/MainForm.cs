@@ -107,6 +107,7 @@ namespace EveMiner.Forms
 			skillValueMiningForeman.Value = Config<Settings>.Instance.Skills.MiningForeman;
 			skillValueMiningDirector.Value = Config<Settings>.Instance.Skills.MiningDirector;
 			skillValueWarfareLinkSpec.Value = Config<Settings>.Instance.Skills.WarfareLinkSpec;
+			skillValueIndustrialCommandShip.Value = Config<Settings>.Instance.Skills.IndustrialCommandShip;
 
 			skillValueVeldsparP.Value = Config<Settings>.Instance.Skills.VeldsparProcessing;
 			skillValueScorditeP.Value = Config<Settings>.Instance.Skills.ScorditeProcessing;
@@ -616,6 +617,9 @@ namespace EveMiner.Forms
 				Config<Settings>.Instance.Skills.MiningForeman = skillValueMiningForeman.Value;
 			else if (sender == skillValueMiningDirector)
 				Config<Settings>.Instance.Skills.MiningDirector = skillValueMiningDirector.Value;
+			else if (sender == skillValueIndustrialCommandShip)
+				Config<Settings>.Instance.Skills.IndustrialCommandShip = skillValueIndustrialCommandShip.Value;
+
 
 		//Ore Processing
 			#region Ore Processing
@@ -813,6 +817,16 @@ namespace EveMiner.Forms
 		}
 
 		#endregion
+
+		private void btnTimers_Click(object sender, EventArgs e)
+		{
+			ShowWindow(_timersForm);
+		}
+
+		private void btnCalculator_Click(object sender, EventArgs e)
+		{
+			ShowWindow(_calculatorForm);
+		}
 
 	}
 }
