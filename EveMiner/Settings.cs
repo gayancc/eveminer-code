@@ -1,32 +1,35 @@
 using System;
 using System.ComponentModel;
+using EveMiner.Ores;
 
 namespace EveMiner
 {
+	/// <summary>
+	/// Настройки приложения
+	/// </summary>
 	[Serializable]
 	public class Settings
 	{
 		/// <summary>
-		/// скилы 
+		/// Скилы 
 		/// </summary>
-		public Skills skills = new Skills();
+		public Skills Skills = new Skills();
 
-		private string mlu1 = "None";
-		private string mlu2 = "None";
-		private string mlu3 = "None";
+		private string _mlu1 = "None";
+		private string _mlu2 = "None";
+		private string _mlu3 = "None";
 
-		private bool alwaysOnTop = true;
+		private bool _alwaysOnTop = true;
 		
 		public string SelectedTurret = "";
 		public string SelectedOre = "";
 		public string SelectedShip = "";
 		public int SelectedCrystals = 1;
 
-		public bool ImpHX2 = false;
-		public bool ImpMichi = false;
-		public bool ImpMindLink = false;
-		public bool isGang = false;
-		public int SelectedTabIndex;
+		public bool ImpHX2;
+		public bool ImpMichi;
+		public bool ImpMindLink;
+		public bool isGang;
 		
 		public bool GangAssistModule1;
 		public bool GangAssistModule2;
@@ -47,29 +50,29 @@ namespace EveMiner
 		[DefaultValue("None")]
 		public string Mlu1
 		{
-			get { return mlu1; }
-			set { mlu1 = value; }
+			get { return _mlu1; }
+			set { _mlu1 = value; }
 		}
 
 		[DefaultValue("None")]
 		public string Mlu2
 		{
-			get { return mlu2; }
-			set { mlu2 = value; }
+			get { return _mlu2; }
+			set { _mlu2 = value; }
 		}
 
 		[DefaultValue("None")]
 		public string Mlu3
 		{
-			get { return mlu3; }
-			set { mlu3 = value; }
+			get { return _mlu3; }
+			set { _mlu3 = value; }
 		}
 
 		[DefaultValue(true)]
 		public bool AlwaysOnTop
 		{
-			get { return alwaysOnTop; }
-			set { alwaysOnTop = value; }
+			get { return _alwaysOnTop; }
+			set { _alwaysOnTop = value; }
 		}
 
 		public string AsterEndFileName
@@ -83,6 +86,5 @@ namespace EveMiner
 			get { return "CycleEnd.wav"; }
 
 		}
-
 	}
 }

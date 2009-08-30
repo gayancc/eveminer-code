@@ -54,7 +54,7 @@ namespace EveMiner.Forms
 			// 
 			// pictureBoxOmber
 			// 
-			this.pictureBoxOmber.Image = global::EveMiner.Properties.Resources.Nocxium;
+			this.pictureBoxOmber.Image = global::EveMiner.Properties.Resources.Jaspet;
 			this.pictureBoxOmber.Location = new System.Drawing.Point(0, 0);
 			this.pictureBoxOmber.Name = "pictureBoxOmber";
 			this.pictureBoxOmber.Size = new System.Drawing.Size(32, 32);

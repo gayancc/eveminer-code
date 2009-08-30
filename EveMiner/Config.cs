@@ -7,13 +7,17 @@ using System.Xml.Serialization;
 
 namespace EveMiner
 {
+	///<summary>
+	/// Обеспечивает работу с файлом конфигурации
+	///</summary>
+	///<typeparam name="T">Тип данных, который является конфигурацией</typeparam>
 	public static class Config<T> where T : class, new()
 	{
 		#region Fields
 		/// <summary>
 		/// Кодировка файла конфига
 		/// </summary>
-		private const int _configEncoding = 1251;
+		private const int ConfigEncoding = 1251;
 
 		/// <summary>
 		/// Критическая секция
@@ -111,7 +115,7 @@ namespace EveMiner
 			{
 				using(StreamWriter writer = new StreamWriter(
 					_configFileName, false,
-					Encoding.GetEncoding(_configEncoding)))
+					Encoding.GetEncoding(ConfigEncoding)))
 				{
 					// Для десериализации пользуемся единым сериализатором.
 					Serializer.Serialize(writer, _instance);
@@ -137,6 +141,9 @@ namespace EveMiner
 		#endregion
 
 		#region Properties
+		///<summary>
+		/// Instance of configuration
+		///</summary>
 		[XmlIgnore]
 		public static T Instance
 		{
@@ -161,7 +168,7 @@ namespace EveMiner
 						// Делать это лучше в конкретной кодировке.
 						using(StreamReader reader =
 							new StreamReader(_configFileName,
-							                 Encoding.GetEncoding(_configEncoding)))
+							                 Encoding.GetEncoding(ConfigEncoding)))
 						{
 							// Для десериализации пользуемся единым сериализатором.
 							_instance = (T) Serializer.Deserialize(reader);

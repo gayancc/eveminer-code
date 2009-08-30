@@ -31,6 +31,7 @@ namespace EveMiner.Forms
 		private void InitializeComponent()
 		{
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.skillValue1 = new EveMiner.Forms.SkillValue();
 			this.oreCtrl1 = new EveMiner.Forms.OreCtrl();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
@@ -47,22 +48,30 @@ namespace EveMiner.Forms
 			this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OreForm_MouseDown);
 			this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OreForm_MouseUp);
 			// 
+			// skillValue1
+			// 
+			this.skillValue1.Location = new System.Drawing.Point(28, 70);
+			this.skillValue1.Name = "skillValue1";
+			this.skillValue1.Size = new System.Drawing.Size(84, 20);
+			this.skillValue1.TabIndex = 3;
+			this.skillValue1.Value = 4;
+			// 
 			// oreCtrl1
 			// 
 			this.oreCtrl1.BackColor = System.Drawing.Color.Black;
 			this.oreCtrl1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
 			this.oreCtrl1.Location = new System.Drawing.Point(24, 12);
 			this.oreCtrl1.Name = "oreCtrl1";
-			this.oreCtrl1.OreType = OreType.Gneiss;
 			this.oreCtrl1.Size = new System.Drawing.Size(124, 32);
 			this.oreCtrl1.TabIndex = 2;
-			this.oreCtrl1.VolumePerMinute = 0;
+			this.oreCtrl1.VolumePerMinute = 1;
 			// 
 			// OreForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(160, 274);
+			this.Controls.Add(this.skillValue1);
 			this.Controls.Add(this.oreCtrl1);
 			this.Controls.Add(this.pictureBox1);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -80,6 +89,7 @@ namespace EveMiner.Forms
 
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private OreCtrl oreCtrl1;
+		private SkillValue skillValue1;
 
 
 

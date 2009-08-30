@@ -29,6 +29,7 @@ namespace EveMiner.Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatorForm));
 			this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
 			this.textBoxHedbergite0 = new System.Windows.Forms.TextBox();
 			this.textBoxHedbergite5 = new System.Windows.Forms.TextBox();
@@ -110,7 +111,6 @@ namespace EveMiner.Forms
 			this.pictureBoxTritanium = new System.Windows.Forms.PictureBox();
 			this.textBoxPriceMorphite = new System.Windows.Forms.TextBox();
 			this.pictureBoxIsogen = new System.Windows.Forms.PictureBox();
-			this.label32 = new System.Windows.Forms.Label();
 			this.label33 = new System.Windows.Forms.Label();
 			this.pictureBoxMexallon = new System.Windows.Forms.PictureBox();
 			this.textBoxPriceTritanium = new System.Windows.Forms.TextBox();
@@ -120,10 +120,27 @@ namespace EveMiner.Forms
 			this.textBoxPriceNocxium = new System.Windows.Forms.TextBox();
 			this.textBoxPriceZydrine = new System.Windows.Forms.TextBox();
 			this.textBoxPriceMegacyte = new System.Windows.Forms.TextBox();
-			this.zedGraphControl1 = new ZedGraph.ZedGraphControl();
+			this.label32 = new System.Windows.Forms.Label();
 			this.buttonReset = new System.Windows.Forms.Button();
-			this.buttonClose = new System.Windows.Forms.Button();
 			this.btnEveCentral = new System.Windows.Forms.Button();
+			this.textBoxNetYield = new System.Windows.Forms.TextBox();
+			this.buttonCalculateCargoHold = new System.Windows.Forms.Button();
+			this.buttonCalculateQuantity = new System.Windows.Forms.Button();
+			this.numericUpDownStanding = new System.Windows.Forms.NumericUpDown();
+			this.label35 = new System.Windows.Forms.Label();
+			this.label34 = new System.Windows.Forms.Label();
+			this.label30 = new System.Windows.Forms.Label();
+			this.label29 = new System.Windows.Forms.Label();
+			this.textBoxCargohold = new System.Windows.Forms.TextBox();
+			this.textBoxQuantity = new System.Windows.Forms.TextBox();
+			this.dataGridViewCalc = new System.Windows.Forms.DataGridView();
+			this.ColumnOreCalc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnVolume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnRefVolume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnProfit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnDelete2 = new System.Windows.Forms.DataGridViewButtonColumn();
+			this.histogram1 = new GraphicsControls.Histogram();
+			this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
 			this.tableLayoutPanel7.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMercoxit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxArkonor)).BeginInit();
@@ -151,6 +168,8 @@ namespace EveMiner.Forms
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxTritanium)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxIsogen)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMexallon)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownStanding)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalc)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel7
@@ -195,7 +214,7 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel7.Controls.Add(this.pictureBoxDarkOchre, 0, 3);
 			this.tableLayoutPanel7.Controls.Add(this.pictureBoxGneiss, 0, 2);
 			this.tableLayoutPanel7.Controls.Add(this.pictureBoxHedbergite, 0, 1);
-			this.tableLayoutPanel7.Location = new System.Drawing.Point(282, 12);
+			this.tableLayoutPanel7.Location = new System.Drawing.Point(19, 422);
 			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
 			this.tableLayoutPanel7.RowCount = 9;
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -465,6 +484,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMercoxit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMercoxit.TabIndex = 35;
 			this.pictureBoxMercoxit.TabStop = false;
+			this.pictureBoxMercoxit.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxMercoxit.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxArkonor
 			// 
@@ -475,6 +496,8 @@ namespace EveMiner.Forms
 			this.pictureBoxArkonor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxArkonor.TabIndex = 35;
 			this.pictureBoxArkonor.TabStop = false;
+			this.pictureBoxArkonor.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxArkonor.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxBistot
 			// 
@@ -485,6 +508,8 @@ namespace EveMiner.Forms
 			this.pictureBoxBistot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxBistot.TabIndex = 35;
 			this.pictureBoxBistot.TabStop = false;
+			this.pictureBoxBistot.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxBistot.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxCrokite
 			// 
@@ -495,6 +520,8 @@ namespace EveMiner.Forms
 			this.pictureBoxCrokite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxCrokite.TabIndex = 35;
 			this.pictureBoxCrokite.TabStop = false;
+			this.pictureBoxCrokite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxCrokite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxSpodumain
 			// 
@@ -505,6 +532,8 @@ namespace EveMiner.Forms
 			this.pictureBoxSpodumain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxSpodumain.TabIndex = 35;
 			this.pictureBoxSpodumain.TabStop = false;
+			this.pictureBoxSpodumain.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxSpodumain.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxDarkOchre
 			// 
@@ -515,6 +544,8 @@ namespace EveMiner.Forms
 			this.pictureBoxDarkOchre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxDarkOchre.TabIndex = 35;
 			this.pictureBoxDarkOchre.TabStop = false;
+			this.pictureBoxDarkOchre.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxDarkOchre.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxGneiss
 			// 
@@ -525,6 +556,8 @@ namespace EveMiner.Forms
 			this.pictureBoxGneiss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxGneiss.TabIndex = 35;
 			this.pictureBoxGneiss.TabStop = false;
+			this.pictureBoxGneiss.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxGneiss.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxHedbergite
 			// 
@@ -535,6 +568,8 @@ namespace EveMiner.Forms
 			this.pictureBoxHedbergite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxHedbergite.TabIndex = 35;
 			this.pictureBoxHedbergite.TabStop = false;
+			this.pictureBoxHedbergite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxHedbergite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// tableLayoutPanel6
 			// 
@@ -578,7 +613,7 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPyroxeres, 0, 3);
 			this.tableLayoutPanel6.Controls.Add(this.pictureBoxScordite, 0, 2);
 			this.tableLayoutPanel6.Controls.Add(this.pictureBoxVeldspar, 0, 1);
-			this.tableLayoutPanel6.Location = new System.Drawing.Point(12, 12);
+			this.tableLayoutPanel6.Location = new System.Drawing.Point(18, 98);
 			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
 			this.tableLayoutPanel6.RowCount = 9;
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -590,7 +625,7 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel6.Size = new System.Drawing.Size(260, 318);
+			this.tableLayoutPanel6.Size = new System.Drawing.Size(258, 318);
 			this.tableLayoutPanel6.TabIndex = 0;
 			// 
 			// textBoxVeldspar0
@@ -644,7 +679,7 @@ namespace EveMiner.Forms
 			// 
 			this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(192, 0);
+			this.label3.Location = new System.Drawing.Point(191, 0);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(60, 13);
 			this.label3.TabIndex = 2;
@@ -848,6 +883,8 @@ namespace EveMiner.Forms
 			this.pictureBoxHemorphite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxHemorphite.TabIndex = 35;
 			this.pictureBoxHemorphite.TabStop = false;
+			this.pictureBoxHemorphite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxHemorphite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxJaspet
 			// 
@@ -858,6 +895,8 @@ namespace EveMiner.Forms
 			this.pictureBoxJaspet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxJaspet.TabIndex = 35;
 			this.pictureBoxJaspet.TabStop = false;
+			this.pictureBoxJaspet.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxJaspet.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxKernite
 			// 
@@ -868,6 +907,8 @@ namespace EveMiner.Forms
 			this.pictureBoxKernite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxKernite.TabIndex = 35;
 			this.pictureBoxKernite.TabStop = false;
+			this.pictureBoxKernite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxKernite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxOmber
 			// 
@@ -878,6 +919,8 @@ namespace EveMiner.Forms
 			this.pictureBoxOmber.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxOmber.TabIndex = 35;
 			this.pictureBoxOmber.TabStop = false;
+			this.pictureBoxOmber.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxOmber.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxPlagioclase
 			// 
@@ -888,6 +931,8 @@ namespace EveMiner.Forms
 			this.pictureBoxPlagioclase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxPlagioclase.TabIndex = 35;
 			this.pictureBoxPlagioclase.TabStop = false;
+			this.pictureBoxPlagioclase.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxPlagioclase.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxPyroxeres
 			// 
@@ -898,6 +943,8 @@ namespace EveMiner.Forms
 			this.pictureBoxPyroxeres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxPyroxeres.TabIndex = 35;
 			this.pictureBoxPyroxeres.TabStop = false;
+			this.pictureBoxPyroxeres.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxPyroxeres.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxScordite
 			// 
@@ -908,6 +955,8 @@ namespace EveMiner.Forms
 			this.pictureBoxScordite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxScordite.TabIndex = 35;
 			this.pictureBoxScordite.TabStop = false;
+			this.pictureBoxScordite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxScordite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxVeldspar
 			// 
@@ -918,6 +967,8 @@ namespace EveMiner.Forms
 			this.pictureBoxVeldspar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxVeldspar.TabIndex = 35;
 			this.pictureBoxVeldspar.TabStop = false;
+			this.pictureBoxVeldspar.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxVeldspar.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// tableLayoutPanel8
 			// 
@@ -933,7 +984,6 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel8.Controls.Add(this.pictureBoxTritanium, 0, 1);
 			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceMorphite, 1, 8);
 			this.tableLayoutPanel8.Controls.Add(this.pictureBoxIsogen, 0, 4);
-			this.tableLayoutPanel8.Controls.Add(this.label32, 0, 0);
 			this.tableLayoutPanel8.Controls.Add(this.label33, 1, 0);
 			this.tableLayoutPanel8.Controls.Add(this.pictureBoxMexallon, 0, 3);
 			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceTritanium, 1, 1);
@@ -943,7 +993,8 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceNocxium, 1, 5);
 			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceZydrine, 1, 6);
 			this.tableLayoutPanel8.Controls.Add(this.textBoxPriceMegacyte, 1, 7);
-			this.tableLayoutPanel8.Location = new System.Drawing.Point(8, 336);
+			this.tableLayoutPanel8.Controls.Add(this.label32, 0, 0);
+			this.tableLayoutPanel8.Location = new System.Drawing.Point(282, 10);
 			this.tableLayoutPanel8.Name = "tableLayoutPanel8";
 			this.tableLayoutPanel8.RowCount = 9;
 			this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -968,6 +1019,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMorphite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMorphite.TabIndex = 39;
 			this.pictureBoxMorphite.TabStop = false;
+			this.pictureBoxMorphite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxMorphite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxPyerite
 			// 
@@ -979,6 +1032,8 @@ namespace EveMiner.Forms
 			this.pictureBoxPyerite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxPyerite.TabIndex = 36;
 			this.pictureBoxPyerite.TabStop = false;
+			this.pictureBoxPyerite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxPyerite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxMegacyte
 			// 
@@ -990,6 +1045,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMegacyte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMegacyte.TabIndex = 41;
 			this.pictureBoxMegacyte.TabStop = false;
+			this.pictureBoxMegacyte.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxMegacyte.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxNocxium
 			// 
@@ -1001,6 +1058,8 @@ namespace EveMiner.Forms
 			this.pictureBoxNocxium.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxNocxium.TabIndex = 40;
 			this.pictureBoxNocxium.TabStop = false;
+			this.pictureBoxNocxium.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxNocxium.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxZydrine
 			// 
@@ -1012,6 +1071,8 @@ namespace EveMiner.Forms
 			this.pictureBoxZydrine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxZydrine.TabIndex = 37;
 			this.pictureBoxZydrine.TabStop = false;
+			this.pictureBoxZydrine.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxZydrine.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// pictureBoxTritanium
 			// 
@@ -1023,6 +1084,8 @@ namespace EveMiner.Forms
 			this.pictureBoxTritanium.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxTritanium.TabIndex = 36;
 			this.pictureBoxTritanium.TabStop = false;
+			this.pictureBoxTritanium.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxTritanium.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// textBoxPriceMorphite
 			// 
@@ -1032,6 +1095,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceMorphite.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceMorphite.TabIndex = 9;
 			this.textBoxPriceMorphite.Text = "8000";
+			this.textBoxPriceMorphite.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
 			// 
 			// pictureBoxIsogen
 			// 
@@ -1043,16 +1107,8 @@ namespace EveMiner.Forms
 			this.pictureBoxIsogen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxIsogen.TabIndex = 36;
 			this.pictureBoxIsogen.TabStop = false;
-			// 
-			// label32
-			// 
-			this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label32.AutoSize = true;
-			this.label32.Location = new System.Drawing.Point(3, 0);
-			this.label32.Name = "label32";
-			this.label32.Size = new System.Drawing.Size(41, 13);
-			this.label32.TabIndex = 0;
-			this.label32.Text = "Mineral";
+			this.pictureBoxIsogen.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxIsogen.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// label33
 			// 
@@ -1074,6 +1130,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMexallon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMexallon.TabIndex = 38;
 			this.pictureBoxMexallon.TabStop = false;
+			this.pictureBoxMexallon.MouseLeave += new System.EventHandler(this.OnMouseLeave);
+			this.pictureBoxMexallon.MouseEnter += new System.EventHandler(this.OnMouseEnter);
 			// 
 			// textBoxPriceTritanium
 			// 
@@ -1083,6 +1141,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceTritanium.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceTritanium.TabIndex = 2;
 			this.textBoxPriceTritanium.Text = "3";
+			this.textBoxPriceTritanium.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
 			// 
 			// textBoxPricePyerite
 			// 
@@ -1092,6 +1151,7 @@ namespace EveMiner.Forms
 			this.textBoxPricePyerite.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPricePyerite.TabIndex = 3;
 			this.textBoxPricePyerite.Text = "5";
+			this.textBoxPricePyerite.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
 			// 
 			// textBoxPriceMexallon
 			// 
@@ -1101,6 +1161,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceMexallon.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceMexallon.TabIndex = 4;
 			this.textBoxPriceMexallon.Text = "35";
+			this.textBoxPriceMexallon.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
 			// 
 			// textBoxPriceIsogen
 			// 
@@ -1110,6 +1171,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceIsogen.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceIsogen.TabIndex = 5;
 			this.textBoxPriceIsogen.Text = "65";
+			this.textBoxPriceIsogen.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
 			// 
 			// textBoxPriceNocxium
 			// 
@@ -1119,6 +1181,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceNocxium.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceNocxium.TabIndex = 6;
 			this.textBoxPriceNocxium.Text = "110";
+			this.textBoxPriceNocxium.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
 			// 
 			// textBoxPriceZydrine
 			// 
@@ -1128,6 +1191,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceZydrine.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceZydrine.TabIndex = 7;
 			this.textBoxPriceZydrine.Text = "2300";
+			this.textBoxPriceZydrine.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
 			// 
 			// textBoxPriceMegacyte
 			// 
@@ -1137,46 +1201,30 @@ namespace EveMiner.Forms
 			this.textBoxPriceMegacyte.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceMegacyte.TabIndex = 8;
 			this.textBoxPriceMegacyte.Text = "2500";
+			this.textBoxPriceMegacyte.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
 			// 
-			// zedGraphControl1
+			// label32
 			// 
-			this.zedGraphControl1.IsEnableHPan = false;
-			this.zedGraphControl1.IsEnableHZoom = false;
-			this.zedGraphControl1.IsEnableVPan = false;
-			this.zedGraphControl1.IsEnableVZoom = false;
-			this.zedGraphControl1.Location = new System.Drawing.Point(150, 336);
-			this.zedGraphControl1.Name = "zedGraphControl1";
-			this.zedGraphControl1.ScrollGrace = 0;
-			this.zedGraphControl1.ScrollMaxX = 0;
-			this.zedGraphControl1.ScrollMaxY = 0;
-			this.zedGraphControl1.ScrollMaxY2 = 0;
-			this.zedGraphControl1.ScrollMinX = 0;
-			this.zedGraphControl1.ScrollMinY = 0;
-			this.zedGraphControl1.ScrollMinY2 = 0;
-			this.zedGraphControl1.Size = new System.Drawing.Size(389, 314);
-			this.zedGraphControl1.TabIndex = 3;
+			this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label32.AutoSize = true;
+			this.label32.Location = new System.Drawing.Point(3, 0);
+			this.label32.Name = "label32";
+			this.label32.Size = new System.Drawing.Size(41, 13);
+			this.label32.TabIndex = 0;
+			this.label32.Text = "Mineral";
 			// 
 			// buttonReset
 			// 
-			this.buttonReset.Location = new System.Drawing.Point(383, 660);
+			this.buttonReset.Location = new System.Drawing.Point(289, 710);
 			this.buttonReset.Name = "buttonReset";
 			this.buttonReset.Size = new System.Drawing.Size(75, 23);
 			this.buttonReset.TabIndex = 5;
 			this.buttonReset.Text = "Reset";
 			this.buttonReset.UseVisualStyleBackColor = true;
 			// 
-			// buttonClose
-			// 
-			this.buttonClose.Location = new System.Drawing.Point(464, 660);
-			this.buttonClose.Name = "buttonClose";
-			this.buttonClose.Size = new System.Drawing.Size(75, 23);
-			this.buttonClose.TabIndex = 6;
-			this.buttonClose.Text = "Close";
-			this.buttonClose.UseVisualStyleBackColor = true;
-			// 
 			// btnEveCentral
 			// 
-			this.btnEveCentral.Location = new System.Drawing.Point(14, 660);
+			this.btnEveCentral.Location = new System.Drawing.Point(288, 334);
 			this.btnEveCentral.Name = "btnEveCentral";
 			this.btnEveCentral.Size = new System.Drawing.Size(99, 23);
 			this.btnEveCentral.TabIndex = 4;
@@ -1184,21 +1232,210 @@ namespace EveMiner.Forms
 			this.btnEveCentral.UseVisualStyleBackColor = true;
 			this.btnEveCentral.Click += new System.EventHandler(this.btnEveCentral_Click);
 			// 
+			// textBoxNetYield
+			// 
+			this.textBoxNetYield.Location = new System.Drawing.Point(103, 10);
+			this.textBoxNetYield.Name = "textBoxNetYield";
+			this.textBoxNetYield.Size = new System.Drawing.Size(37, 20);
+			this.textBoxNetYield.TabIndex = 15;
+			this.textBoxNetYield.Text = "50";
+			// 
+			// buttonCalculateCargoHold
+			// 
+			this.buttonCalculateCargoHold.Location = new System.Drawing.Point(206, 62);
+			this.buttonCalculateCargoHold.Name = "buttonCalculateCargoHold";
+			this.buttonCalculateCargoHold.Size = new System.Drawing.Size(70, 23);
+			this.buttonCalculateCargoHold.TabIndex = 23;
+			this.buttonCalculateCargoHold.Text = "Calculate";
+			this.buttonCalculateCargoHold.UseVisualStyleBackColor = true;
+			this.buttonCalculateCargoHold.Click += new System.EventHandler(this.buttonCalculate_Click);
+			// 
+			// buttonCalculateQuantity
+			// 
+			this.buttonCalculateQuantity.Location = new System.Drawing.Point(206, 34);
+			this.buttonCalculateQuantity.Name = "buttonCalculateQuantity";
+			this.buttonCalculateQuantity.Size = new System.Drawing.Size(70, 23);
+			this.buttonCalculateQuantity.TabIndex = 20;
+			this.buttonCalculateQuantity.Text = "Calculate";
+			this.buttonCalculateQuantity.UseVisualStyleBackColor = true;
+			this.buttonCalculateQuantity.Click += new System.EventHandler(this.buttonCalculate_Click);
+			// 
+			// numericUpDownStanding
+			// 
+			this.numericUpDownStanding.DecimalPlaces = 2;
+			this.numericUpDownStanding.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+			this.numericUpDownStanding.Location = new System.Drawing.Point(228, 10);
+			this.numericUpDownStanding.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+			this.numericUpDownStanding.Name = "numericUpDownStanding";
+			this.numericUpDownStanding.Size = new System.Drawing.Size(48, 20);
+			this.numericUpDownStanding.TabIndex = 17;
+			this.numericUpDownStanding.ValueChanged += new System.EventHandler(this.numericUpDownStanding_ValueChanged);
+			// 
+			// label35
+			// 
+			this.label35.AutoSize = true;
+			this.label35.Location = new System.Drawing.Point(15, 13);
+			this.label35.Name = "label35";
+			this.label35.Size = new System.Drawing.Size(73, 13);
+			this.label35.TabIndex = 14;
+			this.label35.Text = "Station Equip:";
+			// 
+			// label34
+			// 
+			this.label34.AutoSize = true;
+			this.label34.Location = new System.Drawing.Point(142, 13);
+			this.label34.Name = "label34";
+			this.label34.Size = new System.Drawing.Size(77, 13);
+			this.label34.TabIndex = 16;
+			this.label34.Text = "Corp Standing:";
+			// 
+			// label30
+			// 
+			this.label30.AutoSize = true;
+			this.label30.Location = new System.Drawing.Point(15, 67);
+			this.label30.Name = "label30";
+			this.label30.Size = new System.Drawing.Size(81, 13);
+			this.label30.TabIndex = 21;
+			this.label30.Text = "Cargohold (m3):";
+			// 
+			// label29
+			// 
+			this.label29.AutoSize = true;
+			this.label29.Location = new System.Drawing.Point(15, 40);
+			this.label29.Name = "label29";
+			this.label29.Size = new System.Drawing.Size(49, 13);
+			this.label29.TabIndex = 18;
+			this.label29.Text = "Quantity:";
+			// 
+			// textBoxCargohold
+			// 
+			this.textBoxCargohold.Location = new System.Drawing.Point(103, 64);
+			this.textBoxCargohold.Name = "textBoxCargohold";
+			this.textBoxCargohold.Size = new System.Drawing.Size(89, 20);
+			this.textBoxCargohold.TabIndex = 22;
+			this.textBoxCargohold.Text = "27500";
+			// 
+			// textBoxQuantity
+			// 
+			this.textBoxQuantity.Location = new System.Drawing.Point(103, 36);
+			this.textBoxQuantity.Name = "textBoxQuantity";
+			this.textBoxQuantity.Size = new System.Drawing.Size(89, 20);
+			this.textBoxQuantity.TabIndex = 19;
+			this.textBoxQuantity.Text = "5000";
+			// 
+			// dataGridViewCalc
+			// 
+			this.dataGridViewCalc.AllowUserToAddRows = false;
+			this.dataGridViewCalc.AllowUserToDeleteRows = false;
+			this.dataGridViewCalc.AllowUserToOrderColumns = true;
+			this.dataGridViewCalc.AllowUserToResizeRows = false;
+			this.dataGridViewCalc.BackgroundColor = System.Drawing.SystemColors.Control;
+			this.dataGridViewCalc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.dataGridViewCalc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.dataGridViewCalc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnOreCalc,
+            this.ColumnVolume,
+            this.ColumnRefVolume,
+            this.ColumnProfit,
+            this.ColumnDelete2});
+			this.dataGridViewCalc.Location = new System.Drawing.Point(405, 10);
+			this.dataGridViewCalc.MultiSelect = false;
+			this.dataGridViewCalc.Name = "dataGridViewCalc";
+			this.dataGridViewCalc.ReadOnly = true;
+			this.dataGridViewCalc.RowHeadersVisible = false;
+			this.dataGridViewCalc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dataGridViewCalc.Size = new System.Drawing.Size(452, 347);
+			this.dataGridViewCalc.TabIndex = 24;
+			this.dataGridViewCalc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+			// 
+			// ColumnOreCalc
+			// 
+			this.ColumnOreCalc.HeaderText = "Ore";
+			this.ColumnOreCalc.Name = "ColumnOreCalc";
+			this.ColumnOreCalc.ReadOnly = true;
+			this.ColumnOreCalc.ToolTipText = "Ore Type";
+			this.ColumnOreCalc.Width = 150;
+			// 
+			// ColumnVolume
+			// 
+			this.ColumnVolume.HeaderText = "Volume";
+			this.ColumnVolume.Name = "ColumnVolume";
+			this.ColumnVolume.ReadOnly = true;
+			this.ColumnVolume.Width = 80;
+			// 
+			// ColumnRefVolume
+			// 
+			this.ColumnRefVolume.FillWeight = 90F;
+			this.ColumnRefVolume.HeaderText = "RefVolume";
+			this.ColumnRefVolume.Name = "ColumnRefVolume";
+			this.ColumnRefVolume.ReadOnly = true;
+			this.ColumnRefVolume.ToolTipText = "Minerals Volume";
+			this.ColumnRefVolume.Width = 80;
+			// 
+			// ColumnProfit
+			// 
+			this.ColumnProfit.HeaderText = "Profit";
+			this.ColumnProfit.Name = "ColumnProfit";
+			this.ColumnProfit.ReadOnly = true;
+			// 
+			// ColumnDelete2
+			// 
+			this.ColumnDelete2.HeaderText = "x";
+			this.ColumnDelete2.Name = "ColumnDelete2";
+			this.ColumnDelete2.ReadOnly = true;
+			this.ColumnDelete2.Text = "x";
+			this.ColumnDelete2.ToolTipText = "Delete row";
+			this.ColumnDelete2.Width = 20;
+			// 
+			// histogram1
+			// 
+			this.histogram1.Location = new System.Drawing.Point(289, 363);
+			this.histogram1.Name = "histogram1";
+			this.histogram1.Size = new System.Drawing.Size(568, 341);
+			this.histogram1.TabIndex = 25;
+			this.histogram1.Text = "histogram1";
+			// 
+			// toolTipInfo
+			// 
+			this.toolTipInfo.IsBalloon = true;
+			this.toolTipInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			// 
 			// CalculatorForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(547, 690);
-			this.Controls.Add(this.buttonClose);
+			this.ClientSize = new System.Drawing.Size(870, 752);
+			this.Controls.Add(this.histogram1);
+			this.Controls.Add(this.textBoxNetYield);
+			this.Controls.Add(this.buttonCalculateCargoHold);
+			this.Controls.Add(this.buttonCalculateQuantity);
+			this.Controls.Add(this.numericUpDownStanding);
+			this.Controls.Add(this.label35);
+			this.Controls.Add(this.label34);
+			this.Controls.Add(this.label30);
+			this.Controls.Add(this.label29);
+			this.Controls.Add(this.textBoxCargohold);
+			this.Controls.Add(this.textBoxQuantity);
+			this.Controls.Add(this.dataGridViewCalc);
 			this.Controls.Add(this.btnEveCentral);
 			this.Controls.Add(this.buttonReset);
-			this.Controls.Add(this.zedGraphControl1);
 			this.Controls.Add(this.tableLayoutPanel6);
 			this.Controls.Add(this.tableLayoutPanel7);
 			this.Controls.Add(this.tableLayoutPanel8);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
 			this.Name = "CalculatorForm";
 			this.Text = "Calculator";
-			this.Load += new System.EventHandler(this.CalculatorForm_Load);
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CalculatorForm_FormClosing);
 			this.tableLayoutPanel7.ResumeLayout(false);
 			this.tableLayoutPanel7.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMercoxit)).EndInit();
@@ -1229,7 +1466,10 @@ namespace EveMiner.Forms
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxTritanium)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxIsogen)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMexallon)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.numericUpDownStanding)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalc)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -1326,9 +1566,25 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.TextBox textBoxPriceNocxium;
 		private System.Windows.Forms.TextBox textBoxPriceZydrine;
 		private System.Windows.Forms.TextBox textBoxPriceMegacyte;
-		private ZedGraph.ZedGraphControl zedGraphControl1;
 		private System.Windows.Forms.Button buttonReset;
-		private System.Windows.Forms.Button buttonClose;
 		private System.Windows.Forms.Button btnEveCentral;
+		private System.Windows.Forms.TextBox textBoxNetYield;
+		private System.Windows.Forms.Button buttonCalculateCargoHold;
+		private System.Windows.Forms.Button buttonCalculateQuantity;
+		private System.Windows.Forms.NumericUpDown numericUpDownStanding;
+		private System.Windows.Forms.Label label35;
+		private System.Windows.Forms.Label label34;
+		private System.Windows.Forms.Label label30;
+		private System.Windows.Forms.Label label29;
+		private System.Windows.Forms.TextBox textBoxCargohold;
+		private System.Windows.Forms.TextBox textBoxQuantity;
+		private System.Windows.Forms.DataGridView dataGridViewCalc;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOreCalc;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVolume;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRefVolume;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProfit;
+		private System.Windows.Forms.DataGridViewButtonColumn ColumnDelete2;
+		private GraphicsControls.Histogram histogram1;
+		private System.Windows.Forms.ToolTip toolTipInfo;
 	}
 }
