@@ -73,7 +73,7 @@ namespace EveMiner.Forms
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(241, 13);
 			this.label2.TabIndex = 4;
-			this.label2.Text = "2008 by sleepwalker (In game Crazy Sleepwalker)";
+			this.label2.Text = "2009 by sleepwalker (In game Crazy Sleepwalker)";
 			// 
 			// btnOK
 			// 
