@@ -38,7 +38,7 @@ namespace EveMiner.Forms
 			this.calculatorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.checkBoxUseGangBonus2 = new System.Windows.Forms.CheckBox();
+			this.checkBoxUseGangBonus = new System.Windows.Forms.CheckBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.radioButtonT2Crystals = new System.Windows.Forms.RadioButton();
 			this.radioButtonT1Crystals = new System.Windows.Forms.RadioButton();
@@ -249,17 +249,17 @@ namespace EveMiner.Forms
 			this.aboutToolStripMenuItem.Text = "&About...";
 			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
 			// 
-			// checkBoxUseGangBonus2
+			// checkBoxUseGangBonus
 			// 
-			this.checkBoxUseGangBonus2.AutoSize = true;
-			this.checkBoxUseGangBonus2.Location = new System.Drawing.Point(342, 182);
-			this.checkBoxUseGangBonus2.Name = "checkBoxUseGangBonus2";
-			this.checkBoxUseGangBonus2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.checkBoxUseGangBonus2.Size = new System.Drawing.Size(104, 17);
-			this.checkBoxUseGangBonus2.TabIndex = 2;
-			this.checkBoxUseGangBonus2.Text = "Use Gang Boost";
-			this.checkBoxUseGangBonus2.UseVisualStyleBackColor = true;
-			this.checkBoxUseGangBonus2.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+			this.checkBoxUseGangBonus.AutoSize = true;
+			this.checkBoxUseGangBonus.Location = new System.Drawing.Point(342, 182);
+			this.checkBoxUseGangBonus.Name = "checkBoxUseGangBonus";
+			this.checkBoxUseGangBonus.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.checkBoxUseGangBonus.Size = new System.Drawing.Size(104, 17);
+			this.checkBoxUseGangBonus.TabIndex = 2;
+			this.checkBoxUseGangBonus.Text = "Use Gang Boost";
+			this.checkBoxUseGangBonus.UseVisualStyleBackColor = true;
+			this.checkBoxUseGangBonus.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
 			// 
 			// groupBox3
 			// 
@@ -1467,7 +1467,7 @@ namespace EveMiner.Forms
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox1);
-			this.Controls.Add(this.checkBoxUseGangBonus2);
+			this.Controls.Add(this.checkBoxUseGangBonus);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menuStripMain;
@@ -1570,7 +1570,7 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.ComboBox comboBoxTurret;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.CheckBox checkBoxUseGangBonus2;
+		private System.Windows.Forms.CheckBox checkBoxUseGangBonus;
 		private System.Windows.Forms.RadioButton radioButtonT2Crystals;
 		private System.Windows.Forms.RadioButton radioButtonT1Crystals;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;

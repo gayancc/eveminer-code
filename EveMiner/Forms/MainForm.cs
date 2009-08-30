@@ -129,6 +129,8 @@ namespace EveMiner.Forms
 			checkBoxHX2Imp.Checked = Config<Settings>.Instance.ImpHX2;
 			checkBoxMichiImp.Checked = Config<Settings>.Instance.ImpMichi;
 			checkBoxMindLinkImp.Checked = Config<Settings>.Instance.ImpMindLink;
+			checkBoxUseGangBonus.Checked = Config<Settings>.Instance.isGang;
+			checkBoxUseOrca.Checked = Config<Settings>.Instance.UseOrca;
 			
 
 			pictureBoxGang1.Image = (Config<Settings>.Instance.GangAssistModule1) ? Resources.icon53_16 : Resources.highSlot;
@@ -381,9 +383,21 @@ namespace EveMiner.Forms
 			if (Config<Settings>.Instance.isGang)
 			{
 				if (Config<Settings>.Instance.ImpMindLink)
-					cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) * 1.5 / 100 * gangAssistModule);
+				{
+					if (Config<Settings>.Instance.UseOrca)
+						cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) * 
+							(1 + skills.IndustrialCommandShip * 0.03) * 1.5 / 100 * gangAssistModule);
+					else
+						cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) * 1.5 / 100 * gangAssistModule);
+				}
 				else
-					cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) / 100 * gangAssistModule);
+				{
+					if (Config<Settings>.Instance.UseOrca)
+						cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) * 
+							(1 + skills.IndustrialCommandShip * 0.03) / 100 * gangAssistModule);
+					else
+						cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) / 100 * gangAssistModule);
+				}
 			}
 
 			return cycle;
@@ -453,7 +467,8 @@ namespace EveMiner.Forms
 			{
 				if (Config<Settings>.Instance.ImpMindLink)
 				{
-					yield *= (1 + skills.MiningForeman * 0.02 * 1.5);
+					//Implant Replaces mining foreman skill bonus with fixed 15% mining yield bonus.
+					yield *= (1 + 0.15/* skills.MiningForeman * 0.02 * 1.5*/);
 					//yield *= 1/(1 - 2*skills.MiningDirector*(1 + skills.WarfareLinkSpec*0.1)*1.5/100*gangAssistModule);
 				}
 				else
@@ -688,9 +703,13 @@ namespace EveMiner.Forms
 				Config<Settings>.Instance.ImpMichi = checkBoxMichiImp.Checked;
 			else if (sender == checkBoxMindLinkImp)
 				Config<Settings>.Instance.ImpMindLink = checkBoxMindLinkImp.Checked;
-			else if (sender == checkBoxUseGangBonus2)
+			else if (sender == checkBoxUseGangBonus)
 			{
-				Config<Settings>.Instance.isGang = checkBoxUseGangBonus2.Checked;
+				Config<Settings>.Instance.isGang = checkBoxUseGangBonus.Checked;
+			}
+			else if (sender == checkBoxUseOrca)
+			{
+				Config<Settings>.Instance.UseOrca = checkBoxUseOrca.Checked;
 			}
 
 			CalculateMining();

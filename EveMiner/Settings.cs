@@ -45,6 +45,7 @@ namespace EveMiner
 		public double PriceZydrine = 2000;
 		public double PriceMegacyte = 2500;
 		public double PriceMorphite = 8000;
+		private bool _useOrca;
 
 
 		[DefaultValue("None")]
@@ -85,6 +86,12 @@ namespace EveMiner
 		{
 			get { return "CycleEnd.wav"; }
 
+		}
+
+		public bool UseOrca
+		{
+			get { return _useOrca; }
+			set { _useOrca = value; }
 		}
 	}
 }
