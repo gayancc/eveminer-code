@@ -124,5 +124,22 @@ namespace EveMiner.Ores
 		{
 			get { return _morphite; }
 		}
+		/// <summary>
+		/// Implements the operator +.
+		/// </summary>
+		/// <param name="mo1">The mo1.</param>
+		/// <param name="mo2">The mo2.</param>
+		/// <returns>The result of the operator.</returns>
+		public static MineralsOut operator +(MineralsOut mo1, MineralsOut mo2)
+		{
+			return new MineralsOut(mo1.Tritanium + mo2.Tritanium,
+				mo1.Pyerite + mo2.Pyerite,
+				mo1.Mexallon + mo2.Mexallon,
+				mo1.Isogen + mo2.Isogen,
+				mo1.Nocxium + mo2.Nocxium,
+				mo1.Zydrine + mo2.Zydrine,
+				mo1.Megacyte + mo2.Megacyte,
+				mo1.Morphite + mo2.Morphite);
+		}
 	}
 }

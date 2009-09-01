@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sleepwalker Inc.")]
-[assembly: AssemblyProduct("EVEMiner v0.1")]
-[assembly: AssemblyCopyright("Copyright © Sleepwalker Inc. 2008")]
+[assembly: AssemblyProduct("EVEMiner v0.2")]
+[assembly: AssemblyCopyright("Copyright © Sleepwalker Inc. 2009")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

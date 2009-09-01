@@ -1,4 +1,4 @@
-namespace GraphicsControls
+namespace EveMiner.Forms
 {
 	partial class Histogram
 	{
@@ -32,6 +32,7 @@ namespace GraphicsControls
 			// 
 			// Histogram
 			// 
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Histogram_MouseMove);
 			this.Resize += new System.EventHandler(this.Histogram_Resize);
 			this.ResumeLayout(false);
 

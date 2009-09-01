@@ -19,7 +19,7 @@ namespace EveMiner
 		private string _mlu2 = "None";
 		private string _mlu3 = "None";
 
-		private bool _alwaysOnTop = true;
+		private bool _alwaysOnTop;
 		
 		public string SelectedTurret = "";
 		public string SelectedOre = "";
@@ -69,7 +69,7 @@ namespace EveMiner
 			set { _mlu3 = value; }
 		}
 
-		[DefaultValue(true)]
+		[DefaultValue(false)]
 		public bool AlwaysOnTop
 		{
 			get { return _alwaysOnTop; }

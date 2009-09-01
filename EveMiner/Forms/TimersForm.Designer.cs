@@ -227,6 +227,7 @@ namespace EveMiner.Forms
 			// toolTipInfo
 			// 
 			this.toolTipInfo.IsBalloon = true;
+			this.toolTipInfo.ShowAlways = true;
 			this.toolTipInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
 			// 
 			// TimersForm

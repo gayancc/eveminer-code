@@ -90,6 +90,8 @@ namespace EveMiner.Forms
 
 
 			TopMost = Config<Settings>.Instance.AlwaysOnTop;
+			_timersForm.TopMost = Config<Settings>.Instance.AlwaysOnTop;
+			_calculatorForm.TopMost = Config<Settings>.Instance.AlwaysOnTop;
 
 			//Solo
 			skillValueMining.Value = Config<Settings>.Instance.Skills.Mining;
@@ -845,6 +847,29 @@ namespace EveMiner.Forms
 		private void btnCalculator_Click(object sender, EventArgs e)
 		{
 			ShowWindow(_calculatorForm);
+		}
+
+		/// <summary>
+		/// Handles the Click event of the alwaysOnTopToolStripMenuItem control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void alwaysOnTopToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Config<Settings>.Instance.AlwaysOnTop = !alwaysOnTopToolStripMenuItem.Checked;
+			TopMost = Config<Settings>.Instance.AlwaysOnTop;
+			_timersForm.TopMost = Config<Settings>.Instance.AlwaysOnTop;
+			_calculatorForm.TopMost = Config<Settings>.Instance.AlwaysOnTop;
+		}
+
+		/// <summary>
+		/// Handles the DropDownOpening event of the viewToolStripMenuItem control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void viewToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+		{
+			alwaysOnTopToolStripMenuItem.Checked = Config<Settings>.Instance.AlwaysOnTop;
 		}
 
 	}

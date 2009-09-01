@@ -46,12 +46,12 @@ namespace EveMiner.Forms
 			this.textBoxMercoxit0 = new System.Windows.Forms.TextBox();
 			this.textBoxGneiss5 = new System.Windows.Forms.TextBox();
 			this.textBoxDarkOchre5 = new System.Windows.Forms.TextBox();
-			this.textSpodumain5 = new System.Windows.Forms.TextBox();
+			this.textBoxSpodumain5 = new System.Windows.Forms.TextBox();
 			this.textBoxCrockite5 = new System.Windows.Forms.TextBox();
 			this.textBoxBistot5 = new System.Windows.Forms.TextBox();
 			this.textBoxArkonor5 = new System.Windows.Forms.TextBox();
 			this.textBoxMercoxit5 = new System.Windows.Forms.TextBox();
-			this.textGneiss10 = new System.Windows.Forms.TextBox();
+			this.textBoxGneiss10 = new System.Windows.Forms.TextBox();
 			this.textBoxDarkOchre10 = new System.Windows.Forms.TextBox();
 			this.textBoxSpodumain10 = new System.Windows.Forms.TextBox();
 			this.textBoxCrockite10 = new System.Windows.Forms.TextBox();
@@ -139,8 +139,10 @@ namespace EveMiner.Forms
 			this.ColumnRefVolume = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnProfit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnDelete2 = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.histogram1 = new GraphicsControls.Histogram();
 			this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
+			this.btnCalculateBars = new System.Windows.Forms.Button();
+			this.histogram1 = new EveMiner.Forms.Histogram();
+			this.textBoxProfit = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel7.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMercoxit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxArkonor)).BeginInit();
@@ -194,12 +196,12 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel7.Controls.Add(this.textBoxMercoxit0, 1, 8);
 			this.tableLayoutPanel7.Controls.Add(this.textBoxGneiss5, 2, 2);
 			this.tableLayoutPanel7.Controls.Add(this.textBoxDarkOchre5, 2, 3);
-			this.tableLayoutPanel7.Controls.Add(this.textSpodumain5, 2, 4);
+			this.tableLayoutPanel7.Controls.Add(this.textBoxSpodumain5, 2, 4);
 			this.tableLayoutPanel7.Controls.Add(this.textBoxCrockite5, 2, 5);
 			this.tableLayoutPanel7.Controls.Add(this.textBoxBistot5, 2, 6);
 			this.tableLayoutPanel7.Controls.Add(this.textBoxArkonor5, 2, 7);
 			this.tableLayoutPanel7.Controls.Add(this.textBoxMercoxit5, 2, 8);
-			this.tableLayoutPanel7.Controls.Add(this.textGneiss10, 3, 2);
+			this.tableLayoutPanel7.Controls.Add(this.textBoxGneiss10, 3, 2);
 			this.tableLayoutPanel7.Controls.Add(this.textBoxDarkOchre10, 3, 3);
 			this.tableLayoutPanel7.Controls.Add(this.textBoxSpodumain10, 3, 4);
 			this.tableLayoutPanel7.Controls.Add(this.textBoxCrockite10, 3, 5);
@@ -367,14 +369,14 @@ namespace EveMiner.Forms
 			this.textBoxDarkOchre5.TabIndex = 10;
 			this.textBoxDarkOchre5.Text = "0";
 			// 
-			// textSpodumain5
+			// textBoxSpodumain5
 			// 
-			this.textSpodumain5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textSpodumain5.Location = new System.Drawing.Point(114, 136);
-			this.textSpodumain5.Name = "textSpodumain5";
-			this.textSpodumain5.Size = new System.Drawing.Size(67, 20);
-			this.textSpodumain5.TabIndex = 13;
-			this.textSpodumain5.Text = "0";
+			this.textBoxSpodumain5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxSpodumain5.Location = new System.Drawing.Point(114, 136);
+			this.textBoxSpodumain5.Name = "textBoxSpodumain5";
+			this.textBoxSpodumain5.Size = new System.Drawing.Size(67, 20);
+			this.textBoxSpodumain5.TabIndex = 13;
+			this.textBoxSpodumain5.Text = "0";
 			// 
 			// textBoxCrockite5
 			// 
@@ -412,14 +414,14 @@ namespace EveMiner.Forms
 			this.textBoxMercoxit5.TabIndex = 25;
 			this.textBoxMercoxit5.Text = "0";
 			// 
-			// textGneiss10
+			// textBoxGneiss10
 			// 
-			this.textGneiss10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textGneiss10.Location = new System.Drawing.Point(187, 60);
-			this.textGneiss10.Name = "textGneiss10";
-			this.textGneiss10.Size = new System.Drawing.Size(67, 20);
-			this.textGneiss10.TabIndex = 8;
-			this.textGneiss10.Text = "0";
+			this.textBoxGneiss10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.textBoxGneiss10.Location = new System.Drawing.Point(187, 60);
+			this.textBoxGneiss10.Name = "textBoxGneiss10";
+			this.textBoxGneiss10.Size = new System.Drawing.Size(67, 20);
+			this.textBoxGneiss10.TabIndex = 8;
+			this.textBoxGneiss10.Text = "0";
 			// 
 			// textBoxDarkOchre10
 			// 
@@ -1215,12 +1217,13 @@ namespace EveMiner.Forms
 			// 
 			// buttonReset
 			// 
-			this.buttonReset.Location = new System.Drawing.Point(289, 710);
+			this.buttonReset.Location = new System.Drawing.Point(289, 739);
 			this.buttonReset.Name = "buttonReset";
 			this.buttonReset.Size = new System.Drawing.Size(75, 23);
 			this.buttonReset.TabIndex = 5;
 			this.buttonReset.Text = "Reset";
 			this.buttonReset.UseVisualStyleBackColor = true;
+			this.buttonReset.Visible = false;
 			// 
 			// btnEveCentral
 			// 
@@ -1395,26 +1398,52 @@ namespace EveMiner.Forms
 			this.ColumnDelete2.ToolTipText = "Delete row";
 			this.ColumnDelete2.Width = 20;
 			// 
-			// histogram1
-			// 
-			this.histogram1.Location = new System.Drawing.Point(289, 363);
-			this.histogram1.Name = "histogram1";
-			this.histogram1.Size = new System.Drawing.Size(568, 341);
-			this.histogram1.TabIndex = 25;
-			this.histogram1.Text = "histogram1";
-			// 
 			// toolTipInfo
 			// 
 			this.toolTipInfo.IsBalloon = true;
+			this.toolTipInfo.ShowAlways = true;
 			this.toolTipInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			// 
+			// btnCalculateBars
+			// 
+			this.btnCalculateBars.Location = new System.Drawing.Point(288, 710);
+			this.btnCalculateBars.Name = "btnCalculateBars";
+			this.btnCalculateBars.Size = new System.Drawing.Size(70, 23);
+			this.btnCalculateBars.TabIndex = 23;
+			this.btnCalculateBars.Text = "Calculate";
+			this.btnCalculateBars.UseVisualStyleBackColor = true;
+			this.btnCalculateBars.Click += new System.EventHandler(this.btnCalculateBars_Click);
+			// 
+			// histogram1
+			// 
+			this.histogram1.BottomColor = System.Drawing.Color.SlateGray;
+			this.histogram1.Location = new System.Drawing.Point(289, 363);
+			this.histogram1.Name = "histogram1";
+			this.histogram1.Size = new System.Drawing.Size(568, 341);
+			this.histogram1.Suffix = null;
+			this.histogram1.TabIndex = 25;
+			this.histogram1.Text = "histogram1";
+			this.histogram1.BarLeaveEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.histogram1_BarLeaveEvent);
+			this.histogram1.BarEnterEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.histogram1_BarEnterEvent);
+			// 
+			// textBoxProfit
+			// 
+			this.textBoxProfit.Location = new System.Drawing.Point(364, 709);
+			this.textBoxProfit.Name = "textBoxProfit";
+			this.textBoxProfit.ReadOnly = true;
+			this.textBoxProfit.Size = new System.Drawing.Size(493, 20);
+			this.textBoxProfit.TabIndex = 26;
+			this.textBoxProfit.Text = "Profit";
 			// 
 			// CalculatorForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(870, 752);
+			this.Controls.Add(this.textBoxProfit);
 			this.Controls.Add(this.histogram1);
 			this.Controls.Add(this.textBoxNetYield);
+			this.Controls.Add(this.btnCalculateBars);
 			this.Controls.Add(this.buttonCalculateCargoHold);
 			this.Controls.Add(this.buttonCalculateQuantity);
 			this.Controls.Add(this.numericUpDownStanding);
@@ -1535,12 +1564,12 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.TextBox textBoxMercoxit0;
 		private System.Windows.Forms.TextBox textBoxGneiss5;
 		private System.Windows.Forms.TextBox textBoxDarkOchre5;
-		private System.Windows.Forms.TextBox textSpodumain5;
+		private System.Windows.Forms.TextBox textBoxSpodumain5;
 		private System.Windows.Forms.TextBox textBoxCrockite5;
 		private System.Windows.Forms.TextBox textBoxBistot5;
 		private System.Windows.Forms.TextBox textBoxArkonor5;
 		private System.Windows.Forms.TextBox textBoxMercoxit5;
-		private System.Windows.Forms.TextBox textGneiss10;
+		private System.Windows.Forms.TextBox textBoxGneiss10;
 		private System.Windows.Forms.TextBox textBoxDarkOchre10;
 		private System.Windows.Forms.TextBox textBoxSpodumain10;
 		private System.Windows.Forms.TextBox textBoxCrockite10;
@@ -1584,7 +1613,9 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRefVolume;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProfit;
 		private System.Windows.Forms.DataGridViewButtonColumn ColumnDelete2;
-		private GraphicsControls.Histogram histogram1;
+		private Histogram histogram1;
 		private System.Windows.Forms.ToolTip toolTipInfo;
+		private System.Windows.Forms.Button btnCalculateBars;
+		private System.Windows.Forms.TextBox textBoxProfit;
 	}
 }

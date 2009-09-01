@@ -253,5 +253,22 @@ namespace EveMiner.Ores
 
 			return 0;
 		}
+
+		/// <summary>
+		/// Gets the efficiency.
+		/// </summary>
+		/// <param name="ore">The ore.</param>
+		/// <param name="netYield">The net yield.</param>
+		/// <returns></returns>
+		public static double GetEfficiency(Ore ore, double netYield)
+		{
+			Skills skills = Config<Settings>.Instance.Skills;
+			double eff = netYield +
+			             0.375 * (1 + skills.Refining * 0.02) * (1 + skills.EfficiencyRefining * 0.04) *
+			             (1 + GetProcessingSkill(ore) * 0.05);
+			if (eff > 1.0)
+				eff = 1.0;
+			return eff;
+		}
 	}
 }

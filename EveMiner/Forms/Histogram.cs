@@ -17,113 +17,14 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
-namespace GraphicsControls
+namespace EveMiner.Forms
 {
 	/// <summary>
 	/// Контрол для постронеия гистограмм
 	/// </summary>
 	public partial class Histogram : Control
 	{
-		/// <summary>
-		/// Один прямоугольник гистограммы
-		/// </summary>
-		[Serializable]
-		public class Bar
-		{
-			double _value;
-			/// <summary>
-			/// Имя бара
-			/// </summary>
-			string _name;
-
-			/// <summary>
-			/// Верхний цвет бара
-			/// </summary>
-			Color _color1 = Color.CornflowerBlue;
-
-			static Color DefaultColor1
-			{
-				get { return Color.CornflowerBlue; }
-			}
-			/// <summary>
-			/// Нижний цвет бара
-			/// </summary>
-			Color _color2 = Color.Black;
-
-			static Color DefaultColor2
-			{
-				get { return Color.Black; }
-			}
-
-			/// <summary>
-			/// Значение
-			/// </summary>
-			[DisplayName("Value")]
-			[DefaultValue(0.0)]			
-			public double Value
-			{
-				get { return _value; }
-				set { _value = value; }
-			}
-			/// <summary>
-			/// Имя бара
-			/// </summary>
-			[DisplayName("Name")]
-			[DefaultValue(0.0)]			
-			public string Name
-			{
-				get { return _name; }
-				set { _name = value; }
-			}
-
-			/// <summary>
-			/// Верхний цвет бара
-			/// </summary>
-			[DisplayName("Color 1")]
-			public Color Color1
-			{
-				get 
-				{
-					if (_color1 == Color.Empty)
-						_color1 = DefaultColor1;
-					return _color1; 
-				}
-				set { _color1 = value; }
-			}
-			private void ResetColor1()
-			{
-				Color1 = DefaultColor1;
-			}
-			private bool ShouldSerializeColor1()
-			{
-				return Color1 != DefaultColor1;
-			}
-
-			/// <summary>
-			/// Нижний цвет бара
-			/// </summary>
-			[DisplayName("Color 2")]
-			public Color Color2
-			{
-				get 
-				{
-					if (_color2 == Color.Empty)
-						_color2 = DefaultColor2; 
-					return _color2; 
-				}
-				set { _color2 = value; }
-			}
-			private void ResetColor2()
-			{
-				Color2 = DefaultColor2;
-			}
-			private bool ShouldSerializeColor2()
-			{
-				return Color2 != DefaultColor2;
-			}
-						
-		}
-#region Закрытые параметры
+		#region Закрытые параметры
 		/// <summary>
 		/// Верхний цвет фона
 		/// </summary>
@@ -181,15 +82,36 @@ namespace GraphicsControls
 		/// Шрифт меток значений
 		/// </summary>
 		Font _valuesFont;
+		/// <summary>
+		/// Суффикс для значения
+		/// </summary>
+		private string _suffix;
+		/// <summary>
+		/// Мышь в прямоугольнике бара или нет
+		/// </summary>
+		private Bar _mouseEnteredBar;
 
 		static Font ValuesDefaultFont
 		{
 			get { return new Font(FontFamily.GenericSansSerif, 8.25f); }
 		}
 
-#endregion
+		#endregion
 
-#region Параметры контрола
+		#region Параметры контрола
+
+		/// <summary>
+		/// Occurs when [bar enter event].
+		/// </summary>
+		[Category("Histogram")]
+		[Description("Mouse enter bar")]
+		public event HistogramEnterEventHandler BarEnterEvent;
+		/// <summary>
+		/// Occurs when [bar leave event].
+		/// </summary>
+		[Category("Histogram")]
+		[Description("Mouse leave bar")]
+		public event HistogramEnterEventHandler BarLeaveEvent;
 		/// <summary>
 		/// Верхний цвет фона
 		/// </summary>
@@ -375,9 +297,24 @@ namespace GraphicsControls
 		{
 			return !ValuesFont.Equals(ValuesDefaultFont);
 		}
+		/// <summary>
+		/// Суффикс для значения
+		/// </summary>
+		[DisplayName("Suffix")]
+		[Category("Histogram")]
+		[Description("Value suffix")]
+		public string Suffix
+		{
+			get { return _suffix; }
+			set { _suffix = value;
+				Invalidate();}
+		}
 
-#endregion
+
+		#endregion
 		
+		///<summary>
+		///</summary>
 		public Histogram()
 		{
 			InitializeComponent();
@@ -412,9 +349,9 @@ namespace GraphicsControls
 			foreach (Bar bar in _listBars)
 			{
 				if(bar.Value < 0 && maxValBottom < Math.Abs(bar.Value))
-						maxValBottom = Math.Abs(bar.Value);
+					maxValBottom = Math.Abs(bar.Value);
 				else if(bar.Value > 0 && maxValTop < bar.Value)
-						maxValTop = bar.Value;
+					maxValTop = bar.Value;
 			}
 			if (!(maxValTop + maxValBottom > 0))
 				return;
@@ -425,12 +362,14 @@ namespace GraphicsControls
 
 			//Точка основания диаграммы
 			Point baseLineStart = new Point(BorderX, 
-						Convert.ToInt32 (rec.Height * maxValTop / (maxValTop + maxValBottom)) + BorderY);
+			                                Convert.ToInt32 (rec.Height * maxValTop / (maxValTop + maxValBottom)) + BorderY);
 			Point baseLineEnd = new Point(Size.Width - BorderX, baseLineStart.Y);
 
-			Rectangle currentBar = new Rectangle();
+			Rectangle currentBar = new Rectangle
+			                       	{
+			                       		Width = (rec.Width - (_listBars.Count - 1) * Delta) / _listBars.Count
+			                       	};
 			//Ширина одного столбца
-			currentBar.Width = (rec.Width - (_listBars.Count - 1) * Delta) / _listBars.Count;
 			//рисуем стобцы
 			for(int n = 0; n < _listBars.Count; n++)
 			{
@@ -452,6 +391,7 @@ namespace GraphicsControls
 						pe.Graphics.FillRectangle(br, currentBar);
 					}
 					pe.Graphics.DrawRectangle(new Pen(GridColor), currentBar);
+					bar.Rect = currentBar;
 				}
 				//если показывать метки
 				if(ShowLabels)
@@ -464,14 +404,14 @@ namespace GraphicsControls
 						if (bar.Value < 0)
 							format.LineAlignment = StringAlignment.Far;
 						Point pt = new Point(currentBar.X + currentBar.Width / 2,
-							currentBar.Y + ((bar.Value < 0) ? 0 : currentBar.Height));
+						                     currentBar.Y + ((bar.Value < 0) ? 0 : currentBar.Height));
 
 						pe.Graphics.DrawString(bar.Name, Font, new SolidBrush(ForeColor), pt, format);
 					}
 
 				}
 				//Если включен показ значений
-				if(ShowValues)
+				if (ShowValues && bar.Value != 0)
 				{
 					using(StringFormat format = new StringFormat())
 					{
@@ -480,9 +420,9 @@ namespace GraphicsControls
 							format.LineAlignment = StringAlignment.Far;
 
 						Point pt = new Point(currentBar.X + currentBar.Width / 2,
-							currentBar.Y + ((bar.Value > 0) ? 0 : currentBar.Height));
-						pe.Graphics.DrawString(bar.Value.ToString(), ValuesFont, new SolidBrush(bar.Color1), pt, format);
-
+						                     currentBar.Y + ((bar.Value > 0) ? 0 : currentBar.Height - 15));
+						pe.Graphics.DrawString(bar.Value.ToString("#,#.##") + Suffix, ValuesFont, new SolidBrush(ForeColor), pt, format);
+						
 					}
 				}
 
@@ -490,9 +430,174 @@ namespace GraphicsControls
 			pe.Graphics.DrawLine(new Pen(GridColor), baseLineStart, baseLineEnd);
 		}
 
+
+		/// <summary>
+		/// Handles the Resize event of the Histogram control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		private void Histogram_Resize(object sender, EventArgs e)
 		{
 			Invalidate();
 		}
+
+		/// <summary>
+		/// Handles the MouseMove event of the Histogram control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
+		private void Histogram_MouseMove(object sender, MouseEventArgs e)
+		{
+			Bar fb = null;
+			foreach(Bar bar in ListBars)
+			{
+				if(e.X > bar.Rect.Left && e.X < bar.Rect.Right &&
+					e.Y < bar.Rect.Bottom && e.Y > bar.Rect.Top) 
+					fb = bar;
+			}
+			if (fb != null)
+			{
+				
+				if(BarEnterEvent != null && _mouseEnteredBar != fb)
+					BarEnterEvent(this, new HistogramEnterEventHandlerArgs {Bar = fb});
+				_mouseEnteredBar = fb;
+			}
+			else if(_mouseEnteredBar != null && BarLeaveEvent != null)
+			{
+				BarLeaveEvent(this, new HistogramEnterEventHandlerArgs {Bar = _mouseEnteredBar});
+				_mouseEnteredBar = null;
+			}
+
+
+
+		}
 	}
+
+	/// <summary>
+	/// Один прямоугольник гистограммы
+	/// </summary>
+	[Serializable]
+	public class Bar
+	{
+		double _value;
+		/// <summary>
+		/// Имя бара
+		/// </summary>
+		string _name;
+
+		/// <summary>
+		/// Верхний цвет бара
+		/// </summary>
+		Color _color1 = Color.CornflowerBlue;
+
+		static Color DefaultColor1 
+		{
+			get { return Color.CornflowerBlue; }
+		}
+		/// <summary>
+		/// Нижний цвет бара
+		/// </summary>
+		Color _color2 = Color.Black;
+
+		static Color DefaultColor2
+		{
+			get { return Color.Black; }
+		}
+		/// <summary>
+		/// обрамляющий прямоугольник бара
+		/// </summary>
+		[NonSerialized]
+		public Rectangle Rect;
+
+		/// <summary>
+		/// Значение
+		/// </summary>
+		[DisplayName("Value")]
+		[DefaultValue(0.0)]
+		public double Value
+		{
+			get { return _value; }
+			set { _value = value; }
+		}
+		/// <summary>
+		/// Имя бара
+		/// </summary>
+		[DisplayName("Name")]
+		[DefaultValue(0.0)]
+		public string Name
+		{
+			get { return _name; }
+			set { _name = value; }
+		}
+
+		/// <summary>
+		/// Верхний цвет бара
+		/// </summary>
+		[DisplayName("Color 1")]
+		public Color Color1
+		{
+			get
+			{
+				if (_color1 == Color.Empty)
+					_color1 = DefaultColor1;
+				return _color1;
+			}
+			set { _color1 = value; }
+		}
+		private void ResetColor1()
+		{
+			Color1 = DefaultColor1;
+		}
+		private bool ShouldSerializeColor1()
+		{
+			return Color1 != DefaultColor1;
+		}
+
+		/// <summary>
+		/// Нижний цвет бара
+		/// </summary>
+		[DisplayName("Color 2")]
+		public Color Color2
+		{
+			get
+			{
+				if (_color2 == Color.Empty)
+					_color2 = DefaultColor2;
+				return _color2;
+			}
+			set { _color2 = value; }
+		}
+
+		
+
+		private void ResetColor2()
+		{
+			Color2 = DefaultColor2;
+		}
+		private bool ShouldSerializeColor2()
+		{
+			return Color2 != DefaultColor2;
+		}
+
+	}
+
+	/// <summary>
+	/// Параметры события гистограммы
+	/// </summary>
+	public delegate void HistogramEnterEventHandler(object sender, HistogramEnterEventHandlerArgs args);
+
+	/// <summary>
+	/// Праметры для событий гистограммы
+	/// </summary>
+	public class HistogramEnterEventHandlerArgs : EventArgs
+	{
+		/// <summary>
+		/// Бар гисограммы который сгенерировал событие
+		/// </summary>
+		public Bar Bar;
+	} ;
+
+
+
+
 }
