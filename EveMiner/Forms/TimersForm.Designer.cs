@@ -205,6 +205,7 @@ namespace EveMiner.Forms
 			this.comboBoxOre.Name = "comboBoxOre";
 			this.comboBoxOre.Size = new System.Drawing.Size(137, 21);
 			this.comboBoxOre.TabIndex = 17;
+			this.comboBoxOre.SelectedIndexChanged += new System.EventHandler(this.comboBoxOre_SelectedIndexChanged);
 			// 
 			// label3
 			// 

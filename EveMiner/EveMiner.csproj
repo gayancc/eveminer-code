@@ -103,6 +103,8 @@
     <Compile Include="Forms\SkillValue.Designer.cs">
       <DependentUpon>SkillValue.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ores\Mineral.cs" />
+    <Compile Include="Ores\MineralList.cs" />
     <Compile Include="Ores\MineralsOut.cs" />
     <Compile Include="LaserUpgrade.cs" />
     <Compile Include="MiningTurret.cs" />

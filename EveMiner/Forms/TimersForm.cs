@@ -166,7 +166,7 @@ namespace EveMiner.Forms
 			{
 				comboBoxOre.Items.Add(pair.Value);
 			}
-			comboBoxOre.SelectedIndex = 0;
+			
 			//Select ore from config
 			Ore ore = OreList.Get(Config<Settings>.Instance.SelectedOre);
 			if (ore != null)
@@ -177,6 +177,8 @@ namespace EveMiner.Forms
 						comboBoxOre.SelectedIndex = n;
 				}
 			}
+			else
+				comboBoxOre.SelectedIndex = 0;
 		}
 
 		/// <summary>
@@ -242,6 +244,11 @@ namespace EveMiner.Forms
 			toolTipInfo.Active = false;
 		}
 		#endregion
+
+		private void comboBoxOre_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Config<Settings>.Instance.SelectedOre = comboBoxOre.SelectedItem.ToString();
+		}
 
 	}
 }

@@ -1,15 +1,3 @@
-/********************************************************************
-	created:	2006/09/26
-	created:	26:9:2006   13:30
-	filename: 	\Controls\GraphicsControls\Histogram.cs
-	file path:	\Controls\GraphicsControls
-	file base:	Histogram
-	file ext:	cs
-	author:		Муковников А.С.
-	
-	purpose:	
- * Контрол для построения гистограмм
-*********************************************************************/
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

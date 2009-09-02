@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
+using System.Xml;
 using EveMiner.Ores;
 
 namespace EveMiner.Forms
@@ -20,14 +21,22 @@ namespace EveMiner.Forms
 			InitializeComponent();
 			numericUpDownStanding.Value = (decimal) Config<Settings>.Instance.Standing;
 
-			pictureBoxTritanium.Tag = "Tritanium";
-			pictureBoxPyerite.Tag = "Pyerite";
-			pictureBoxMexallon.Tag = "Mexallon";
-			pictureBoxIsogen.Tag = "Isogen";
-			pictureBoxNocxium.Tag = "Nocxium";
-			pictureBoxZydrine.Tag = "Zydrine";
-			pictureBoxMegacyte.Tag = "Megacyte";
-			pictureBoxMorphite.Tag = "Morphite";
+			pictureBoxTritanium.Tag = MineralList.Get("Tritanium");
+			textBoxPriceTritanium.Tag = MineralList.Get("Tritanium");
+			pictureBoxPyerite.Tag = MineralList.Get("Pyerite");
+			textBoxPricePyerite.Tag = MineralList.Get("Pyerite");
+			pictureBoxMexallon.Tag = MineralList.Get("Mexallon");
+			textBoxPriceMexallon.Tag = MineralList.Get("Mexallon");
+			pictureBoxIsogen.Tag = MineralList.Get("Isogen");
+			textBoxPriceIsogen.Tag = MineralList.Get("Isogen");
+			pictureBoxNocxium.Tag = MineralList.Get("Nocxium");
+			textBoxPriceNocxium.Tag = MineralList.Get("Nocxium");
+			pictureBoxZydrine.Tag = MineralList.Get("Zydrine");
+			textBoxPriceZydrine.Tag = MineralList.Get("Zydrine");
+			pictureBoxMegacyte.Tag = MineralList.Get("Megacyte");
+			textBoxPriceMegacyte.Tag = MineralList.Get("Megacyte");
+			pictureBoxMorphite.Tag = MineralList.Get("Morphite");
+			textBoxPriceMorphite.Tag = MineralList.Get("Morphite");
 
 			pictureBoxVeldspar.Tag = OreList.Get("Veldspar");
 			pictureBoxScordite.Tag = OreList.Get("Scordite");
@@ -46,17 +55,25 @@ namespace EveMiner.Forms
 			pictureBoxArkonor.Tag = OreList.Get("Arkonor");
 			pictureBoxMercoxit.Tag = OreList.Get("Mercoxit");
 
-			textBoxPriceTritanium.Text = Config<Settings>.Instance.PriceTritanium.ToString("F2");
-			textBoxPricePyerite.Text = Config<Settings>.Instance.PricePyerite.ToString("F2");
-			textBoxPriceMexallon.Text = Config<Settings>.Instance.PriceMexallon.ToString("F2");
-			textBoxPriceIsogen.Text = Config<Settings>.Instance.PriceIsogen.ToString("F2");
-			textBoxPriceNocxium.Text = Config<Settings>.Instance.PriceNocxium.ToString("F2");
-			textBoxPriceZydrine.Text = Config<Settings>.Instance.PriceZydrine.ToString("F2");
-			textBoxPriceMegacyte.Text = Config<Settings>.Instance.PriceMegacyte.ToString("F2");
-			textBoxPriceMorphite.Text = Config<Settings>.Instance.PriceMorphite.ToString("F2");
+			PutMineralPrices();
 
 			histogram1.ShowLabels = true;
 			histogram1.ShowValues = true;
+		}
+
+		/// <summary>
+		/// Puts the mineral prices.
+		/// </summary>
+		private void PutMineralPrices()
+		{
+			textBoxPriceTritanium.Text = MineralList.Get("Tritanium").Price.ToString("F2");
+			textBoxPricePyerite.Text = MineralList.Get("Pyerite").Price.ToString("F2"); 
+			textBoxPriceMexallon.Text = MineralList.Get("Mexallon").Price.ToString("F2"); 
+			textBoxPriceIsogen.Text = MineralList.Get("Isogen").Price.ToString("F2"); 
+			textBoxPriceNocxium.Text = MineralList.Get("Nocxium").Price.ToString("F2"); 
+			textBoxPriceZydrine.Text = MineralList.Get("Zydrine").Price.ToString("F2"); 
+			textBoxPriceMegacyte.Text = MineralList.Get("Megacyte").Price.ToString("F2"); 
+			textBoxPriceMorphite.Text = MineralList.Get("Morphite").Price.ToString("F2");
 		}
 
 		/// <summary>
@@ -70,24 +87,58 @@ namespace EveMiner.Forms
 			const string webAddress = "http://eve-central.com/api/evemon";
 			const string localAddress = "EveCentral.xml";
 
-			// Два объекта для получения информации о предполагаемом скачиваемом xml
-			HttpWebRequest httpWReq = (HttpWebRequest) WebRequest.Create(webAddress);
-			WebClient httpClient = new WebClient();
-			HttpWebResponse httpWResp = (HttpWebResponse) httpWReq.GetResponse();
-			// Проверяем,  действительно ли по данному адресу находится xml
-			if(httpWResp.ContentType == "text/xml")
+			try
 			{
-				try
+
+				// Два объекта для получения информации о предполагаемом скачиваемом xml
+				HttpWebRequest httpWReq = (HttpWebRequest) WebRequest.Create(webAddress);
+				WebClient httpClient = new WebClient();
+				HttpWebResponse httpWResp = (HttpWebResponse) httpWReq.GetResponse();
+				// Проверяем,  действительно ли по данному адресу находится xml
+				if(httpWResp.ContentType == "text/xml")
 				{
 					// Скачиваем
 					httpClient.DownloadFile(webAddress, localAddress);
+
 				}
-				catch(WebException ex)
+				httpWResp.Close();
+			}
+			catch (WebException ex)
+			{
+				MessageBox.Show(ex.Message);
+				return;
+			}
+
+			try
+			{
+				using (XmlTextReader reader = new XmlTextReader(localAddress))
 				{
-					MessageBox.Show(ex.Message);
+					Mineral min = null;
+					while (reader.Read())
+					{
+						switch (reader.NodeType)
+						{
+							case XmlNodeType.Text:
+								{
+									if (min == null)
+										min = MineralList.Get(reader.Value);
+									else
+									{
+										min.Price = Convert.ToDouble(reader.Value);
+										min = null;
+									}
+									break;
+								}
+						}
+					}
 				}
 			}
-			httpWResp.Close();
+			catch(XmlException)
+			{}
+
+			PutMineralPrices();
+
+
 		}
 
 
@@ -279,6 +330,9 @@ namespace EveMiner.Forms
 			}
 			catch(FormatException)
 			{}
+			Mineral m = box.Tag as Mineral;
+			if(m != null)
+				m.Price = price;
 
 			if(sender == textBoxPriceTritanium)
 				Config<Settings>.Instance.PriceTritanium = price;
@@ -317,10 +371,11 @@ namespace EveMiner.Forms
 					if(ctrl.Tag != null)
 						tooltip = ((Ore) ctrl.Tag).Name;
 				}
-				else if(ctrl is PictureBox && ctrl.Tag is string)
+				else if(ctrl is PictureBox && ctrl.Tag is Mineral)
 				{
 					toolTipInfo.ToolTipTitle = "Mineral";
-					tooltip = (string) ctrl.Tag;
+					Mineral m = ctrl.Tag as Mineral;
+					tooltip = m.Name + Environment.NewLine + "price: " + m.Price.ToString("F3");
 				}
 
 				if(tooltip.Length > 0)
