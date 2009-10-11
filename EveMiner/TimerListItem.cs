@@ -123,7 +123,7 @@ namespace EveMiner
 			if (TimeToCycleEnd < 0)
 			{
 				timeToCycleEnd = TimeToCycleEnd + cycle;
-				PlaySound(Config<Settings>.Instance.CycleEndFileName);
+				PlaySound(Settings.CycleEndFileName);
 			}
 
 			timeToAsterEnd = TimeToAsterEnd - seconds;
@@ -133,7 +133,7 @@ namespace EveMiner
 			}
 		    if(timeToAsterEnd != 0) return;
 		    currentVolume = 0;
-		    PlaySound(Config<Settings>.Instance.AsterEndFileName);
+		    PlaySound(Settings.AsterEndFileName);
 		}
 
 		private static void PlaySound(string filename)

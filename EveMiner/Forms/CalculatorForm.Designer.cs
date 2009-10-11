@@ -134,15 +134,17 @@ namespace EveMiner.Forms
 			this.textBoxCargohold = new System.Windows.Forms.TextBox();
 			this.textBoxQuantity = new System.Windows.Forms.TextBox();
 			this.dataGridViewCalc = new System.Windows.Forms.DataGridView();
+			this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
+			this.btnCalculateBars = new System.Windows.Forms.Button();
+			this.textBoxProfit = new System.Windows.Forms.TextBox();
+			this.comboStandTax = new System.Windows.Forms.ComboBox();
+			this.btnExportXls = new System.Windows.Forms.Button();
+			this.histogram1 = new EveMiner.Forms.Histogram();
 			this.ColumnOreCalc = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnVolume = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnRefVolume = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnProfit = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnDelete2 = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
-			this.btnCalculateBars = new System.Windows.Forms.Button();
-			this.histogram1 = new EveMiner.Forms.Histogram();
-			this.textBoxProfit = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel7.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMercoxit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxArkonor)).BeginInit();
@@ -176,6 +178,7 @@ namespace EveMiner.Forms
 			// 
 			// tableLayoutPanel7
 			// 
+			this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.tableLayoutPanel7.ColumnCount = 4;
 			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -216,7 +219,7 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel7.Controls.Add(this.pictureBoxDarkOchre, 0, 3);
 			this.tableLayoutPanel7.Controls.Add(this.pictureBoxGneiss, 0, 2);
 			this.tableLayoutPanel7.Controls.Add(this.pictureBoxHedbergite, 0, 1);
-			this.tableLayoutPanel7.Location = new System.Drawing.Point(19, 422);
+			this.tableLayoutPanel7.Location = new System.Drawing.Point(19, 451);
 			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
 			this.tableLayoutPanel7.RowCount = 9;
 			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -575,6 +578,7 @@ namespace EveMiner.Forms
 			// 
 			// tableLayoutPanel6
 			// 
+			this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.tableLayoutPanel6.ColumnCount = 4;
 			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -615,7 +619,7 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPyroxeres, 0, 3);
 			this.tableLayoutPanel6.Controls.Add(this.pictureBoxScordite, 0, 2);
 			this.tableLayoutPanel6.Controls.Add(this.pictureBoxVeldspar, 0, 1);
-			this.tableLayoutPanel6.Location = new System.Drawing.Point(18, 98);
+			this.tableLayoutPanel6.Location = new System.Drawing.Point(18, 127);
 			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
 			this.tableLayoutPanel6.RowCount = 9;
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1217,7 +1221,7 @@ namespace EveMiner.Forms
 			// 
 			// buttonReset
 			// 
-			this.buttonReset.Location = new System.Drawing.Point(289, 739);
+			this.buttonReset.Location = new System.Drawing.Point(289, 757);
 			this.buttonReset.Name = "buttonReset";
 			this.buttonReset.Size = new System.Drawing.Size(75, 23);
 			this.buttonReset.TabIndex = 5;
@@ -1229,7 +1233,7 @@ namespace EveMiner.Forms
 			// 
 			this.btnEveCentral.Location = new System.Drawing.Point(288, 334);
 			this.btnEveCentral.Name = "btnEveCentral";
-			this.btnEveCentral.Size = new System.Drawing.Size(99, 23);
+			this.btnEveCentral.Size = new System.Drawing.Size(102, 23);
 			this.btnEveCentral.TabIndex = 4;
 			this.btnEveCentral.Text = "EVE Central";
 			this.btnEveCentral.UseVisualStyleBackColor = true;
@@ -1245,7 +1249,7 @@ namespace EveMiner.Forms
 			// 
 			// buttonCalculateCargoHold
 			// 
-			this.buttonCalculateCargoHold.Location = new System.Drawing.Point(206, 62);
+			this.buttonCalculateCargoHold.Location = new System.Drawing.Point(206, 90);
 			this.buttonCalculateCargoHold.Name = "buttonCalculateCargoHold";
 			this.buttonCalculateCargoHold.Size = new System.Drawing.Size(70, 23);
 			this.buttonCalculateCargoHold.TabIndex = 23;
@@ -1255,7 +1259,7 @@ namespace EveMiner.Forms
 			// 
 			// buttonCalculateQuantity
 			// 
-			this.buttonCalculateQuantity.Location = new System.Drawing.Point(206, 34);
+			this.buttonCalculateQuantity.Location = new System.Drawing.Point(206, 62);
 			this.buttonCalculateQuantity.Name = "buttonCalculateQuantity";
 			this.buttonCalculateQuantity.Size = new System.Drawing.Size(70, 23);
 			this.buttonCalculateQuantity.TabIndex = 20;
@@ -1271,14 +1275,9 @@ namespace EveMiner.Forms
             0,
             0,
             131072});
-			this.numericUpDownStanding.Location = new System.Drawing.Point(228, 10);
-			this.numericUpDownStanding.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+			this.numericUpDownStanding.Location = new System.Drawing.Point(206, 36);
 			this.numericUpDownStanding.Name = "numericUpDownStanding";
-			this.numericUpDownStanding.Size = new System.Drawing.Size(48, 20);
+			this.numericUpDownStanding.Size = new System.Drawing.Size(70, 20);
 			this.numericUpDownStanding.TabIndex = 17;
 			this.numericUpDownStanding.ValueChanged += new System.EventHandler(this.numericUpDownStanding_ValueChanged);
 			// 
@@ -1294,16 +1293,16 @@ namespace EveMiner.Forms
 			// label34
 			// 
 			this.label34.AutoSize = true;
-			this.label34.Location = new System.Drawing.Point(142, 13);
+			this.label34.Location = new System.Drawing.Point(15, 40);
 			this.label34.Name = "label34";
-			this.label34.Size = new System.Drawing.Size(77, 13);
+			this.label34.Size = new System.Drawing.Size(61, 13);
 			this.label34.TabIndex = 16;
-			this.label34.Text = "Corp Standing:";
+			this.label34.Text = "Tax/Stand:";
 			// 
 			// label30
 			// 
 			this.label30.AutoSize = true;
-			this.label30.Location = new System.Drawing.Point(15, 67);
+			this.label30.Location = new System.Drawing.Point(15, 95);
 			this.label30.Name = "label30";
 			this.label30.Size = new System.Drawing.Size(81, 13);
 			this.label30.TabIndex = 21;
@@ -1312,7 +1311,7 @@ namespace EveMiner.Forms
 			// label29
 			// 
 			this.label29.AutoSize = true;
-			this.label29.Location = new System.Drawing.Point(15, 40);
+			this.label29.Location = new System.Drawing.Point(15, 68);
 			this.label29.Name = "label29";
 			this.label29.Size = new System.Drawing.Size(49, 13);
 			this.label29.TabIndex = 18;
@@ -1320,17 +1319,17 @@ namespace EveMiner.Forms
 			// 
 			// textBoxCargohold
 			// 
-			this.textBoxCargohold.Location = new System.Drawing.Point(103, 64);
+			this.textBoxCargohold.Location = new System.Drawing.Point(102, 93);
 			this.textBoxCargohold.Name = "textBoxCargohold";
-			this.textBoxCargohold.Size = new System.Drawing.Size(89, 20);
+			this.textBoxCargohold.Size = new System.Drawing.Size(98, 20);
 			this.textBoxCargohold.TabIndex = 22;
 			this.textBoxCargohold.Text = "27500";
 			// 
 			// textBoxQuantity
 			// 
-			this.textBoxQuantity.Location = new System.Drawing.Point(103, 36);
+			this.textBoxQuantity.Location = new System.Drawing.Point(103, 64);
 			this.textBoxQuantity.Name = "textBoxQuantity";
-			this.textBoxQuantity.Size = new System.Drawing.Size(89, 20);
+			this.textBoxQuantity.Size = new System.Drawing.Size(97, 20);
 			this.textBoxQuantity.TabIndex = 19;
 			this.textBoxQuantity.Text = "5000";
 			// 
@@ -1349,15 +1348,79 @@ namespace EveMiner.Forms
             this.ColumnRefVolume,
             this.ColumnProfit,
             this.ColumnDelete2});
-			this.dataGridViewCalc.Location = new System.Drawing.Point(405, 10);
+			this.dataGridViewCalc.Location = new System.Drawing.Point(396, 10);
 			this.dataGridViewCalc.MultiSelect = false;
 			this.dataGridViewCalc.Name = "dataGridViewCalc";
 			this.dataGridViewCalc.ReadOnly = true;
 			this.dataGridViewCalc.RowHeadersVisible = false;
 			this.dataGridViewCalc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridViewCalc.Size = new System.Drawing.Size(452, 347);
+			this.dataGridViewCalc.Size = new System.Drawing.Size(461, 318);
 			this.dataGridViewCalc.TabIndex = 24;
 			this.dataGridViewCalc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+			// 
+			// toolTipInfo
+			// 
+			this.toolTipInfo.IsBalloon = true;
+			this.toolTipInfo.ShowAlways = true;
+			this.toolTipInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			// 
+			// btnCalculateBars
+			// 
+			this.btnCalculateBars.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.btnCalculateBars.Location = new System.Drawing.Point(396, 334);
+			this.btnCalculateBars.Name = "btnCalculateBars";
+			this.btnCalculateBars.Size = new System.Drawing.Size(70, 23);
+			this.btnCalculateBars.TabIndex = 23;
+			this.btnCalculateBars.Text = "Calculate";
+			this.btnCalculateBars.UseVisualStyleBackColor = true;
+			this.btnCalculateBars.Click += new System.EventHandler(this.btnCalculateBars_Click);
+			// 
+			// textBoxProfit
+			// 
+			this.textBoxProfit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.textBoxProfit.Location = new System.Drawing.Point(289, 739);
+			this.textBoxProfit.Name = "textBoxProfit";
+			this.textBoxProfit.ReadOnly = true;
+			this.textBoxProfit.Size = new System.Drawing.Size(568, 20);
+			this.textBoxProfit.TabIndex = 26;
+			this.textBoxProfit.Text = "Profit";
+			// 
+			// comboStandTax
+			// 
+			this.comboStandTax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboStandTax.FormattingEnabled = true;
+			this.comboStandTax.Items.AddRange(new object[] {
+            "Corp Standing",
+            "Tax Rate (%)"});
+			this.comboStandTax.Location = new System.Drawing.Point(102, 37);
+			this.comboStandTax.Name = "comboStandTax";
+			this.comboStandTax.Size = new System.Drawing.Size(98, 21);
+			this.comboStandTax.TabIndex = 27;
+			this.comboStandTax.SelectedIndexChanged += new System.EventHandler(this.comboStandTax_SelectedIndexChanged);
+			// 
+			// btnExportXls
+			// 
+			this.btnExportXls.Location = new System.Drawing.Point(764, 333);
+			this.btnExportXls.Name = "btnExportXls";
+			this.btnExportXls.Size = new System.Drawing.Size(93, 23);
+			this.btnExportXls.TabIndex = 28;
+			this.btnExportXls.Text = "Import to Excel";
+			this.btnExportXls.UseVisualStyleBackColor = true;
+			this.btnExportXls.Click += new System.EventHandler(this.btnExportXls_Click);
+			// 
+			// histogram1
+			// 
+			this.histogram1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+						| System.Windows.Forms.AnchorStyles.Left)));
+			this.histogram1.BottomColor = System.Drawing.Color.SlateGray;
+			this.histogram1.Location = new System.Drawing.Point(289, 363);
+			this.histogram1.Name = "histogram1";
+			this.histogram1.Size = new System.Drawing.Size(568, 370);
+			this.histogram1.Suffix = null;
+			this.histogram1.TabIndex = 25;
+			this.histogram1.Text = "histogram1";
+			this.histogram1.BarLeaveEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.histogram1_BarLeaveEvent);
+			this.histogram1.BarEnterEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.histogram1_BarEnterEvent);
 			// 
 			// ColumnOreCalc
 			// 
@@ -1369,25 +1432,28 @@ namespace EveMiner.Forms
 			// 
 			// ColumnVolume
 			// 
-			this.ColumnVolume.HeaderText = "Volume";
+			this.ColumnVolume.HeaderText = "Volume (m3)";
 			this.ColumnVolume.Name = "ColumnVolume";
 			this.ColumnVolume.ReadOnly = true;
+			this.ColumnVolume.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			this.ColumnVolume.Width = 80;
 			// 
 			// ColumnRefVolume
 			// 
 			this.ColumnRefVolume.FillWeight = 90F;
-			this.ColumnRefVolume.HeaderText = "RefVolume";
+			this.ColumnRefVolume.HeaderText = "RefVol. (m3)";
 			this.ColumnRefVolume.Name = "ColumnRefVolume";
 			this.ColumnRefVolume.ReadOnly = true;
+			this.ColumnRefVolume.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			this.ColumnRefVolume.ToolTipText = "Minerals Volume";
 			this.ColumnRefVolume.Width = 80;
 			// 
 			// ColumnProfit
 			// 
-			this.ColumnProfit.HeaderText = "Profit";
+			this.ColumnProfit.HeaderText = "Profit (Isk)";
 			this.ColumnProfit.Name = "ColumnProfit";
 			this.ColumnProfit.ReadOnly = true;
+			this.ColumnProfit.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
 			// 
 			// ColumnDelete2
 			// 
@@ -1398,48 +1464,13 @@ namespace EveMiner.Forms
 			this.ColumnDelete2.ToolTipText = "Delete row";
 			this.ColumnDelete2.Width = 20;
 			// 
-			// toolTipInfo
-			// 
-			this.toolTipInfo.IsBalloon = true;
-			this.toolTipInfo.ShowAlways = true;
-			this.toolTipInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-			// 
-			// btnCalculateBars
-			// 
-			this.btnCalculateBars.Location = new System.Drawing.Point(288, 710);
-			this.btnCalculateBars.Name = "btnCalculateBars";
-			this.btnCalculateBars.Size = new System.Drawing.Size(70, 23);
-			this.btnCalculateBars.TabIndex = 23;
-			this.btnCalculateBars.Text = "Calculate";
-			this.btnCalculateBars.UseVisualStyleBackColor = true;
-			this.btnCalculateBars.Click += new System.EventHandler(this.btnCalculateBars_Click);
-			// 
-			// histogram1
-			// 
-			this.histogram1.BottomColor = System.Drawing.Color.SlateGray;
-			this.histogram1.Location = new System.Drawing.Point(289, 363);
-			this.histogram1.Name = "histogram1";
-			this.histogram1.Size = new System.Drawing.Size(568, 341);
-			this.histogram1.Suffix = null;
-			this.histogram1.TabIndex = 25;
-			this.histogram1.Text = "histogram1";
-			this.histogram1.BarLeaveEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.histogram1_BarLeaveEvent);
-			this.histogram1.BarEnterEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.histogram1_BarEnterEvent);
-			// 
-			// textBoxProfit
-			// 
-			this.textBoxProfit.Location = new System.Drawing.Point(364, 709);
-			this.textBoxProfit.Name = "textBoxProfit";
-			this.textBoxProfit.ReadOnly = true;
-			this.textBoxProfit.Size = new System.Drawing.Size(493, 20);
-			this.textBoxProfit.TabIndex = 26;
-			this.textBoxProfit.Text = "Profit";
-			// 
 			// CalculatorForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(870, 752);
+			this.ClientSize = new System.Drawing.Size(870, 781);
+			this.Controls.Add(this.btnExportXls);
+			this.Controls.Add(this.comboStandTax);
 			this.Controls.Add(this.textBoxProfit);
 			this.Controls.Add(this.histogram1);
 			this.Controls.Add(this.textBoxNetYield);
@@ -1608,14 +1639,16 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.TextBox textBoxCargohold;
 		private System.Windows.Forms.TextBox textBoxQuantity;
 		private System.Windows.Forms.DataGridView dataGridViewCalc;
+		private Histogram histogram1;
+		private System.Windows.Forms.ToolTip toolTipInfo;
+		private System.Windows.Forms.Button btnCalculateBars;
+		private System.Windows.Forms.TextBox textBoxProfit;
+		private System.Windows.Forms.ComboBox comboStandTax;
+		private System.Windows.Forms.Button btnExportXls;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOreCalc;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnVolume;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRefVolume;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProfit;
 		private System.Windows.Forms.DataGridViewButtonColumn ColumnDelete2;
-		private Histogram histogram1;
-		private System.Windows.Forms.ToolTip toolTipInfo;
-		private System.Windows.Forms.Button btnCalculateBars;
-		private System.Windows.Forms.TextBox textBoxProfit;
 	}
 }

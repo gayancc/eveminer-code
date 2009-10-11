@@ -19,7 +19,8 @@ namespace EveMiner.Forms
 		public CalculatorForm()
 		{
 			InitializeComponent();
-			numericUpDownStanding.Value = (decimal) Config<Settings>.Instance.Standing;
+			comboStandTax.SelectedIndex = Config<Settings>.Instance.StandTaxe;
+			
 
 			pictureBoxTritanium.Tag = MineralList.Get("Tritanium");
 			textBoxPriceTritanium.Tag = MineralList.Get("Tritanium");
@@ -186,12 +187,17 @@ namespace EveMiner.Forms
 		/// Возвращает текущий налог
 		/// </summary>
 		/// <returns></returns>
-		private static double GetNal()
+		private static double GetTaxRate()
 		{
-			double nal = (5 - Config<Settings>.Instance.Standing * 5 / 6.66666) / 100;
-			if(nal < 0)
-				nal = 0;
-			return nal;
+			double tax;
+			if (Config<Settings>.Instance.StandTaxe == Settings.Stand)
+				tax = (5 - Config<Settings>.Instance.Standing * 5 / 6.66666) / 100;
+			else
+				tax = Config<Settings>.Instance.TaxRate / 100;
+
+			if(tax < 0)
+				tax = 0;
+			return tax;
 		}
 
 		/// <summary>
@@ -213,7 +219,7 @@ namespace EveMiner.Forms
 			cells[ColumnOreCalc.Index] = new DataGridViewTextBoxCell {Value = ore.Name};
 			cells[ColumnVolume.Index] = new DataGridViewTextBoxCell
 			                            	{
-			                            		Value = (unitProcess * ore.Volume).ToString("F2") + " m3"
+			                            		Value = (unitProcess * ore.Volume).ToString("F2")// + " m3"
 			                            	};
 			cells[ColumnRefVolume.Index] = new DataGridViewTextBoxCell
 			                               	{
@@ -225,10 +231,10 @@ namespace EveMiner.Forms
 			                               		          ore.MineralsOut.Zydrine +
 			                               		          ore.MineralsOut.Megacyte +
 			                               		          ore.MineralsOut.Morphite) * p *
-			                               		         OreList.GetEfficiency(ore, netYield) * 0.01).ToString("F2") + " m3"
+			                               		         OreList.GetEfficiency(ore, netYield) * 0.01).ToString("F2")// + " m3"
 			                               	};
 
-			cells[ColumnProfit.Index] = new DataGridViewTextBoxCell {Value = profit.ToString("#,#.##") + " ISK"};
+			cells[ColumnProfit.Index] = new DataGridViewTextBoxCell {Value = profit.ToString("#,#.##")};// + " ISK"};
 			cells[ColumnDelete2.Index] = new DataGridViewButtonCell {Value = "x"};
 
 			row.Cells.AddRange(cells);
@@ -244,7 +250,7 @@ namespace EveMiner.Forms
 		/// <returns></returns>
 		private static MineralsOut GetMineralsOut(Ore ore, double netYield, int p)
 		{
-			double coeff = p * OreList.GetEfficiency(ore, netYield) * (1 - GetNal());
+			double coeff = p * OreList.GetEfficiency(ore, netYield) * (1 - GetTaxRate());
 			int tritaniumOut = (int) (ore.MineralsOut.Tritanium * coeff);
 			int pyeriteOut = (int) (ore.MineralsOut.Pyerite * coeff);
 			int mexallonOut = (int) (ore.MineralsOut.Mexallon * coeff);
@@ -310,7 +316,10 @@ namespace EveMiner.Forms
 		private void numericUpDownStanding_ValueChanged(object sender, EventArgs e)
 		{
 			if(sender == numericUpDownStanding)
-				Config<Settings>.Instance.Standing = (double) numericUpDownStanding.Value;
+				if(comboStandTax.SelectedIndex == Settings.Stand)
+					Config<Settings>.Instance.Standing = (double) numericUpDownStanding.Value;
+				else
+					Config<Settings>.Instance.TaxRate = (double)numericUpDownStanding.Value;
 		}
 
 		/// <summary>
@@ -714,6 +723,26 @@ namespace EveMiner.Forms
 
 			histogram1.Invalidate();
 			textBoxProfit.Text = "Total Profit:" + GetMineralProfit(minerals).ToString("#,#.##") + " ISK";
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void comboStandTax_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			Config<Settings>.Instance.StandTaxe = comboStandTax.SelectedIndex;
+			if(comboStandTax.SelectedIndex == Settings.Stand)
+			numericUpDownStanding.Value = (decimal)Config<Settings>.Instance.Standing;
+			else
+				numericUpDownStanding.Value = (decimal)Config<Settings>.Instance.TaxRate;
+
+		}
+
+		private void btnExportXls_Click(object sender, EventArgs e)
+		{
+			GridToXmlConverter conv = new GridToXmlConverter();
+			conv.ExportIntoXml(dataGridViewCalc);
 		}
 
 	}

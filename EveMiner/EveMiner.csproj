@@ -103,6 +103,7 @@
     <Compile Include="Forms\SkillValue.Designer.cs">
       <DependentUpon>SkillValue.cs</DependentUpon>
     </Compile>
+    <Compile Include="GridToXmlConverter.cs" />
     <Compile Include="Ores\Mineral.cs" />
     <Compile Include="Ores\MineralList.cs" />
     <Compile Include="Ores\MineralsOut.cs" />
@@ -157,6 +158,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="Skills.cs" />
+    <Compile Include="SpecialServices.cs" />
     <Compile Include="TimerListItem.cs" />
     <Compile Include="Forms\TimersForm.cs">
       <SubType>Form</SubType>

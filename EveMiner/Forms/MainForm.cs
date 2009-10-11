@@ -128,10 +128,10 @@ namespace EveMiner.Forms
 			skillValueArkonorP.Value = Config<Settings>.Instance.Skills.ArkonorProcessing;
 			skillValueMercoxitP.Value = Config<Settings>.Instance.Skills.MercoxitProcessing;
 			
-			checkBoxHX2Imp.Checked = Config<Settings>.Instance.ImpHX2;
+			checkBoxHX2Imp.Checked = Config<Settings>.Instance.ImpHx2;
 			checkBoxMichiImp.Checked = Config<Settings>.Instance.ImpMichi;
 			checkBoxMindLinkImp.Checked = Config<Settings>.Instance.ImpMindLink;
-			checkBoxUseGangBonus.Checked = Config<Settings>.Instance.isGang;
+			checkBoxUseGangBonus.Checked = Config<Settings>.Instance.IsGang;
 			checkBoxUseOrca.Checked = Config<Settings>.Instance.UseOrca;
 			
 
@@ -382,7 +382,7 @@ namespace EveMiner.Forms
 				gangAssistModule++;
 
 			//Ганг бонусы
-			if (Config<Settings>.Instance.isGang)
+			if (Config<Settings>.Instance.IsGang)
 			{
 				if (Config<Settings>.Instance.ImpMindLink)
 				{
@@ -459,13 +459,13 @@ namespace EveMiner.Forms
 						yield *= 1.625;
 				}
 			}
-			if (Config<Settings>.Instance.ImpHX2)
+			if (Config<Settings>.Instance.ImpHx2)
 				yield *= 1.05;
 			if (Config<Settings>.Instance.ImpMichi)
 				yield *= 1.05;
 
 			//Ганг бонусы
-			if (Config<Settings>.Instance.isGang)
+			if (Config<Settings>.Instance.IsGang)
 			{
 				if (Config<Settings>.Instance.ImpMindLink)
 				{
@@ -700,14 +700,14 @@ namespace EveMiner.Forms
 		private void checkBox_CheckedChanged(object sender, EventArgs e)
 		{
 			if (sender == checkBoxHX2Imp)
-				Config<Settings>.Instance.ImpHX2 = checkBoxHX2Imp.Checked;
+				Config<Settings>.Instance.ImpHx2 = checkBoxHX2Imp.Checked;
 			else if (sender == checkBoxMichiImp)
 				Config<Settings>.Instance.ImpMichi = checkBoxMichiImp.Checked;
 			else if (sender == checkBoxMindLinkImp)
 				Config<Settings>.Instance.ImpMindLink = checkBoxMindLinkImp.Checked;
 			else if (sender == checkBoxUseGangBonus)
 			{
-				Config<Settings>.Instance.isGang = checkBoxUseGangBonus.Checked;
+				Config<Settings>.Instance.IsGang = checkBoxUseGangBonus.Checked;
 			}
 			else if (sender == checkBoxUseOrca)
 			{

@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel;
-using EveMiner.Ores;
 
 namespace EveMiner
 {
@@ -15,6 +14,11 @@ namespace EveMiner
 		/// </summary>
 		public Skills Skills = new Skills();
 
+		public const string AsterEndFileName = "AsterEnd.wav";
+		public const string CycleEndFileName = "CycleEnd.wav";
+		public const int Stand = 0;
+		public const int Tax = 1;
+
 		private string _mlu1 = "None";
 		private string _mlu2 = "None";
 		private string _mlu3 = "None";
@@ -26,16 +30,18 @@ namespace EveMiner
 		public string SelectedShip = "";
 		public int SelectedCrystals = 1;
 
-		public bool ImpHX2;
+		public bool ImpHx2;
 		public bool ImpMichi;
 		public bool ImpMindLink;
-		public bool isGang;
+		public bool IsGang;
 		
 		public bool GangAssistModule1;
 		public bool GangAssistModule2;
 		public bool GangAssistModule3;
 		
 		public double Standing;
+		public double TaxRate;
+		public int StandTaxe;
 		
 		public double PriceTritanium = 3;
 		public double PricePyerite = 5;
@@ -76,17 +82,6 @@ namespace EveMiner
 			set { _alwaysOnTop = value; }
 		}
 
-		public string AsterEndFileName
-		{
-			get { return "AsterEnd.wav"; }
-
-		}
-
-		public string CycleEndFileName
-		{
-			get { return "CycleEnd.wav"; }
-
-		}
 
 		public bool UseOrca
 		{
