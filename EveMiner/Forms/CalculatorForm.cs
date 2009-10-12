@@ -112,6 +112,9 @@ namespace EveMiner.Forms
 
 			try
 			{
+                System.Globalization.NumberFormatInfo info = new System.Globalization.NumberFormatInfo();
+                info.NumberDecimalSeparator = ".";
+
 				using (XmlTextReader reader = new XmlTextReader(localAddress))
 				{
 					Mineral min = null;
@@ -125,7 +128,7 @@ namespace EveMiner.Forms
 										min = MineralList.Get(reader.Value);
 									else
 									{
-										min.Price = Convert.ToDouble(reader.Value);
+										min.Price = Convert.ToDouble(reader.Value, info);
 										min = null;
 									}
 									break;
