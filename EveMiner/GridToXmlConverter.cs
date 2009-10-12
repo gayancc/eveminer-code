@@ -191,19 +191,7 @@ namespace EveMiner
 					for (int n = 1; n < count - 1; n++)
 					{
 						DataGridViewCell cell = row.Cells[n];
-// 						if (cell.Value != null && cell.Value != DBNull.Value)
-// 						{
-						
-						string val = Regex.Replace(cell.Value.ToString(), @"\s", "");
-                        val = val.Replace(",", ".");
-						
-						//val.Replace("0", String.Empty);
- 							WriteCellNumber(writer, StyleXmlGeneral, val);
-// 						}
-// 						else
-// 						{
-// 							WriteCellNumber(writer, StyleXmlMissval, "");
-// 						}
+						WriteCellNumber(writer, StyleXmlGeneral, cell.Value.ToString());
 					}
 				}
 				writer.WriteEndElement();
@@ -242,13 +230,16 @@ namespace EveMiner
         /// <param name="value">значение €чейки</param>
         private static void WriteCellNumber(XmlWriter writer, string type, string value)
         {
+            string val = Regex.Replace(value, @"\s", "");
+            val = val.Replace(",", ".");
+
             writer.WriteStartElement("Cell");
             writer.WriteAttributeString("ss", "StyleID", null, type);
             if (value != "")
             {
                 writer.WriteStartElement("Data");
                 writer.WriteAttributeString("ss", "Type", null, "Number");
-                writer.WriteString(value);
+                writer.WriteString(val);
                 writer.WriteEndElement();
             }
             writer.WriteEndElement();
