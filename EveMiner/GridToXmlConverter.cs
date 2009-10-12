@@ -195,6 +195,7 @@ namespace EveMiner
 // 						{
 						
 						string val = Regex.Replace(cell.Value.ToString(), @"\s", "");
+                        val = val.Replace(",", ".");
 						
 						//val.Replace("0", String.Empty);
  							WriteCellNumber(writer, StyleXmlGeneral, val);
