@@ -40,16 +40,30 @@ namespace EveMiner
 		private double oreUnitPerSecond;
 
 		/// <summary>
-		/// —тартовали ли таймер
+		/// стартовал ли первый лазер
 		/// </summary>
-		private bool timerStarted;
+		private bool laser1Started;
+		/// <summary>
+		/// стартовал ли второй лазер
+		/// </summary>
+		private bool laser2Started;
+		/// <summary>
+		/// стартовал ли третий лазер
+		/// </summary>
+		private bool laser3Started;
 
 		/// <summary>
 		/// ¬рем€ до окончан€и астероида в секундах
 		/// </summary>
 		public double TimeToAsterEnd
 		{
-			get { return timeToAsterEnd; }
+			get
+			{
+				if(LasersStarted > 0)
+					return timeToAsterEnd / LasersStarted;
+
+				return timeToAsterEnd;
+			}
 		}
 
 		/// <summary>
@@ -57,7 +71,10 @@ namespace EveMiner
 		/// </summary>
 		public double TimeToCycleEnd
 		{
-			get { return timeToCycleEnd; }
+			get
+			{
+				return timeToCycleEnd;
+			}
 		}
 
 		/// <summary>
@@ -77,12 +94,56 @@ namespace EveMiner
 		}
 
 		/// <summary>
-		/// —тартовали ли таймер
+		/// —колько лазеров стартовало
 		/// </summary>
-		public bool TimerStarted
+		public int LasersStarted
 		{
-			get { return timerStarted; }
-			set { timerStarted = value; }
+			get
+			{
+				int ret = 0;
+				if (laser1Started)
+					ret++;
+				if(laser2Started)
+					ret++;
+				if (laser3Started)
+					ret++;
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// ÷икл лазера
+		/// </summary>
+		public double Cycle
+		{
+			get { return cycle; }
+		}
+
+		/// <summary>
+		/// стартовал ли первый лазер
+		/// </summary>
+		public bool Laser1Started
+		{
+			get { return laser1Started; }
+			set { laser1Started = value; }
+		}
+
+		/// <summary>
+		/// стартовал ли второй лазер
+		/// </summary>
+		public bool Laser2Started
+		{
+			get { return laser2Started; }
+			set { laser2Started = value; }
+		}
+
+		/// <summary>
+		/// стартовал ли третий лазер
+		/// </summary>
+		public bool Laser3Started
+		{
+			get { return laser3Started; }
+			set { laser3Started = value; }
 		}
 
 		public TimerListItem(Ore ore, double startVolume, double cycle, double miningYield)
@@ -103,7 +164,7 @@ namespace EveMiner
 		/// <param name="miningYield"></param>
 		public void SetMiningYield(double  miningYield)
 		{
-			oreUnitPerSecond = miningYield / cycle / ore.Volume;
+			oreUnitPerSecond = miningYield / Cycle / ore.Volume;
 			timeToAsterEnd = (int)(currentVolume / oreUnitPerSecond);
 		}
 		/// <summary>
@@ -113,21 +174,21 @@ namespace EveMiner
 		public void Tick(int seconds)
 		{
 
-			if(timerStarted == false)
+			if(LasersStarted == 0)
 				return;
-			currentVolume = CurrentVolume - oreUnitPerSecond*seconds;
+			currentVolume = CurrentVolume - oreUnitPerSecond*seconds*LasersStarted;
 			if (CurrentVolume < 0)
 				currentVolume = 0;
 
-			timeToCycleEnd = TimeToCycleEnd - seconds;
-			if (TimeToCycleEnd < 0)
+			timeToCycleEnd = timeToCycleEnd - seconds;
+			if (timeToCycleEnd < 0)
 			{
-				timeToCycleEnd = TimeToCycleEnd + cycle;
+				timeToCycleEnd = timeToCycleEnd + Cycle;
 				PlaySound(Settings.CycleEndFileName);
 			}
 
-			timeToAsterEnd = TimeToAsterEnd - seconds;
-			if (TimeToAsterEnd < 0)
+			timeToAsterEnd = timeToAsterEnd - seconds * LasersStarted;
+			if (timeToAsterEnd < 0)
 			{
 				timeToAsterEnd = 0;
 			}
@@ -155,9 +216,11 @@ namespace EveMiner
 		/// </summary>
 		public void Reset()
 		{
-			timerStarted = false;
+			laser1Started = false;
+			laser2Started = false;
+			laser3Started = false;
 			currentVolume = StartVolume;
-			timeToCycleEnd = cycle;
+			timeToCycleEnd = Cycle;
 			timeToAsterEnd = (int)(startVolume / oreUnitPerSecond) + 1;
 		}
 

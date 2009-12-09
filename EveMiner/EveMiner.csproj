@@ -304,6 +304,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EVE_Yellow.ico" />
+    <None Include="Resources\stop_24.png" />
+    <None Include="Resources\play_24.png" />
+    <None Include="Resources\close_24.png" />
     <None Include="Resources\calculator_48.png" />
     <None Include="Resources\clock_48.png" />
   </ItemGroup>

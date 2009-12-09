@@ -95,6 +95,13 @@ namespace EveMiner.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap close_24 {
+            get {
+                object obj = ResourceManager.GetObject("close_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Crokite {
             get {
                 object obj = ResourceManager.GetObject("Crokite", resourceCulture);
@@ -326,6 +333,13 @@ namespace EveMiner.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap play_24 {
+            get {
+                object obj = ResourceManager.GetObject("play_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Pyerite {
             get {
                 object obj = ResourceManager.GetObject("Pyerite", resourceCulture);
@@ -350,6 +364,13 @@ namespace EveMiner.Properties {
         internal static System.Drawing.Bitmap Spodumain {
             get {
                 object obj = ResourceManager.GetObject("Spodumain", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap stop_24 {
+            get {
+                object obj = ResourceManager.GetObject("stop_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
