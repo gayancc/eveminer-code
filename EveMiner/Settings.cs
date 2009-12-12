@@ -4,6 +4,24 @@ using System.ComponentModel;
 namespace EveMiner
 {
 	/// <summary>
+	/// Тип корабля , который бустит
+	/// </summary>
+	public enum BoosterShipType
+	{
+		/// <summary>
+		/// Неопределенный корабль без бонусов
+		/// </summary>
+		Common = 0,
+		/// <summary>
+		/// Orca бонус 3% на каждый уровень
+		/// </summary>
+		Orca = 1,
+		/// <summary>
+		/// Rorqual бонус 5%на каждый уровень
+		/// </summary>
+		Rorqual = 2
+	}
+	/// <summary>
 	/// Настройки приложения
 	/// </summary>
 	[Serializable]
@@ -51,7 +69,8 @@ namespace EveMiner
 		public double PriceZydrine = 2000;
 		public double PriceMegacyte = 2500;
 		public double PriceMorphite = 8000;
-		private bool _useOrca;
+
+		public BoosterShipType BoosterShip = BoosterShipType.Common;
 
 
 		[DefaultValue("None")]
@@ -80,13 +99,6 @@ namespace EveMiner
 		{
 			get { return _alwaysOnTop; }
 			set { _alwaysOnTop = value; }
-		}
-
-
-		public bool UseOrca
-		{
-			get { return _useOrca; }
-			set { _useOrca = value; }
 		}
 	}
 }

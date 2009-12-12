@@ -132,7 +132,7 @@ namespace EveMiner.Forms
 			checkBoxMichiImp.Checked = Config<Settings>.Instance.ImpMichi;
 			checkBoxMindLinkImp.Checked = Config<Settings>.Instance.ImpMindLink;
 			checkBoxUseGangBonus.Checked = Config<Settings>.Instance.IsGang;
-			checkBoxUseOrca.Checked = Config<Settings>.Instance.UseOrca;
+			comboBoxBoosterShip.SelectedIndex = (int)Config<Settings>.Instance.BoosterShip;
 			
 
 			pictureBoxGang1.Image = (Config<Settings>.Instance.GangAssistModule1) ? Resources.icon53_16 : Resources.highSlot;
@@ -384,21 +384,26 @@ namespace EveMiner.Forms
 			//Ганг бонусы
 			if (Config<Settings>.Instance.IsGang)
 			{
+				double bonusIndustrial = 0.0;
+				switch (Config<Settings>.Instance.BoosterShip)
+				{
+					case BoosterShipType.Orca:
+						bonusIndustrial = 0.03;
+						break;
+					case BoosterShipType.Rorqual:
+						bonusIndustrial = 0.05;
+						break;
+				}
+
 				if (Config<Settings>.Instance.ImpMindLink)
 				{
-					if (Config<Settings>.Instance.UseOrca)
-						cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) * 
-							(1 + skills.IndustrialCommandShip * 0.03) * 1.5 / 100 * gangAssistModule);
-					else
-						cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) * 1.5 / 100 * gangAssistModule);
+					cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) *
+							(1 + skills.IndustrialCommandShip * bonusIndustrial) * 1.5 / 100 * gangAssistModule);
 				}
 				else
 				{
-					if (Config<Settings>.Instance.UseOrca)
-						cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) * 
-							(1 + skills.IndustrialCommandShip * 0.03) / 100 * gangAssistModule);
-					else
-						cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) / 100 * gangAssistModule);
+					cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) *
+							(1 + skills.IndustrialCommandShip * bonusIndustrial) / 100 * gangAssistModule);
 				}
 			}
 
@@ -708,10 +713,8 @@ namespace EveMiner.Forms
 			else if (sender == checkBoxUseGangBonus)
 			{
 				Config<Settings>.Instance.IsGang = checkBoxUseGangBonus.Checked;
-			}
-			else if (sender == checkBoxUseOrca)
-			{
-				Config<Settings>.Instance.UseOrca = checkBoxUseOrca.Checked;
+				groupBoxGangBooster.Enabled = Config<Settings>.Instance.IsGang;
+
 			}
 
 			CalculateMining();
@@ -870,6 +873,18 @@ namespace EveMiner.Forms
 		private void viewToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
 		{
 			alwaysOnTopToolStripMenuItem.Checked = Config<Settings>.Instance.AlwaysOnTop;
+		}
+
+		/// <summary>
+		/// Handles the SelectedIndexChanged event of the comboBoxBoosterShip control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void comboBoxBoosterShip_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			BoosterShipType ship = (BoosterShipType)comboBoxBoosterShip.SelectedIndex;
+			Config<Settings>.Instance.BoosterShip = ship;
+			CalculateMining();
 		}
 
 	}

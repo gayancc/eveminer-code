@@ -36,6 +36,8 @@ namespace EveMiner.Forms
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.timersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.calculatorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.checkBoxUseGangBonus = new System.Windows.Forms.CheckBox();
@@ -76,7 +78,8 @@ namespace EveMiner.Forms
 			this.checkBoxMichiImp = new System.Windows.Forms.CheckBox();
 			this.checkBoxHX2Imp = new System.Windows.Forms.CheckBox();
 			this.label9 = new System.Windows.Forms.Label();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.groupBoxGangBooster = new System.Windows.Forms.GroupBox();
+			this.comboBoxBoosterShip = new System.Windows.Forms.ComboBox();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.label8 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
@@ -86,9 +89,9 @@ namespace EveMiner.Forms
 			this.label10 = new System.Windows.Forms.Label();
 			this.skillValueIndustrialCommandShip = new EveMiner.Forms.SkillValue();
 			this.skillValueWarfareLinkSpec = new EveMiner.Forms.SkillValue();
+			this.label2 = new System.Windows.Forms.Label();
 			this.pictureBoxGang1 = new System.Windows.Forms.PictureBox();
 			this.pictureBoxGang3 = new System.Windows.Forms.PictureBox();
-			this.checkBoxUseOrca = new System.Windows.Forms.CheckBox();
 			this.checkBoxMindLinkImp = new System.Windows.Forms.CheckBox();
 			this.pictureBoxGang2 = new System.Windows.Forms.PictureBox();
 			this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
@@ -145,8 +148,6 @@ namespace EveMiner.Forms
 			this.btnCalculator = new System.Windows.Forms.Button();
 			this.btnTimers = new System.Windows.Forms.Button();
 			this.pictureBox7 = new System.Windows.Forms.PictureBox();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.alwaysOnTopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStripMain.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMLU2)).BeginInit();
@@ -154,7 +155,7 @@ namespace EveMiner.Forms
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMLU3)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			this.groupBox1.SuspendLayout();
+			this.groupBoxGangBooster.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxGang1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxGang3)).BeginInit();
@@ -238,6 +239,18 @@ namespace EveMiner.Forms
 			this.calculatorToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.calculatorToolStripMenuItem1.Text = "&Calculator";
 			this.calculatorToolStripMenuItem1.Click += new System.EventHandler(this.calculatorToolStripMenuItem_Click);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+			// 
+			// alwaysOnTopToolStripMenuItem
+			// 
+			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
+			this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.alwaysOnTopToolStripMenuItem.Text = "Always on Top";
+			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopToolStripMenuItem_Click);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -365,7 +378,7 @@ namespace EveMiner.Forms
 			// label14
 			// 
 			this.label14.AutoSize = true;
-			this.label14.Location = new System.Drawing.Point(9, 106);
+			this.label14.Location = new System.Drawing.Point(7, 107);
 			this.label14.Name = "label14";
 			this.label14.Size = new System.Drawing.Size(85, 13);
 			this.label14.TabIndex = 6;
@@ -400,7 +413,7 @@ namespace EveMiner.Forms
 			// label15
 			// 
 			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(14, 140);
+			this.label15.Location = new System.Drawing.Point(7, 140);
 			this.label15.Name = "label15";
 			this.label15.Size = new System.Drawing.Size(109, 13);
 			this.label15.TabIndex = 0;
@@ -681,21 +694,36 @@ namespace EveMiner.Forms
 			this.label9.Text = "Implants:";
 			this.label9.Visible = false;
 			// 
-			// groupBox1
+			// groupBoxGangBooster
 			// 
-			this.groupBox1.Controls.Add(this.tableLayoutPanel2);
-			this.groupBox1.Controls.Add(this.label15);
-			this.groupBox1.Controls.Add(this.pictureBoxGang1);
-			this.groupBox1.Controls.Add(this.pictureBoxGang3);
-			this.groupBox1.Controls.Add(this.checkBoxUseOrca);
-			this.groupBox1.Controls.Add(this.checkBoxMindLinkImp);
-			this.groupBox1.Controls.Add(this.pictureBoxGang2);
-			this.groupBox1.Location = new System.Drawing.Point(204, 202);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(242, 219);
-			this.groupBox1.TabIndex = 3;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Gang Booster";
+			this.groupBoxGangBooster.Controls.Add(this.comboBoxBoosterShip);
+			this.groupBoxGangBooster.Controls.Add(this.tableLayoutPanel2);
+			this.groupBoxGangBooster.Controls.Add(this.label2);
+			this.groupBoxGangBooster.Controls.Add(this.label15);
+			this.groupBoxGangBooster.Controls.Add(this.pictureBoxGang1);
+			this.groupBoxGangBooster.Controls.Add(this.pictureBoxGang3);
+			this.groupBoxGangBooster.Controls.Add(this.checkBoxMindLinkImp);
+			this.groupBoxGangBooster.Controls.Add(this.pictureBoxGang2);
+			this.groupBoxGangBooster.Location = new System.Drawing.Point(204, 202);
+			this.groupBoxGangBooster.Name = "groupBoxGangBooster";
+			this.groupBoxGangBooster.Size = new System.Drawing.Size(242, 219);
+			this.groupBoxGangBooster.TabIndex = 3;
+			this.groupBoxGangBooster.TabStop = false;
+			this.groupBoxGangBooster.Text = "Gang Booster";
+			// 
+			// comboBoxBoosterShip
+			// 
+			this.comboBoxBoosterShip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxBoosterShip.FormattingEnabled = true;
+			this.comboBoxBoosterShip.Items.AddRange(new object[] {
+            "Common",
+            "Orca",
+            "Rorqual"});
+			this.comboBoxBoosterShip.Location = new System.Drawing.Point(129, 166);
+			this.comboBoxBoosterShip.Name = "comboBoxBoosterShip";
+			this.comboBoxBoosterShip.Size = new System.Drawing.Size(107, 21);
+			this.comboBoxBoosterShip.TabIndex = 7;
+			this.comboBoxBoosterShip.SelectedIndexChanged += new System.EventHandler(this.comboBoxBoosterShip_SelectedIndexChanged);
 			// 
 			// tableLayoutPanel2
 			// 
@@ -797,6 +825,15 @@ namespace EveMiner.Forms
 			this.skillValueWarfareLinkSpec.TabIndex = 36;
 			this.skillValueWarfareLinkSpec.ValueChanged += new System.EventHandler(this.SkillValueChanged);
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(7, 169);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(70, 13);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Booster Ship:";
+			// 
 			// pictureBoxGang1
 			// 
 			this.pictureBoxGang1.Image = global::EveMiner.Properties.Resources.icon53_16;
@@ -823,21 +860,10 @@ namespace EveMiner.Forms
 			this.pictureBoxGang3.Click += new System.EventHandler(this.pictureBox_Click);
 			this.pictureBoxGang3.MouseEnter += new System.EventHandler(this.On_MouseEnter);
 			// 
-			// checkBoxUseOrca
-			// 
-			this.checkBoxUseOrca.AutoSize = true;
-			this.checkBoxUseOrca.Location = new System.Drawing.Point(17, 187);
-			this.checkBoxUseOrca.Name = "checkBoxUseOrca";
-			this.checkBoxUseOrca.Size = new System.Drawing.Size(93, 17);
-			this.checkBoxUseOrca.TabIndex = 1;
-			this.checkBoxUseOrca.Text = "Orca Boosting";
-			this.checkBoxUseOrca.UseVisualStyleBackColor = true;
-			this.checkBoxUseOrca.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
-			// 
 			// checkBoxMindLinkImp
 			// 
 			this.checkBoxMindLinkImp.AutoSize = true;
-			this.checkBoxMindLinkImp.Location = new System.Drawing.Point(17, 168);
+			this.checkBoxMindLinkImp.Location = new System.Drawing.Point(10, 197);
 			this.checkBoxMindLinkImp.Name = "checkBoxMindLinkImp";
 			this.checkBoxMindLinkImp.Size = new System.Drawing.Size(185, 17);
 			this.checkBoxMindLinkImp.TabIndex = 1;
@@ -1456,18 +1482,6 @@ namespace EveMiner.Forms
 			this.pictureBox7.TabIndex = 0;
 			this.pictureBox7.TabStop = false;
 			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
-			// 
-			// alwaysOnTopToolStripMenuItem
-			// 
-			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
-			this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-			this.alwaysOnTopToolStripMenuItem.Text = "Always on Top";
-			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopToolStripMenuItem_Click);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1483,7 +1497,7 @@ namespace EveMiner.Forms
 			this.Controls.Add(this.label9);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox4);
-			this.Controls.Add(this.groupBox1);
+			this.Controls.Add(this.groupBoxGangBooster);
 			this.Controls.Add(this.checkBoxUseGangBonus);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1504,8 +1518,8 @@ namespace EveMiner.Forms
 			this.groupBox2.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
+			this.groupBoxGangBooster.ResumeLayout(false);
+			this.groupBoxGangBooster.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxGang1)).EndInit();
@@ -1561,7 +1575,7 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.Label label8;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.GroupBox groupBox2;
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.GroupBox groupBoxGangBooster;
 		private System.Windows.Forms.CheckBox checkBoxMichiImp;
 		private System.Windows.Forms.CheckBox checkBoxHX2Imp;
 		private System.Windows.Forms.Label label9;
@@ -1654,7 +1668,6 @@ namespace EveMiner.Forms
 		private SkillValue skillValueJaspetP;
 		private SkillValue skillValueHemorphiteP;
 		private System.Windows.Forms.ToolStripMenuItem calculatorToolStripMenuItem;
-		private System.Windows.Forms.CheckBox checkBoxUseOrca;
 		private System.Windows.Forms.ToolStripMenuItem timersToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem calculatorToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -1663,6 +1676,8 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.Button btnCalculator;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripMenuItem alwaysOnTopToolStripMenuItem;
+		private System.Windows.Forms.ComboBox comboBoxBoosterShip;
+		private System.Windows.Forms.Label label2;
 
 	}
 }
