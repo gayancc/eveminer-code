@@ -36,6 +36,11 @@ namespace EveMiner
 		public const string CycleEndFileName = "CycleEnd.wav";
 		public const int Stand = 0;
 		public const int Tax = 1;
+		[NonSerialized]
+		public double MiningAmount;
+		[NonSerialized]
+		public double Cycle;
+
 
 		private string _mlu1 = "None";
 		private string _mlu2 = "None";
@@ -60,6 +65,7 @@ namespace EveMiner
 		public double Standing;
 		public double TaxRate;
 		public int StandTaxe;
+		public double CargoHold = 27500;
 		
 		public double PriceTritanium = 3;
 		public double PricePyerite = 5;
@@ -100,5 +106,7 @@ namespace EveMiner
 			get { return _alwaysOnTop; }
 			set { _alwaysOnTop = value; }
 		}
+
+
 	}
 }

@@ -32,15 +32,6 @@ namespace EveMiner.Forms
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimersForm));
 			this.dataGridViewTimers = new System.Windows.Forms.DataGridView();
-			this.textBoxCycle = new System.Windows.Forms.TextBox();
-			this.textBoxMiningYield = new System.Windows.Forms.TextBox();
-			this.textBoxStartValue = new System.Windows.Forms.TextBox();
-			this.buttonAdd = new System.Windows.Forms.Button();
-			this.comboBoxOre = new System.Windows.Forms.ComboBox();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
-			this.buttonUpdate = new System.Windows.Forms.Button();
 			this.ColumnOre = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnStartQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ColumnCurrentQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +41,17 @@ namespace EveMiner.Forms
 			this.ColumnLaser2Start = new System.Windows.Forms.DataGridViewImageColumn();
 			this.ColumnLaser3Start = new System.Windows.Forms.DataGridViewImageColumn();
 			this.ColumnButtonDelete = new System.Windows.Forms.DataGridViewImageColumn();
+			this.textBoxStartValue = new System.Windows.Forms.TextBox();
+			this.buttonAdd = new System.Windows.Forms.Button();
+			this.comboBoxOre = new System.Windows.Forms.ComboBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
+			this.buttonUpdate = new System.Windows.Forms.Button();
+			this.progressBar1 = new System.Windows.Forms.ProgressBar();
+			this.btnReset = new System.Windows.Forms.Button();
+			this.textBoxCargo = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewTimers)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -82,110 +84,14 @@ namespace EveMiner.Forms
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
 			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.dataGridViewTimers.DefaultCellStyle = dataGridViewCellStyle1;
-			this.dataGridViewTimers.Location = new System.Drawing.Point(12, 60);
+			this.dataGridViewTimers.Location = new System.Drawing.Point(12, 30);
 			this.dataGridViewTimers.Name = "dataGridViewTimers";
 			this.dataGridViewTimers.ReadOnly = true;
 			this.dataGridViewTimers.RowHeadersVisible = false;
 			this.dataGridViewTimers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-			this.dataGridViewTimers.Size = new System.Drawing.Size(504, 240);
-			this.dataGridViewTimers.TabIndex = 25;
+			this.dataGridViewTimers.Size = new System.Drawing.Size(504, 164);
+			this.dataGridViewTimers.TabIndex = 8;
 			this.dataGridViewTimers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTimersCellClick);
-			// 
-			// textBoxCycle
-			// 
-			this.textBoxCycle.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBoxCycle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBoxCycle.Location = new System.Drawing.Point(344, 2);
-			this.textBoxCycle.Name = "textBoxCycle";
-			this.textBoxCycle.ReadOnly = true;
-			this.textBoxCycle.Size = new System.Drawing.Size(104, 22);
-			this.textBoxCycle.TabIndex = 24;
-			this.textBoxCycle.Text = "180";
-			this.textBoxCycle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.textBoxCycle.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
-			this.textBoxCycle.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
-			// 
-			// textBoxMiningYield
-			// 
-			this.textBoxMiningYield.BackColor = System.Drawing.SystemColors.Control;
-			this.textBoxMiningYield.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.textBoxMiningYield.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.textBoxMiningYield.Location = new System.Drawing.Point(211, 2);
-			this.textBoxMiningYield.Name = "textBoxMiningYield";
-			this.textBoxMiningYield.ReadOnly = true;
-			this.textBoxMiningYield.Size = new System.Drawing.Size(127, 22);
-			this.textBoxMiningYield.TabIndex = 23;
-			this.textBoxMiningYield.Text = "1081.5525";
-			this.textBoxMiningYield.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.textBoxMiningYield.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
-			this.textBoxMiningYield.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
-			// 
-			// textBoxStartValue
-			// 
-			this.textBoxStartValue.Location = new System.Drawing.Point(104, 32);
-			this.textBoxStartValue.Name = "textBoxStartValue";
-			this.textBoxStartValue.Size = new System.Drawing.Size(42, 20);
-			this.textBoxStartValue.TabIndex = 19;
-			this.textBoxStartValue.Text = "1000";
-			// 
-			// buttonAdd
-			// 
-			this.buttonAdd.Location = new System.Drawing.Point(152, 30);
-			this.buttonAdd.Name = "buttonAdd";
-			this.buttonAdd.Size = new System.Drawing.Size(53, 23);
-			this.buttonAdd.TabIndex = 20;
-			this.buttonAdd.Text = "Add";
-			this.buttonAdd.UseVisualStyleBackColor = true;
-			this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-			// 
-			// comboBoxOre
-			// 
-			this.comboBoxOre.DropDownHeight = 250;
-			this.comboBoxOre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxOre.FormattingEnabled = true;
-			this.comboBoxOre.IntegralHeight = false;
-			this.comboBoxOre.Location = new System.Drawing.Point(68, 3);
-			this.comboBoxOre.Name = "comboBoxOre";
-			this.comboBoxOre.Size = new System.Drawing.Size(137, 21);
-			this.comboBoxOre.TabIndex = 17;
-			this.comboBoxOre.SelectedIndexChanged += new System.EventHandler(this.comboBoxOre_SelectedIndexChanged);
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(12, 35);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(86, 13);
-			this.label3.TabIndex = 18;
-			this.label3.Text = "Asteroid Volume:";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 6);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(50, 13);
-			this.label2.TabIndex = 16;
-			this.label2.Text = "Ore type:";
-			// 
-			// toolTipInfo
-			// 
-			this.toolTipInfo.IsBalloon = true;
-			this.toolTipInfo.ShowAlways = true;
-			this.toolTipInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-			// 
-			// buttonUpdate
-			// 
-			this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonUpdate.Location = new System.Drawing.Point(463, 31);
-			this.buttonUpdate.Name = "buttonUpdate";
-			this.buttonUpdate.Size = new System.Drawing.Size(53, 23);
-			this.buttonUpdate.TabIndex = 21;
-			this.buttonUpdate.Text = "Update";
-			this.buttonUpdate.UseVisualStyleBackColor = true;
-			this.buttonUpdate.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
-			this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
-			this.buttonUpdate.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
 			// 
 			// ColumnOre
 			// 
@@ -276,19 +182,138 @@ namespace EveMiner.Forms
 			this.ColumnButtonDelete.ToolTipText = "Delete row";
 			this.ColumnButtonDelete.Width = 24;
 			// 
+			// textBoxStartValue
+			// 
+			this.textBoxStartValue.Location = new System.Drawing.Point(306, 3);
+			this.textBoxStartValue.Name = "textBoxStartValue";
+			this.textBoxStartValue.Size = new System.Drawing.Size(62, 20);
+			this.textBoxStartValue.TabIndex = 5;
+			this.textBoxStartValue.Text = "1000";
+			// 
+			// buttonAdd
+			// 
+			this.buttonAdd.Location = new System.Drawing.Point(374, 1);
+			this.buttonAdd.Name = "buttonAdd";
+			this.buttonAdd.Size = new System.Drawing.Size(53, 23);
+			this.buttonAdd.TabIndex = 6;
+			this.buttonAdd.Text = "Add";
+			this.buttonAdd.UseVisualStyleBackColor = true;
+			this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+			// 
+			// comboBoxOre
+			// 
+			this.comboBoxOre.DropDownHeight = 250;
+			this.comboBoxOre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxOre.FormattingEnabled = true;
+			this.comboBoxOre.IntegralHeight = false;
+			this.comboBoxOre.Location = new System.Drawing.Point(65, 3);
+			this.comboBoxOre.Name = "comboBoxOre";
+			this.comboBoxOre.Size = new System.Drawing.Size(137, 21);
+			this.comboBoxOre.TabIndex = 1;
+			this.comboBoxOre.SelectedIndexChanged += new System.EventHandler(this.comboBoxOre_SelectedIndexChanged);
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(214, 6);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(86, 13);
+			this.label3.TabIndex = 4;
+			this.label3.Text = "Asteroid Volume:";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(9, 6);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(50, 13);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Ore type:";
+			// 
+			// toolTipInfo
+			// 
+			this.toolTipInfo.IsBalloon = true;
+			this.toolTipInfo.ShowAlways = true;
+			this.toolTipInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			// 
+			// buttonUpdate
+			// 
+			this.buttonUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonUpdate.Location = new System.Drawing.Point(463, 1);
+			this.buttonUpdate.Name = "buttonUpdate";
+			this.buttonUpdate.Size = new System.Drawing.Size(53, 23);
+			this.buttonUpdate.TabIndex = 7;
+			this.buttonUpdate.Text = "Update";
+			this.buttonUpdate.UseVisualStyleBackColor = true;
+			this.buttonUpdate.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
+			this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+			this.buttonUpdate.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
+			// 
+			// progressBar1
+			// 
+			this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.progressBar1.Location = new System.Drawing.Point(179, 203);
+			this.progressBar1.Name = "progressBar1";
+			this.progressBar1.Size = new System.Drawing.Size(303, 20);
+			this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+			this.progressBar1.TabIndex = 9;
+			this.progressBar1.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
+			this.progressBar1.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
+			// 
+			// btnReset
+			// 
+			this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnReset.ForeColor = System.Drawing.SystemColors.ButtonFace;
+			this.btnReset.Image = global::EveMiner.Properties.Resources.close_24;
+			this.btnReset.Location = new System.Drawing.Point(488, 199);
+			this.btnReset.Name = "btnReset";
+			this.btnReset.Size = new System.Drawing.Size(29, 26);
+			this.btnReset.TabIndex = 10;
+			this.btnReset.UseVisualStyleBackColor = true;
+			this.btnReset.TextChanged += new System.EventHandler(this.textBoxCargo_TextChanged);
+			this.btnReset.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
+			this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+			this.btnReset.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
+			// 
+			// textBoxCargo
+			// 
+			this.textBoxCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.textBoxCargo.Location = new System.Drawing.Point(73, 203);
+			this.textBoxCargo.Name = "textBoxCargo";
+			this.textBoxCargo.Size = new System.Drawing.Size(100, 20);
+			this.textBoxCargo.TabIndex = 11;
+			this.textBoxCargo.TextChanged += new System.EventHandler(this.textBoxCargo_TextChanged);
+			this.textBoxCargo.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
+			this.textBoxCargo.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
+			// 
+			// label1
+			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(9, 206);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(58, 13);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Cargo(m3):";
+			// 
 			// TimersForm
 			// 
+			this.AcceptButton = this.buttonAdd;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(529, 312);
+			this.ClientSize = new System.Drawing.Size(529, 233);
+			this.Controls.Add(this.textBoxCargo);
+			this.Controls.Add(this.btnReset);
+			this.Controls.Add(this.progressBar1);
 			this.Controls.Add(this.dataGridViewTimers);
-			this.Controls.Add(this.textBoxCycle);
-			this.Controls.Add(this.textBoxMiningYield);
 			this.Controls.Add(this.textBoxStartValue);
 			this.Controls.Add(this.buttonUpdate);
 			this.Controls.Add(this.buttonAdd);
 			this.Controls.Add(this.comboBoxOre);
 			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label1);
 			this.Controls.Add(this.label2);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "TimersForm";
@@ -303,8 +328,6 @@ namespace EveMiner.Forms
 		#endregion
 
 		private System.Windows.Forms.DataGridView dataGridViewTimers;
-		private System.Windows.Forms.TextBox textBoxCycle;
-		private System.Windows.Forms.TextBox textBoxMiningYield;
 		private System.Windows.Forms.TextBox textBoxStartValue;
 		private System.Windows.Forms.Button buttonUpdate;
 		private System.Windows.Forms.Button buttonAdd;
@@ -321,5 +344,9 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.DataGridViewImageColumn ColumnLaser2Start;
 		private System.Windows.Forms.DataGridViewImageColumn ColumnLaser3Start;
 		private System.Windows.Forms.DataGridViewImageColumn ColumnButtonDelete;
+		private System.Windows.Forms.ProgressBar progressBar1;
+		private System.Windows.Forms.Button btnReset;
+		private System.Windows.Forms.TextBox textBoxCargo;
+		private System.Windows.Forms.Label label1;
 	}
 }

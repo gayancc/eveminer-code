@@ -30,6 +30,10 @@ namespace EveMiner
 		/// </summary>
 		private double timeToCycleEnd;
 		/// <summary>
+		/// ≈сли цикл началс€ а астера не хватит на весь цикл
+		/// </summary>
+		private bool isEmptyClose = false;
+		/// <summary>
 		/// ¬рем€ до окончан€и астероида в секундах
 		/// </summary>
 		private double timeToAsterEnd;
@@ -125,7 +129,12 @@ namespace EveMiner
 		public bool Laser1Started
 		{
 			get { return laser1Started; }
-			set { laser1Started = value; }
+			set
+			{
+				laser1Started = value;
+				if (value == false && LasersStarted == 0)
+					timeToCycleEnd = cycle;
+			}
 		}
 
 		/// <summary>
@@ -134,7 +143,12 @@ namespace EveMiner
 		public bool Laser2Started
 		{
 			get { return laser2Started; }
-			set { laser2Started = value; }
+			set 
+			{ 
+				laser2Started = value;
+				if (value == false && LasersStarted == 0)
+					timeToCycleEnd = cycle;
+			}
 		}
 
 		/// <summary>
@@ -143,7 +157,20 @@ namespace EveMiner
 		public bool Laser3Started
 		{
 			get { return laser3Started; }
-			set { laser3Started = value; }
+			set
+			{
+				laser3Started = value;
+				if (value == false && LasersStarted == 0)
+					timeToCycleEnd = cycle;
+			}
+		}
+
+		/// <summary>
+		/// ≈сли цикл началс€ а астера не хватит на весь цикл
+		/// </summary>
+		public bool IsEmptyClose
+		{
+			get { return isEmptyClose; }
 		}
 
 		public TimerListItem(Ore ore, double startVolume, double cycle, double miningYield)
@@ -157,6 +184,9 @@ namespace EveMiner
 			oreUnitPerSecond = miningYield / cycle / ore.Volume;
 
 			timeToAsterEnd = (int)(startVolume / oreUnitPerSecond);
+			if (timeToAsterEnd < cycle)
+				isEmptyClose = true;
+
 		}
 		/// <summary>
 		/// ќбновить значение руды за цикл
@@ -176,6 +206,8 @@ namespace EveMiner
 
 			if(LasersStarted == 0)
 				return;
+			
+
 			currentVolume = CurrentVolume - oreUnitPerSecond*seconds*LasersStarted;
 			if (CurrentVolume < 0)
 				currentVolume = 0;
@@ -183,7 +215,10 @@ namespace EveMiner
 			timeToCycleEnd = timeToCycleEnd - seconds;
 			if (timeToCycleEnd < 0)
 			{
-				timeToCycleEnd = timeToCycleEnd + Cycle;
+				if (timeToAsterEnd < cycle)
+					isEmptyClose = true;
+
+				timeToCycleEnd = timeToCycleEnd + cycle;
 				PlaySound(Settings.CycleEndFileName);
 			}
 

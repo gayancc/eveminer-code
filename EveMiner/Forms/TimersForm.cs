@@ -12,6 +12,10 @@ namespace EveMiner.Forms
 	public partial class TimersForm : Form
 	{
 		private readonly Timer _timer = new Timer();
+		/// <summary>
+		/// текущая заполненость прогрессбара
+		/// </summary>
+		private double _currentCargo;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TimersForm"/> class.
@@ -20,10 +24,27 @@ namespace EveMiner.Forms
 		{
 			InitializeComponent();
 			FillOreList();
+			textBoxCargo.Text = Config<Settings>.Instance.CargoHold.ToString("F0");
+			_currentCargo = 0.0;
+			progressBar1.Maximum = Convert.ToInt32(Config<Settings>.Instance.CargoHold);
+			SetProgressCargo();
+			
 
 			_timer.Tick += TimerTick;
 			_timer.Interval = 1000;
 			_timer.Start();
+		}
+
+		/// <summary>
+		/// Sets the progress cargo.
+		/// </summary>
+		private void SetProgressCargo()
+		{
+			int val = Convert.ToInt32(_currentCargo);
+			if(val > progressBar1.Maximum)
+				val = progressBar1.Maximum;
+			progressBar1.Value = val;
+			progressBar1.Text = _currentCargo.ToString("F2") + " m3";
 		}
 
 		/// <summary>
@@ -40,6 +61,8 @@ namespace EveMiner.Forms
 				{
 					titem.Tick(_timer.Interval / 1000);
 					UpdateTimerListItem(dataGridViewTimers.Rows[n]);
+					_currentCargo += Config<Settings>.Instance.MiningAmount / Config<Settings>.Instance.Cycle * titem.LasersStarted;
+					SetProgressCargo();
 				}
 			}
 		}
@@ -105,8 +128,8 @@ namespace EveMiner.Forms
 				double startVolume = Convert.ToDouble(textBoxStartValue.Text);
 				if(startVolume == 0)
 					return;
-				double cycle = Convert.ToDouble(textBoxCycle.Text);
-				double miningYield = Convert.ToDouble(textBoxMiningYield.Text);
+				double cycle = Config<Settings>.Instance.Cycle;
+				double miningYield = Config<Settings>.Instance.MiningAmount;
 				TimerListItem timerListItem = new TimerListItem(ore,
 				                                                startVolume,
 				                                                cycle,
@@ -137,6 +160,8 @@ namespace EveMiner.Forms
 				dataGridViewTimers.Rows.Add(row);
 
 				UpdateTimerListItem(row);
+				textBoxStartValue.SelectionStart = 0;
+				textBoxStartValue.SelectionLength = textBoxStartValue.TextLength;
 			}
 			catch(FormatException)
 			{
@@ -159,10 +184,9 @@ namespace EveMiner.Forms
 				}
 				else if(timerListItem.LasersStarted > 0)
 				{
-					row.DefaultCellStyle.BackColor = timerListItem.TimeToAsterEnd > timerListItem.Cycle
-					                                 	? Color.FromArgb(200, 255, 200)
-					                                 	: Color.FromArgb(255, 255, 200);
-					
+						row.DefaultCellStyle.BackColor = timerListItem.IsEmptyClose
+														? Color.FromArgb(255, 255, 200)
+					                                 	: Color.FromArgb(200, 255, 200);
 				}
 
 
@@ -183,7 +207,7 @@ namespace EveMiner.Forms
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
-			double miningYield = Convert.ToDouble(textBoxMiningYield.Text);
+			double miningYield = Config<Settings>.Instance.MiningAmount;
 			for(int n = 0; n < dataGridViewTimers.Rows.Count; n++)
 			{
 				TimerListItem titem = dataGridViewTimers.Rows[n].Tag as TimerListItem;
@@ -239,8 +263,6 @@ namespace EveMiner.Forms
 		/// <param name="turret">The turret.</param>
 		public void SetYieldCycle(double yield, double cycleTime, MiningTurret turret)
 		{
-			textBoxMiningYield.Text = yield.ToString();
-			textBoxCycle.Text = cycleTime.ToString();
 			Text = string.Format("{0}m3 / {1}sec - {2}", yield.ToString("F2"), cycleTime.ToString("F0"), turret);
 		}
 
@@ -257,15 +279,21 @@ namespace EveMiner.Forms
 			if(!toolTipInfo.Active && ctrl != null)
 			{
 				string tooltip = "";
-				if(ctrl == textBoxMiningYield)
+				if(ctrl == textBoxCargo)
 				{
-					toolTipInfo.ToolTipTitle = "Mining Amount";
-					tooltip = string.Format("{0} m3", textBoxMiningYield.Text);
+					toolTipInfo.ToolTipTitle = "Cargohold";
+					tooltip = string.Format("{0:0} m3", Config<Settings>.Instance.CargoHold);
+					
 				}
-				else if(ctrl == textBoxCycle)
+				else if(ctrl == btnReset)
 				{
-					toolTipInfo.ToolTipTitle = "Laser/Harvester duration";
-					tooltip = string.Format("{0} seconds", textBoxCycle.Text);
+					toolTipInfo.ToolTipTitle = "";
+					tooltip = "Reset cargo";
+				}
+				else if(ctrl == progressBar1)
+				{
+					toolTipInfo.ToolTipTitle = "";
+					tooltip = _currentCargo.ToString("F2") + " m3";
 				}
 
 				if(tooltip.Length > 0)
@@ -286,9 +314,45 @@ namespace EveMiner.Forms
 
 		#endregion
 
+		/// <summary>
+		/// Handles the SelectedIndexChanged event of the comboBoxOre control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		private void comboBoxOre_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			Config<Settings>.Instance.SelectedOre = comboBoxOre.SelectedItem.ToString();
+		}
+
+		/// <summary>
+		/// Handles the TextChanged event of the textBoxCargo control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void textBoxCargo_TextChanged(object sender, EventArgs e)
+		{
+			try
+			{
+				if (textBoxCargo.Text.Length > 0)
+					Config<Settings>.Instance.CargoHold = Convert.ToDouble(textBoxCargo.Text);
+				else
+					Config<Settings>.Instance.CargoHold = 0;
+				progressBar1.Maximum = Convert.ToInt32(Config<Settings>.Instance.CargoHold);
+			}
+			catch(FormatException)
+			{
+				textBoxCargo.Text = Config<Settings>.Instance.CargoHold.ToString("F0");
+			}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnReset_Click(object sender, EventArgs e)
+		{
+			_currentCargo = 0.0;
+			SetProgressCargo();
 		}
 	}
 }
