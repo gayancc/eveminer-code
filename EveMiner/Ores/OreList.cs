@@ -5,7 +5,7 @@ namespace EveMiner.Ores
 	/// <summary>
 	/// Ore List
 	/// </summary>
-	public static  class OreList 
+	public static class OreList
 	{
 		/// <summary>
 		/// 
@@ -264,8 +264,8 @@ namespace EveMiner.Ores
 		{
 			Skills skills = Config<Settings>.Instance.Skills;
 			double eff = netYield +
-			             0.375 * (1 + skills.Refining * 0.02) * (1 + skills.EfficiencyRefining * 0.04) *
-			             (1 + GetProcessingSkill(ore) * 0.05);
+			             0.375*(1 + skills.Refining*0.02)*(1 + skills.EfficiencyRefining*0.04)*
+			             (1 + GetProcessingSkill(ore)*0.05);
 			if (eff > 1.0)
 				eff = 1.0;
 			return eff;

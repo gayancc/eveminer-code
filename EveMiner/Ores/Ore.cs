@@ -87,10 +87,12 @@ namespace EveMiner.Ores
 		/// Объем единицы руды
 		/// </summary>
 		public double Volume;
+
 		/// <summary>
 		/// Число единиц руды для рефайна
 		/// </summary>
 		private readonly int unitsToRefine;
+
 		/// <summary>
 		/// Выхлоп минеарлов на единицу руды
 		/// </summary>
@@ -110,6 +112,7 @@ namespace EveMiner.Ores
 			this.unitsToRefine = unitsToRefine;
 			MineralsOut = mineralsOut;
 		}
+
 		/// <summary>
 		/// Число единиц руды для рефайна
 		/// </summary>

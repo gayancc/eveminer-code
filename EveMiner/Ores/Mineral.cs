@@ -4,7 +4,6 @@ using System.Text;
 
 namespace EveMiner.Ores
 {
-
 	public class Mineral
 	{
 		public string Name { get; set; }

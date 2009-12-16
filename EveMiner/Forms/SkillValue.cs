@@ -14,13 +14,13 @@ namespace EveMiner.Forms
 	/// </summary>
 	public partial class SkillValue : UserControl
 	{
-
 		/// <summary>
 		/// Occurs when [value change].
 		/// </summary>
 		[DisplayName("Value Changed")]
 		[Category("SkillValue")]
 		public event EventHandler ValueChanged;
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="SkillValue"/> class.
 		/// </summary>
@@ -30,6 +30,7 @@ namespace EveMiner.Forms
 		}
 
 		private int _value;
+
 		/// <summary>
 		/// значение скила
 		/// </summary>
@@ -37,22 +38,23 @@ namespace EveMiner.Forms
 		[DisplayName("Skill Value")]
 		[Category("SkillValue")]
 		[DefaultValue(0)]
-		public int Value 
-		{ 
-			get { return _value;} 
-			set 
-			{ 
+		public int Value
+		{
+			get { return _value; }
+			set
+			{
 				_value = value;
 				SetSkillValue(Value);
 				if (ValueChanged != null)
 					ValueChanged(this, EventArgs.Empty);
-			} 
+			}
 		}
 
 		private void numericUpDownValue_ValueChanged(object sender, EventArgs e)
 		{
-			Value = (int)numericUpDownValue.Value;
+			Value = (int) numericUpDownValue.Value;
 		}
+
 		/// <summary>
 		/// Ставит нужную картинку для скила
 		/// </summary>
@@ -83,5 +85,4 @@ namespace EveMiner.Forms
 			numericUpDownValue.Value = skillValue;
 		}
 	}
-
 }

@@ -13,21 +13,23 @@ namespace EveMiner.Forms
 	public partial class Histogram : Control
 	{
 		#region Закрытые параметры
+
 		/// <summary>
 		/// Верхний цвет фона
 		/// </summary>
-		Color _topColor = Color.White;
+		private Color _topColor = Color.White;
 
-		static Color TopDefaultColor
+		private static Color TopDefaultColor
 		{
 			get { return Color.White; }
 		}
+
 		/// <summary>
 		/// Нижний цвет фона
 		/// </summary>
-		Color _bottomColor = Color.LightSteelBlue;
+		private Color _bottomColor = Color.LightSteelBlue;
 
-		static Color BottomDefaultColor
+		private static Color BottomDefaultColor
 		{
 			get { return Color.LightSteelBlue; }
 		}
@@ -35,9 +37,9 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Цвет сетки
 		/// </summary>
-		Color _gridColor = Color.Black;
+		private Color _gridColor = Color.Black;
 
-		static Color GridDefaultColor
+		private static Color GridDefaultColor
 		{
 			get { return Color.Black; }
 		}
@@ -45,41 +47,49 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Расстояние между барами в пикселях
 		/// </summary>
-		int _delta = DeltaDefault;
-		const int DeltaDefault = 5;
+		private int _delta = DeltaDefault;
+
+		private const int DeltaDefault = 5;
+
 		/// <summary>
 		/// Ширина области границы по осям X и Y
 		/// </summary>
-		int _borderX = BorderDefault;
-		int _borderY = BorderDefault;
-		const int BorderDefault = 20;
+		private int _borderX = BorderDefault;
+
+		private int _borderY = BorderDefault;
+		private const int BorderDefault = 20;
 
 		/// <summary>
 		/// Список баров на гистограмме
 		/// </summary>
-		List<Bar> _listBars = new List<Bar>();
+		private List<Bar> _listBars = new List<Bar>();
+
 		/// <summary>
 		/// Показывать имена баров
 		/// </summary>
-		bool _showLabels;
+		private bool _showLabels;
+
 		/// <summary>
 		/// Показывать значения на гистограмме
 		/// </summary>
-		bool _showValues;
+		private bool _showValues;
+
 		/// <summary>
 		/// Шрифт меток значений
 		/// </summary>
-		Font _valuesFont;
+		private Font _valuesFont;
+
 		/// <summary>
 		/// Суффикс для значения
 		/// </summary>
 		private string _suffix;
+
 		/// <summary>
 		/// Мышь в прямоугольнике бара или нет
 		/// </summary>
 		private Bar _mouseEnteredBar;
 
-		static Font ValuesDefaultFont
+		private static Font ValuesDefaultFont
 		{
 			get { return new Font(FontFamily.GenericSansSerif, 8.25f); }
 		}
@@ -94,12 +104,14 @@ namespace EveMiner.Forms
 		[Category("Histogram")]
 		[Description("Mouse enter bar")]
 		public event HistogramEnterEventHandler BarEnterEvent;
+
 		/// <summary>
 		/// Occurs when [bar leave event].
 		/// </summary>
 		[Category("Histogram")]
 		[Description("Mouse leave bar")]
 		public event HistogramEnterEventHandler BarLeaveEvent;
+
 		/// <summary>
 		/// Верхний цвет фона
 		/// </summary>
@@ -114,16 +126,23 @@ namespace EveMiner.Forms
 					_topColor = TopDefaultColor;
 				return _topColor;
 			}
-			set { _topColor = value; Invalidate(); }
+			set
+			{
+				_topColor = value;
+				Invalidate();
+			}
 		}
+
 		private void ResetTopColor()
 		{
 			TopColor = TopDefaultColor;
 		}
+
 		private bool ShouldSerializeTopColor()
 		{
 			return TopColor != TopDefaultColor;
 		}
+
 		/// <summary>
 		/// Нижний цвет фона
 		/// </summary>
@@ -138,16 +157,23 @@ namespace EveMiner.Forms
 					_bottomColor = BottomDefaultColor;
 				return _bottomColor;
 			}
-			set { _bottomColor = value; Invalidate(); }
+			set
+			{
+				_bottomColor = value;
+				Invalidate();
+			}
 		}
+
 		private void ResetBottomColor()
 		{
 			BottomColor = BottomDefaultColor;
 		}
+
 		private bool ShouldSerializeBottomColor()
 		{
 			return BottomColor != BottomDefaultColor;
 		}
+
 		/// <summary>
 		/// Цвет сетки
 		/// </summary>
@@ -163,16 +189,23 @@ namespace EveMiner.Forms
 
 				return _gridColor;
 			}
-			set { _gridColor = value; Invalidate(); }
+			set
+			{
+				_gridColor = value;
+				Invalidate();
+			}
 		}
+
 		private void ResetGridColor()
 		{
 			GridColor = GridDefaultColor;
 		}
+
 		private bool ShouldSerializeGridColor()
 		{
 			return GridColor != GridDefaultColor;
 		}
+
 		/// <summary>
 		/// Расстояние между барами в пикселях
 		/// </summary>
@@ -183,8 +216,13 @@ namespace EveMiner.Forms
 		public int Delta
 		{
 			get { return _delta; }
-			set { _delta = value; Invalidate(); }
+			set
+			{
+				_delta = value;
+				Invalidate();
+			}
 		}
+
 		/// <summary>
 		/// Ширина области границы по Оси X
 		/// </summary>
@@ -201,6 +239,7 @@ namespace EveMiner.Forms
 				Invalidate();
 			}
 		}
+
 		/// <summary>
 		/// Ширина области границы по Оси Y
 		/// </summary>
@@ -217,6 +256,7 @@ namespace EveMiner.Forms
 				Invalidate();
 			}
 		}
+
 		/// <summary>
 		/// Список баров на гистограмме
 		/// </summary>
@@ -226,13 +266,19 @@ namespace EveMiner.Forms
 		public List<Bar> ListBars
 		{
 			get { return _listBars; }
-			set { _listBars = value; Invalidate(); }
+			set
+			{
+				_listBars = value;
+				Invalidate();
+			}
 		}
+
 		private bool ShouldSerializeListBars()
 		{
 			Invalidate();
 			return _listBars.Count != 0;
 		}
+
 		/// <summary>
 		/// Показывать или нет имена баров
 		/// </summary>
@@ -243,8 +289,13 @@ namespace EveMiner.Forms
 		public bool ShowLabels
 		{
 			get { return _showLabels; }
-			set { _showLabels = value; Invalidate(); }
+			set
+			{
+				_showLabels = value;
+				Invalidate();
+			}
 		}
+
 		/// <summary>
 		/// Показывать или нет значения
 		/// </summary>
@@ -255,8 +306,13 @@ namespace EveMiner.Forms
 		public bool ShowValues
 		{
 			get { return _showValues; }
-			set { _showValues = value; Invalidate(); }
+			set
+			{
+				_showValues = value;
+				Invalidate();
+			}
 		}
+
 		/// <summary>
 		/// Шрифт подписей
 		/// </summary>
@@ -277,14 +333,17 @@ namespace EveMiner.Forms
 				Invalidate();
 			}
 		}
+
 		private void ResetValuesFont()
 		{
 			ValuesFont = ValuesDefaultFont;
 		}
+
 		private bool ShouldSerializeValuesFont()
 		{
 			return !ValuesFont.Equals(ValuesDefaultFont);
 		}
+
 		/// <summary>
 		/// Суффикс для значения
 		/// </summary>
@@ -294,13 +353,15 @@ namespace EveMiner.Forms
 		public string Suffix
 		{
 			get { return _suffix; }
-			set { _suffix = value;
-				Invalidate();}
+			set
+			{
+				_suffix = value;
+				Invalidate();
+			}
 		}
 
-
 		#endregion
-		
+
 		///<summary>
 		///</summary>
 		public Histogram()
@@ -319,16 +380,16 @@ namespace EveMiner.Forms
 
 			pe.Graphics.SmoothingMode = SmoothingMode.HighQuality;
 			Rectangle rec = new Rectangle(new Point(0, 0), Size);
-			
+
 			using (Brush br = new LinearGradientBrush(rec, TopColor, BottomColor, LinearGradientMode.ForwardDiagonal))
 			{
 				pe.Graphics.FillRectangle(br, rec);
 			}
 
 			//Если не хватит места для отрисовки баров
-			if ((_listBars.Count - 1) * Delta + BorderX * 2 >= rec.Width)
+			if ((_listBars.Count - 1)*Delta + BorderX*2 >= rec.Width)
 				return;
-			if (rec.Height <= BorderY * 2)
+			if (rec.Height <= BorderY*2)
 				return;
 
 			//поиск максимальных значений положительных и отрицатеьных
@@ -336,45 +397,45 @@ namespace EveMiner.Forms
 			double maxValBottom = 0.0;
 			foreach (Bar bar in _listBars)
 			{
-				if(bar.Value < 0 && maxValBottom < Math.Abs(bar.Value))
+				if (bar.Value < 0 && maxValBottom < Math.Abs(bar.Value))
 					maxValBottom = Math.Abs(bar.Value);
-				else if(bar.Value > 0 && maxValTop < bar.Value)
+				else if (bar.Value > 0 && maxValTop < bar.Value)
 					maxValTop = bar.Value;
 			}
 			if (!(maxValTop + maxValBottom > 0))
 				return;
-			
-			rec.Width -= BorderX * 2;
-			rec.Height -= BorderY * 2;
+
+			rec.Width -= BorderX*2;
+			rec.Height -= BorderY*2;
 			rec.Location = new Point(BorderX, BorderY);
 
 			//Точка основания диаграммы
-			Point baseLineStart = new Point(BorderX, 
-			                                Convert.ToInt32 (rec.Height * maxValTop / (maxValTop + maxValBottom)) + BorderY);
+			Point baseLineStart = new Point(BorderX,
+			                                Convert.ToInt32(rec.Height*maxValTop/(maxValTop + maxValBottom)) + BorderY);
 			Point baseLineEnd = new Point(Size.Width - BorderX, baseLineStart.Y);
 
 			Rectangle currentBar = new Rectangle
 			                       	{
-			                       		Width = (rec.Width - (_listBars.Count - 1) * Delta) / _listBars.Count
+			                       		Width = (rec.Width - (_listBars.Count - 1)*Delta)/_listBars.Count
 			                       	};
 			//Ширина одного столбца
 			//рисуем стобцы
-			for(int n = 0; n < _listBars.Count; n++)
+			for (int n = 0; n < _listBars.Count; n++)
 			{
-				Bar bar = _listBars[n];		
-				currentBar.Height = Convert.ToInt32(Math.Abs(bar.Value) * rec.Height / (maxValTop + maxValBottom));
-				currentBar.X = n * (Delta + currentBar.Width) + BorderX;
-				
+				Bar bar = _listBars[n];
+				currentBar.Height = Convert.ToInt32(Math.Abs(bar.Value)*rec.Height/(maxValTop + maxValBottom));
+				currentBar.X = n*(Delta + currentBar.Width) + BorderX;
+
 				if (bar.Value < 0)
 					currentBar.Y = baseLineStart.Y;
 				else
 				{
 					currentBar.Y = baseLineStart.Y - currentBar.Height;
 				}
-				
-				if(currentBar.Width > 0 && currentBar.Height > 0)
+
+				if (currentBar.Width > 0 && currentBar.Height > 0)
 				{
-					using (Brush br = new LinearGradientBrush(currentBar, bar.Color1, bar.Color2,	LinearGradientMode.Horizontal))
+					using (Brush br = new LinearGradientBrush(currentBar, bar.Color1, bar.Color2, LinearGradientMode.Horizontal))
 					{
 						pe.Graphics.FillRectangle(br, currentBar);
 					}
@@ -382,38 +443,35 @@ namespace EveMiner.Forms
 					bar.Rect = currentBar;
 				}
 				//если показывать метки
-				if(ShowLabels)
+				if (ShowLabels)
 				{
-					using(StringFormat format = new StringFormat())
+					using (StringFormat format = new StringFormat())
 					{
 						//format.FormatFlags = StringFormatFlags.DirectionVertical;
 						format.Alignment = StringAlignment.Center;
 
 						if (bar.Value < 0)
 							format.LineAlignment = StringAlignment.Far;
-						Point pt = new Point(currentBar.X + currentBar.Width / 2,
+						Point pt = new Point(currentBar.X + currentBar.Width/2,
 						                     currentBar.Y + ((bar.Value < 0) ? 0 : currentBar.Height));
 
 						pe.Graphics.DrawString(bar.Name, Font, new SolidBrush(ForeColor), pt, format);
 					}
-
 				}
 				//Если включен показ значений
 				if (ShowValues && bar.Value != 0)
 				{
-					using(StringFormat format = new StringFormat())
+					using (StringFormat format = new StringFormat())
 					{
 						format.Alignment = StringAlignment.Center;
 						if (bar.Value > 0)
 							format.LineAlignment = StringAlignment.Far;
 
-						Point pt = new Point(currentBar.X + currentBar.Width / 2,
+						Point pt = new Point(currentBar.X + currentBar.Width/2,
 						                     currentBar.Y + ((bar.Value > 0) ? 0 : currentBar.Height - 15));
 						pe.Graphics.DrawString(bar.Value.ToString("#,#.##") + Suffix, ValuesFont, new SolidBrush(ForeColor), pt, format);
-						
 					}
 				}
-
 			}
 			pe.Graphics.DrawLine(new Pen(GridColor), baseLineStart, baseLineEnd);
 		}
@@ -437,27 +495,23 @@ namespace EveMiner.Forms
 		private void Histogram_MouseMove(object sender, MouseEventArgs e)
 		{
 			Bar fb = null;
-			foreach(Bar bar in ListBars)
+			foreach (Bar bar in ListBars)
 			{
-				if(e.X > bar.Rect.Left && e.X < bar.Rect.Right &&
-					e.Y < bar.Rect.Bottom && e.Y > bar.Rect.Top) 
+				if (e.X > bar.Rect.Left && e.X < bar.Rect.Right &&
+				    e.Y < bar.Rect.Bottom && e.Y > bar.Rect.Top)
 					fb = bar;
 			}
 			if (fb != null)
 			{
-				
-				if(BarEnterEvent != null && _mouseEnteredBar != fb)
+				if (BarEnterEvent != null && _mouseEnteredBar != fb)
 					BarEnterEvent(this, new HistogramEnterEventHandlerArgs {Bar = fb});
 				_mouseEnteredBar = fb;
 			}
-			else if(_mouseEnteredBar != null && BarLeaveEvent != null)
+			else if (_mouseEnteredBar != null && BarLeaveEvent != null)
 			{
 				BarLeaveEvent(this, new HistogramEnterEventHandlerArgs {Bar = _mouseEnteredBar});
 				_mouseEnteredBar = null;
 			}
-
-
-
 		}
 	}
 
@@ -467,35 +521,37 @@ namespace EveMiner.Forms
 	[Serializable]
 	public class Bar
 	{
-		double _value;
+		private double _value;
+
 		/// <summary>
 		/// Имя бара
 		/// </summary>
-		string _name;
+		private string _name;
 
 		/// <summary>
 		/// Верхний цвет бара
 		/// </summary>
-		Color _color1 = Color.CornflowerBlue;
+		private Color _color1 = Color.CornflowerBlue;
 
-		static Color DefaultColor1 
+		private static Color DefaultColor1
 		{
 			get { return Color.CornflowerBlue; }
 		}
+
 		/// <summary>
 		/// Нижний цвет бара
 		/// </summary>
-		Color _color2 = Color.Black;
+		private Color _color2 = Color.Black;
 
-		static Color DefaultColor2
+		private static Color DefaultColor2
 		{
 			get { return Color.Black; }
 		}
+
 		/// <summary>
 		/// обрамляющий прямоугольник бара
 		/// </summary>
-		[NonSerialized]
-		public Rectangle Rect;
+		[NonSerialized] public Rectangle Rect;
 
 		/// <summary>
 		/// Значение
@@ -507,6 +563,7 @@ namespace EveMiner.Forms
 			get { return _value; }
 			set { _value = value; }
 		}
+
 		/// <summary>
 		/// Имя бара
 		/// </summary>
@@ -532,10 +589,12 @@ namespace EveMiner.Forms
 			}
 			set { _color1 = value; }
 		}
+
 		private void ResetColor1()
 		{
 			Color1 = DefaultColor1;
 		}
+
 		private bool ShouldSerializeColor1()
 		{
 			return Color1 != DefaultColor1;
@@ -556,17 +615,16 @@ namespace EveMiner.Forms
 			set { _color2 = value; }
 		}
 
-		
 
 		private void ResetColor2()
 		{
 			Color2 = DefaultColor2;
 		}
+
 		private bool ShouldSerializeColor2()
 		{
 			return Color2 != DefaultColor2;
 		}
-
 	}
 
 	/// <summary>
@@ -584,8 +642,4 @@ namespace EveMiner.Forms
 		/// </summary>
 		public Bar Bar;
 	} ;
-
-
-
-
 }

@@ -12,6 +12,7 @@ namespace EveMiner.Forms
 	public partial class TimersForm : Form
 	{
 		private readonly Timer _timer = new Timer();
+
 		/// <summary>
 		/// текущая заполненость прогрессбара
 		/// </summary>
@@ -28,7 +29,7 @@ namespace EveMiner.Forms
 			_currentCargo = 0.0;
 			progressBar1.Maximum = Convert.ToInt32(Config<Settings>.Instance.CargoHold);
 			SetProgressCargo();
-			
+
 
 			_timer.Tick += TimerTick;
 			_timer.Interval = 1000;
@@ -41,7 +42,7 @@ namespace EveMiner.Forms
 		private void SetProgressCargo()
 		{
 			int val = Convert.ToInt32(_currentCargo);
-			if(val > progressBar1.Maximum)
+			if (val > progressBar1.Maximum)
 				val = progressBar1.Maximum;
 			progressBar1.Value = val;
 			progressBar1.Text = _currentCargo.ToString("F2") + " m3";
@@ -54,14 +55,14 @@ namespace EveMiner.Forms
 		/// <param name="e"></param>
 		private void TimerTick(object sender, EventArgs e)
 		{
-			for(int n = 0; n < dataGridViewTimers.Rows.Count; n++)
+			for (int n = 0; n < dataGridViewTimers.Rows.Count; n++)
 			{
 				TimerListItem titem = dataGridViewTimers.Rows[n].Tag as TimerListItem;
-				if(titem != null && titem.LasersStarted != 0)
+				if (titem != null && titem.LasersStarted != 0)
 				{
-					titem.Tick(_timer.Interval / 1000);
+					titem.Tick(_timer.Interval/1000);
 					UpdateTimerListItem(dataGridViewTimers.Rows[n]);
-					_currentCargo += Config<Settings>.Instance.MiningAmount / Config<Settings>.Instance.Cycle * titem.LasersStarted;
+					_currentCargo += Config<Settings>.Instance.MiningAmount/Config<Settings>.Instance.Cycle*titem.LasersStarted;
 					SetProgressCargo();
 				}
 			}
@@ -74,43 +75,52 @@ namespace EveMiner.Forms
 		/// <param name="e"></param>
 		private void DataGridViewTimersCellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if(sender == dataGridViewTimers)
+			if (sender == dataGridViewTimers)
 			{
-				if (e.RowIndex == -1)
-					return;
-				if(e.ColumnIndex == ColumnLaser1Start.Index ||
-					e.ColumnIndex == ColumnLaser2Start.Index ||
-					e.ColumnIndex == ColumnLaser3Start.Index)
+				if (e.ColumnIndex == ColumnLaser1Start.Index ||
+				    e.ColumnIndex == ColumnLaser2Start.Index ||
+				    e.ColumnIndex == ColumnLaser3Start.Index)
 				{
+					if (e.RowIndex == -1)
+						return;
 					DataGridViewRow row = dataGridViewTimers.Rows[e.RowIndex];
 					TimerListItem titem = row.Tag as TimerListItem;
-					if(titem != null)
+					if (titem != null)
 					{
 						if (e.ColumnIndex == ColumnLaser1Start.Index)
 						{
 							titem.Laser1Started = !titem.Laser1Started;
-							row.Cells[e.ColumnIndex].Value = titem.Laser1Started ?
-								Properties.Resources.stop_24 : Properties.Resources.play_24;
+							row.Cells[e.ColumnIndex].Value = titem.Laser1Started
+							                                 	?
+							                                 		Properties.Resources.stop_24
+							                                 	: Properties.Resources.play_24;
 						}
 						else if (e.ColumnIndex == ColumnLaser2Start.Index)
 						{
 							titem.Laser2Started = !titem.Laser2Started;
-							row.Cells[e.ColumnIndex].Value = titem.Laser2Started ?
-								Properties.Resources.stop_24 : Properties.Resources.play_24;
+							row.Cells[e.ColumnIndex].Value = titem.Laser2Started
+							                                 	?
+							                                 		Properties.Resources.stop_24
+							                                 	: Properties.Resources.play_24;
 						}
 						else if (e.ColumnIndex == ColumnLaser3Start.Index)
 						{
 							titem.Laser3Started = !titem.Laser3Started;
-							row.Cells[e.ColumnIndex].Value = titem.Laser3Started ?
-								Properties.Resources.stop_24 : Properties.Resources.play_24;
+							row.Cells[e.ColumnIndex].Value = titem.Laser3Started
+							                                 	?
+							                                 		Properties.Resources.stop_24
+							                                 	: Properties.Resources.play_24;
 						}
 					}
 					else
 						dataGridViewTimers.Rows.Remove(dataGridViewTimers.Rows[e.RowIndex]);
 				}
-				if(e.ColumnIndex == ColumnButtonDelete.Index)
+				if (e.ColumnIndex == ColumnButtonDelete.Index)
 				{
-					dataGridViewTimers.Rows.Remove(dataGridViewTimers.Rows[e.RowIndex]);
+					if (e.RowIndex == -1)
+						dataGridViewTimers.Rows.Clear();
+					else
+						dataGridViewTimers.Rows.Remove(dataGridViewTimers.Rows[e.RowIndex]);
 				}
 			}
 		}
@@ -126,7 +136,7 @@ namespace EveMiner.Forms
 			try
 			{
 				double startVolume = Convert.ToDouble(textBoxStartValue.Text);
-				if(startVolume == 0)
+				if (startVolume == 0)
 					return;
 				double cycle = Config<Settings>.Instance.Cycle;
 				double miningYield = Config<Settings>.Instance.MiningAmount;
@@ -144,15 +154,15 @@ namespace EveMiner.Forms
 				cells[ColumnTimeToEnd.Index] = new DataGridViewTextBoxCell
 				                               	{
 				                               		Value =
-				                               			string.Format("{0:00}:{1:00}", Math.Floor(timerListItem.TimeToAsterEnd / 60),
-				                               			              timerListItem.TimeToAsterEnd % 60)
+				                               			string.Format("{0:00}:{1:00}", Math.Floor(timerListItem.TimeToAsterEnd/60),
+				                               			              timerListItem.TimeToAsterEnd%60)
 				                               	};
-				cells[ColumnLaser1Start.Index] = new DataGridViewImageCell { Value = Properties.Resources.play_24 };
-				cells[ColumnLaser2Start.Index] = new DataGridViewImageCell { Value = Properties.Resources.play_24 };
-				cells[ColumnLaser3Start.Index] = new DataGridViewImageCell { Value = Properties.Resources.play_24 };
+				cells[ColumnLaser1Start.Index] = new DataGridViewImageCell {Value = Properties.Resources.play_24};
+				cells[ColumnLaser2Start.Index] = new DataGridViewImageCell {Value = Properties.Resources.play_24};
+				cells[ColumnLaser3Start.Index] = new DataGridViewImageCell {Value = Properties.Resources.play_24};
 
 				//cells[ColumnButtonDelete.Index] = new DataGridViewButtonCell {Value = "x"};
-				cells[ColumnButtonDelete.Index] = new DataGridViewImageCell { Value = Properties.Resources.close_24 };
+				cells[ColumnButtonDelete.Index] = new DataGridViewImageCell {Value = Properties.Resources.close_24};
 
 				row.Cells.AddRange(cells);
 
@@ -163,7 +173,7 @@ namespace EveMiner.Forms
 				textBoxStartValue.SelectionStart = 0;
 				textBoxStartValue.SelectionLength = textBoxStartValue.TextLength;
 			}
-			catch(FormatException)
+			catch (FormatException)
 			{
 				textBoxStartValue.Text = "0";
 			}
@@ -176,26 +186,26 @@ namespace EveMiner.Forms
 		private void UpdateTimerListItem(DataGridViewRow row)
 		{
 			TimerListItem timerListItem = row.Tag as TimerListItem;
-			if(timerListItem != null)
+			if (timerListItem != null)
 			{
-				if(timerListItem.TimeToAsterEnd == 0)
+				if (timerListItem.TimeToAsterEnd == 0)
 				{
 					row.DefaultCellStyle.BackColor = Color.FromArgb(255, 200, 200);
 				}
-				else if(timerListItem.LasersStarted > 0)
+				else if (timerListItem.LasersStarted > 0)
 				{
-						row.DefaultCellStyle.BackColor = timerListItem.IsEmptyClose
-														? Color.FromArgb(255, 255, 200)
+					row.DefaultCellStyle.BackColor = timerListItem.IsEmptyClose
+					                                 	? Color.FromArgb(255, 255, 200)
 					                                 	: Color.FromArgb(200, 255, 200);
 				}
 
 
 				row.Cells[ColumnTimeToEnd.Index].Value =
-					string.Format("{0:00}:{1:00}", Math.Floor(timerListItem.TimeToAsterEnd / 60), timerListItem.TimeToAsterEnd % 60);
+					string.Format("{0:00}:{1:00}", Math.Floor(timerListItem.TimeToAsterEnd/60), timerListItem.TimeToAsterEnd%60);
 				row.Cells[ColumnCycle.Index].Value = timerListItem.TimeToCycleEnd.ToString("F0");
 				row.Cells[ColumnCurrentQty.Index].Value = string.Format("{0}", timerListItem.CurrentVolume.ToString("F0"));
 
-				if(timerListItem.TimeToAsterEnd == 0)
+				if (timerListItem.TimeToAsterEnd == 0)
 					row.Tag = null;
 			}
 		}
@@ -208,10 +218,10 @@ namespace EveMiner.Forms
 		private void buttonUpdate_Click(object sender, EventArgs e)
 		{
 			double miningYield = Config<Settings>.Instance.MiningAmount;
-			for(int n = 0; n < dataGridViewTimers.Rows.Count; n++)
+			for (int n = 0; n < dataGridViewTimers.Rows.Count; n++)
 			{
 				TimerListItem titem = dataGridViewTimers.Rows[n].Tag as TimerListItem;
-				if(titem != null)
+				if (titem != null)
 				{
 					titem.SetMiningYield(miningYield);
 					UpdateTimerListItem(dataGridViewTimers.Rows[n]);
@@ -225,18 +235,18 @@ namespace EveMiner.Forms
 		/// </summary>
 		private void FillOreList()
 		{
-			foreach(KeyValuePair<string, Ore> pair in OreList.DictOre)
+			foreach (KeyValuePair<string, Ore> pair in OreList.DictOre)
 			{
 				comboBoxOre.Items.Add(pair.Value);
 			}
 
 			//Select ore from config
 			Ore ore = OreList.Get(Config<Settings>.Instance.SelectedOre);
-			if(ore != null)
+			if (ore != null)
 			{
-				for(int n = 0; n < comboBoxOre.Items.Count; n++)
+				for (int n = 0; n < comboBoxOre.Items.Count; n++)
 				{
-					if(comboBoxOre.Items[n] == ore)
+					if (comboBoxOre.Items[n] == ore)
 						comboBoxOre.SelectedIndex = n;
 				}
 			}
@@ -276,27 +286,26 @@ namespace EveMiner.Forms
 		private void OnMouseEnterCtrl(object sender, EventArgs e)
 		{
 			Control ctrl = sender as Control;
-			if(!toolTipInfo.Active && ctrl != null)
+			if (!toolTipInfo.Active && ctrl != null)
 			{
 				string tooltip = "";
-				if(ctrl == textBoxCargo)
+				if (ctrl == textBoxCargo)
 				{
 					toolTipInfo.ToolTipTitle = "Cargohold";
 					tooltip = string.Format("{0:0} m3", Config<Settings>.Instance.CargoHold);
-					
 				}
-				else if(ctrl == btnReset)
+				else if (ctrl == btnReset)
 				{
 					toolTipInfo.ToolTipTitle = "";
 					tooltip = "Reset cargo";
 				}
-				else if(ctrl == progressBar1)
+				else if (ctrl == progressBar1)
 				{
 					toolTipInfo.ToolTipTitle = "";
 					tooltip = _currentCargo.ToString("F2") + " m3";
 				}
 
-				if(tooltip.Length > 0)
+				if (tooltip.Length > 0)
 					toolTipInfo.SetToolTip(ctrl, tooltip);
 				toolTipInfo.Active = true;
 			}
@@ -339,11 +348,12 @@ namespace EveMiner.Forms
 					Config<Settings>.Instance.CargoHold = 0;
 				progressBar1.Maximum = Convert.ToInt32(Config<Settings>.Instance.CargoHold);
 			}
-			catch(FormatException)
+			catch (FormatException)
 			{
 				textBoxCargo.Text = Config<Settings>.Instance.CargoHold.ToString("F0");
 			}
 		}
+
 		/// <summary>
 		/// 
 		/// </summary>

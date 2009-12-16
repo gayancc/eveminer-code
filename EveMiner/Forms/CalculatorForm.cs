@@ -20,7 +20,7 @@ namespace EveMiner.Forms
 		{
 			InitializeComponent();
 			comboStandTax.SelectedIndex = Config<Settings>.Instance.StandTaxe;
-			
+
 
 			pictureBoxTritanium.Tag = MineralList.Get("Tritanium");
 			textBoxPriceTritanium.Tag = MineralList.Get("Tritanium");
@@ -68,12 +68,12 @@ namespace EveMiner.Forms
 		private void PutMineralPrices()
 		{
 			textBoxPriceTritanium.Text = MineralList.Get("Tritanium").Price.ToString("F2");
-			textBoxPricePyerite.Text = MineralList.Get("Pyerite").Price.ToString("F2"); 
-			textBoxPriceMexallon.Text = MineralList.Get("Mexallon").Price.ToString("F2"); 
-			textBoxPriceIsogen.Text = MineralList.Get("Isogen").Price.ToString("F2"); 
-			textBoxPriceNocxium.Text = MineralList.Get("Nocxium").Price.ToString("F2"); 
-			textBoxPriceZydrine.Text = MineralList.Get("Zydrine").Price.ToString("F2"); 
-			textBoxPriceMegacyte.Text = MineralList.Get("Megacyte").Price.ToString("F2"); 
+			textBoxPricePyerite.Text = MineralList.Get("Pyerite").Price.ToString("F2");
+			textBoxPriceMexallon.Text = MineralList.Get("Mexallon").Price.ToString("F2");
+			textBoxPriceIsogen.Text = MineralList.Get("Isogen").Price.ToString("F2");
+			textBoxPriceNocxium.Text = MineralList.Get("Nocxium").Price.ToString("F2");
+			textBoxPriceZydrine.Text = MineralList.Get("Zydrine").Price.ToString("F2");
+			textBoxPriceMegacyte.Text = MineralList.Get("Megacyte").Price.ToString("F2");
 			textBoxPriceMorphite.Text = MineralList.Get("Morphite").Price.ToString("F2");
 		}
 
@@ -90,17 +90,15 @@ namespace EveMiner.Forms
 
 			try
 			{
-
 				// Два объекта для получения информации о предполагаемом скачиваемом xml
 				HttpWebRequest httpWReq = (HttpWebRequest) WebRequest.Create(webAddress);
 				WebClient httpClient = new WebClient();
 				HttpWebResponse httpWResp = (HttpWebResponse) httpWReq.GetResponse();
 				// Проверяем,  действительно ли по данному адресу находится xml
-				if(httpWResp.ContentType == "text/xml")
+				if (httpWResp.ContentType == "text/xml")
 				{
 					// Скачиваем
 					httpClient.DownloadFile(webAddress, localAddress);
-
 				}
 				httpWResp.Close();
 			}
@@ -112,8 +110,8 @@ namespace EveMiner.Forms
 
 			try
 			{
-                System.Globalization.NumberFormatInfo info = new System.Globalization.NumberFormatInfo();
-                info.NumberDecimalSeparator = ".";
+				System.Globalization.NumberFormatInfo info = new System.Globalization.NumberFormatInfo();
+				info.NumberDecimalSeparator = ".";
 
 				using (XmlTextReader reader = new XmlTextReader(localAddress))
 				{
@@ -137,12 +135,11 @@ namespace EveMiner.Forms
 					}
 				}
 			}
-			catch(XmlException)
-			{}
+			catch (XmlException)
+			{
+			}
 
 			PutMineralPrices();
-
-
 		}
 
 
@@ -158,29 +155,31 @@ namespace EveMiner.Forms
 			double cargohold = 0.0;
 			try
 			{
-				netYield = Convert.ToDouble(textBoxNetYield.Text) / 100;
+				netYield = Convert.ToDouble(textBoxNetYield.Text)/100;
 				quantity = Convert.ToInt32(textBoxQuantity.Text);
 			}
-			catch(FormatException)
-			{}
+			catch (FormatException)
+			{
+			}
 			try
 			{
 				cargohold = Convert.ToDouble(textBoxCargohold.Text);
 			}
-			catch(FormatException)
-			{}
+			catch (FormatException)
+			{
+			}
 
 
 			dataGridViewCalc.Rows.Clear();
-			foreach(KeyValuePair<string, Ore> pair in OreList.DictOre)
+			foreach (KeyValuePair<string, Ore> pair in OreList.DictOre)
 			{
 				Ore ore = pair.Value;
 
-				if(sender == buttonCalculateCargoHold)
-					quantity = (int) (cargohold / ore.Volume);
+				if (sender == buttonCalculateCargoHold)
+					quantity = (int) (cargohold/ore.Volume);
 
-				int unitProcess = quantity - quantity % ore.UnitsToRefine;
-				int p = quantity / ore.UnitsToRefine;
+				int unitProcess = quantity - quantity%ore.UnitsToRefine;
+				int p = quantity/ore.UnitsToRefine;
 
 				InsertProfitLine(ore, netYield, p, unitProcess);
 			}
@@ -194,11 +193,11 @@ namespace EveMiner.Forms
 		{
 			double tax;
 			if (Config<Settings>.Instance.StandTaxe == Settings.Stand)
-				tax = (5 - Config<Settings>.Instance.Standing * 5 / 6.66666) / 100;
+				tax = (5 - Config<Settings>.Instance.Standing*5/6.66666)/100;
 			else
-				tax = Config<Settings>.Instance.TaxRate / 100;
+				tax = Config<Settings>.Instance.TaxRate/100;
 
-			if(tax < 0)
+			if (tax < 0)
 				tax = 0;
 			return tax;
 		}
@@ -222,7 +221,7 @@ namespace EveMiner.Forms
 			cells[ColumnOreCalc.Index] = new DataGridViewTextBoxCell {Value = ore.Name};
 			cells[ColumnVolume.Index] = new DataGridViewTextBoxCell
 			                            	{
-			                            		Value = (unitProcess * ore.Volume).ToString("F2")// + " m3"
+			                            		Value = (unitProcess*ore.Volume).ToString("F2") // + " m3"
 			                            	};
 			cells[ColumnRefVolume.Index] = new DataGridViewTextBoxCell
 			                               	{
@@ -233,11 +232,11 @@ namespace EveMiner.Forms
 			                               		          ore.MineralsOut.Nocxium +
 			                               		          ore.MineralsOut.Zydrine +
 			                               		          ore.MineralsOut.Megacyte +
-			                               		          ore.MineralsOut.Morphite) * p *
-			                               		         OreList.GetEfficiency(ore, netYield) * 0.01).ToString("F2")// + " m3"
+			                               		          ore.MineralsOut.Morphite)*p*
+			                               		         OreList.GetEfficiency(ore, netYield)*0.01).ToString("F2") // + " m3"
 			                               	};
 
-			cells[ColumnProfit.Index] = new DataGridViewTextBoxCell {Value = profit.ToString("#,#.##")};// + " ISK"};
+			cells[ColumnProfit.Index] = new DataGridViewTextBoxCell {Value = profit.ToString("#,#.##")}; // + " ISK"};
 			cells[ColumnDelete2.Index] = new DataGridViewButtonCell {Value = "x"};
 
 			row.Cells.AddRange(cells);
@@ -253,15 +252,15 @@ namespace EveMiner.Forms
 		/// <returns></returns>
 		private static MineralsOut GetMineralsOut(Ore ore, double netYield, int p)
 		{
-			double coeff = p * OreList.GetEfficiency(ore, netYield) * (1 - GetTaxRate());
-			int tritaniumOut = (int) (ore.MineralsOut.Tritanium * coeff);
-			int pyeriteOut = (int) (ore.MineralsOut.Pyerite * coeff);
-			int mexallonOut = (int) (ore.MineralsOut.Mexallon * coeff);
-			int isogenOut = (int) (ore.MineralsOut.Isogen * coeff);
-			int nocxiumOut = (int) (ore.MineralsOut.Nocxium * coeff);
-			int zydrineOut = (int) (ore.MineralsOut.Zydrine * coeff);
-			int megcyteOut = (int) (ore.MineralsOut.Megacyte * coeff);
-			int morphiteOut = (int) (ore.MineralsOut.Morphite * coeff);
+			double coeff = p*OreList.GetEfficiency(ore, netYield)*(1 - GetTaxRate());
+			int tritaniumOut = (int) (ore.MineralsOut.Tritanium*coeff);
+			int pyeriteOut = (int) (ore.MineralsOut.Pyerite*coeff);
+			int mexallonOut = (int) (ore.MineralsOut.Mexallon*coeff);
+			int isogenOut = (int) (ore.MineralsOut.Isogen*coeff);
+			int nocxiumOut = (int) (ore.MineralsOut.Nocxium*coeff);
+			int zydrineOut = (int) (ore.MineralsOut.Zydrine*coeff);
+			int megcyteOut = (int) (ore.MineralsOut.Megacyte*coeff);
+			int morphiteOut = (int) (ore.MineralsOut.Morphite*coeff);
 			return new MineralsOut(tritaniumOut, pyeriteOut, mexallonOut, isogenOut,
 			                       nocxiumOut, zydrineOut, megcyteOut, morphiteOut);
 		}
@@ -273,14 +272,14 @@ namespace EveMiner.Forms
 		/// <returns></returns>
 		private static double GetMineralProfit(MineralsOut minerals)
 		{
-			double profit = minerals.Tritanium * Config<Settings>.Instance.PriceTritanium;
-			profit += minerals.Pyerite * Config<Settings>.Instance.PricePyerite;
-			profit += minerals.Mexallon * Config<Settings>.Instance.PriceMexallon;
-			profit += minerals.Isogen * Config<Settings>.Instance.PriceIsogen;
-			profit += minerals.Nocxium * Config<Settings>.Instance.PriceNocxium;
-			profit += minerals.Zydrine * Config<Settings>.Instance.PriceZydrine;
-			profit += minerals.Megacyte * Config<Settings>.Instance.PriceMegacyte;
-			profit += minerals.Morphite * Config<Settings>.Instance.PriceMorphite;
+			double profit = minerals.Tritanium*Config<Settings>.Instance.PriceTritanium;
+			profit += minerals.Pyerite*Config<Settings>.Instance.PricePyerite;
+			profit += minerals.Mexallon*Config<Settings>.Instance.PriceMexallon;
+			profit += minerals.Isogen*Config<Settings>.Instance.PriceIsogen;
+			profit += minerals.Nocxium*Config<Settings>.Instance.PriceNocxium;
+			profit += minerals.Zydrine*Config<Settings>.Instance.PriceZydrine;
+			profit += minerals.Megacyte*Config<Settings>.Instance.PriceMegacyte;
+			profit += minerals.Morphite*Config<Settings>.Instance.PriceMorphite;
 			return profit;
 		}
 
@@ -291,11 +290,14 @@ namespace EveMiner.Forms
 		/// <param name="e">The <see cref="System.Windows.Forms.DataGridViewCellEventArgs"/> instance containing the event data.</param>
 		private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			if(sender == dataGridViewCalc)
+			if (sender == dataGridViewCalc)
 			{
-				if(e.ColumnIndex == ColumnDelete2.Index)
+				if (e.ColumnIndex == ColumnDelete2.Index)
 				{
-					dataGridViewCalc.Rows.Remove(dataGridViewCalc.Rows[e.RowIndex]);
+					if (e.RowIndex == -1)
+						dataGridViewCalc.Rows.Clear();
+					else
+						dataGridViewCalc.Rows.Remove(dataGridViewCalc.Rows[e.RowIndex]);
 				}
 			}
 		}
@@ -318,11 +320,11 @@ namespace EveMiner.Forms
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		private void numericUpDownStanding_ValueChanged(object sender, EventArgs e)
 		{
-			if(sender == numericUpDownStanding)
-				if(comboStandTax.SelectedIndex == Settings.Stand)
+			if (sender == numericUpDownStanding)
+				if (comboStandTax.SelectedIndex == Settings.Stand)
 					Config<Settings>.Instance.Standing = (double) numericUpDownStanding.Value;
 				else
-					Config<Settings>.Instance.TaxRate = (double)numericUpDownStanding.Value;
+					Config<Settings>.Instance.TaxRate = (double) numericUpDownStanding.Value;
 		}
 
 		/// <summary>
@@ -334,33 +336,34 @@ namespace EveMiner.Forms
 		{
 			TextBox box = sender as TextBox;
 			double price = 0.0;
-			if(box == null)
+			if (box == null)
 				return;
 			try
 			{
 				price = Convert.ToDouble(box.Text);
 			}
-			catch(FormatException)
-			{}
+			catch (FormatException)
+			{
+			}
 			Mineral m = box.Tag as Mineral;
-			if(m != null)
+			if (m != null)
 				m.Price = price;
 
-			if(sender == textBoxPriceTritanium)
+			if (sender == textBoxPriceTritanium)
 				Config<Settings>.Instance.PriceTritanium = price;
-			else if(sender == textBoxPricePyerite)
+			else if (sender == textBoxPricePyerite)
 				Config<Settings>.Instance.PricePyerite = price;
-			else if(sender == textBoxPriceMexallon)
+			else if (sender == textBoxPriceMexallon)
 				Config<Settings>.Instance.PriceMexallon = price;
-			else if(sender == textBoxPriceIsogen)
+			else if (sender == textBoxPriceIsogen)
 				Config<Settings>.Instance.PriceIsogen = price;
-			else if(sender == textBoxPriceNocxium)
+			else if (sender == textBoxPriceNocxium)
 				Config<Settings>.Instance.PriceNocxium = price;
-			else if(sender == textBoxPriceZydrine)
+			else if (sender == textBoxPriceZydrine)
 				Config<Settings>.Instance.PriceZydrine = price;
-			else if(sender == textBoxPriceMegacyte)
+			else if (sender == textBoxPriceMegacyte)
 				Config<Settings>.Instance.PriceMegacyte = price;
-			else if(sender == textBoxPriceMorphite)
+			else if (sender == textBoxPriceMorphite)
 				Config<Settings>.Instance.PriceMorphite = price;
 		}
 
@@ -374,23 +377,23 @@ namespace EveMiner.Forms
 		private void OnMouseEnter(object sender, EventArgs e)
 		{
 			Control ctrl = sender as Control;
-			if(!toolTipInfo.Active && ctrl != null)
+			if (!toolTipInfo.Active && ctrl != null)
 			{
 				string tooltip = "";
-				if(ctrl is PictureBox && ctrl.Tag is Ore)
+				if (ctrl is PictureBox && ctrl.Tag is Ore)
 				{
 					toolTipInfo.ToolTipTitle = "Ore";
-					if(ctrl.Tag != null)
+					if (ctrl.Tag != null)
 						tooltip = ((Ore) ctrl.Tag).Name;
 				}
-				else if(ctrl is PictureBox && ctrl.Tag is Mineral)
+				else if (ctrl is PictureBox && ctrl.Tag is Mineral)
 				{
 					toolTipInfo.ToolTipTitle = "Mineral";
 					Mineral m = ctrl.Tag as Mineral;
 					tooltip = m.Name + Environment.NewLine + "price: " + m.Price.ToString("F3");
 				}
 
-				if(tooltip.Length > 0)
+				if (tooltip.Length > 0)
 					toolTipInfo.SetToolTip(ctrl, tooltip);
 				toolTipInfo.Active = true;
 			}
@@ -405,6 +408,7 @@ namespace EveMiner.Forms
 		{
 			toolTipInfo.Active = false;
 		}
+
 		/// <summary>
 		/// Histogram1_s the bar enter event.
 		/// </summary>
@@ -415,12 +419,11 @@ namespace EveMiner.Forms
 			if (!toolTipInfo.Active)
 			{
 				toolTipInfo.ToolTipTitle = args.Bar.Name;
-				string tooltip = (args.Bar.Value * 1000).ToString("#,#.##") + " ISK";
-				toolTipInfo.SetToolTip((Control)sender, tooltip);
+				string tooltip = (args.Bar.Value*1000).ToString("#,#.##") + " ISK";
+				toolTipInfo.SetToolTip((Control) sender, tooltip);
 
 				toolTipInfo.Active = true;
 			}
-
 		}
 
 		/// <summary>
@@ -447,8 +450,9 @@ namespace EveMiner.Forms
 			{
 				quantity = Convert.ToInt32(control.Text);
 			}
-			catch(FormatException)
-			{}
+			catch (FormatException)
+			{
+			}
 			return quantity;
 		}
 
@@ -462,185 +466,186 @@ namespace EveMiner.Forms
 			double netYield = 0.5;
 			try
 			{
-				netYield = Convert.ToDouble(textBoxNetYield.Text) / 100;
+				netYield = Convert.ToDouble(textBoxNetYield.Text)/100;
 			}
-			catch(FormatException)
-			{}
+			catch (FormatException)
+			{
+			}
 			//Veldspar
 			int quantity = GetQuantity(textBoxVeldspar0);
 			Ore ore = OreList.Get("Veldspar");
-			MineralsOut minerals = GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			MineralsOut minerals = GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxVeldspar5);
 			ore = OreList.Get("Concentrated Veldspar");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxVeldspar10);
 			ore = OreList.Get("Dense Veldspar");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
-			
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+
 			//Scordite
 			quantity = GetQuantity(textBoxScordite0);
 			ore = OreList.Get("Scordite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxScordite5);
 			ore = OreList.Get("Condensed Scordite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxScordite10);
 			ore = OreList.Get("Massive Scordite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Pyroxeres
 			quantity = GetQuantity(textBoxPyroxeres0);
 			ore = OreList.Get("Pyroxeres");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxPyroxeres5);
 			ore = OreList.Get("Solid Pyroxeres");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxPyroxeres10);
 			ore = OreList.Get("Viscous Pyroxeres");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Plagioclase
 			quantity = GetQuantity(textBoxPlagioclase0);
 			ore = OreList.Get("Plagioclase");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxPlagioclase5);
 			ore = OreList.Get("Azure Plagioclase");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxPlagioclase10);
 			ore = OreList.Get("Rich Plagioclase");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Omber
 			quantity = GetQuantity(textBoxOmber0);
 			ore = OreList.Get("Omber");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxOmber5);
 			ore = OreList.Get("Silvery Omber");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxOmber10);
 			ore = OreList.Get("Golden Omber");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Kernite
 			quantity = GetQuantity(textBoxKernite0);
 			ore = OreList.Get("Kernite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxKernite5);
 			ore = OreList.Get("Luminous Kernite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxKernite10);
 			ore = OreList.Get("Fiery Kernite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Jaspet
 			quantity = GetQuantity(textBoxJaspet0);
 			ore = OreList.Get("Jaspet");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxJaspet5);
 			ore = OreList.Get("Pure Jaspet");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxJaspet10);
 			ore = OreList.Get("Pristine Jaspet");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Hemorphite
 			quantity = GetQuantity(textBoxHemorphite0);
 			ore = OreList.Get("Hemorphite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxHemorphite5);
 			ore = OreList.Get("Vivid Hemorphite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxHemorphite10);
 			ore = OreList.Get("Radiant Hemorphite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Hedbergite
 			quantity = GetQuantity(textBoxHedbergite0);
 			ore = OreList.Get("Hedbergite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxHedbergite5);
 			ore = OreList.Get("Vitric Hedbergite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxHedbergite10);
 			ore = OreList.Get("Glazed Hedbergite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Gneiss
 			quantity = GetQuantity(textBoxGneiss0);
 			ore = OreList.Get("Gneiss");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxGneiss5);
 			ore = OreList.Get("Iridescent Gneiss");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxGneiss10);
 			ore = OreList.Get("Prismatic Gneiss");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//DarkOchre
 			quantity = GetQuantity(textBoxDarkOchre0);
 			ore = OreList.Get("Dark Ochre");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxDarkOchre5);
 			ore = OreList.Get("Onyx Ochre");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxDarkOchre10);
 			ore = OreList.Get("Obsidian Ochre");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Spodumain
 			quantity = GetQuantity(textBoxSpodumain0);
 			ore = OreList.Get("Spodumain");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxSpodumain5);
 			ore = OreList.Get("Bright Spodumain");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxSpodumain10);
 			ore = OreList.Get("Gleaming Spodumain");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Crokite
 			quantity = GetQuantity(textBoxCrockite0);
 			ore = OreList.Get("Crokite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxCrockite5);
 			ore = OreList.Get("Sharp Crokite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxCrockite10);
 			ore = OreList.Get("Crystalline Crokite");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Bistot
 			quantity = GetQuantity(textBoxBistot0);
 			ore = OreList.Get("Bistot");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxBistot5);
 			ore = OreList.Get("Triclinic Bistot");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxBistot10);
 			ore = OreList.Get("Monoclinic Bistot");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Arkonor
 			quantity = GetQuantity(textBoxArkonor0);
 			ore = OreList.Get("Arkonor");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxArkonor5);
 			ore = OreList.Get("Crimson Arkonor");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxArkonor10);
 			ore = OreList.Get("Prime Arkonor");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 			//Mercoxit
 			quantity = GetQuantity(textBoxMercoxit0);
 			ore = OreList.Get("Mercoxit");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxMercoxit5);
 			ore = OreList.Get("Magma Mercoxit");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 			quantity = GetQuantity(textBoxMercoxit10);
 			ore = OreList.Get("Vitreous Mercoxit");
-			minerals += GetMineralsOut(ore, netYield, quantity / ore.UnitsToRefine);
+			minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
 
 
 			RefreshHistogram(minerals);
@@ -655,71 +660,71 @@ namespace EveMiner.Forms
 			histogram1.Suffix = "k Isk";
 			histogram1.ListBars.Clear();
 			Bar bar = new Bar
-			                    	{
-			                    		Color1 = Color.FromArgb(255, 228, 175),
-			                    		Color2 = Color.FromArgb(88, 61, 31),
-			                    		Name = "Tritanium",
-			                    		Value = minerals.Tritanium * Config<Settings>.Instance.PriceTritanium / 1000
-			                    	};
+			          	{
+			          		Color1 = Color.FromArgb(255, 228, 175),
+			          		Color2 = Color.FromArgb(88, 61, 31),
+			          		Name = "Tritanium",
+			          		Value = minerals.Tritanium*Config<Settings>.Instance.PriceTritanium/1000
+			          	};
 			histogram1.ListBars.Add(bar);
 
 			bar = new Bar
 			      	{
-						Color1 = Color.FromArgb(0xff, 0xa3, 0x66),
-						Color2 = Color.FromArgb(0x5c, 0x2c, 0x18),
+			      		Color1 = Color.FromArgb(0xff, 0xa3, 0x66),
+			      		Color2 = Color.FromArgb(0x5c, 0x2c, 0x18),
 			      		Name = "Pyerite",
-			      		Value = minerals.Pyerite * Config<Settings>.Instance.PricePyerite / 1000
+			      		Value = minerals.Pyerite*Config<Settings>.Instance.PricePyerite/1000
 			      	};
 			histogram1.ListBars.Add(bar);
 
 			bar = new Bar
 			      	{
-						Color1 = Color.FromArgb(0xf2, 0xff ,0xc7),
-						Color2 = Color.FromArgb(0x3c, 0x50, 0x18),
+			      		Color1 = Color.FromArgb(0xf2, 0xff, 0xc7),
+			      		Color2 = Color.FromArgb(0x3c, 0x50, 0x18),
 			      		Name = "Mexallon",
-			      		Value = minerals.Mexallon * Config<Settings>.Instance.PriceMexallon / 1000
+			      		Value = minerals.Mexallon*Config<Settings>.Instance.PriceMexallon/1000
 			      	};
 			histogram1.ListBars.Add(bar);
 
 			bar = new Bar
 			      	{
-						Color1 = Color.FromArgb(0xe4, 0xf3, 0xf7),
-						Color2 = Color.FromArgb(0x2a, 0x80, 0x9c),
+			      		Color1 = Color.FromArgb(0xe4, 0xf3, 0xf7),
+			      		Color2 = Color.FromArgb(0x2a, 0x80, 0x9c),
 			      		Name = "Isogen",
-			      		Value = minerals.Isogen * Config<Settings>.Instance.PriceIsogen / 1000
+			      		Value = minerals.Isogen*Config<Settings>.Instance.PriceIsogen/1000
 			      	};
 			histogram1.ListBars.Add(bar);
 
 			bar = new Bar
 			      	{
-						Color1 = Color.Silver,
+			      		Color1 = Color.Silver,
 			      		Name = "Nocxium",
-			      		Value = minerals.Nocxium * Config<Settings>.Instance.PriceNocxium / 1000
+			      		Value = minerals.Nocxium*Config<Settings>.Instance.PriceNocxium/1000
 			      	};
 			histogram1.ListBars.Add(bar);
 			bar = new Bar
 			      	{
-						Color1 = Color.FromArgb(0x54, 0x98, 0x3a),
-						Color2 = Color.FromArgb(0x0b, 0x30, 0x10),
+			      		Color1 = Color.FromArgb(0x54, 0x98, 0x3a),
+			      		Color2 = Color.FromArgb(0x0b, 0x30, 0x10),
 			      		Name = "Zydrine",
-			      		Value = minerals.Zydrine * Config<Settings>.Instance.PriceZydrine / 1000
+			      		Value = minerals.Zydrine*Config<Settings>.Instance.PriceZydrine/1000
 			      	};
 			histogram1.ListBars.Add(bar);
 			bar = new Bar
 			      	{
-						Color1 = Color.FromArgb(0xc7, 0xbb, 0xa8),
-						Color2 = Color.FromArgb(0x44, 0x37, 0x24),
+			      		Color1 = Color.FromArgb(0xc7, 0xbb, 0xa8),
+			      		Color2 = Color.FromArgb(0x44, 0x37, 0x24),
 			      		Name = "Megacyte",
-			      		Value = minerals.Megacyte * Config<Settings>.Instance.PriceMegacyte / 1000
+			      		Value = minerals.Megacyte*Config<Settings>.Instance.PriceMegacyte/1000
 			      	};
 			histogram1.ListBars.Add(bar);
 			bar = new Bar
 			      	{
-						Color1 = Color.FromArgb(0xda, 0x4e, 0x40),
-						Color2 = Color.FromArgb(0x48, 0x04, 0x03),
-						//Color1 = Color.DarkRed,
+			      		Color1 = Color.FromArgb(0xda, 0x4e, 0x40),
+			      		Color2 = Color.FromArgb(0x48, 0x04, 0x03),
+			      		//Color1 = Color.DarkRed,
 			      		Name = "Morphite",
-			      		Value = minerals.Morphite * Config<Settings>.Instance.PriceMorphite / 1000
+			      		Value = minerals.Morphite*Config<Settings>.Instance.PriceMorphite/1000
 			      	};
 			histogram1.ListBars.Add(bar);
 
@@ -727,6 +732,7 @@ namespace EveMiner.Forms
 			histogram1.Invalidate();
 			textBoxProfit.Text = "Total Profit:" + GetMineralProfit(minerals).ToString("#,#.##") + " ISK";
 		}
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -735,11 +741,10 @@ namespace EveMiner.Forms
 		private void comboStandTax_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			Config<Settings>.Instance.StandTaxe = comboStandTax.SelectedIndex;
-			if(comboStandTax.SelectedIndex == Settings.Stand)
-			numericUpDownStanding.Value = (decimal)Config<Settings>.Instance.Standing;
+			if (comboStandTax.SelectedIndex == Settings.Stand)
+				numericUpDownStanding.Value = (decimal) Config<Settings>.Instance.Standing;
 			else
-				numericUpDownStanding.Value = (decimal)Config<Settings>.Instance.TaxRate;
-
+				numericUpDownStanding.Value = (decimal) Config<Settings>.Instance.TaxRate;
 		}
 
 		private void btnExportXls_Click(object sender, EventArgs e)
@@ -747,6 +752,5 @@ namespace EveMiner.Forms
 			GridToXmlConverter conv = new GridToXmlConverter();
 			conv.ExportIntoXml(dataGridViewCalc);
 		}
-
 	}
 }

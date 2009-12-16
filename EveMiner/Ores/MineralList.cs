@@ -10,7 +10,7 @@ namespace EveMiner.Ores
 		/// <summary>
 		/// 
 		/// </summary>
-		public static Dictionary<string , Mineral> Dict = new Dictionary<string, Mineral>();
+		public static Dictionary<string, Mineral> Dict = new Dictionary<string, Mineral>();
 
 		/// <summary>
 		/// Initializes the <see cref="MineralList"/> class.
@@ -20,25 +20,25 @@ namespace EveMiner.Ores
 			Mineral m = new Mineral {Name = "Tritanium", Price = Config<Settings>.Instance.PriceTritanium};
 			Dict.Add(m.Name, m);
 
-			m = new Mineral { Name = "Pyerite", Price = Config<Settings>.Instance.PricePyerite };
+			m = new Mineral {Name = "Pyerite", Price = Config<Settings>.Instance.PricePyerite};
 			Dict.Add(m.Name, m);
 
-			m = new Mineral { Name = "Mexallon", Price = Config<Settings>.Instance.PriceMexallon };
+			m = new Mineral {Name = "Mexallon", Price = Config<Settings>.Instance.PriceMexallon};
 			Dict.Add(m.Name, m);
 
-			m = new Mineral { Name = "Isogen", Price = Config<Settings>.Instance.PriceIsogen };
+			m = new Mineral {Name = "Isogen", Price = Config<Settings>.Instance.PriceIsogen};
 			Dict.Add(m.Name, m);
 
-			m = new Mineral { Name = "Nocxium", Price = Config<Settings>.Instance.PriceNocxium };
+			m = new Mineral {Name = "Nocxium", Price = Config<Settings>.Instance.PriceNocxium};
 			Dict.Add(m.Name, m);
 
-			m = new Mineral { Name = "Zydrine", Price = Config<Settings>.Instance.PriceZydrine };
+			m = new Mineral {Name = "Zydrine", Price = Config<Settings>.Instance.PriceZydrine};
 			Dict.Add(m.Name, m);
 
-			m = new Mineral { Name = "Megacyte", Price = Config<Settings>.Instance.PriceMegacyte };
+			m = new Mineral {Name = "Megacyte", Price = Config<Settings>.Instance.PriceMegacyte};
 			Dict.Add(m.Name, m);
 
-			m = new Mineral { Name = "Morphite", Price = Config<Settings>.Instance.PriceMorphite };
+			m = new Mineral {Name = "Morphite", Price = Config<Settings>.Instance.PriceMorphite};
 			Dict.Add(m.Name, m);
 		}
 

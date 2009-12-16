@@ -13,14 +13,17 @@ namespace EveMiner
 		/// Name
 		/// </summary>
 		public string Name;
+
 		/// <summary>
 		/// Ore Yield bonus
 		/// </summary>
 		public double OreYieldBonus;
+
 		/// <summary>
 		/// Time bonus
 		/// </summary>
 		public double TimeBonus;
+
 		/// <summary>
 		/// Image
 		/// </summary>
@@ -49,7 +52,7 @@ namespace EveMiner
 		/// </returns>
 		public override string ToString()
 		{
-			if(TimeBonus > 0)
+			if (TimeBonus > 0)
 				return string.Format("{0}" + Environment.NewLine + "Time Reduce Bonus {1}%", Name, TimeBonus);
 			return string.Format("{0}" + Environment.NewLine + "Minig Amount Bonus {1}%", Name, OreYieldBonus);
 		}

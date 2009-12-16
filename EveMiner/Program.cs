@@ -5,18 +5,17 @@ using EveMiner.Forms;
 
 namespace EveMiner
 {
-	static class Program
+	internal static class Program
 	{
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
 		[STAThread]
-		static void Main()
+		private static void Main()
 		{
-
 			using (SingleProgramInstance spi = new SingleProgramInstance("x5k6yz"))
 			{
-				if(spi.IsSingleInstance)
+				if (spi.IsSingleInstance)
 				{
 					Application.EnableVisualStyles();
 					Application.SetCompatibleTextRenderingDefault(false);
@@ -33,10 +32,12 @@ namespace EveMiner
 			}
 		}
 	}
+
 	[SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
 	public class MyMessageFilter : IMessageFilter
 	{
-		readonly Form _mMainForm;
+		private readonly Form _mMainForm;
+
 		public MyMessageFilter(Form form)
 		{
 			_mMainForm = form;

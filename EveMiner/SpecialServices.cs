@@ -8,13 +8,14 @@ namespace EveMiner
 {
 	public class SingleProgramInstance : IDisposable
 	{
-
 		//Win32 API calls necesary to raise an unowned processs main window
-		[DllImport("user32.dll")] 
+		[DllImport("user32.dll")]
 		private static extern bool SetForegroundWindow(IntPtr hWnd);
-		[DllImport("user32.dll")] 
-		private static extern bool ShowWindowAsync(IntPtr hWnd,int nCmdShow);
-		[DllImport("user32.dll")] 
+
+		[DllImport("user32.dll")]
+		private static extern bool ShowWindowAsync(IntPtr hWnd, int nCmdShow);
+
+		[DllImport("user32.dll")]
 		private static extern bool IsIconic(IntPtr hWnd);
 
 		private const int SW_RESTORE = 9;
@@ -22,10 +23,10 @@ namespace EveMiner
 		//private members 
 		private Mutex _processSync;
 		private bool _owned = false;
-		
-	
+
+
 		public SingleProgramInstance()
-		{	
+		{
 			//Initialize a named mutex and attempt to
 			// get ownership immediatly 
 			_processSync = new Mutex(
@@ -35,7 +36,7 @@ namespace EveMiner
 		}
 
 		public SingleProgramInstance(string identifier)
-		{	
+		{
 			//Initialize a named mutex and attempt to
 			// get ownership immediately.
 			//Use an addtional identifier to lower
@@ -58,7 +59,7 @@ namespace EveMiner
 		{
 			//If we don't own the mutex than
 			// we are not the first instance.
-			get {return	_owned;}
+			get { return _owned; }
 		}
 
 		public void RaiseOtherProcess()
@@ -80,10 +81,9 @@ namespace EveMiner
 					IntPtr hWnd = otherProc.MainWindowHandle;
 					if (IsIconic(hWnd))
 					{
-						ShowWindowAsync(hWnd,SW_RESTORE);
-					
+						ShowWindowAsync(hWnd, SW_RESTORE);
 					}
-					
+
 					SetForegroundWindow(hWnd);
 					ShowWindowAsync(hWnd, WakeupMessage);
 					return;
@@ -103,6 +103,7 @@ namespace EveMiner
 		}
 
 		#region Implementation of IDisposable
+
 		public void Dispose()
 		{
 			//release mutex (if necessary) and notify 
@@ -110,6 +111,7 @@ namespace EveMiner
 			Release();
 			GC.SuppressFinalize(this);
 		}
+
 		#endregion
 	}
 }

@@ -14,6 +14,7 @@ namespace EveMiner
 	public static class Config<T> where T : class, new()
 	{
 		#region Fields
+
 		/// <summary>
 		/// Кодировка файла конфига
 		/// </summary>
@@ -37,14 +38,14 @@ namespace EveMiner
 		/// быстрое занятие!
 		/// Самое простое сделать это при инициализации статической переменной.
 		///</remarks>
-		private static readonly XmlSerializer _serializer = new XmlSerializer(typeof(T));
+		private static readonly XmlSerializer _serializer = new XmlSerializer(typeof (T));
 
 		/// <summary>
 		/// Полное имя файла конфига
 		/// </summary>
 		private static string _configFileName = Path.Combine(
 			Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/" +
-			Application.ProductName, typeof(T).Name + ".xml");
+			Application.ProductName, typeof (T).Name + ".xml");
 
 		/// <summary>
 		/// Переменная хранящая значение синглтона.
@@ -58,9 +59,11 @@ namespace EveMiner
 		{
 			get { return _serializer; }
 		}
+
 		#endregion
 
 		#region Constructors
+
 		/// <summary>
 		/// Клонирование конфига
 		/// </summary>
@@ -70,7 +73,7 @@ namespace EveMiner
 			// глубокое клонирование экземпляра
 			// метод медленный, но в данном случае это неважно
 			T newInstance;
-			using(MemoryStream ms = new MemoryStream())
+			using (MemoryStream ms = new MemoryStream())
 			{
 				Serializer.Serialize(ms, Instance);
 				ms.Flush();
@@ -81,9 +84,11 @@ namespace EveMiner
 			return newInstance;
 			//return (Config)MemberwiseClone();
 		}
+
 		#endregion
 
 		#region Methods
+
 		/// <summary>
 		/// Перезагрузить конфиг
 		/// </summary>
@@ -91,29 +96,30 @@ namespace EveMiner
 		{
 			_instance = default(T);
 		}
+
 		/// <summary>
 		/// Запись конфига в файл на диск
 		/// </summary>
 		public static void Save()
 		{
-			if(!Directory.Exists(Path.GetDirectoryName(_configFileName)))
+			if (!Directory.Exists(Path.GetDirectoryName(_configFileName)))
 			{
 				Directory.CreateDirectory(Path.GetDirectoryName(_configFileName));
 			}
 
 			//делаем резервную копию конфига
-			if(File.Exists(_configFileName))
+			if (File.Exists(_configFileName))
 			{
-				if(File.Exists(_configFileName + ".old"))
+				if (File.Exists(_configFileName + ".old"))
 					File.Delete(_configFileName + ".old");
 				File.Move(_configFileName, _configFileName + ".old");
 			}
 
 			// Записываем конфиг в файл. Опять же делаем это в 
 			// руcской кодировке.
-			if(Instance != null)
+			if (Instance != null)
 			{
-				using(StreamWriter writer = new StreamWriter(
+				using (StreamWriter writer = new StreamWriter(
 					_configFileName, false,
 					Encoding.GetEncoding(ConfigEncoding)))
 				{
@@ -135,12 +141,14 @@ namespace EveMiner
 		public static void NewConfig(T cfg)
 		{
 			_instance = cfg;
-			if(ConfigChanged != null)
+			if (ConfigChanged != null)
 				ConfigChanged(_instance, EventArgs.Empty);
 		}
+
 		#endregion
 
 		#region Properties
+
 		///<summary>
 		/// Instance of configuration
 		///</summary>
@@ -150,7 +158,7 @@ namespace EveMiner
 			get
 			{
 				// Для скорости... исзбавляемся от блокировки.
-				if(_instance != null)
+				if (_instance != null)
 					return _instance;
 
 				// Блокировка нужна только если экземляр еще не создан.
@@ -159,25 +167,25 @@ namespace EveMiner
 				{
 					// Эта проверка нужна так как кто-то мог успеть создать 
 					// объект до блокировки.
-					if(_instance != null)
+					if (_instance != null)
 						return _instance;
 
 					try
 					{
 						// Пытаемся загрузить файл с диска и десериализовать его
 						// Делать это лучше в конкретной кодировке.
-						using(StreamReader reader =
+						using (StreamReader reader =
 							new StreamReader(_configFileName,
 							                 Encoding.GetEncoding(ConfigEncoding)))
 						{
 							// Для десериализации пользуемся единым сериализатором.
 							_instance = (T) Serializer.Deserialize(reader);
 							//Если по каким либо причинам конфиг есть, но в нем нет экземпляра ожидаемого десериализуемого объекта 
-							if(_instance == null)
+							if (_instance == null)
 								_instance = new T();
 						}
 					}
-					catch(FileNotFoundException ex)
+					catch (FileNotFoundException ex)
 					{
 						// Если не удалось десериализовать то просто создаем новый экземпляр
 						// И если что, не знаем что случилось! Нужно хотя бы выдать сообщение
@@ -187,7 +195,7 @@ namespace EveMiner
 							              ex.Message));
 						_instance = new T();
 					}
-					catch(DirectoryNotFoundException ex)
+					catch (DirectoryNotFoundException ex)
 					{
 						// Если не удалось десериализовать то просто создаем новый экземпляр
 						// И если что, не знаем что случилось! Нужно хотя бы выдать сообщение
@@ -197,7 +205,7 @@ namespace EveMiner
 							              ex.Message));
 						_instance = new T();
 					}
-					catch(Exception ex)
+					catch (Exception ex)
 					{
 						Trace.Write(ex);
 						throw;
@@ -216,6 +224,7 @@ namespace EveMiner
 			get { return _configFileName; }
 			set { _configFileName = value; }
 		}
+
 		#endregion
 	}
 }

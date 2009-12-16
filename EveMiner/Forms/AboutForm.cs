@@ -26,8 +26,9 @@ namespace EveMiner.Forms
 				Process.Start("mailto:" + linkLabel1.Text);
 			}
 				//если нет почтового клиента
-			catch(Win32Exception)
-			{}
+			catch (Win32Exception)
+			{
+			}
 		}
 	}
 }

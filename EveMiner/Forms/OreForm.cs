@@ -38,7 +38,7 @@ namespace EveMiner.Forms
 
 				//Refresh the parent to ensure that whatever is behind the control gets painted 
 				//before we need to do our own graphics output.
-				if(Parent != null)
+				if (Parent != null)
 					Parent.Refresh();
 			}
 		}

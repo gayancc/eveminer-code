@@ -21,6 +21,7 @@ namespace EveMiner
 		/// </summary>
 		Rorqual = 2
 	}
+
 	/// <summary>
 	/// Настройки приложения
 	/// </summary>
@@ -36,10 +37,8 @@ namespace EveMiner
 		public const string CycleEndFileName = "CycleEnd.wav";
 		public const int Stand = 0;
 		public const int Tax = 1;
-		[NonSerialized]
-		public double MiningAmount;
-		[NonSerialized]
-		public double Cycle;
+		[NonSerialized] public double MiningAmount;
+		[NonSerialized] public double Cycle;
 
 
 		private string _mlu1 = "None";
@@ -47,7 +46,7 @@ namespace EveMiner
 		private string _mlu3 = "None";
 
 		private bool _alwaysOnTop;
-		
+
 		public string SelectedTurret = "";
 		public string SelectedOre = "";
 		public string SelectedShip = "";
@@ -57,16 +56,16 @@ namespace EveMiner
 		public bool ImpMichi;
 		public bool ImpMindLink;
 		public bool IsGang;
-		
+
 		public bool GangAssistModule1;
 		public bool GangAssistModule2;
 		public bool GangAssistModule3;
-		
+
 		public double Standing;
 		public double TaxRate;
 		public int StandTaxe;
 		public double CargoHold = 27500;
-		
+
 		public double PriceTritanium = 3;
 		public double PricePyerite = 5;
 		public double PriceMexallon = 35;
@@ -106,7 +105,5 @@ namespace EveMiner
 			get { return _alwaysOnTop; }
 			set { _alwaysOnTop = value; }
 		}
-
-
 	}
 }

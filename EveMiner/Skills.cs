@@ -38,7 +38,7 @@ namespace EveMiner
 		private int refining;
 		private int efficiencyRefining;
 		private int iceProcessing;
-		
+
 
 		/// <summary>
 		/// Gets or sets the mining.

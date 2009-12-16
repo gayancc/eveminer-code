@@ -9,30 +9,37 @@ namespace EveMiner.Ores
 		///  Выход трита с одной единицы руды
 		/// </summary>
 		private readonly int _tritanium;
+
 		/// <summary>
 		///  Выход пирита с одной единицы руды
 		/// </summary>
 		private readonly int _pyerite;
+
 		/// <summary>
 		///  Выход мексаллона с одной единицы руды
 		/// </summary>
 		private readonly int _mexallon;
+
 		/// <summary>
 		///  Выход изогена с одной единицы руды
 		/// </summary>
 		private readonly int _isogen;
+
 		/// <summary>
 		///  Выход ноксы с одной единицы руды
 		/// </summary>
 		private readonly int _nocxium;
+
 		/// <summary>
 		///  Выход зидры с одной единицы руды
 		/// </summary>
 		private readonly int _zydrine;
+
 		/// <summary>
 		///  Выход меги с одной единицы руды
 		/// </summary>
 		private readonly int _megacyte;
+
 		/// <summary>
 		///  Выход морфита с одной единицы руды
 		/// </summary>
@@ -49,7 +56,8 @@ namespace EveMiner.Ores
 		/// <param name="zydrine">выход зидры</param>
 		/// <param name="megacyte">выход мегацита</param>
 		/// <param name="morphite">выход морфита</param>
-		public MineralsOut(int tritanium, int pyerite, int mexallon, int isogen, int nocxium, int zydrine, int megacyte, int morphite)
+		public MineralsOut(int tritanium, int pyerite, int mexallon, int isogen, int nocxium, int zydrine, int megacyte,
+		                   int morphite)
 		{
 			_tritanium = tritanium;
 			_pyerite = pyerite;
@@ -124,6 +132,7 @@ namespace EveMiner.Ores
 		{
 			get { return _morphite; }
 		}
+
 		/// <summary>
 		/// Implements the operator +.
 		/// </summary>
@@ -133,13 +142,13 @@ namespace EveMiner.Ores
 		public static MineralsOut operator +(MineralsOut mo1, MineralsOut mo2)
 		{
 			return new MineralsOut(mo1.Tritanium + mo2.Tritanium,
-				mo1.Pyerite + mo2.Pyerite,
-				mo1.Mexallon + mo2.Mexallon,
-				mo1.Isogen + mo2.Isogen,
-				mo1.Nocxium + mo2.Nocxium,
-				mo1.Zydrine + mo2.Zydrine,
-				mo1.Megacyte + mo2.Megacyte,
-				mo1.Morphite + mo2.Morphite);
+			                       mo1.Pyerite + mo2.Pyerite,
+			                       mo1.Mexallon + mo2.Mexallon,
+			                       mo1.Isogen + mo2.Isogen,
+			                       mo1.Nocxium + mo2.Nocxium,
+			                       mo1.Zydrine + mo2.Zydrine,
+			                       mo1.Megacyte + mo2.Megacyte,
+			                       mo1.Morphite + mo2.Morphite);
 		}
 	}
 }

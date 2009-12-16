@@ -17,7 +17,7 @@ namespace EveMiner.Forms
 
 		private readonly TimersForm _timersForm = new TimersForm();
 		private readonly CalculatorForm _calculatorForm = new CalculatorForm();
-		
+
 		//Выбранный MLU
 		private PictureBox _mluPictureClicked;
 		private bool _bExit;
@@ -33,6 +33,7 @@ namespace EveMiner.Forms
 			FillShips();
 			LoadCfg();
 		}
+
 		/// <summary>
 		/// Загрузка конфига
 		/// </summary>
@@ -70,7 +71,7 @@ namespace EveMiner.Forms
 						comboBoxTurret.SelectedIndex = n;
 				}
 			}
-			
+
 			if (_dictShips.ContainsKey(Config<Settings>.Instance.SelectedShip))
 			{
 				Ship ship = _dictShips[Config<Settings>.Instance.SelectedShip];
@@ -127,13 +128,14 @@ namespace EveMiner.Forms
 			skillValueBistotP.Value = Config<Settings>.Instance.Skills.BistotProcessing;
 			skillValueArkonorP.Value = Config<Settings>.Instance.Skills.ArkonorProcessing;
 			skillValueMercoxitP.Value = Config<Settings>.Instance.Skills.MercoxitProcessing;
-			
+
 			checkBoxHX2Imp.Checked = Config<Settings>.Instance.ImpHx2;
 			checkBoxMichiImp.Checked = Config<Settings>.Instance.ImpMichi;
 			checkBoxMindLinkImp.Checked = Config<Settings>.Instance.ImpMindLink;
 			checkBoxUseGangBonus.Checked = Config<Settings>.Instance.IsGang;
-			comboBoxBoosterShip.SelectedIndex = (int)Config<Settings>.Instance.BoosterShip;
-			
+			groupBoxGangBooster.Enabled = Config<Settings>.Instance.IsGang;
+			comboBoxBoosterShip.SelectedIndex = (int) Config<Settings>.Instance.BoosterShip;
+
 
 			pictureBoxGang1.Image = (Config<Settings>.Instance.GangAssistModule1) ? Resources.icon53_16 : Resources.highSlot;
 			pictureBoxGang2.Image = (Config<Settings>.Instance.GangAssistModule2) ? Resources.icon53_16 : Resources.highSlot;
@@ -155,7 +157,6 @@ namespace EveMiner.Forms
 			pictureBoxBistot.Tag = OreList.Get("Bistot");
 			pictureBoxArkonor.Tag = OreList.Get("Arkonor");
 			pictureBoxMercoxit.Tag = OreList.Get("Mercoxit");
-
 		}
 
 		/// <summary>
@@ -232,6 +233,7 @@ namespace EveMiner.Forms
 				contextMenuStripMLU.Items[contextMenuStripMLU.Items.Count - 1].Tag = device;
 			}
 		}
+
 		/// <summary>
 		/// Fills the turret list.
 		/// </summary>
@@ -349,30 +351,30 @@ namespace EveMiner.Forms
 			//Если турелька лед роет
 			if (turret.CycleTime > 200)
 			{
-				cycle *= (1 - skills.IceHarvesting * 0.05);
+				cycle *= (1 - skills.IceHarvesting*0.05);
 
 				LaserUpgrade mlu = pictureBoxMLU1.Tag as LaserUpgrade;
 				if (mlu != null)
-					cycle *= (1 - mlu.TimeBonus / 100);
+					cycle *= (1 - mlu.TimeBonus/100);
 
 				mlu = pictureBoxMLU2.Tag as LaserUpgrade;
 				if (mlu != null)
-					cycle *= (1 - mlu.TimeBonus / 100);
+					cycle *= (1 - mlu.TimeBonus/100);
 
 				mlu = pictureBoxMLU3.Tag as LaserUpgrade;
 				if (mlu != null)
-					cycle *= (1 - mlu.TimeBonus / 100);
+					cycle *= (1 - mlu.TimeBonus/100);
 
 				//Если макинаву юзаем
 				if (Config<Settings>.Instance.SelectedShip == "Mackinaw")
 				{
 					cycle *= 1.25;
-					cycle *= (1 - skills.Exhumers * 0.05);
+					cycle *= (1 - skills.Exhumers*0.05);
 				}
 					//Если халк
 				else if (Config<Settings>.Instance.SelectedShip == "Hulk")
 				{
-					cycle *= (1 - skills.Exhumers * 0.03);
+					cycle *= (1 - skills.Exhumers*0.03);
 				}
 			}
 			int gangAssistModule = 0;
@@ -399,13 +401,13 @@ namespace EveMiner.Forms
 
 				if (Config<Settings>.Instance.ImpMindLink)
 				{
-					cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) *
-							(1 + skills.IndustrialCommandShip * bonusIndustrial) * 1.5 / 100 * gangAssistModule);
+					cycle *= (1 - 2*skills.MiningDirector*(1 + skills.WarfareLinkSpec*0.1)*
+					              (1 + skills.IndustrialCommandShip*bonusIndustrial)*1.5/100*gangAssistModule);
 				}
 				else
 				{
-					cycle *= (1 - 2 * skills.MiningDirector * (1 + skills.WarfareLinkSpec * 0.1) *
-							(1 + skills.IndustrialCommandShip * bonusIndustrial) / 100 * gangAssistModule);
+					cycle *= (1 - 2*skills.MiningDirector*(1 + skills.WarfareLinkSpec*0.1)*
+					              (1 + skills.IndustrialCommandShip*bonusIndustrial)/100*gangAssistModule);
 				}
 			}
 
@@ -424,44 +426,44 @@ namespace EveMiner.Forms
 
 			Ship ship = _dictShips[comboBoxShip.SelectedItem.ToString()];
 
-			yield *= (1 + skills.Mining * 0.05) * (1 + skills.Astrogeology * 0.05);
+			yield *= (1 + skills.Mining*0.05)*(1 + skills.Astrogeology*0.05);
 
 			if (ship.Barge)
-				yield *= (1 + skills.MiningBarge * 0.03);
+				yield *= (1 + skills.MiningBarge*0.03);
 			if (ship.Exhumer)
-				yield *= (1 + skills.Exhumers * 0.03);
+				yield *= (1 + skills.Exhumers*0.03);
 
 			if (ship.Name.Contains("Frigate"))
-				yield *= (1 + skills.Frigates * 0.2);
+				yield *= (1 + skills.Frigates*0.2);
 
 			else if (ship.Name.Contains("Cruiser"))
-				yield *= (1 + skills.Cruisers * 0.2);
+				yield *= (1 + skills.Cruisers*0.2);
 
 			LaserUpgrade mlu = pictureBoxMLU1.Tag as LaserUpgrade;
 			if (mlu != null)
-				yield *= (1 + mlu.OreYieldBonus / 100);
+				yield *= (1 + mlu.OreYieldBonus/100);
 
 			mlu = pictureBoxMLU2.Tag as LaserUpgrade;
 			if (mlu != null)
-				yield *= (1 + mlu.OreYieldBonus / 100);
+				yield *= (1 + mlu.OreYieldBonus/100);
 
 			mlu = pictureBoxMLU3.Tag as LaserUpgrade;
 			if (mlu != null)
-				yield *= (1 + mlu.OreYieldBonus / 100);
+				yield *= (1 + mlu.OreYieldBonus/100);
 
 			if (turret.UseCrystals)
 			{
 				if (Config<Settings>.Instance.SelectedCrystals == 2)
 				{
 					if (ship.Name == "Skif" && turret.Name.Contains("Deep"))
-						yield *= (1.375 * (1 + skills.Exhumers * 0.6));
+						yield *= (1.375*(1 + skills.Exhumers*0.6));
 					else
 						yield *= 1.75;
 				}
 				else
 				{
 					if (ship.Name == "Skif" && turret.Name.Contains("Deep"))
-						yield *= (1.25 * (1 + skills.Exhumers * 0.6));
+						yield *= (1.25*(1 + skills.Exhumers*0.6));
 					else
 						yield *= 1.625;
 				}
@@ -477,11 +479,11 @@ namespace EveMiner.Forms
 				if (Config<Settings>.Instance.ImpMindLink)
 				{
 					//Implant Replaces mining foreman skill bonus with fixed 15% mining yield bonus.
-					yield *= (1 + 0.15/* skills.MiningForeman * 0.02 * 1.5*/);
+					yield *= (1 + 0.15 /* skills.MiningForeman * 0.02 * 1.5*/);
 					//yield *= 1/(1 - 2*skills.MiningDirector*(1 + skills.WarfareLinkSpec*0.1)*1.5/100*gangAssistModule);
 				}
 				else
-					yield *= (1 + skills.MiningForeman * 0.02);
+					yield *= (1 + skills.MiningForeman*0.02);
 			}
 			return yield;
 		}
@@ -634,7 +636,7 @@ namespace EveMiner.Forms
 				Config<Settings>.Instance.Skills.EfficiencyRefining = skillValueEfficiency.Value;
 			else if (sender == skillValueIceProcessing)
 				Config<Settings>.Instance.Skills.IceProcessing = skillValueIceProcessing.Value;
-			//GANG
+				//GANG
 			else if (sender == skillValueWarfareLinkSpec)
 				Config<Settings>.Instance.Skills.WarfareLinkSpec = skillValueWarfareLinkSpec.Value;
 			else if (sender == skillValueMiningForeman)
@@ -645,8 +647,8 @@ namespace EveMiner.Forms
 				Config<Settings>.Instance.Skills.IndustrialCommandShip = skillValueIndustrialCommandShip.Value;
 
 
-		//Ore Processing
-			#region Ore Processing
+				//Ore Processing
+				#region Ore Processing
 
 			else if (sender == skillValueVeldsparP)
 				Config<Settings>.Instance.Skills.VeldsparProcessing = skillValueVeldsparP.Value;
@@ -680,6 +682,7 @@ namespace EveMiner.Forms
 				Config<Settings>.Instance.Skills.ArkonorProcessing = skillValueArkonorP.Value;
 			else if (sender == skillValueMercoxitP)
 				Config<Settings>.Instance.Skills.MercoxitProcessing = skillValueMercoxitP.Value;
+
 			#endregion
 
 			CalculateMining();
@@ -716,14 +719,11 @@ namespace EveMiner.Forms
 			{
 				Config<Settings>.Instance.IsGang = checkBoxUseGangBonus.Checked;
 				groupBoxGangBooster.Enabled = Config<Settings>.Instance.IsGang;
-
 			}
 
 			CalculateMining();
 		}
 
-
-	
 
 		/// <summary>
 		/// Handles the FormClosing event of the MainForm control.
@@ -737,6 +737,7 @@ namespace EveMiner.Forms
 		}
 
 		#region NotifyIcon and Menu
+
 		/// <summary>
 		/// Shows the window.
 		/// </summary>
@@ -754,6 +755,7 @@ namespace EveMiner.Forms
 				form.Show();
 			}
 		}
+
 		/// <summary>
 		/// Handles the MouseClick event of the notifyIcon control.
 		/// </summary>
@@ -763,6 +765,7 @@ namespace EveMiner.Forms
 		{
 			ShowWindow(this);
 		}
+
 		/// <summary>
 		/// Handles the 1 event of the configurationToolStripMenuItem1_Click control.
 		/// </summary>
@@ -772,6 +775,7 @@ namespace EveMiner.Forms
 		{
 			ShowWindow(this);
 		}
+
 		/// <summary>
 		/// Handles the Click event of the timersToolStripMenuItem control.
 		/// </summary>
@@ -802,6 +806,7 @@ namespace EveMiner.Forms
 			_bExit = true;
 			Close();
 		}
+
 		/// <summary>
 		/// Handles the clicked event of the MenuMLU control.
 		/// </summary>
@@ -812,7 +817,7 @@ namespace EveMiner.Forms
 			ToolStripMenuItem item = sender as ToolStripMenuItem;
 			if (item != null)
 			{
-				LaserUpgrade mlu = (LaserUpgrade)item.Tag;
+				LaserUpgrade mlu = (LaserUpgrade) item.Tag;
 				_mluPictureClicked.Image = mlu.Image;
 				_mluPictureClicked.Tag = item.Tag;
 				if (_mluPictureClicked == pictureBoxMLU1)
@@ -884,10 +889,9 @@ namespace EveMiner.Forms
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		private void comboBoxBoosterShip_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			BoosterShipType ship = (BoosterShipType)comboBoxBoosterShip.SelectedIndex;
+			BoosterShipType ship = (BoosterShipType) comboBoxBoosterShip.SelectedIndex;
 			Config<Settings>.Instance.BoosterShip = ship;
 			CalculateMining();
 		}
-
 	}
 }

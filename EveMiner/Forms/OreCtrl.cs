@@ -10,12 +10,13 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Тип руды
 		/// </summary>
-		private OreType  oreType;
+		private OreType oreType;
 
 		/// <summary>
 		/// Время до выработки
 		/// </summary>
 		private DateTime timeElapsed;
+
 		/// <summary>
 		/// Объем копки в минуту
 		/// </summary>
@@ -42,9 +43,9 @@ namespace EveMiner.Forms
 		[Category("Ore Control")]
 		[DefaultValue(1000.0)]
 		/// <summary>
-		/// Объем копки в минуту
-		/// </summary>
-		public double VolumePerMinute
+			/// Объем копки в минуту
+			/// </summary>
+			public double VolumePerMinute
 		{
 			get { return volumePerMinute; }
 			set { volumePerMinute = value; }
