@@ -730,7 +730,7 @@ namespace EveMiner.Forms
 
 
 			histogram1.Invalidate();
-			textBoxProfit.Text = "Total Profit:" + GetMineralProfit(minerals).ToString("#,#.##") + " ISK";
+			textBoxProfit.Text = "Total Profit: " + GetMineralProfit(minerals).ToString("#,#.##") + " ISK";
 		}
 
 		/// <summary>
@@ -752,5 +752,6 @@ namespace EveMiner.Forms
 			GridToXmlConverter conv = new GridToXmlConverter();
 			conv.ExportIntoXml(dataGridViewCalc);
 		}
+
 	}
 }
