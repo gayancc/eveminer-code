@@ -171,18 +171,39 @@ namespace EveMiner.Forms
 
 
 			dataGridViewCalc.Rows.Clear();
+		    double maxprofit = 0;
+		    DataGridViewRow maxrowLowOre = null;
+            DataGridViewRow maxrowHiOre = null;
+		    bool bLowOre = true;
 			foreach (KeyValuePair<string, Ore> pair in OreList.DictOre)
 			{
 				Ore ore = pair.Value;
+                if (ore.Name == "Gneiss")
+                    bLowOre = false;
 
 				if (sender == buttonCalculateCargoHold)
 					quantity = (int) (cargohold/ore.Volume);
 
 				int unitProcess = quantity - quantity%ore.UnitsToRefine;
 				int p = quantity/ore.UnitsToRefine;
-
-				InsertProfitLine(ore, netYield, p, unitProcess);
+			    double prof = InsertProfitLine(ore, netYield, p, unitProcess);
+                if (prof > maxprofit)
+                {
+                    maxprofit = prof;
+                    if(bLowOre)
+                        maxrowLowOre = dataGridViewCalc.Rows[dataGridViewCalc.Rows.Count - 1];
+                    else
+                        maxrowHiOre = dataGridViewCalc.Rows[dataGridViewCalc.Rows.Count - 1];
+                }
 			}
+            if(maxrowLowOre != null)
+            {
+                maxrowLowOre.DefaultCellStyle.BackColor = Color.LightGreen;
+            }
+            if(maxrowHiOre != null)
+            {
+                maxrowHiOre.DefaultCellStyle.BackColor = Color.LightGreen;
+            }
 		}
 
 		/// <summary>
@@ -209,7 +230,7 @@ namespace EveMiner.Forms
 		/// <param name="netYield">The net yield.</param>
 		/// <param name="p">число циклов рефайна</param>
 		/// <param name="unitProcess">количество руды для процессинга</param>
-		private void InsertProfitLine(Ore ore, double netYield, int p, int unitProcess)
+		private double InsertProfitLine(Ore ore, double netYield, int p, int unitProcess)
 		{
 			MineralsOut minout = GetMineralsOut(ore, netYield, p);
 			double profit = GetMineralProfit(minout);
@@ -241,6 +262,7 @@ namespace EveMiner.Forms
 
 			row.Cells.AddRange(cells);
 			dataGridViewCalc.Rows.Add(row);
+		    return profit;
 		}
 
 		/// <summary>
