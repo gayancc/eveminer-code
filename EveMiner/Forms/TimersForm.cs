@@ -18,6 +18,10 @@ namespace EveMiner.Forms
 		/// </summary>
 		private double _currentCargo;
 
+		private WorkingTurret _turret1;
+		private WorkingTurret _turret2;
+		private WorkingTurret _turret3;
+
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TimersForm"/> class.
 		/// </summary>
@@ -60,12 +64,17 @@ namespace EveMiner.Forms
 				TimerListItem titem = dataGridViewTimers.Rows[n].Tag as TimerListItem;
 				if (titem != null && titem.LasersStarted != 0)
 				{
-					titem.Tick(_timer.Interval/1000);
 					UpdateTimerListItem(dataGridViewTimers.Rows[n]);
 					_currentCargo += Config<Settings>.Instance.MiningAmount/Config<Settings>.Instance.Cycle*titem.LasersStarted;
 					SetProgressCargo();
+					SetProgressCycles();
 				}
 			}
+		}
+
+		private void SetProgressCycles()
+		{
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -113,16 +122,38 @@ namespace EveMiner.Forms
 						}
 					}
 					else
-						dataGridViewTimers.Rows.Remove(dataGridViewTimers.Rows[e.RowIndex]);
+						RemoveRow(e.RowIndex);
 				}
 				if (e.ColumnIndex == ColumnButtonDelete.Index)
 				{
 					if (e.RowIndex == -1)
-						dataGridViewTimers.Rows.Clear();
+						RemoveRows();
 					else
-						dataGridViewTimers.Rows.Remove(dataGridViewTimers.Rows[e.RowIndex]);
+						RemoveRow(e.RowIndex);
 				}
 			}
+		}
+		/// <summary>
+		/// Removes the row.
+		/// </summary>
+		/// <param name="index">The index.</param>
+		void RemoveRow(int index)
+		{
+			if(index >=0)
+			{
+				DataGridViewRow row = dataGridViewTimers.Rows[index];
+				TimerListItem titem = row.Tag as TimerListItem;
+				if (titem != null)
+					titem.StopTurrets();
+				dataGridViewTimers.Rows.Remove(dataGridViewTimers.Rows[index]);
+			}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		void RemoveRows()
+		{
+			dataGridViewTimers.Rows.Clear();
 		}
 
 		/// <summary>
@@ -150,7 +181,6 @@ namespace EveMiner.Forms
 				cells[ColumnOre.Index] = new DataGridViewTextBoxCell {Value = timerListItem.ore.Name};
 				cells[ColumnStartQty.Index] = new DataGridViewTextBoxCell {Value = startVolume};
 				cells[ColumnCurrentQty.Index] = new DataGridViewTextBoxCell {Value = startVolume};
-				cells[ColumnCycle.Index] = new DataGridViewTextBoxCell {Value = cycle.ToString("F0")};
 				cells[ColumnTimeToEnd.Index] = new DataGridViewTextBoxCell
 				                               	{
 				                               		Value =
@@ -202,7 +232,6 @@ namespace EveMiner.Forms
 
 				row.Cells[ColumnTimeToEnd.Index].Value =
 					string.Format("{0:00}:{1:00}", Math.Floor(timerListItem.TimeToAsterEnd/60), timerListItem.TimeToAsterEnd%60);
-				row.Cells[ColumnCycle.Index].Value = timerListItem.TimeToCycleEnd.ToString("F0");
 				row.Cells[ColumnCurrentQty.Index].Value = string.Format("{0}", timerListItem.CurrentVolume.ToString("F0"));
 
 				if (timerListItem.TimeToAsterEnd == 0)
@@ -273,7 +302,7 @@ namespace EveMiner.Forms
 		/// <param name="turret">The turret.</param>
 		public void SetYieldCycle(double yield, double cycleTime, MiningTurret turret)
 		{
-			Text = string.Format("{0}m3 / {1}sec - {2}", yield.ToString("F2"), cycleTime.ToString("F0"), turret);
+			Text = string.Format("{0}m3 / {1}sec - {2}", yield.ToString("F2"), cycleTime.ToString("F2"), turret);
 		}
 
 		#region Tooltip

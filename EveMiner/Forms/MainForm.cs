@@ -335,7 +335,7 @@ namespace EveMiner.Forms
 			Config<Settings>.Instance.MiningAmount = yield;
 			Config<Settings>.Instance.Cycle = cycleTime;
 
-			Text = string.Format("Eve Miner - {0}m3 / {1}sec - {2}", yield.ToString("F2"), cycleTime.ToString("F0"), turret);
+			Text = string.Format("Eve Miner - {0}m3 / {1}sec - {2}", yield.ToString("F2"), cycleTime.ToString("F2"), turret);
 		}
 
 		/// <summary>

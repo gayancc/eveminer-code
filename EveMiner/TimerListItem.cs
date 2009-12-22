@@ -1,5 +1,4 @@
-using System.IO;
-using System.Windows.Forms;
+using System;
 using EveMiner.Ores;
 
 namespace EveMiner
@@ -30,11 +29,6 @@ namespace EveMiner
 		private readonly double cycle;
 
 		/// <summary>
-		/// Время в секундах до конца текущего цикла
-		/// </summary>
-		private double timeToCycleEnd;
-
-		/// <summary>
 		/// Если цикл начался а астера не хватит на весь цикл
 		/// </summary>
 		private bool isEmptyClose;
@@ -49,20 +43,11 @@ namespace EveMiner
 		/// </summary>
 		private double oreUnitPerSecond;
 
-		/// <summary>
-		/// стартовал ли первый лазер
-		/// </summary>
-		private bool laser1Started;
 
-		/// <summary>
-		/// стартовал ли второй лазер
-		/// </summary>
-		private bool laser2Started;
+		private readonly WorkingTurret turret1;
+		private readonly WorkingTurret turret2;
+		private readonly WorkingTurret turret3;
 
-		/// <summary>
-		/// стартовал ли третий лазер
-		/// </summary>
-		private bool laser3Started;
 
 		/// <summary>
 		/// Время до окончаняи астероида в секундах
@@ -78,14 +63,7 @@ namespace EveMiner
 			}
 		}
 
-		/// <summary>
-		/// Время в секундах до конца текущего цикла
-		/// </summary>
-		public double TimeToCycleEnd
-		{
-			get { return timeToCycleEnd; }
-		}
-
+	
 		/// <summary>
 		/// Текущее значение руды в астере
 		/// </summary>
@@ -110,11 +88,11 @@ namespace EveMiner
 			get
 			{
 				int ret = 0;
-				if (laser1Started)
+				if (Turret1.IsStarted)
 					ret++;
-				if (laser2Started)
+				if (Turret2.IsStarted)
 					ret++;
-				if (laser3Started)
+				if (Turret3.IsStarted)
 					ret++;
 				return ret;
 			}
@@ -133,13 +111,15 @@ namespace EveMiner
 		/// </summary>
 		public bool Laser1Started
 		{
-			get { return laser1Started; }
+			get { return Turret1.IsStarted; }
 			set
 			{
-				laser1Started = value;
-				if (value == false && LasersStarted == 0)
-					timeToCycleEnd = cycle;
-				isEmptyClose = timeToAsterEnd < cycle*LasersStarted;
+				if (value)
+					Turret1.Start();
+				else
+					Turret1.Stop();
+
+				isEmptyClose = timeToAsterEnd < cycle * LasersStarted;
 			}
 		}
 
@@ -148,13 +128,17 @@ namespace EveMiner
 		/// </summary>
 		public bool Laser2Started
 		{
-			get { return laser2Started; }
+			get { return Turret2.IsStarted; }
 			set
 			{
-				laser2Started = value;
-				if (value == false && LasersStarted == 0)
-					timeToCycleEnd = cycle;
-				isEmptyClose = timeToAsterEnd < cycle*LasersStarted;
+				
+				if (value)
+					Turret2.Start();
+				else
+					Turret2.Stop();
+
+				isEmptyClose = timeToAsterEnd < cycle * LasersStarted;
+				
 			}
 		}
 
@@ -163,12 +147,14 @@ namespace EveMiner
 		/// </summary>
 		public bool Laser3Started
 		{
-			get { return laser3Started; }
+			get { return Turret3.IsStarted; }
 			set
 			{
-				laser3Started = value;
-				if (value == false && LasersStarted == 0)
-					timeToCycleEnd = cycle;
+				if (value)
+					Turret3.Start();
+				else
+					Turret3.Stop();
+				
 				isEmptyClose = timeToAsterEnd < cycle*LasersStarted;
 			}
 		}
@@ -181,19 +167,44 @@ namespace EveMiner
 			get { return isEmptyClose; }
 		}
 
+		public WorkingTurret Turret1
+		{
+			get { return turret1; }
+		}
+
+		public WorkingTurret Turret2
+		{
+			get { return turret2; }
+		}
+
+		public WorkingTurret Turret3
+		{
+			get { return turret3; }
+		}
+
+		/// <summary>
+		/// Initializes a new instance of the <see cref="TimerListItem"/> class.
+		/// </summary>
+		/// <param name="ore">The ore.</param>
+		/// <param name="startVolume">The start volume.</param>
+		/// <param name="cycle">The cycle.</param>
+		/// <param name="miningYield">The mining yield.</param>
 		public TimerListItem(Ore ore, double startVolume, double cycle, double miningYield)
 		{
 			this.ore = ore;
 			this.startVolume = startVolume;
 			currentVolume = StartVolume;
 			this.cycle = cycle;
-			timeToCycleEnd = cycle;
 
 			oreUnitPerSecond = miningYield/cycle/ore.Volume;
 
 			timeToAsterEnd = (int) (startVolume/oreUnitPerSecond);
 			if (timeToAsterEnd < cycle)
 				isEmptyClose = true;
+
+			turret1 = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
+			turret2 = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
+			turret3 = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
 		}
 
 		/// <summary>
@@ -207,63 +218,50 @@ namespace EveMiner
 			isEmptyClose = timeToAsterEnd < cycle*LasersStarted;
 		}
 
-		/// <summary>
-		/// Тик
-		/// </summary>
-		/// <param name="seconds"></param>
-		public void Tick(int seconds)
-		{
-			if (LasersStarted == 0)
-				return;
-
-
-			currentVolume = CurrentVolume - oreUnitPerSecond*seconds*LasersStarted;
-			if (CurrentVolume < 0)
-				currentVolume = 0;
-
-			timeToCycleEnd = timeToCycleEnd - seconds;
-			if (timeToCycleEnd < 0)
-			{
-				isEmptyClose = timeToAsterEnd < cycle*LasersStarted;
-				timeToCycleEnd = timeToCycleEnd + cycle;
-				PlaySound(Settings.CycleEndFileName);
-			}
-
-			timeToAsterEnd = timeToAsterEnd - seconds*LasersStarted;
-			if (timeToAsterEnd < 0)
-			{
-				timeToAsterEnd = 0;
-			}
-			if (timeToAsterEnd != 0) return;
-			currentVolume = 0;
-			PlaySound(Settings.AsterEndFileName);
-		}
-
-		private static void PlaySound(string filename)
-		{
-			try
-			{
-				string file = Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar +
-				              filename;
-				System.Media.SoundPlayer sp = new System.Media.SoundPlayer(file);
-				sp.Play();
-			}
-			catch (FileNotFoundException)
-			{
-			}
-		}
 
 		/// <summary>
-		/// сброс таймера в исходное состояние
+		/// Обработчик прогресса изменения таймера турели
 		/// </summary>
-		public void Reset()
+		/// <param name="obj">сслка на <see cref="WorkingTurret"/></param>
+		 public void ProgressChanged(Object obj)
+		 {
+			WorkingTurret turret = obj as WorkingTurret;
+			 if(turret != null)
+			 {
+				currentVolume -= oreUnitPerSecond * turret.ProgressInterval;
+				timeToAsterEnd -= turret.ProgressInterval;
+				if (timeToAsterEnd <= 0)
+				{
+					currentVolume = 0;
+					timeToAsterEnd = 0;
+					Sound.PlaySound(Settings.AsterEndFileName);
+					StopTurrets();
+				}
+
+			 }
+		 }
+		 /// <summary>
+		 /// Обработчик окончания цикла туррели
+		 /// </summary>
+		 /// <param name="obj">сслка на <see cref="WorkingTurret"/></param>
+		 public void CycleEnded(Object obj)
+		 {
+			 WorkingTurret turret = obj as WorkingTurret;
+			 if (turret != null)
+			 {
+				 isEmptyClose = timeToAsterEnd < cycle * LasersStarted;
+			 }
+		 }
+
+
+		 /// <summary>
+		 /// Stops the turrets.
+		 /// </summary>
+		public void StopTurrets()
 		{
-			laser1Started = false;
-			laser2Started = false;
-			laser3Started = false;
-			currentVolume = StartVolume;
-			timeToCycleEnd = Cycle;
-			timeToAsterEnd = (int) (startVolume/oreUnitPerSecond) + 1;
+			Turret1.Stop();
+			Turret2.Stop();
+			Turret3.Stop();
 		}
 	}
 }

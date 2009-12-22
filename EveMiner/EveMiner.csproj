@@ -158,6 +158,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="Ship.cs" />
     <Compile Include="Skills.cs" />
+    <Compile Include="Sound.cs" />
     <Compile Include="SpecialServices.cs" />
     <Compile Include="TimerListItem.cs" />
     <Compile Include="Forms\TimersForm.cs">
@@ -166,6 +167,7 @@
     <Compile Include="Forms\TimersForm.Designer.cs">
       <DependentUpon>TimersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkingTurret.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mediumSlot.png" />

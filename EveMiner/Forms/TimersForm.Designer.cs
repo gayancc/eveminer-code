@@ -32,15 +32,6 @@ namespace EveMiner.Forms
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimersForm));
 			this.dataGridViewTimers = new System.Windows.Forms.DataGridView();
-			this.ColumnOre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnStartQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnCurrentQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnCycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnTimeToEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnLaser1Start = new System.Windows.Forms.DataGridViewImageColumn();
-			this.ColumnLaser2Start = new System.Windows.Forms.DataGridViewImageColumn();
-			this.ColumnLaser3Start = new System.Windows.Forms.DataGridViewImageColumn();
-			this.ColumnButtonDelete = new System.Windows.Forms.DataGridViewImageColumn();
 			this.textBoxStartValue = new System.Windows.Forms.TextBox();
 			this.buttonAdd = new System.Windows.Forms.Button();
 			this.comboBoxOre = new System.Windows.Forms.ComboBox();
@@ -52,6 +43,17 @@ namespace EveMiner.Forms
 			this.btnReset = new System.Windows.Forms.Button();
 			this.textBoxCargo = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.progressBarCycle2 = new System.Windows.Forms.ProgressBar();
+			this.progressBarCycle3 = new System.Windows.Forms.ProgressBar();
+			this.progressBarCycle1 = new System.Windows.Forms.ProgressBar();
+			this.ColumnOre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnStartQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnCurrentQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnTimeToEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnLaser1Start = new System.Windows.Forms.DataGridViewImageColumn();
+			this.ColumnLaser2Start = new System.Windows.Forms.DataGridViewImageColumn();
+			this.ColumnLaser3Start = new System.Windows.Forms.DataGridViewImageColumn();
+			this.ColumnButtonDelete = new System.Windows.Forms.DataGridViewImageColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewTimers)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -70,7 +72,6 @@ namespace EveMiner.Forms
             this.ColumnOre,
             this.ColumnStartQty,
             this.ColumnCurrentQty,
-            this.ColumnCycle,
             this.ColumnTimeToEnd,
             this.ColumnLaser1Start,
             this.ColumnLaser2Start,
@@ -89,98 +90,9 @@ namespace EveMiner.Forms
 			this.dataGridViewTimers.ReadOnly = true;
 			this.dataGridViewTimers.RowHeadersVisible = false;
 			this.dataGridViewTimers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-			this.dataGridViewTimers.Size = new System.Drawing.Size(504, 164);
+			this.dataGridViewTimers.Size = new System.Drawing.Size(504, 144);
 			this.dataGridViewTimers.TabIndex = 8;
 			this.dataGridViewTimers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTimersCellClick);
-			// 
-			// ColumnOre
-			// 
-			this.ColumnOre.Frozen = true;
-			this.ColumnOre.HeaderText = "Ore";
-			this.ColumnOre.Name = "ColumnOre";
-			this.ColumnOre.ReadOnly = true;
-			this.ColumnOre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.ColumnOre.ToolTipText = "Ore Type";
-			this.ColumnOre.Width = 147;
-			// 
-			// ColumnStartQty
-			// 
-			this.ColumnStartQty.Frozen = true;
-			this.ColumnStartQty.HeaderText = "Start";
-			this.ColumnStartQty.Name = "ColumnStartQty";
-			this.ColumnStartQty.ReadOnly = true;
-			this.ColumnStartQty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.ColumnStartQty.ToolTipText = "Starting Quantity";
-			this.ColumnStartQty.Width = 60;
-			// 
-			// ColumnCurrentQty
-			// 
-			this.ColumnCurrentQty.FillWeight = 90F;
-			this.ColumnCurrentQty.Frozen = true;
-			this.ColumnCurrentQty.HeaderText = "Current";
-			this.ColumnCurrentQty.Name = "ColumnCurrentQty";
-			this.ColumnCurrentQty.ReadOnly = true;
-			this.ColumnCurrentQty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.ColumnCurrentQty.ToolTipText = "Current Quantity";
-			this.ColumnCurrentQty.Width = 60;
-			// 
-			// ColumnCycle
-			// 
-			this.ColumnCycle.Frozen = true;
-			this.ColumnCycle.HeaderText = "Cycle";
-			this.ColumnCycle.Name = "ColumnCycle";
-			this.ColumnCycle.ReadOnly = true;
-			this.ColumnCycle.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.ColumnCycle.Width = 60;
-			// 
-			// ColumnTimeToEnd
-			// 
-			this.ColumnTimeToEnd.Frozen = true;
-			this.ColumnTimeToEnd.HeaderText = "Time";
-			this.ColumnTimeToEnd.Name = "ColumnTimeToEnd";
-			this.ColumnTimeToEnd.ReadOnly = true;
-			this.ColumnTimeToEnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.ColumnTimeToEnd.Width = 60;
-			// 
-			// ColumnLaser1Start
-			// 
-			this.ColumnLaser1Start.Frozen = true;
-			this.ColumnLaser1Start.HeaderText = "1";
-			this.ColumnLaser1Start.Name = "ColumnLaser1Start";
-			this.ColumnLaser1Start.ReadOnly = true;
-			this.ColumnLaser1Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ColumnLaser1Start.ToolTipText = "Turret 1";
-			this.ColumnLaser1Start.Width = 24;
-			// 
-			// ColumnLaser2Start
-			// 
-			this.ColumnLaser2Start.Frozen = true;
-			this.ColumnLaser2Start.HeaderText = "2";
-			this.ColumnLaser2Start.Name = "ColumnLaser2Start";
-			this.ColumnLaser2Start.ReadOnly = true;
-			this.ColumnLaser2Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ColumnLaser2Start.ToolTipText = "Turret 2";
-			this.ColumnLaser2Start.Width = 24;
-			// 
-			// ColumnLaser3Start
-			// 
-			this.ColumnLaser3Start.Frozen = true;
-			this.ColumnLaser3Start.HeaderText = "3";
-			this.ColumnLaser3Start.Name = "ColumnLaser3Start";
-			this.ColumnLaser3Start.ReadOnly = true;
-			this.ColumnLaser3Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ColumnLaser3Start.ToolTipText = "Turret 3";
-			this.ColumnLaser3Start.Width = 24;
-			// 
-			// ColumnButtonDelete
-			// 
-			this.ColumnButtonDelete.Frozen = true;
-			this.ColumnButtonDelete.HeaderText = "x";
-			this.ColumnButtonDelete.Name = "ColumnButtonDelete";
-			this.ColumnButtonDelete.ReadOnly = true;
-			this.ColumnButtonDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ColumnButtonDelete.ToolTipText = "Delete row";
-			this.ColumnButtonDelete.Width = 24;
 			// 
 			// textBoxStartValue
 			// 
@@ -253,7 +165,7 @@ namespace EveMiner.Forms
 			// 
 			this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
 						| System.Windows.Forms.AnchorStyles.Right)));
-			this.progressBar1.Location = new System.Drawing.Point(179, 203);
+			this.progressBar1.Location = new System.Drawing.Point(179, 222);
 			this.progressBar1.Name = "progressBar1";
 			this.progressBar1.Size = new System.Drawing.Size(303, 20);
 			this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -267,7 +179,7 @@ namespace EveMiner.Forms
 			this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.btnReset.ForeColor = System.Drawing.SystemColors.ButtonFace;
 			this.btnReset.Image = global::EveMiner.Properties.Resources.close_24;
-			this.btnReset.Location = new System.Drawing.Point(488, 199);
+			this.btnReset.Location = new System.Drawing.Point(488, 218);
 			this.btnReset.Name = "btnReset";
 			this.btnReset.Size = new System.Drawing.Size(29, 26);
 			this.btnReset.TabIndex = 10;
@@ -280,7 +192,7 @@ namespace EveMiner.Forms
 			// textBoxCargo
 			// 
 			this.textBoxCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.textBoxCargo.Location = new System.Drawing.Point(73, 203);
+			this.textBoxCargo.Location = new System.Drawing.Point(73, 222);
 			this.textBoxCargo.Name = "textBoxCargo";
 			this.textBoxCargo.Size = new System.Drawing.Size(100, 20);
 			this.textBoxCargo.TabIndex = 11;
@@ -292,20 +204,140 @@ namespace EveMiner.Forms
 			// 
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(9, 206);
+			this.label1.Location = new System.Drawing.Point(9, 225);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(58, 13);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Cargo(m3):";
+			// 
+			// progressBarCycle2
+			// 
+			this.progressBarCycle2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.progressBarCycle2.Location = new System.Drawing.Point(12, 191);
+			this.progressBarCycle2.Name = "progressBarCycle2";
+			this.progressBarCycle2.Size = new System.Drawing.Size(504, 10);
+			this.progressBarCycle2.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+			this.progressBarCycle2.TabIndex = 9;
+			this.progressBarCycle2.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
+			this.progressBarCycle2.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
+			// 
+			// progressBarCycle3
+			// 
+			this.progressBarCycle3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.progressBarCycle3.Location = new System.Drawing.Point(12, 202);
+			this.progressBarCycle3.Name = "progressBarCycle3";
+			this.progressBarCycle3.Size = new System.Drawing.Size(504, 10);
+			this.progressBarCycle3.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+			this.progressBarCycle3.TabIndex = 9;
+			this.progressBarCycle3.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
+			this.progressBarCycle3.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
+			// 
+			// progressBarCycle1
+			// 
+			this.progressBarCycle1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+						| System.Windows.Forms.AnchorStyles.Right)));
+			this.progressBarCycle1.Location = new System.Drawing.Point(12, 180);
+			this.progressBarCycle1.Name = "progressBarCycle1";
+			this.progressBarCycle1.Size = new System.Drawing.Size(504, 10);
+			this.progressBarCycle1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+			this.progressBarCycle1.TabIndex = 9;
+			this.progressBarCycle1.Value = 20;
+			this.progressBarCycle1.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
+			this.progressBarCycle1.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
+			// 
+			// ColumnOre
+			// 
+			this.ColumnOre.Frozen = true;
+			this.ColumnOre.HeaderText = "Ore";
+			this.ColumnOre.Name = "ColumnOre";
+			this.ColumnOre.ReadOnly = true;
+			this.ColumnOre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.ColumnOre.ToolTipText = "Ore Type";
+			this.ColumnOre.Width = 200;
+			// 
+			// ColumnStartQty
+			// 
+			this.ColumnStartQty.Frozen = true;
+			this.ColumnStartQty.HeaderText = "Start";
+			this.ColumnStartQty.Name = "ColumnStartQty";
+			this.ColumnStartQty.ReadOnly = true;
+			this.ColumnStartQty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.ColumnStartQty.ToolTipText = "Starting Quantity";
+			this.ColumnStartQty.Width = 60;
+			// 
+			// ColumnCurrentQty
+			// 
+			this.ColumnCurrentQty.FillWeight = 90F;
+			this.ColumnCurrentQty.Frozen = true;
+			this.ColumnCurrentQty.HeaderText = "Current";
+			this.ColumnCurrentQty.Name = "ColumnCurrentQty";
+			this.ColumnCurrentQty.ReadOnly = true;
+			this.ColumnCurrentQty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.ColumnCurrentQty.ToolTipText = "Current Quantity";
+			this.ColumnCurrentQty.Width = 60;
+			// 
+			// ColumnTimeToEnd
+			// 
+			this.ColumnTimeToEnd.Frozen = true;
+			this.ColumnTimeToEnd.HeaderText = "Time";
+			this.ColumnTimeToEnd.Name = "ColumnTimeToEnd";
+			this.ColumnTimeToEnd.ReadOnly = true;
+			this.ColumnTimeToEnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.ColumnTimeToEnd.Width = 60;
+			// 
+			// ColumnLaser1Start
+			// 
+			this.ColumnLaser1Start.Frozen = true;
+			this.ColumnLaser1Start.HeaderText = "1";
+			this.ColumnLaser1Start.Name = "ColumnLaser1Start";
+			this.ColumnLaser1Start.ReadOnly = true;
+			this.ColumnLaser1Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ColumnLaser1Start.ToolTipText = "Turret 1";
+			this.ColumnLaser1Start.Width = 24;
+			// 
+			// ColumnLaser2Start
+			// 
+			this.ColumnLaser2Start.Frozen = true;
+			this.ColumnLaser2Start.HeaderText = "2";
+			this.ColumnLaser2Start.Name = "ColumnLaser2Start";
+			this.ColumnLaser2Start.ReadOnly = true;
+			this.ColumnLaser2Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ColumnLaser2Start.ToolTipText = "Turret 2";
+			this.ColumnLaser2Start.Width = 24;
+			// 
+			// ColumnLaser3Start
+			// 
+			this.ColumnLaser3Start.Frozen = true;
+			this.ColumnLaser3Start.HeaderText = "3";
+			this.ColumnLaser3Start.Name = "ColumnLaser3Start";
+			this.ColumnLaser3Start.ReadOnly = true;
+			this.ColumnLaser3Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ColumnLaser3Start.ToolTipText = "Turret 3";
+			this.ColumnLaser3Start.Width = 24;
+			// 
+			// ColumnButtonDelete
+			// 
+			this.ColumnButtonDelete.Frozen = true;
+			this.ColumnButtonDelete.HeaderText = "x";
+			this.ColumnButtonDelete.Name = "ColumnButtonDelete";
+			this.ColumnButtonDelete.ReadOnly = true;
+			this.ColumnButtonDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ColumnButtonDelete.ToolTipText = "Delete row";
+			this.ColumnButtonDelete.Width = 24;
 			// 
 			// TimersForm
 			// 
 			this.AcceptButton = this.buttonAdd;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(529, 233);
+			this.ClientSize = new System.Drawing.Size(529, 252);
 			this.Controls.Add(this.textBoxCargo);
 			this.Controls.Add(this.btnReset);
+			this.Controls.Add(this.progressBarCycle3);
+			this.Controls.Add(this.progressBarCycle1);
+			this.Controls.Add(this.progressBarCycle2);
 			this.Controls.Add(this.progressBar1);
 			this.Controls.Add(this.dataGridViewTimers);
 			this.Controls.Add(this.textBoxStartValue);
@@ -335,18 +367,20 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.ToolTip toolTipInfo;
+		private System.Windows.Forms.ProgressBar progressBar1;
+		private System.Windows.Forms.Button btnReset;
+		private System.Windows.Forms.TextBox textBoxCargo;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.ProgressBar progressBarCycle2;
+		private System.Windows.Forms.ProgressBar progressBarCycle3;
+		private System.Windows.Forms.ProgressBar progressBarCycle1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnOre;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStartQty;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCurrentQty;
-		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCycle;
 		private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTimeToEnd;
 		private System.Windows.Forms.DataGridViewImageColumn ColumnLaser1Start;
 		private System.Windows.Forms.DataGridViewImageColumn ColumnLaser2Start;
 		private System.Windows.Forms.DataGridViewImageColumn ColumnLaser3Start;
 		private System.Windows.Forms.DataGridViewImageColumn ColumnButtonDelete;
-		private System.Windows.Forms.ProgressBar progressBar1;
-		private System.Windows.Forms.Button btnReset;
-		private System.Windows.Forms.TextBox textBoxCargo;
-		private System.Windows.Forms.Label label1;
 	}
 }
