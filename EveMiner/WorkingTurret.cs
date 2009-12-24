@@ -17,9 +17,12 @@ namespace EveMiner
 		/// </summary>
 		private double _timeToCycleEnd;
 
-		
-		private readonly TimerCallback _timerProgressChangedCallback;
+
 		private readonly TimerCallback _timerCycleEndedCallback;
+		/// <summary>
+		/// Имя туррели
+		/// </summary>
+		public readonly string Name;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="WorkingTurret"/> class.
@@ -28,13 +31,14 @@ namespace EveMiner
 		/// <param name="progressInterval">The progress interval.</param>
 		/// <param name="timerProgressChanged">The timer progress changed.</param>
 		/// <param name="timerCycleEnded">The timer cycle ended.</param>
-		public WorkingTurret(double workingCycle, double progressInterval, TimerCallback timerProgressChanged, TimerCallback timerCycleEnded)
+		public WorkingTurret(double workingCycle, double progressInterval, TimerCallback timerProgressChanged, TimerCallback timerCycleEnded, string name)
 		{
 			_workingCycle = workingCycle;
+			Name = name;
 			_progressInterval += progressInterval;
 			_timerCycleEndedCallback = CycleEnded;
-			_timerProgressChangedCallback = ProgressChanged;
-			_timerProgressChangedCallback += timerProgressChanged;
+			TimerProgressChangedCallback = ProgressChanged;
+			TimerProgressChangedCallback = TimerProgressChangedCallback + timerProgressChanged;
 			_timerCycleEndedCallback += timerCycleEnded;
 		}
 		/// <summary>
@@ -44,7 +48,7 @@ namespace EveMiner
 		{
 			_timeToCycleEnd = _workingCycle;
 			_cycleTimer = new Timer(_timerCycleEndedCallback, this, Convert.ToInt32(WorkingCycle * 1000.0), Convert.ToInt32(WorkingCycle * 1000.0));
-			_progressTimer = new Timer(_timerProgressChangedCallback, this, Convert.ToInt32(ProgressInterval * 1000.0), Convert.ToInt32(ProgressInterval * 1000.0));
+			_progressTimer = new Timer(TimerProgressChangedCallback, this, Convert.ToInt32(ProgressInterval * 1000.0), Convert.ToInt32(ProgressInterval * 1000.0));
 		}
 		/// <summary>
 		/// Stops this instance.
@@ -95,6 +99,12 @@ namespace EveMiner
 		{
 			get { return _timeToCycleEnd; }
 		}
+
+		/// <summary>
+		/// Callback для изменения прогресса таймера
+		/// </summary>
+		public TimerCallback TimerProgressChangedCallback { get; set; }
+
 		/// <summary>
 		/// Обработчик прогресса изменения таймера турели
 		/// </summary>

@@ -20,6 +20,8 @@ namespace EveMiner.Forms
 
 		private readonly DataGridViewRow[] _rowsStartedTurret = new DataGridViewRow[3];
 
+		private delegate void SetProgressCycleCallback(ProgressBar progress, int val);
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TimersForm"/> class.
@@ -115,7 +117,7 @@ namespace EveMiner.Forms
 			if(tItem == null)
 				return;
 	    	bool bState = !tItem.IsEnableTurret(nTurret);
-			tItem.EnableTurret(nTurret, bState);
+			tItem.EnableTurret(nTurret, bState, ProgressChanged);
 	        if(bState)
 	        {
 	        	if (_rowsStartedTurret[nTurret] != null)
@@ -123,7 +125,7 @@ namespace EveMiner.Forms
 	        		TimerListItem tItemOld = _rowsStartedTurret[nTurret].Tag as TimerListItem;
 	        		if (tItemOld != null)
 	        		{
-	        			tItemOld.EnableTurret(nTurret, false);
+						tItemOld.EnableTurret(nTurret, false, ProgressChanged);
 	        		}
 	        		_rowsStartedTurret[nTurret].Cells[indexColumn].Value = Properties.Resources.play_24;
 					UpdateTimerListItem(_rowsStartedTurret[nTurret]);
@@ -137,8 +139,53 @@ namespace EveMiner.Forms
 	        }
 			UpdateTimerListItem(row);
 	    }
+		/// <summary>
+		/// Обработчик прогресса изменения таймера турели
+		/// </summary>
+		/// <param name="obj">сслка на <see cref="WorkingTurret"/></param>
+		private void ProgressChanged(Object obj)
+		{
+			WorkingTurret turret = obj as WorkingTurret;
+			if (turret != null)
+			{
+				int val = (int) (turret.WorkingCycle - turret.TimeToCycleEnd);
+				if(val > progressBarCycle1.Maximum)
+					val = progressBarCycle1.Maximum;
+				if(turret.Name == "1")
+				{
+					SetProgressCycle(progressBarCycle1, val);
+				}
+				else if (turret.Name == "2")
+				{
+					SetProgressCycle(progressBarCycle2, val);
+				}
+				if (turret.Name == "3")
+				{
+					SetProgressCycle(progressBarCycle3, val);
+				}
 
-	    /// <summary>
+
+			}
+		}
+
+		private void SetProgressCycle(ProgressBar progress, int val)
+		{
+			if (progress.InvokeRequired)
+			{
+				SetProgressCycleCallback callback = SetProgressCycle;
+				this.Invoke(callback, new object[] {progress, val});
+				//callback.Invoke(progress, val);
+			}
+			else
+			{
+				if (val > progress.Maximum)
+					val = progress.Maximum;
+				progress.Value = val;
+			}
+		}
+
+
+		/// <summary>
 		/// Removes the row.
 		/// </summary>
 		/// <param name="index">The index.</param>
@@ -314,6 +361,9 @@ namespace EveMiner.Forms
 		public void SetYieldCycle(double yield, double cycleTime, MiningTurret turret)
 		{
 			Text = string.Format("{0}m3 / {1}sec - {2}", yield.ToString("F2"), cycleTime.ToString("F2"), turret);
+			progressBarCycle1.Maximum = (int) cycleTime;
+			progressBarCycle2.Maximum = (int) cycleTime;
+			progressBarCycle3.Maximum = (int) cycleTime;
 		}
 
 		#region Tooltip

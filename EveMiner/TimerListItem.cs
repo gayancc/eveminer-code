@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using EveMiner.Ores;
 
 namespace EveMiner
@@ -44,7 +45,7 @@ namespace EveMiner
 		private double oreUnitPerSecond;
 
 
-        public readonly WorkingTurret[] Turrets = new WorkingTurret[3];
+		private readonly WorkingTurret[] _turrets = new WorkingTurret[3];
 
 
 		/// <summary>
@@ -86,7 +87,7 @@ namespace EveMiner
 			get
 			{
 				int ret = 0;
-				foreach (WorkingTurret turret in Turrets)
+				foreach (WorkingTurret turret in _turrets)
 				{
 					if (turret.IsStarted)
 						ret++;
@@ -132,30 +133,41 @@ namespace EveMiner
 			if (timeToAsterEnd < cycle)
 				isEmptyClose = true;
 
-			Turrets[0] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
-			Turrets[1] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
-			Turrets[2] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
+			_turrets[0] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded, "1");
+			_turrets[1] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded, "2");
+			_turrets[2] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded, "3");
             
 		}
-
-        public void EnableTurret(int nTurret, bool bEnable)
+		/// <summary>
+		/// Включить/выключить туррель
+		/// </summary>
+		/// <param name="nTurret">номер</param>
+		/// <param name="bEnable">вкл/выкл</param>
+		/// <param name="callbackProgressChanged">коллбэк для функции отображения прогресса цикла</param>
+        public void EnableTurret(int nTurret, bool bEnable, TimerCallback callbackProgressChanged)
         {
-            if (nTurret < 0 || nTurret > Turrets.Length)
+            if (nTurret < 0 || nTurret > _turrets.Length)
                 new ArgumentOutOfRangeException("nTurret");
             if(bEnable)
             {
-                Turrets[nTurret].Start();
+				_turrets[nTurret].TimerProgressChangedCallback += callbackProgressChanged;
+                _turrets[nTurret].Start();
             }
             else
             {
-            	Turrets[nTurret].Stop();
+				_turrets[nTurret].TimerProgressChangedCallback -= callbackProgressChanged;
+            	_turrets[nTurret].Stop();
             }
             isEmptyClose = timeToAsterEnd < cycle * LasersStarted;
         }
-
+		/// <summary>
+		/// проверка на включенное состояние туррели
+		/// </summary>
+		/// <param name="nTurret"></param>
+		/// <returns></returns>
         public bool IsEnableTurret(int nTurret)
         {
-        	return Turrets[nTurret].IsStarted;
+        	return _turrets[nTurret].IsStarted;
         }
 		/// <summary>
 		/// Обновить значение руды за цикл
@@ -209,7 +221,7 @@ namespace EveMiner
 		 /// </summary>
 		public void StopTurrets()
 		{
-		 	foreach (WorkingTurret turret in Turrets)
+		 	foreach (WorkingTurret turret in _turrets)
 		 	{
 		 		turret.Stop();
 		 	}
