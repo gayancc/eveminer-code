@@ -18,9 +18,9 @@ namespace EveMiner.Forms
 		/// </summary>
 		private double _currentCargo;
 
-		private WorkingTurret _turret1;
-		private WorkingTurret _turret2;
-		private WorkingTurret _turret3;
+		private readonly WorkingTurret[] _turrets = new WorkingTurret[3];
+        private readonly DataGridViewCell[] _cellsStartedTurret = new DataGridViewCell[3];
+
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TimersForm"/> class.
@@ -33,7 +33,6 @@ namespace EveMiner.Forms
 			_currentCargo = 0.0;
 			progressBar1.Maximum = Convert.ToInt32(Config<Settings>.Instance.CargoHold);
 			SetProgressCargo();
-
 
 			_timer.Tick += TimerTick;
 			_timer.Interval = 1000;
@@ -67,7 +66,7 @@ namespace EveMiner.Forms
 					UpdateTimerListItem(dataGridViewTimers.Rows[n]);
 					_currentCargo += Config<Settings>.Instance.MiningAmount/Config<Settings>.Instance.Cycle*titem.LasersStarted;
 					SetProgressCargo();
-					SetProgressCycles();
+					//SetProgressCycles();
 				}
 			}
 		}
@@ -98,27 +97,18 @@ namespace EveMiner.Forms
 					{
 						if (e.ColumnIndex == ColumnLaser1Start.Index)
 						{
-							titem.Laser1Started = !titem.Laser1Started;
-							row.Cells[e.ColumnIndex].Value = titem.Laser1Started
-							                                 	?
-							                                 		Properties.Resources.stop_24
-							                                 	: Properties.Resources.play_24;
+							titem.EnableTurret(0, !titem.IsEnableTurret(0));
+							StartTurret(0, titem, row.Cells[e.ColumnIndex]);
 						}
 						else if (e.ColumnIndex == ColumnLaser2Start.Index)
 						{
-							titem.Laser2Started = !titem.Laser2Started;
-							row.Cells[e.ColumnIndex].Value = titem.Laser2Started
-							                                 	?
-							                                 		Properties.Resources.stop_24
-							                                 	: Properties.Resources.play_24;
+							titem.EnableTurret(1, !titem.IsEnableTurret(1));
+							StartTurret(1, titem, row.Cells[e.ColumnIndex]);
 						}
 						else if (e.ColumnIndex == ColumnLaser3Start.Index)
 						{
-							titem.Laser3Started = !titem.Laser3Started;
-							row.Cells[e.ColumnIndex].Value = titem.Laser3Started
-							                                 	?
-							                                 		Properties.Resources.stop_24
-							                                 	: Properties.Resources.play_24;
+							titem.EnableTurret(2, !titem.IsEnableTurret(2));
+							StartTurret(2, titem, row.Cells[e.ColumnIndex]);
 						}
 					}
 					else
@@ -130,10 +120,35 @@ namespace EveMiner.Forms
 						RemoveRows();
 					else
 						RemoveRow(e.RowIndex);
+
 				}
 			}
 		}
-		/// <summary>
+
+	    private void StartTurret(int nTurret, TimerListItem tItem, DataGridViewCell cell)
+        {
+	        if(tItem.IsEnableTurret(nTurret))
+	        {
+				if (_turrets[nTurret] != null)
+				{
+					_turrets[nTurret].Stop();
+				}
+				if (_cellsStartedTurret[nTurret] != null)
+				{
+					_cellsStartedTurret[nTurret].Value = Properties.Resources.play_24;
+				}
+	        	_turrets[nTurret] = tItem.Turrets[nTurret];
+	        	_cellsStartedTurret[nTurret] = cell;
+				_cellsStartedTurret[nTurret].Value = Properties.Resources.stop_24;
+	        }
+	        else
+	        {
+	        	_turrets[nTurret] = null;
+				_cellsStartedTurret[nTurret].Value = Properties.Resources.play_24;
+	        }
+	    }
+
+	    /// <summary>
 		/// Removes the row.
 		/// </summary>
 		/// <param name="index">The index.</param>

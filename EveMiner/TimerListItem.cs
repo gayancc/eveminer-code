@@ -44,9 +44,7 @@ namespace EveMiner
 		private double oreUnitPerSecond;
 
 
-		private readonly WorkingTurret turret1;
-		private readonly WorkingTurret turret2;
-		private readonly WorkingTurret turret3;
+        public readonly WorkingTurret[] Turrets = new WorkingTurret[3];
 
 
 		/// <summary>
@@ -88,12 +86,11 @@ namespace EveMiner
 			get
 			{
 				int ret = 0;
-				if (Turret1.IsStarted)
-					ret++;
-				if (Turret2.IsStarted)
-					ret++;
-				if (Turret3.IsStarted)
-					ret++;
+				foreach (WorkingTurret turret in Turrets)
+				{
+					if (turret.IsStarted)
+						ret++;
+				}
 				return ret;
 			}
 		}
@@ -107,59 +104,6 @@ namespace EveMiner
 		}
 
 		/// <summary>
-		/// стартовал ли первый лазер
-		/// </summary>
-		public bool Laser1Started
-		{
-			get { return Turret1.IsStarted; }
-			set
-			{
-				if (value)
-					Turret1.Start();
-				else
-					Turret1.Stop();
-
-				isEmptyClose = timeToAsterEnd < cycle * LasersStarted;
-			}
-		}
-
-		/// <summary>
-		/// стартовал ли второй лазер
-		/// </summary>
-		public bool Laser2Started
-		{
-			get { return Turret2.IsStarted; }
-			set
-			{
-				
-				if (value)
-					Turret2.Start();
-				else
-					Turret2.Stop();
-
-				isEmptyClose = timeToAsterEnd < cycle * LasersStarted;
-				
-			}
-		}
-
-		/// <summary>
-		/// стартовал ли третий лазер
-		/// </summary>
-		public bool Laser3Started
-		{
-			get { return Turret3.IsStarted; }
-			set
-			{
-				if (value)
-					Turret3.Start();
-				else
-					Turret3.Stop();
-				
-				isEmptyClose = timeToAsterEnd < cycle*LasersStarted;
-			}
-		}
-
-		/// <summary>
 		/// Если цикл начался а астера не хватит на весь цикл
 		/// </summary>
 		public bool IsEmptyClose
@@ -167,20 +111,6 @@ namespace EveMiner
 			get { return isEmptyClose; }
 		}
 
-		public WorkingTurret Turret1
-		{
-			get { return turret1; }
-		}
-
-		public WorkingTurret Turret2
-		{
-			get { return turret2; }
-		}
-
-		public WorkingTurret Turret3
-		{
-			get { return turret3; }
-		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TimerListItem"/> class.
@@ -202,11 +132,31 @@ namespace EveMiner
 			if (timeToAsterEnd < cycle)
 				isEmptyClose = true;
 
-			turret1 = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
-			turret2 = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
-			turret3 = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
+			Turrets[0] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
+			Turrets[1] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
+			Turrets[2] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded);
+            
 		}
 
+        public void EnableTurret(int nTurret, bool bEnable)
+        {
+            if (nTurret < 0 || nTurret > Turrets.Length)
+                new ArgumentOutOfRangeException("nTurret");
+            if(bEnable)
+            {
+                Turrets[nTurret].Start();
+            }
+            else
+            {
+            	Turrets[nTurret].Stop();
+            }
+            isEmptyClose = timeToAsterEnd < cycle * LasersStarted;
+        }
+
+        public bool IsEnableTurret(int nTurret)
+        {
+        	return Turrets[nTurret].IsStarted;
+        }
 		/// <summary>
 		/// Обновить значение руды за цикл
 		/// </summary>
@@ -259,9 +209,10 @@ namespace EveMiner
 		 /// </summary>
 		public void StopTurrets()
 		{
-			Turret1.Stop();
-			Turret2.Stop();
-			Turret3.Stop();
+		 	foreach (WorkingTurret turret in Turrets)
+		 	{
+		 		turret.Stop();
+		 	}
 		}
 	}
 }
