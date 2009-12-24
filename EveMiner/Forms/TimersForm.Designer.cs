@@ -32,6 +32,14 @@ namespace EveMiner.Forms
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TimersForm));
 			this.dataGridViewTimers = new System.Windows.Forms.DataGridView();
+			this.ColumnOre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnStartQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnCurrentQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnTimeToEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ColumnLaser1Start = new System.Windows.Forms.DataGridViewImageColumn();
+			this.ColumnLaser2Start = new System.Windows.Forms.DataGridViewImageColumn();
+			this.ColumnLaser3Start = new System.Windows.Forms.DataGridViewImageColumn();
+			this.ColumnButtonDelete = new System.Windows.Forms.DataGridViewImageColumn();
 			this.textBoxStartValue = new System.Windows.Forms.TextBox();
 			this.buttonAdd = new System.Windows.Forms.Button();
 			this.comboBoxOre = new System.Windows.Forms.ComboBox();
@@ -46,14 +54,6 @@ namespace EveMiner.Forms
 			this.progressBarCycle2 = new System.Windows.Forms.ProgressBar();
 			this.progressBarCycle3 = new System.Windows.Forms.ProgressBar();
 			this.progressBarCycle1 = new System.Windows.Forms.ProgressBar();
-			this.ColumnOre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnStartQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnCurrentQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnTimeToEnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.ColumnLaser1Start = new System.Windows.Forms.DataGridViewImageColumn();
-			this.ColumnLaser2Start = new System.Windows.Forms.DataGridViewImageColumn();
-			this.ColumnLaser3Start = new System.Windows.Forms.DataGridViewImageColumn();
-			this.ColumnButtonDelete = new System.Windows.Forms.DataGridViewImageColumn();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewTimers)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -93,6 +93,86 @@ namespace EveMiner.Forms
 			this.dataGridViewTimers.Size = new System.Drawing.Size(504, 144);
 			this.dataGridViewTimers.TabIndex = 8;
 			this.dataGridViewTimers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTimersCellClick);
+			// 
+			// ColumnOre
+			// 
+			this.ColumnOre.Frozen = true;
+			this.ColumnOre.HeaderText = "Ore";
+			this.ColumnOre.Name = "ColumnOre";
+			this.ColumnOre.ReadOnly = true;
+			this.ColumnOre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.ColumnOre.ToolTipText = "Ore Type";
+			this.ColumnOre.Width = 200;
+			// 
+			// ColumnStartQty
+			// 
+			this.ColumnStartQty.Frozen = true;
+			this.ColumnStartQty.HeaderText = "Start";
+			this.ColumnStartQty.Name = "ColumnStartQty";
+			this.ColumnStartQty.ReadOnly = true;
+			this.ColumnStartQty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.ColumnStartQty.ToolTipText = "Starting Quantity";
+			this.ColumnStartQty.Width = 60;
+			// 
+			// ColumnCurrentQty
+			// 
+			this.ColumnCurrentQty.FillWeight = 90F;
+			this.ColumnCurrentQty.Frozen = true;
+			this.ColumnCurrentQty.HeaderText = "Current";
+			this.ColumnCurrentQty.Name = "ColumnCurrentQty";
+			this.ColumnCurrentQty.ReadOnly = true;
+			this.ColumnCurrentQty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.ColumnCurrentQty.ToolTipText = "Current Quantity";
+			this.ColumnCurrentQty.Width = 60;
+			// 
+			// ColumnTimeToEnd
+			// 
+			this.ColumnTimeToEnd.Frozen = true;
+			this.ColumnTimeToEnd.HeaderText = "Time";
+			this.ColumnTimeToEnd.Name = "ColumnTimeToEnd";
+			this.ColumnTimeToEnd.ReadOnly = true;
+			this.ColumnTimeToEnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+			this.ColumnTimeToEnd.Width = 60;
+			// 
+			// ColumnLaser1Start
+			// 
+			this.ColumnLaser1Start.Frozen = true;
+			this.ColumnLaser1Start.HeaderText = "1";
+			this.ColumnLaser1Start.Name = "ColumnLaser1Start";
+			this.ColumnLaser1Start.ReadOnly = true;
+			this.ColumnLaser1Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ColumnLaser1Start.ToolTipText = "Turret 1";
+			this.ColumnLaser1Start.Width = 24;
+			// 
+			// ColumnLaser2Start
+			// 
+			this.ColumnLaser2Start.Frozen = true;
+			this.ColumnLaser2Start.HeaderText = "2";
+			this.ColumnLaser2Start.Name = "ColumnLaser2Start";
+			this.ColumnLaser2Start.ReadOnly = true;
+			this.ColumnLaser2Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ColumnLaser2Start.ToolTipText = "Turret 2";
+			this.ColumnLaser2Start.Width = 24;
+			// 
+			// ColumnLaser3Start
+			// 
+			this.ColumnLaser3Start.Frozen = true;
+			this.ColumnLaser3Start.HeaderText = "3";
+			this.ColumnLaser3Start.Name = "ColumnLaser3Start";
+			this.ColumnLaser3Start.ReadOnly = true;
+			this.ColumnLaser3Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ColumnLaser3Start.ToolTipText = "Turret 3";
+			this.ColumnLaser3Start.Width = 24;
+			// 
+			// ColumnButtonDelete
+			// 
+			this.ColumnButtonDelete.Frozen = true;
+			this.ColumnButtonDelete.HeaderText = "x";
+			this.ColumnButtonDelete.Name = "ColumnButtonDelete";
+			this.ColumnButtonDelete.ReadOnly = true;
+			this.ColumnButtonDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.ColumnButtonDelete.ToolTipText = "Delete row";
+			this.ColumnButtonDelete.Width = 24;
 			// 
 			// textBoxStartValue
 			// 
@@ -243,89 +323,8 @@ namespace EveMiner.Forms
 			this.progressBarCycle1.Size = new System.Drawing.Size(504, 10);
 			this.progressBarCycle1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
 			this.progressBarCycle1.TabIndex = 9;
-			this.progressBarCycle1.Value = 20;
 			this.progressBarCycle1.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
 			this.progressBarCycle1.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
-			// 
-			// ColumnOre
-			// 
-			this.ColumnOre.Frozen = true;
-			this.ColumnOre.HeaderText = "Ore";
-			this.ColumnOre.Name = "ColumnOre";
-			this.ColumnOre.ReadOnly = true;
-			this.ColumnOre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.ColumnOre.ToolTipText = "Ore Type";
-			this.ColumnOre.Width = 200;
-			// 
-			// ColumnStartQty
-			// 
-			this.ColumnStartQty.Frozen = true;
-			this.ColumnStartQty.HeaderText = "Start";
-			this.ColumnStartQty.Name = "ColumnStartQty";
-			this.ColumnStartQty.ReadOnly = true;
-			this.ColumnStartQty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.ColumnStartQty.ToolTipText = "Starting Quantity";
-			this.ColumnStartQty.Width = 60;
-			// 
-			// ColumnCurrentQty
-			// 
-			this.ColumnCurrentQty.FillWeight = 90F;
-			this.ColumnCurrentQty.Frozen = true;
-			this.ColumnCurrentQty.HeaderText = "Current";
-			this.ColumnCurrentQty.Name = "ColumnCurrentQty";
-			this.ColumnCurrentQty.ReadOnly = true;
-			this.ColumnCurrentQty.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.ColumnCurrentQty.ToolTipText = "Current Quantity";
-			this.ColumnCurrentQty.Width = 60;
-			// 
-			// ColumnTimeToEnd
-			// 
-			this.ColumnTimeToEnd.Frozen = true;
-			this.ColumnTimeToEnd.HeaderText = "Time";
-			this.ColumnTimeToEnd.Name = "ColumnTimeToEnd";
-			this.ColumnTimeToEnd.ReadOnly = true;
-			this.ColumnTimeToEnd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-			this.ColumnTimeToEnd.Width = 60;
-			// 
-			// ColumnLaser1Start
-			// 
-			this.ColumnLaser1Start.Frozen = true;
-			this.ColumnLaser1Start.HeaderText = "1";
-			this.ColumnLaser1Start.Name = "ColumnLaser1Start";
-			this.ColumnLaser1Start.ReadOnly = true;
-			this.ColumnLaser1Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ColumnLaser1Start.ToolTipText = "Turret 1";
-			this.ColumnLaser1Start.Width = 24;
-			// 
-			// ColumnLaser2Start
-			// 
-			this.ColumnLaser2Start.Frozen = true;
-			this.ColumnLaser2Start.HeaderText = "2";
-			this.ColumnLaser2Start.Name = "ColumnLaser2Start";
-			this.ColumnLaser2Start.ReadOnly = true;
-			this.ColumnLaser2Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ColumnLaser2Start.ToolTipText = "Turret 2";
-			this.ColumnLaser2Start.Width = 24;
-			// 
-			// ColumnLaser3Start
-			// 
-			this.ColumnLaser3Start.Frozen = true;
-			this.ColumnLaser3Start.HeaderText = "3";
-			this.ColumnLaser3Start.Name = "ColumnLaser3Start";
-			this.ColumnLaser3Start.ReadOnly = true;
-			this.ColumnLaser3Start.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ColumnLaser3Start.ToolTipText = "Turret 3";
-			this.ColumnLaser3Start.Width = 24;
-			// 
-			// ColumnButtonDelete
-			// 
-			this.ColumnButtonDelete.Frozen = true;
-			this.ColumnButtonDelete.HeaderText = "x";
-			this.ColumnButtonDelete.Name = "ColumnButtonDelete";
-			this.ColumnButtonDelete.ReadOnly = true;
-			this.ColumnButtonDelete.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.ColumnButtonDelete.ToolTipText = "Delete row";
-			this.ColumnButtonDelete.Width = 24;
 			// 
 			// TimersForm
 			// 
