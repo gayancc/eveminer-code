@@ -111,9 +111,12 @@ namespace EveMiner
 		/// Обработчик прогресса изменения таймера турели
 		/// </summary>
 		/// <param name="obj">сслка на <see cref="WorkingTurret"/></param>
-		public void ProgressChanged(Object obj)
+		private void ProgressChanged(Object obj)
 		{
 			_timeToCycleEnd -= ProgressInterval;
+			if (_timeToCycleEnd <= 0)
+				_timeToCycleEnd += WorkingCycle;
+			
 		}
 
 		/// <summary>

@@ -150,8 +150,6 @@ namespace EveMiner.Forms
 			if (turret != null)
 			{
 				int val = (int) (turret.WorkingCycle - turret.TimeToCycleEnd);
-				if(val > progressBarCycle1.Maximum)
-					val = progressBarCycle1.Maximum;
 				if(turret.Name == "1")
 				{
 					SetProgressCycle(progressBarCycle1, val);
@@ -164,8 +162,6 @@ namespace EveMiner.Forms
 				{
 					SetProgressCycle(progressBarCycle3, val);
 				}
-
-
 			}
 		}
 
