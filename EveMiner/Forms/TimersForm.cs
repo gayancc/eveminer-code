@@ -18,8 +18,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		private double _currentCargo;
 
-		private readonly WorkingTurret[] _turrets = new WorkingTurret[3];
-        private readonly DataGridViewCell[] _cellsStartedTurret = new DataGridViewCell[3];
+		private readonly DataGridViewRow[] _rowsStartedTurret = new DataGridViewRow[3];
 
 
 		/// <summary>
@@ -92,27 +91,13 @@ namespace EveMiner.Forms
 					if (e.RowIndex == -1)
 						return;
 					DataGridViewRow row = dataGridViewTimers.Rows[e.RowIndex];
-					TimerListItem titem = row.Tag as TimerListItem;
-					if (titem != null)
-					{
-						if (e.ColumnIndex == ColumnLaser1Start.Index)
-						{
-							titem.EnableTurret(0, !titem.IsEnableTurret(0));
-							StartTurret(0, titem, row.Cells[e.ColumnIndex]);
-						}
-						else if (e.ColumnIndex == ColumnLaser2Start.Index)
-						{
-							titem.EnableTurret(1, !titem.IsEnableTurret(1));
-							StartTurret(1, titem, row.Cells[e.ColumnIndex]);
-						}
-						else if (e.ColumnIndex == ColumnLaser3Start.Index)
-						{
-							titem.EnableTurret(2, !titem.IsEnableTurret(2));
-							StartTurret(2, titem, row.Cells[e.ColumnIndex]);
-						}
-					}
-					else
-						RemoveRow(e.RowIndex);
+
+					if (e.ColumnIndex == ColumnLaser1Start.Index)
+						ChangeTurretState(0, row, e.ColumnIndex);
+					else if (e.ColumnIndex == ColumnLaser2Start.Index)
+						ChangeTurretState(1, row, e.ColumnIndex);
+					else if (e.ColumnIndex == ColumnLaser3Start.Index)
+						ChangeTurretState(2, row, e.ColumnIndex);
 				}
 				if (e.ColumnIndex == ColumnButtonDelete.Index)
 				{
@@ -120,32 +105,37 @@ namespace EveMiner.Forms
 						RemoveRows();
 					else
 						RemoveRow(e.RowIndex);
-
 				}
 			}
 		}
 
-	    private void StartTurret(int nTurret, TimerListItem tItem, DataGridViewCell cell)
+	    private void ChangeTurretState(int nTurret, DataGridViewRow row, int indexColumn)
         {
-	        if(tItem.IsEnableTurret(nTurret))
+			TimerListItem tItem = row.Tag as TimerListItem;
+			if(tItem == null)
+				return;
+	    	bool bState = !tItem.IsEnableTurret(nTurret);
+			tItem.EnableTurret(nTurret, bState);
+	        if(bState)
 	        {
-				if (_turrets[nTurret] != null)
-				{
-					_turrets[nTurret].Stop();
-				}
-				if (_cellsStartedTurret[nTurret] != null)
-				{
-					_cellsStartedTurret[nTurret].Value = Properties.Resources.play_24;
-				}
-	        	_turrets[nTurret] = tItem.Turrets[nTurret];
-	        	_cellsStartedTurret[nTurret] = cell;
-				_cellsStartedTurret[nTurret].Value = Properties.Resources.stop_24;
+	        	if (_rowsStartedTurret[nTurret] != null)
+	        	{
+	        		TimerListItem tItemOld = _rowsStartedTurret[nTurret].Tag as TimerListItem;
+	        		if (tItemOld != null)
+	        		{
+	        			tItemOld.EnableTurret(nTurret, false);
+	        		}
+	        		_rowsStartedTurret[nTurret].Cells[indexColumn].Value = Properties.Resources.play_24;
+					UpdateTimerListItem(_rowsStartedTurret[nTurret]);
+	        	}
+	        	_rowsStartedTurret[nTurret] = row;
+	        	row.Cells[indexColumn].Value = Properties.Resources.stop_24;
 	        }
 	        else
 	        {
-	        	_turrets[nTurret] = null;
-				_cellsStartedTurret[nTurret].Value = Properties.Resources.play_24;
+				row.Cells[indexColumn].Value = Properties.Resources.play_24;
 	        }
+			UpdateTimerListItem(row);
 	    }
 
 	    /// <summary>
@@ -168,6 +158,12 @@ namespace EveMiner.Forms
 		/// </summary>
 		void RemoveRows()
 		{
+			foreach (DataGridViewRow row in dataGridViewTimers.Rows)
+			{
+				TimerListItem titem = row.Tag as TimerListItem;
+				if (titem != null)
+					titem.StopTurrets();
+			}
 			dataGridViewTimers.Rows.Clear();
 		}
 
