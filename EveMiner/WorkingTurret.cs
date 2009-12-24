@@ -46,6 +46,8 @@ namespace EveMiner
 		/// </summary>
 		public void Start()
 		{
+			if (IsStarted)
+				Stop();
 			_timeToCycleEnd = _workingCycle;
 			_cycleTimer = new Timer(_timerCycleEndedCallback, this, Convert.ToInt32(WorkingCycle * 1000.0), Convert.ToInt32(WorkingCycle * 1000.0));
 			_progressTimer = new Timer(TimerProgressChangedCallback, this, Convert.ToInt32(ProgressInterval * 1000.0), Convert.ToInt32(ProgressInterval * 1000.0));

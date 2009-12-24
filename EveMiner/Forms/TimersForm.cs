@@ -135,6 +135,7 @@ namespace EveMiner.Forms
 	        }
 	        else
 	        {
+	        	_rowsStartedTurret[nTurret] = null;
 				row.Cells[indexColumn].Value = Properties.Resources.play_24;
 	        }
 			UpdateTimerListItem(row);
