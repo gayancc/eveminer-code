@@ -197,7 +197,6 @@ namespace EveMiner
 					currentVolume = 0;
 					timeToAsterEnd = 0;
 					Sound.PlaySound(Settings.AsterEndFileName);
-					StopTurrets();
 				}
 
 			 }

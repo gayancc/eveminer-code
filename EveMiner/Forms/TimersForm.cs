@@ -110,7 +110,12 @@ namespace EveMiner.Forms
 				}
 			}
 		}
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="nTurret"></param>
+		/// <param name="row"></param>
+		/// <param name="indexColumn"></param>
 	    private void ChangeTurretState(int nTurret, DataGridViewRow row, int indexColumn)
         {
 			TimerListItem tItem = row.Tag as TimerListItem;
@@ -164,7 +169,11 @@ namespace EveMiner.Forms
 				}
 			}
 		}
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="progress"></param>
+		/// <param name="val"></param>
 		private void SetProgressCycle(ProgressBar progress, int val)
 		{
 			if (progress.InvokeRequired)
@@ -276,6 +285,7 @@ namespace EveMiner.Forms
 				if (timerListItem.TimeToAsterEnd == 0)
 				{
 					row.DefaultCellStyle.BackColor = Color.FromArgb(255, 200, 200);
+					timerListItem.StopTurrets();
 				}
 				else if (timerListItem.LasersStarted > 0)
 				{
@@ -283,6 +293,7 @@ namespace EveMiner.Forms
 					                                 	? Color.FromArgb(255, 255, 200)
 					                                 	: Color.FromArgb(200, 255, 200);
 				}
+				
 
 
 				row.Cells[ColumnTimeToEnd.Index].Value =
