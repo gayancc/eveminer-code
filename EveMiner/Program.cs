@@ -13,10 +13,10 @@ namespace EveMiner
 		[STAThread]
 		private static void Main()
 		{
-			using (SingleProgramInstance spi = new SingleProgramInstance("x5k6yz"))
-			{
-				if (spi.IsSingleInstance)
-				{
+// 			using (SingleProgramInstance spi = new SingleProgramInstance("x5k6yz"))
+// 			{
+// 				if (spi.IsSingleInstance)
+// 				{
 					Application.EnableVisualStyles();
 					Application.SetCompatibleTextRenderingDefault(false);
 					MainForm mainForm = new MainForm();
@@ -24,12 +24,12 @@ namespace EveMiner
 					Application.Run(mainForm);
 					//Application.Run(new OreForm());
 					Config<Settings>.Save();
-				}
-				else
-				{
-					spi.RaiseOtherProcess();
-				}
-			}
+// 				}
+// 				else
+// 				{
+// 					spi.RaiseOtherProcess();
+// 				}
+//			}
 		}
 	}
 
