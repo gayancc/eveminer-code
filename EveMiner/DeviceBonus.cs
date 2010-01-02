@@ -7,7 +7,7 @@ namespace EveMiner
 	/// Laser upgrade
 	/// </summary>
 	[Serializable]
-	public class LaserUpgrade
+	public class DeviceBonus
 	{
 		/// <summary>
 		/// Name
@@ -30,13 +30,13 @@ namespace EveMiner
 		public Image Image;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="LaserUpgrade"/> class.
+		/// Initializes a new instance of the <see cref="DeviceBonus"/> class.
 		/// </summary>
 		/// <param name="name">The name.</param>
 		/// <param name="oreYieldBonus">The ore yield bonus.</param>
 		/// <param name="timeBonus">The time bonus.</param>
 		/// <param name="image">The Image.</param>
-		public LaserUpgrade(string name, double oreYieldBonus, double timeBonus, Image image)
+		public DeviceBonus(string name, double oreYieldBonus, double timeBonus, Image image)
 		{
 			Image = image;
 			Name = name;

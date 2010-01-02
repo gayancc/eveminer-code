@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EveMiner.Sound" Collapsed="true">
+    <Position X="7.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sound.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EveMiner.Ores.MineralList" Collapsed="true">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Ores\MineralList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EveMiner.Ores.OreList" Collapsed="true">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAABAAgAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Ores\OreList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="EveMiner.BoosterShipType" Collapsed="true">
+    <Position X="5.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQCAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EveMiner.Ores.OreType" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAECABAgAAAAAACCQAAACMAAQEIAACAAAAAEACA=</HashCode>
+      <FileName>Ores\Ore.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="EveMiner.Forms.HistogramEnterEventHandler" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Forms\Histogram.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

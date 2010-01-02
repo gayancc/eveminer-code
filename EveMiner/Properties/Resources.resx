@@ -124,9 +124,6 @@
   <data name="Bistot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Bistot.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AboutEveMiner" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AboutEveMiner.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Gneiss" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Gneiss.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,11 +133,11 @@
   <data name="level2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level2.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Tritanium" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Tritanium.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="lowSlot" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lowSlot.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot10.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon12_08_t2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon12_08_t2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +157,8 @@
   <data name="level4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\level4.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Pyroxeres" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pyroxeres.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="stop_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\stop_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon35_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon35_01.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -171,6 +168,9 @@
   </data>
   <data name="Mercoxit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mercoxit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hemorphite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hemorphite.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Kernite" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Kernite.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -189,6 +189,9 @@
   </data>
   <data name="Mexallon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mexallon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="slot7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\slot7.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icon49_05" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon49_05.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -210,6 +213,12 @@
   </data>
   <data name="icon05_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon05_12.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="play_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\play_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="level3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\level3.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Volume" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Volume.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,11 +250,17 @@
   <data name="Spodumain" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Spodumain.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Hemorphite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Hemorphite.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Tritanium" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tritanium.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pyroxeres" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pyroxeres.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calculator_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calculator_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Veldspar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Veldspar.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,16 +271,10 @@
   <data name="Isogen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Isogen.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="level3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\level3.gif;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AboutEveMiner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AboutEveMiner.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="play_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\play_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="stop_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\stop_24.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon40_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon40_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

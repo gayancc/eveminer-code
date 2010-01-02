@@ -12,7 +12,8 @@ namespace EveMiner.Forms
 	public partial class MainForm : Form
 	{
 		private readonly Dictionary<string, MiningTurret> _turretsList = new Dictionary<string, MiningTurret>();
-		private readonly Dictionary<string, LaserUpgrade> _dictMlu = new Dictionary<string, LaserUpgrade>();
+		private readonly Dictionary<string, DeviceBonus> _dictMlu = new Dictionary<string, DeviceBonus>();
+		private readonly Dictionary<string, DeviceBonus> _dictImpS10 = new Dictionary<string, DeviceBonus>();
 		private readonly Dictionary<string, Ship> _dictShips = new Dictionary<string, Ship>();
 
 		private readonly TimersForm _timersForm = new TimersForm();
@@ -29,9 +30,43 @@ namespace EveMiner.Forms
 		{
 			InitializeComponent();
 			FillMinigLaserUpgrades();
+			FillImplantsMenu();
 			FillTurretList();
 			FillShips();
 			LoadCfg();
+		}
+		/// <summary>
+		/// Fills the implants menu.
+		/// </summary>
+		private void FillImplantsMenu()
+		{
+			//Mining implants
+			DeviceBonus imp = new DeviceBonus("None", 0.0, 0.0, Resources.slot10);
+			_dictImpS10.Add(imp.Name, imp);
+			imp = new DeviceBonus("Hardwiring - Inherent Implants 'Highwall' HX-0", 1.0, 0.0, Resources.icon40_16);
+			_dictImpS10.Add(imp.Name, imp);
+			imp = new DeviceBonus("Hardwiring - Inherent Implants 'Highwall' HX-1", 3.0, 0.0, Resources.icon40_16);
+			_dictImpS10.Add(imp.Name, imp);
+			imp = new DeviceBonus("Hardwiring - Inherent Implants 'Highwall' HX-2", 5.0, 0.0, Resources.icon40_16);
+			_dictImpS10.Add(imp.Name, imp);
+			//Ice implants
+			imp = new DeviceBonus("Hardwiring - Inherent Implants 'Yeti' BX-0", 0.0, 1.0, Resources.icon40_16);
+			_dictImpS10.Add(imp.Name, imp);
+			imp = new DeviceBonus("Hardwiring - Inherent Implants 'Yeti' BX-1", 0.0, 3.0, Resources.icon40_16);
+			_dictImpS10.Add(imp.Name, imp);
+			imp = new DeviceBonus("Hardwiring - Inherent Implants 'Yeti' BX-2", 0.0, 5.0, Resources.icon40_16);
+			_dictImpS10.Add(imp.Name, imp);
+
+			//Формируем менюшку для выбора импланта слота 10
+			foreach (KeyValuePair<string, DeviceBonus> pair in _dictImpS10)
+			{
+				DeviceBonus device = pair.Value;
+				ToolStripItem item = new ToolStripMenuItem(device.Name, device.Image, MenuSlot10Clicked);
+				contextMenuStripImpS10.Items.Add(item);
+				contextMenuStripImpS10.Items[contextMenuStripImpS10.Items.Count - 1].Tag = device;
+			}
+
+
 		}
 
 		/// <summary>
@@ -39,27 +74,27 @@ namespace EveMiner.Forms
 		/// </summary>
 		private void LoadCfg()
 		{
-			LaserUpgrade mlu;
+			DeviceBonus devBonus;
 
 			if (_dictMlu.ContainsKey(Config<Settings>.Instance.Mlu1))
 			{
-				mlu = _dictMlu[Config<Settings>.Instance.Mlu1];
-				pictureBoxMLU1.Image = mlu.Image;
-				pictureBoxMLU1.Tag = mlu;
+				devBonus = _dictMlu[Config<Settings>.Instance.Mlu1];
+				pictureBoxMLU1.Image = devBonus.Image;
+				pictureBoxMLU1.Tag = devBonus;
 			}
 
 			if (_dictMlu.ContainsKey(Config<Settings>.Instance.Mlu2))
 			{
-				mlu = _dictMlu[Config<Settings>.Instance.Mlu2];
-				pictureBoxMLU2.Image = mlu.Image;
-				pictureBoxMLU2.Tag = mlu;
+				devBonus = _dictMlu[Config<Settings>.Instance.Mlu2];
+				pictureBoxMLU2.Image = devBonus.Image;
+				pictureBoxMLU2.Tag = devBonus;
 			}
 
 			if (_dictMlu.ContainsKey(Config<Settings>.Instance.Mlu3))
 			{
-				mlu = _dictMlu[Config<Settings>.Instance.Mlu3];
-				pictureBoxMLU3.Image = mlu.Image;
-				pictureBoxMLU3.Tag = mlu;
+				devBonus = _dictMlu[Config<Settings>.Instance.Mlu3];
+				pictureBoxMLU3.Image = devBonus.Image;
+				pictureBoxMLU3.Tag = devBonus;
 			}
 
 			if (_turretsList.ContainsKey(Config<Settings>.Instance.SelectedTurret))
@@ -89,6 +124,16 @@ namespace EveMiner.Forms
 
 			CheckUseCrystals();
 
+			if (_dictImpS10.ContainsKey(Config<Settings>.Instance.ImplantS10))
+			{
+				devBonus = _dictImpS10[Config<Settings>.Instance.ImplantS10];
+				pictureBoxImpSlot10.Image = devBonus.Image;
+				pictureBoxImpSlot10.Tag = devBonus;
+			}
+			if (Config<Settings>.Instance.ImpMichi)
+			{
+				pictureBoxImpSlot7.Image = Resources.icon40_16;
+			}
 
 			TopMost = Config<Settings>.Instance.AlwaysOnTop;
 			_timersForm.TopMost = Config<Settings>.Instance.AlwaysOnTop;
@@ -129,8 +174,6 @@ namespace EveMiner.Forms
 			skillValueArkonorP.Value = Config<Settings>.Instance.Skills.ArkonorProcessing;
 			skillValueMercoxitP.Value = Config<Settings>.Instance.Skills.MercoxitProcessing;
 
-			checkBoxHX2Imp.Checked = Config<Settings>.Instance.ImpHx2;
-			checkBoxMichiImp.Checked = Config<Settings>.Instance.ImpMichi;
 			checkBoxMindLinkImp.Checked = Config<Settings>.Instance.ImpMindLink;
 			checkBoxUseGangBonus.Checked = Config<Settings>.Instance.IsGang;
 			groupBoxGangBooster.Enabled = Config<Settings>.Instance.IsGang;
@@ -195,39 +238,39 @@ namespace EveMiner.Forms
 		private void FillMinigLaserUpgrades()
 		{
 			//MLU
-			LaserUpgrade mlu = new LaserUpgrade("None", 0.0, 0.0, Resources.lowSlot);
+			DeviceBonus mlu = new DeviceBonus("None", 0.0, 0.0, Resources.lowSlot);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Mining Laser Upgrade I", 5.0, 0.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Mining Laser Upgrade I", 5.0, 0.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Erin Mining Upgrade I", 6.0, 0.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Erin Mining Upgrade I", 6.0, 0.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Elara Mining Upgrade I", 7.0, 0.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Elara Mining Upgrade I", 7.0, 0.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Carpo Mining Upgrade I", 8.0, 0.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Carpo Mining Upgrade I", 8.0, 0.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Aoede Mining Upgrade I", 9.0, 0.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Aoede Mining Upgrade I", 9.0, 0.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Mining Laser Upgrade II", 9.0, 0.0, Resources.icon05_12_t2);
+			mlu = new DeviceBonus("Mining Laser Upgrade II", 9.0, 0.0, Resources.icon05_12_t2);
 			_dictMlu.Add(mlu.Name, mlu);
 			//IHU
-			mlu = new LaserUpgrade("Ice Harvester Upgrade I", 0.0, 5.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Ice Harvester Upgrade I", 0.0, 5.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Crisium Ice Harvester Upgrade I", 0.0, 6.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Crisium Ice Harvester Upgrade I", 0.0, 6.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Frigoris Ice Harvester Upgrade I", 0.0, 7.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Frigoris Ice Harvester Upgrade I", 0.0, 7.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Anguis Ice Harvester Upgrade I", 0.0, 8.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Anguis Ice Harvester Upgrade I", 0.0, 8.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Ingenii Ice Harvester Upgrade I", 0.0, 9.0, Resources.icon05_12);
+			mlu = new DeviceBonus("Ingenii Ice Harvester Upgrade I", 0.0, 9.0, Resources.icon05_12);
 			_dictMlu.Add(mlu.Name, mlu);
-			mlu = new LaserUpgrade("Ice Harvester Upgrade II", 0.0, 9.0, Resources.icon05_12_t2);
+			mlu = new DeviceBonus("Ice Harvester Upgrade II", 0.0, 9.0, Resources.icon05_12_t2);
 			_dictMlu.Add(mlu.Name, mlu);
 
 
 			//Формируем менюшку для выбора MLU
-			foreach (KeyValuePair<string, LaserUpgrade> pair in _dictMlu)
+			foreach (KeyValuePair<string, DeviceBonus> pair in _dictMlu)
 			{
-				LaserUpgrade device = pair.Value;
+				DeviceBonus device = pair.Value;
 				ToolStripItem item = new ToolStripMenuItem(device.Name, device.Image, MenuMluClicked);
 				contextMenuStripMLU.Items.Add(item);
 				contextMenuStripMLU.Items[contextMenuStripMLU.Items.Count - 1].Tag = device;
@@ -353,15 +396,15 @@ namespace EveMiner.Forms
 			{
 				cycle *= (1 - skills.IceHarvesting*0.05);
 
-				LaserUpgrade mlu = pictureBoxMLU1.Tag as LaserUpgrade;
+				DeviceBonus mlu = pictureBoxMLU1.Tag as DeviceBonus;
 				if (mlu != null)
 					cycle *= (1 - mlu.TimeBonus/100);
 
-				mlu = pictureBoxMLU2.Tag as LaserUpgrade;
+				mlu = pictureBoxMLU2.Tag as DeviceBonus;
 				if (mlu != null)
 					cycle *= (1 - mlu.TimeBonus/100);
 
-				mlu = pictureBoxMLU3.Tag as LaserUpgrade;
+				mlu = pictureBoxMLU3.Tag as DeviceBonus;
 				if (mlu != null)
 					cycle *= (1 - mlu.TimeBonus/100);
 
@@ -371,12 +414,17 @@ namespace EveMiner.Forms
 					cycle *= 1.25;
 					cycle *= (1 - skills.Exhumers*0.05);
 				}
-					//Если халк
+				//Если халк
 				else if (Config<Settings>.Instance.SelectedShip == "Hulk")
 				{
 					cycle *= (1 - skills.Exhumers*0.03);
 				}
+				//учет имплантов но только для Ice харвестеров	
+				DeviceBonus db = _dictImpS10[Config<Settings>.Instance.ImplantS10];
+				double bonus = 1 - db.TimeBonus / 100;
+				cycle *= bonus;
 			}
+			
 			int gangAssistModule = 0;
 			if (Config<Settings>.Instance.GangAssistModule1)
 				gangAssistModule++;
@@ -439,15 +487,15 @@ namespace EveMiner.Forms
 			else if (ship.Name.Contains("Cruiser"))
 				yield *= (1 + skills.Cruisers*0.2);
 
-			LaserUpgrade mlu = pictureBoxMLU1.Tag as LaserUpgrade;
+			DeviceBonus mlu = pictureBoxMLU1.Tag as DeviceBonus;
 			if (mlu != null)
 				yield *= (1 + mlu.OreYieldBonus/100);
 
-			mlu = pictureBoxMLU2.Tag as LaserUpgrade;
+			mlu = pictureBoxMLU2.Tag as DeviceBonus;
 			if (mlu != null)
 				yield *= (1 + mlu.OreYieldBonus/100);
 
-			mlu = pictureBoxMLU3.Tag as LaserUpgrade;
+			mlu = pictureBoxMLU3.Tag as DeviceBonus;
 			if (mlu != null)
 				yield *= (1 + mlu.OreYieldBonus/100);
 
@@ -468,8 +516,10 @@ namespace EveMiner.Forms
 						yield *= 1.625;
 				}
 			}
-			if (Config<Settings>.Instance.ImpHx2)
-				yield *= 1.05;
+
+			DeviceBonus db = _dictImpS10[Config<Settings>.Instance.ImplantS10];
+			double bonus = 1+ db.OreYieldBonus / 100;
+			yield *= bonus;
 			if (Config<Settings>.Instance.ImpMichi)
 				yield *= 1.05;
 
@@ -532,6 +582,20 @@ namespace EveMiner.Forms
 						pictureBoxGang3.Image = Resources.highSlot;
 					CalculateMining();
 				}
+				else if (sender == pictureBoxImpSlot7)
+				{
+					Config<Settings>.Instance.ImpMichi = !Config<Settings>.Instance.ImpMichi;
+					if (Config<Settings>.Instance.ImpMichi)
+						pictureBoxImpSlot7.Image = Resources.icon40_16;
+					else
+						pictureBoxImpSlot7.Image = Resources.slot7;
+					CalculateMining();
+				}
+				else if (sender == pictureBoxImpSlot10)
+				{
+					contextMenuStripImpS10.Show(pict, 0, pict.Height);
+				}
+
 			}
 		}
 
@@ -549,9 +613,12 @@ namespace EveMiner.Forms
 			{
 				string tooltip = "";
 				toolTip1.ToolTipTitle = "";
-				if (ctrl is PictureBox && ctrl.Tag is LaserUpgrade)
+				if (ctrl is PictureBox && ctrl.Tag is DeviceBonus)
 				{
-					toolTip1.ToolTipTitle = "Laser Upgrade";
+					if(ctrl == pictureBoxImpSlot10)
+						toolTip1.ToolTipTitle = "Implant (slot 10)";
+					else
+						toolTip1.ToolTipTitle = "Laser Upgrade";
 					tooltip = ctrl.Tag.ToString();
 				}
 				else if (ctrl is PictureBox && ctrl.Tag is Ore)
@@ -590,6 +657,15 @@ namespace EveMiner.Forms
 					else
 						tooltip = "None";
 				}
+				else if(ctrl == pictureBoxImpSlot7)
+				{
+					toolTip1.ToolTipTitle = "Implant (slot 7)";
+					if (Config<Settings>.Instance.ImpMichi)
+						tooltip = "Michi Excavation" + Environment.NewLine + "Mining yield bonus 5%";
+					else
+						tooltip = "None";
+				}
+		
 
 				if (tooltip.Length > 0)
 					toolTip1.SetToolTip(ctrl, tooltip);
@@ -709,11 +785,7 @@ namespace EveMiner.Forms
 		/// <param name="e"></param>
 		private void checkBox_CheckedChanged(object sender, EventArgs e)
 		{
-			if (sender == checkBoxHX2Imp)
-				Config<Settings>.Instance.ImpHx2 = checkBoxHX2Imp.Checked;
-			else if (sender == checkBoxMichiImp)
-				Config<Settings>.Instance.ImpMichi = checkBoxMichiImp.Checked;
-			else if (sender == checkBoxMindLinkImp)
+			if (sender == checkBoxMindLinkImp)
 				Config<Settings>.Instance.ImpMindLink = checkBoxMindLinkImp.Checked;
 			else if (sender == checkBoxUseGangBonus)
 			{
@@ -817,7 +889,7 @@ namespace EveMiner.Forms
 			ToolStripMenuItem item = sender as ToolStripMenuItem;
 			if (item != null)
 			{
-				LaserUpgrade mlu = (LaserUpgrade) item.Tag;
+				DeviceBonus mlu = (DeviceBonus) item.Tag;
 				_mluPictureClicked.Image = mlu.Image;
 				_mluPictureClicked.Tag = item.Tag;
 				if (_mluPictureClicked == pictureBoxMLU1)
@@ -832,6 +904,25 @@ namespace EveMiner.Forms
 				{
 					Config<Settings>.Instance.Mlu3 = mlu.Name;
 				}
+				CalculateMining();
+			}
+		}
+
+		/// <summary>
+		/// Menus the slot10 clicked.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void MenuSlot10Clicked(object sender, EventArgs e)
+		{
+			ToolStripMenuItem item = sender as ToolStripMenuItem;
+			if (item != null)
+			{
+				DeviceBonus imp = (DeviceBonus)item.Tag;
+				
+				Config<Settings>.Instance.ImplantS10 = imp.Name;
+				pictureBoxImpSlot10.Image = imp.Image;
+				pictureBoxImpSlot10.Tag = item.Tag;
 				CalculateMining();
 			}
 		}

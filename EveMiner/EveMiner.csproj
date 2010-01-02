@@ -107,7 +107,7 @@
     <Compile Include="Ores\Mineral.cs" />
     <Compile Include="Ores\MineralList.cs" />
     <Compile Include="Ores\MineralsOut.cs" />
-    <Compile Include="LaserUpgrade.cs" />
+    <Compile Include="DeviceBonus.cs" />
     <Compile Include="MiningTurret.cs" />
     <Compile Include="Ores\Ore.cs" />
     <Compile Include="Ores\OreList.cs" />
@@ -306,6 +306,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="EVE_Yellow.ico" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\icon40_16.png" />
+    <None Include="Resources\slot7.png" />
+    <None Include="Resources\slot10.png" />
     <None Include="Resources\stop_24.png" />
     <None Include="Resources\play_24.png" />
     <None Include="Resources\close_24.png" />

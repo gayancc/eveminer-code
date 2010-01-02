@@ -44,6 +44,7 @@ namespace EveMiner
 		private string _mlu1 = "None";
 		private string _mlu2 = "None";
 		private string _mlu3 = "None";
+		private string _implantS10 = "None";
 
 		private bool _alwaysOnTop;
 
@@ -52,7 +53,6 @@ namespace EveMiner
 		public string SelectedShip = "";
 		public int SelectedCrystals = 1;
 
-		public bool ImpHx2;
 		public bool ImpMichi;
 		public bool ImpMindLink;
 		public bool IsGang;
@@ -97,6 +97,12 @@ namespace EveMiner
 		{
 			get { return _mlu3; }
 			set { _mlu3 = value; }
+		}
+		[DefaultValue("None")]
+		public string ImplantS10
+		{
+			get { return _implantS10; }
+			set { _implantS10 = value; }
 		}
 
 		[DefaultValue(false)]

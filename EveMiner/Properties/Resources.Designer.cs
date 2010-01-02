@@ -186,6 +186,13 @@ namespace EveMiner.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap icon40_16 {
+            get {
+                object obj = ResourceManager.GetObject("icon40_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap icon49_05 {
             get {
                 object obj = ResourceManager.GetObject("icon49_05", resourceCulture);
@@ -357,6 +364,20 @@ namespace EveMiner.Properties {
         internal static System.Drawing.Bitmap Scordite {
             get {
                 object obj = ResourceManager.GetObject("Scordite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap slot10 {
+            get {
+                object obj = ResourceManager.GetObject("slot10", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap slot7 {
+            get {
+                object obj = ResourceManager.GetObject("slot7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
