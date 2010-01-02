@@ -1,5 +1,4 @@
 using System;
-using System.Threading;
 using EveMiner.Ores;
 
 namespace EveMiner
@@ -45,20 +44,31 @@ namespace EveMiner
 		private double oreUnitPerSecond;
 
 
-		private readonly WorkingTurret[] _turrets = new WorkingTurret[3];
+		private readonly WorkingTurret _turret;
+		/// <summary>
+		/// Сколько лазеров стартовало
+		/// </summary>
+		private int _lasersCount = 1;
 
 
 		/// <summary>
-		/// Время до окончаняи астероида в секундах
+		/// Время до окончания астероида в секундах
 		/// </summary>
 		public double TimeToAsterEnd
 		{
 			get
 			{
-				if (LasersStarted > 0)
-					return timeToAsterEnd/LasersStarted;
-
-				return timeToAsterEnd;
+				return timeToAsterEnd/LasersCount;
+			}
+		}
+		/// <summary>
+		/// Время до окончания цикла
+		/// </summary>
+		public double TimeToCycleEnd
+		{
+			get
+			{
+				return _turret.TimeToCycleEnd;
 			}
 		}
 
@@ -82,17 +92,11 @@ namespace EveMiner
 		/// <summary>
 		/// Сколько лазеров стартовало
 		/// </summary>
-		public int LasersStarted
+		public int LasersCount
 		{
 			get
 			{
-				int ret = 0;
-				foreach (WorkingTurret turret in _turrets)
-				{
-					if (turret.IsStarted)
-						ret++;
-				}
-				return ret;
+				return _lasersCount;
 			}
 		}
 
@@ -103,7 +107,7 @@ namespace EveMiner
 		{
 			get { return cycle; }
 		}
-
+		
 		/// <summary>
 		/// Если цикл начался а астера не хватит на весь цикл
 		/// </summary>
@@ -112,6 +116,16 @@ namespace EveMiner
 			get { return isEmptyClose; }
 		}
 
+		/// <summary>
+		/// Gets a value indicating whether this instance is satrted.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if this instance is satrted; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsSatrted
+		{
+			get { return _turret.IsStarted; }
+		}
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TimerListItem"/> class.
@@ -129,45 +143,41 @@ namespace EveMiner
 
 			oreUnitPerSecond = miningYield/cycle/ore.Volume;
 
-			timeToAsterEnd = (int) (startVolume/oreUnitPerSecond);
+			timeToAsterEnd = startVolume/oreUnitPerSecond;
+			
 			if (timeToAsterEnd < cycle)
 				isEmptyClose = true;
 
-			_turrets[0] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded, "1");
-			_turrets[1] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded, "2");
-			_turrets[2] = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded, "3");
+			_turret = new WorkingTurret(cycle, 1.0, ProgressChanged, CycleEnded, "1");
             
 		}
 		/// <summary>
 		/// Включить/выключить туррель
 		/// </summary>
-		/// <param name="nTurret">номер</param>
 		/// <param name="bEnable">вкл/выкл</param>
-		/// <param name="callbackProgressChanged">коллбэк для функции отображения прогресса цикла</param>
-        public void EnableTurret(int nTurret, bool bEnable, TimerCallback callbackProgressChanged)
+		/// <param name="nCount">Число туррелей на астер</param>
+		public void EnableTurret(bool bEnable, int nCount)
         {
-            if (nTurret < 0 || nTurret > _turrets.Length)
-                new ArgumentOutOfRangeException("nTurret");
+            if (nCount < 1 || nCount > 8)
+                new ArgumentOutOfRangeException("nCount");
+			_lasersCount = nCount;
             if(bEnable)
             {
-				_turrets[nTurret].TimerProgressChangedCallback += callbackProgressChanged;
-                _turrets[nTurret].Start();
+                _turret.Start();
             }
             else
             {
-				_turrets[nTurret].TimerProgressChangedCallback -= callbackProgressChanged;
-            	_turrets[nTurret].Stop();
+            	_turret.Stop();
             }
-            isEmptyClose = timeToAsterEnd < cycle * LasersStarted;
+            isEmptyClose = timeToAsterEnd < cycle * LasersCount;
         }
 		/// <summary>
 		/// проверка на включенное состояние туррели
 		/// </summary>
-		/// <param name="nTurret"></param>
 		/// <returns></returns>
-        public bool IsEnableTurret(int nTurret)
+        public bool IsEnableTurret()
         {
-        	return _turrets[nTurret].IsStarted;
+        	return _turret.IsStarted;
         }
 		/// <summary>
 		/// Обновить значение руды за цикл
@@ -177,7 +187,7 @@ namespace EveMiner
 		{
 			oreUnitPerSecond = miningYield/Cycle/ore.Volume;
 			timeToAsterEnd = (int) (currentVolume/oreUnitPerSecond);
-			isEmptyClose = timeToAsterEnd < cycle*LasersStarted;
+			isEmptyClose = timeToAsterEnd < cycle*LasersCount;
 		}
 
 
@@ -190,8 +200,8 @@ namespace EveMiner
 			WorkingTurret turret = obj as WorkingTurret;
 			 if(turret != null)
 			 {
-				currentVolume -= oreUnitPerSecond * turret.ProgressInterval;
-				timeToAsterEnd -= turret.ProgressInterval;
+				currentVolume -= oreUnitPerSecond * turret.ProgressInterval * LasersCount;
+				timeToAsterEnd -= turret.ProgressInterval * LasersCount;
 				if (timeToAsterEnd <= 0)
 				{
 					currentVolume = 0;
@@ -210,7 +220,7 @@ namespace EveMiner
 			 WorkingTurret turret = obj as WorkingTurret;
 			 if (turret != null)
 			 {
-				 isEmptyClose = timeToAsterEnd < cycle * LasersStarted;
+				 isEmptyClose = timeToAsterEnd < cycle * LasersCount;
 			 }
 		 }
 
@@ -220,10 +230,7 @@ namespace EveMiner
 		 /// </summary>
 		public void StopTurrets()
 		{
-		 	foreach (WorkingTurret turret in _turrets)
-		 	{
-		 		turret.Stop();
-		 	}
+		 		_turret.Stop();
 		}
 	}
 }

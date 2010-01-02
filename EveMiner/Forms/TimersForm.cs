@@ -18,10 +18,6 @@ namespace EveMiner.Forms
 		/// </summary>
 		private double _currentCargo;
 
-		private readonly DataGridViewRow[] _rowsStartedTurret = new DataGridViewRow[3];
-
-		private delegate void SetProgressCycleCallback(ProgressBar progress, int val);
-
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="TimersForm"/> class.
@@ -62,19 +58,14 @@ namespace EveMiner.Forms
 			for (int n = 0; n < dataGridViewTimers.Rows.Count; n++)
 			{
 				TimerListItem titem = dataGridViewTimers.Rows[n].Tag as TimerListItem;
-				if (titem != null && titem.LasersStarted != 0)
+				if (titem != null && titem.IsSatrted)
 				{
 					UpdateTimerListItem(dataGridViewTimers.Rows[n]);
-					_currentCargo += Config<Settings>.Instance.MiningAmount/Config<Settings>.Instance.Cycle*titem.LasersStarted;
+					_currentCargo += Config<Settings>.Instance.MiningAmount/Config<Settings>.Instance.Cycle*titem.LasersCount;
 					SetProgressCargo();
 					//SetProgressCycles();
 				}
 			}
-		}
-
-		private void SetProgressCycles()
-		{
-			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -86,20 +77,14 @@ namespace EveMiner.Forms
 		{
 			if (sender == dataGridViewTimers)
 			{
-				if (e.ColumnIndex == ColumnLaser1Start.Index ||
-				    e.ColumnIndex == ColumnLaser2Start.Index ||
-				    e.ColumnIndex == ColumnLaser3Start.Index)
+				if (e.ColumnIndex == ColumnLaser1Start.Index)
 				{
 					if (e.RowIndex == -1)
 						return;
 					DataGridViewRow row = dataGridViewTimers.Rows[e.RowIndex];
 
 					if (e.ColumnIndex == ColumnLaser1Start.Index)
-						ChangeTurretState(0, row, e.ColumnIndex);
-					else if (e.ColumnIndex == ColumnLaser2Start.Index)
-						ChangeTurretState(1, row, e.ColumnIndex);
-					else if (e.ColumnIndex == ColumnLaser3Start.Index)
-						ChangeTurretState(2, row, e.ColumnIndex);
+						ChangeTurretState(row, e.ColumnIndex);
 				}
 				if (e.ColumnIndex == ColumnButtonDelete.Index)
 				{
@@ -111,85 +96,46 @@ namespace EveMiner.Forms
 			}
 		}
 		/// <summary>
+		/// Handles the CellValueChanged event of the dataGridViewTimers control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Forms.DataGridViewCellEventArgs"/> instance containing the event data.</param>
+		private void dataGridViewTimers_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		{
+			if (sender == dataGridViewTimers)
+			{
+				if(e.ColumnIndex == ColumnLasers.Index)
+				{
+					
+				}
+			}
+
+
+		}
+
+		/// <summary>
 		/// 
 		/// </summary>
-		/// <param name="nTurret"></param>
 		/// <param name="row"></param>
 		/// <param name="indexColumn"></param>
-	    private void ChangeTurretState(int nTurret, DataGridViewRow row, int indexColumn)
+	    private void ChangeTurretState(DataGridViewRow row, int indexColumn)
         {
 			TimerListItem tItem = row.Tag as TimerListItem;
 			if(tItem == null)
 				return;
-	    	bool bState = !tItem.IsEnableTurret(nTurret);
-			tItem.EnableTurret(nTurret, bState, ProgressChanged);
+	    	bool bState = !tItem.IsEnableTurret();
+			int count = Convert.ToInt32(row.Cells[ColumnLasers.Index].Value);
+			tItem.EnableTurret(bState, count);
 	        if(bState)
 	        {
-	        	if (_rowsStartedTurret[nTurret] != null)
-	        	{
-	        		TimerListItem tItemOld = _rowsStartedTurret[nTurret].Tag as TimerListItem;
-	        		if (tItemOld != null)
-	        		{
-						tItemOld.EnableTurret(nTurret, false, ProgressChanged);
-	        		}
-	        		_rowsStartedTurret[nTurret].Cells[indexColumn].Value = Properties.Resources.play_24;
-					UpdateTimerListItem(_rowsStartedTurret[nTurret]);
-	        	}
-	        	_rowsStartedTurret[nTurret] = row;
 	        	row.Cells[indexColumn].Value = Properties.Resources.stop_24;
 	        }
 	        else
 	        {
-	        	_rowsStartedTurret[nTurret] = null;
 				row.Cells[indexColumn].Value = Properties.Resources.play_24;
 	        }
 			UpdateTimerListItem(row);
 	    }
-		/// <summary>
-		/// Обработчик прогресса изменения таймера турели
-		/// </summary>
-		/// <param name="obj">сслка на <see cref="WorkingTurret"/></param>
-		private void ProgressChanged(Object obj)
-		{
-			WorkingTurret turret = obj as WorkingTurret;
-			if (turret != null)
-			{
-				int val = (int) (turret.WorkingCycle - turret.TimeToCycleEnd);
-				if(turret.Name == "1")
-				{
-					SetProgressCycle(progressBarCycle1, val);
-				}
-				else if (turret.Name == "2")
-				{
-					SetProgressCycle(progressBarCycle2, val);
-				}
-				if (turret.Name == "3")
-				{
-					SetProgressCycle(progressBarCycle3, val);
-				}
-			}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="progress"></param>
-		/// <param name="val"></param>
-		private void SetProgressCycle(ProgressBar progress, int val)
-		{
-			if (progress.InvokeRequired)
-			{
-				SetProgressCycleCallback callback = SetProgressCycle;
-				this.Invoke(callback, new object[] {progress, val});
-				//callback.Invoke(progress, val);
-			}
-			else
-			{
-				if (val > progress.Maximum)
-					val = progress.Maximum;
-				progress.Value = val;
-			}
-		}
-
 
 		/// <summary>
 		/// Removes the row.
@@ -252,9 +198,19 @@ namespace EveMiner.Forms
 				                               			              timerListItem.TimeToAsterEnd%60)
 				                               	};
 				cells[ColumnLaser1Start.Index] = new DataGridViewImageCell {Value = Properties.Resources.play_24};
-				cells[ColumnLaser2Start.Index] = new DataGridViewImageCell {Value = Properties.Resources.play_24};
-				cells[ColumnLaser3Start.Index] = new DataGridViewImageCell {Value = Properties.Resources.play_24};
+				cells[ColumnCycle.Index] = new DataGridViewTextBoxCell
+				                           	{
+				                           		Value =
+				                           			string.Format("{0:00}:{1:00}", Math.Floor(timerListItem.TimeToCycleEnd / 60),
+				                           			              timerListItem.TimeToCycleEnd % 60)
 
+				                           	};
+				DataGridViewComboBoxCell cell = new DataGridViewComboBoxCell();
+				cell.Items.AddRange("1", "2", "3", "4", "5", "6", "7", "8");
+				cell.Value = "1";
+				cells[ColumnLasers.Index] = cell;
+				
+				
 				//cells[ColumnButtonDelete.Index] = new DataGridViewButtonCell {Value = "x"};
 				cells[ColumnButtonDelete.Index] = new DataGridViewImageCell {Value = Properties.Resources.close_24};
 
@@ -287,7 +243,7 @@ namespace EveMiner.Forms
 					row.DefaultCellStyle.BackColor = Color.FromArgb(255, 200, 200);
 					timerListItem.StopTurrets();
 				}
-				else if (timerListItem.LasersStarted > 0)
+				else if (timerListItem.LasersCount > 0)
 				{
 					row.DefaultCellStyle.BackColor = timerListItem.IsEmptyClose
 					                                 	? Color.FromArgb(255, 255, 200)
@@ -298,6 +254,8 @@ namespace EveMiner.Forms
 
 				row.Cells[ColumnTimeToEnd.Index].Value =
 					string.Format("{0:00}:{1:00}", Math.Floor(timerListItem.TimeToAsterEnd/60), timerListItem.TimeToAsterEnd%60);
+				row.Cells[ColumnCycle.Index].Value =
+					string.Format("{0:00}:{1:00}", Math.Floor(timerListItem.TimeToCycleEnd / 60), timerListItem.TimeToCycleEnd % 60);
 				row.Cells[ColumnCurrentQty.Index].Value = string.Format("{0}", timerListItem.CurrentVolume.ToString("F0"));
 
 				if (timerListItem.TimeToAsterEnd == 0)
@@ -369,9 +327,6 @@ namespace EveMiner.Forms
 		public void SetYieldCycle(double yield, double cycleTime, MiningTurret turret)
 		{
 			Text = string.Format("{0}m3 / {1}sec - {2}", yield.ToString("F2"), cycleTime.ToString("F2"), turret);
-			progressBarCycle1.Maximum = (int) cycleTime;
-			progressBarCycle2.Maximum = (int) cycleTime;
-			progressBarCycle3.Maximum = (int) cycleTime;
 		}
 
 		#region Tooltip
@@ -462,5 +417,6 @@ namespace EveMiner.Forms
 			_currentCargo = 0.0;
 			SetProgressCargo();
 		}
+
 	}
 }

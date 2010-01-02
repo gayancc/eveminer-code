@@ -34,6 +34,7 @@ namespace EveMiner
 		public WorkingTurret(double workingCycle, double progressInterval, TimerCallback timerProgressChanged, TimerCallback timerCycleEnded, string name)
 		{
 			_workingCycle = workingCycle;
+			_timeToCycleEnd = _workingCycle;
 			Name = name;
 			_progressInterval += progressInterval;
 			_timerCycleEndedCallback = CycleEnded;

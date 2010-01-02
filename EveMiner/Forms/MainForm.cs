@@ -661,7 +661,7 @@ namespace EveMiner.Forms
 				{
 					toolTip1.ToolTipTitle = "Implant (slot 7)";
 					if (Config<Settings>.Instance.ImpMichi)
-						tooltip = "Michi Excavation" + Environment.NewLine + "Mining yield bonus 5%";
+						tooltip = "Michi Excavation" + Environment.NewLine + "Mining amount bonus 5%";
 					else
 						tooltip = "None";
 				}
