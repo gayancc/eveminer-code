@@ -478,7 +478,7 @@ namespace EveMiner.Forms
 
 			if (ship.Barge)
 				yield *= (1 + skills.MiningBarge*0.03);
-			if (ship.Exhumer)
+			if (ship.Exhumer && ship.Name != "Skif")
 				yield *= (1 + skills.Exhumers*0.03);
 
 			if (ship.Name.Contains("Frigate"))
@@ -504,7 +504,7 @@ namespace EveMiner.Forms
 				if (Config<Settings>.Instance.SelectedCrystals == 2)
 				{
 					if (ship.Name == "Skif" && turret.Name.Contains("Deep"))
-						yield *= (1.375*(1 + skills.Exhumers*0.6));
+						yield *= 1.375 *(1 + skills.Exhumers*0.6);
 					else
 						yield *= 1.75;
 				}
