@@ -205,6 +205,11 @@ namespace EveMiner.Forms
             try
             {
                 cargohold = Convert.ToDouble(textBoxCargohold.Text);
+				if(sender == btnIskPerHour)
+				{
+					cargohold = Config<Settings>.Instance.MiningAmount * 3600 / Config<Settings>.Instance.Cycle;
+				}
+
             }
             catch (FormatException)
             {
@@ -222,12 +227,12 @@ namespace EveMiner.Forms
                 if (ore.Name == "Gneiss")
                     bLowOre = false;
 
-                if (sender == buttonCalculateCargoHold)
+                if (sender == buttonCalculateCargoHold || sender == btnIskPerHour)
                     quantity = (int) (cargohold/ore.Volume);
 
                 int unitProcess = quantity - quantity%ore.UnitsToRefine;
-                int p = quantity/ore.UnitsToRefine;
-                double prof = InsertProfitLine(ore, netYield, p, unitProcess);
+                int numberOfCycles = quantity/ore.UnitsToRefine;
+                double prof = InsertProfitLine(ore, netYield, numberOfCycles, unitProcess);
                 if (prof > maxprofit)
                 {
                     maxprofit = prof;
@@ -832,6 +837,6 @@ namespace EveMiner.Forms
                 dataGridViewCalc.Sort(new RowComparer(order, e.ColumnIndex));
                 
             }
-        }
+		}
     }
 }
