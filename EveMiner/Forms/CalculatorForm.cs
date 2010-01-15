@@ -17,7 +17,7 @@ namespace EveMiner.Forms
         private class RowComparer : IComparer
         {
             private static int _sortOrderModifier = 1;
-            private int _column;
+            private readonly int _column;
 
             public RowComparer(SortOrder sortOrder, int column)
             {
@@ -453,7 +453,18 @@ namespace EveMiner.Forms
                 {
                     toolTipInfo.ToolTipTitle = "Ore";
                     if (ctrl.Tag != null)
-                        tooltip = ((Ore) ctrl.Tag).Name;
+					{
+						Ore ore = (Ore) ctrl.Tag;
+						tooltip = ore.Name;
+						try
+						{
+							double netYield = Convert.ToDouble(textBoxNetYield.Text)/100;
+							tooltip += string.Format(Environment.NewLine + "Efficiency: {0}", OreList.GetEfficiency(ore, netYield));
+						}
+						catch (FormatException)
+						{}
+						
+					}
                 }
                 else if (ctrl is PictureBox && ctrl.Tag is Mineral)
                 {
