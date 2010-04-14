@@ -88,6 +88,24 @@ namespace EveMiner.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to  ISK.
+        /// </summary>
+        internal static string CalculatorForm_RefreshHistogram__ISK {
+            get {
+                return ResourceManager.GetString("CalculatorForm_RefreshHistogram__ISK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Profit: .
+        /// </summary>
+        internal static string CalculatorForm_RefreshHistogram_Total_Profit__ {
+            get {
+                return ResourceManager.GetString("CalculatorForm_RefreshHistogram_Total_Profit__", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap clock_48 {
             get {
                 object obj = ResourceManager.GetObject("clock_48", resourceCulture);

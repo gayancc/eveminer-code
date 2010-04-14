@@ -6,6 +6,7 @@ using System.Net;
 using System.Windows.Forms;
 using System.Xml;
 using EveMiner.Ores;
+using EveMiner.Properties;
 
 namespace EveMiner.Forms
 {
@@ -123,7 +124,7 @@ namespace EveMiner.Forms
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void btnEveCentral_Click(object sender, EventArgs e)
+        private void BtnEveCentralClick(object sender, EventArgs e)
         {
             // Строки: URI и имя локального файла
             const string webAddress = "http://eve-central.com/api/evemon";
@@ -189,7 +190,7 @@ namespace EveMiner.Forms
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void buttonCalculate_Click(object sender, EventArgs e)
+        private void ButtonCalculateClick(object sender, EventArgs e)
         {
             double netYield = 0.5;
             int quantity = 0;
@@ -281,7 +282,7 @@ namespace EveMiner.Forms
             MineralsOut minout = GetMineralsOut(ore, netYield, p);
             double profit = GetMineralProfit(minout);
 
-            ///Добавляем строчку
+            //Добавляем строчку
             DataGridViewRow row = new DataGridViewRow();
 
             DataGridViewCell[] cells = new DataGridViewCell[dataGridViewCalc.ColumnCount];
@@ -357,7 +358,7 @@ namespace EveMiner.Forms
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.Windows.Forms.DataGridViewCellEventArgs"/> instance containing the event data.</param>
-        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridViewCellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (sender == dataGridViewCalc)
             {
@@ -387,7 +388,7 @@ namespace EveMiner.Forms
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void numericUpDownStanding_ValueChanged(object sender, EventArgs e)
+        private void NumericUpDownStandingValueChanged(object sender, EventArgs e)
         {
             if (sender == numericUpDownStanding)
                 if (comboStandTax.SelectedIndex == Settings.Stand)
@@ -401,7 +402,7 @@ namespace EveMiner.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBoxPrice_TextChanged(object sender, EventArgs e)
+        private void TextBoxPriceTextChanged(object sender, EventArgs e)
         {
             TextBox box = sender as TextBox;
             double price = 0.0;
@@ -451,20 +452,17 @@ namespace EveMiner.Forms
                 string tooltip = "";
                 if (ctrl is PictureBox && ctrl.Tag is Ore)
                 {
-                    toolTipInfo.ToolTipTitle = "Ore";
-                    if (ctrl.Tag != null)
-					{
-						Ore ore = (Ore) ctrl.Tag;
-						tooltip = ore.Name;
-						try
-						{
-							double netYield = Convert.ToDouble(textBoxNetYield.Text)/100;
-							tooltip += string.Format(Environment.NewLine + "Efficiency: {0}", OreList.GetEfficiency(ore, netYield));
-						}
-						catch (FormatException)
-						{}
-						
-					}
+                	toolTipInfo.ToolTipTitle = "Ore";
+            		Ore ore = (Ore) ctrl.Tag;
+            		tooltip = ore.Name;
+            		try
+            		{
+            			double netYield = Convert.ToDouble(textBoxNetYield.Text)/100;
+            			tooltip += string.Format(Environment.NewLine + "Efficiency: {0}", OreList.GetEfficiency(ore, netYield));
+            		}
+            		catch (FormatException)
+            		{}
+
                 }
                 else if (ctrl is PictureBox && ctrl.Tag is Mineral)
                 {
@@ -494,12 +492,12 @@ namespace EveMiner.Forms
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="args">The args.</param>
-        private void histogram1_BarEnterEvent(object sender, HistogramEnterEventHandlerArgs args)
+        private void Histogram1BarEnterEvent(object sender, HistogramEnterEventHandlerArgs args)
         {
             if (!toolTipInfo.Active)
             {
                 toolTipInfo.ToolTipTitle = args.Bar.Name;
-                string tooltip = (args.Bar.Value*1000).ToString("#,#.##") + " ISK";
+                string tooltip = (args.Bar.Value*1000).ToString("#,#.##") + Resources.CalculatorForm_RefreshHistogram__ISK;
                 toolTipInfo.SetToolTip((Control) sender, tooltip);
 
                 toolTipInfo.Active = true;
@@ -511,7 +509,7 @@ namespace EveMiner.Forms
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="args">The args.</param>
-        private void histogram1_BarLeaveEvent(object sender, HistogramEnterEventHandlerArgs args)
+        private void Histogram1BarLeaveEvent(object sender, HistogramEnterEventHandlerArgs args)
         {
             toolTipInfo.Active = false;
         }
@@ -541,7 +539,7 @@ namespace EveMiner.Forms
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-        private void btnCalculateBars_Click(object sender, EventArgs e)
+        private void BtnCalculateBarsClick(object sender, EventArgs e)
         {
             double netYield = 0.5;
             try
@@ -810,7 +808,7 @@ namespace EveMiner.Forms
 
 
             histogram1.Invalidate();
-            textBoxProfit.Text = "Total Profit: " + GetMineralProfit(minerals).ToString("#,#.##") + " ISK";
+            textBoxProfit.Text = Resources.CalculatorForm_RefreshHistogram_Total_Profit__ + GetMineralProfit(minerals).ToString("#,#.##") + Resources.CalculatorForm_RefreshHistogram__ISK;
         }
 
         /// <summary>
@@ -818,7 +816,7 @@ namespace EveMiner.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void comboStandTax_SelectedIndexChanged(object sender, EventArgs e)
+        private void ComboStandTaxSelectedIndexChanged(object sender, EventArgs e)
         {
             Config<Settings>.Instance.StandTaxe = comboStandTax.SelectedIndex;
             if (comboStandTax.SelectedIndex == Settings.Stand)
@@ -827,13 +825,13 @@ namespace EveMiner.Forms
                 numericUpDownStanding.Value = (decimal) Config<Settings>.Instance.TaxRate;
         }
 
-        private void btnExportXls_Click(object sender, EventArgs e)
+        private void BtnExportXlsClick(object sender, EventArgs e)
         {
             GridToXmlConverter conv = new GridToXmlConverter();
             conv.ExportIntoXml(dataGridViewCalc);
         }
 
-        private void dataGridViewCalc_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DataGridViewCalcColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.ColumnIndex == ColumnOreCalc.Index || e.ColumnIndex == ColumnDelete2.Index)
                 return;

@@ -277,4 +277,10 @@
   <data name="icon40_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon40_16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+	<data name="CalculatorForm_RefreshHistogram_Total_Profit__">
+		<value><![CDATA[Total Profit: ]]></value>
+	</data>
+	<data name="CalculatorForm_RefreshHistogram__ISK">
+		<value><![CDATA[ ISK]]></value>
+	</data>
 </root>

@@ -1042,7 +1042,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceTritanium.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceTritanium.TabIndex = 2;
 			this.textBoxPriceTritanium.Text = "3";
-			this.textBoxPriceTritanium.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+			this.textBoxPriceTritanium.TextChanged += new System.EventHandler(this.TextBoxPriceTextChanged);
 			// 
 			// textBoxPriceNocxium
 			// 
@@ -1052,7 +1052,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceNocxium.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceNocxium.TabIndex = 6;
 			this.textBoxPriceNocxium.Text = "110";
-			this.textBoxPriceNocxium.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+			this.textBoxPriceNocxium.TextChanged += new System.EventHandler(this.TextBoxPriceTextChanged);
 			// 
 			// pictureBoxPyerite
 			// 
@@ -1075,7 +1075,7 @@ namespace EveMiner.Forms
 			this.textBoxPricePyerite.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPricePyerite.TabIndex = 3;
 			this.textBoxPricePyerite.Text = "5";
-			this.textBoxPricePyerite.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+			this.textBoxPricePyerite.TextChanged += new System.EventHandler(this.TextBoxPriceTextChanged);
 			// 
 			// pictureBoxMexallon
 			// 
@@ -1098,7 +1098,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceMexallon.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceMexallon.TabIndex = 4;
 			this.textBoxPriceMexallon.Text = "35";
-			this.textBoxPriceMexallon.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+			this.textBoxPriceMexallon.TextChanged += new System.EventHandler(this.TextBoxPriceTextChanged);
 			// 
 			// pictureBoxIsogen
 			// 
@@ -1121,7 +1121,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceIsogen.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceIsogen.TabIndex = 5;
 			this.textBoxPriceIsogen.Text = "65";
-			this.textBoxPriceIsogen.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+			this.textBoxPriceIsogen.TextChanged += new System.EventHandler(this.TextBoxPriceTextChanged);
 			// 
 			// pictureBoxZydrine
 			// 
@@ -1144,7 +1144,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceZydrine.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceZydrine.TabIndex = 7;
 			this.textBoxPriceZydrine.Text = "2300";
-			this.textBoxPriceZydrine.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+			this.textBoxPriceZydrine.TextChanged += new System.EventHandler(this.TextBoxPriceTextChanged);
 			// 
 			// pictureBoxMegacyte
 			// 
@@ -1167,7 +1167,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceMegacyte.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceMegacyte.TabIndex = 8;
 			this.textBoxPriceMegacyte.Text = "2500";
-			this.textBoxPriceMegacyte.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+			this.textBoxPriceMegacyte.TextChanged += new System.EventHandler(this.TextBoxPriceTextChanged);
 			// 
 			// pictureBoxMorphite
 			// 
@@ -1190,7 +1190,7 @@ namespace EveMiner.Forms
 			this.textBoxPriceMorphite.Size = new System.Drawing.Size(55, 20);
 			this.textBoxPriceMorphite.TabIndex = 9;
 			this.textBoxPriceMorphite.Text = "8000";
-			this.textBoxPriceMorphite.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
+			this.textBoxPriceMorphite.TextChanged += new System.EventHandler(this.TextBoxPriceTextChanged);
 			// 
 			// btnEveCentral
 			// 
@@ -1200,7 +1200,7 @@ namespace EveMiner.Forms
 			this.btnEveCentral.TabIndex = 4;
 			this.btnEveCentral.Text = "EVE Central";
 			this.btnEveCentral.UseVisualStyleBackColor = true;
-			this.btnEveCentral.Click += new System.EventHandler(this.btnEveCentral_Click);
+			this.btnEveCentral.Click += new System.EventHandler(this.BtnEveCentralClick);
 			// 
 			// textBoxNetYield
 			// 
@@ -1218,7 +1218,7 @@ namespace EveMiner.Forms
 			this.buttonCalculateCargoHold.TabIndex = 23;
 			this.buttonCalculateCargoHold.Text = "Calculate";
 			this.buttonCalculateCargoHold.UseVisualStyleBackColor = true;
-			this.buttonCalculateCargoHold.Click += new System.EventHandler(this.buttonCalculate_Click);
+			this.buttonCalculateCargoHold.Click += new System.EventHandler(this.ButtonCalculateClick);
 			// 
 			// buttonCalculateQuantity
 			// 
@@ -1228,7 +1228,7 @@ namespace EveMiner.Forms
 			this.buttonCalculateQuantity.TabIndex = 20;
 			this.buttonCalculateQuantity.Text = "Calculate";
 			this.buttonCalculateQuantity.UseVisualStyleBackColor = true;
-			this.buttonCalculateQuantity.Click += new System.EventHandler(this.buttonCalculate_Click);
+			this.buttonCalculateQuantity.Click += new System.EventHandler(this.ButtonCalculateClick);
 			// 
 			// numericUpDownStanding
 			// 
@@ -1242,7 +1242,7 @@ namespace EveMiner.Forms
 			this.numericUpDownStanding.Name = "numericUpDownStanding";
 			this.numericUpDownStanding.Size = new System.Drawing.Size(55, 20);
 			this.numericUpDownStanding.TabIndex = 17;
-			this.numericUpDownStanding.ValueChanged += new System.EventHandler(this.numericUpDownStanding_ValueChanged);
+			this.numericUpDownStanding.ValueChanged += new System.EventHandler(this.NumericUpDownStandingValueChanged);
 			// 
 			// label35
 			// 
@@ -1319,8 +1319,8 @@ namespace EveMiner.Forms
 			this.dataGridViewCalc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dataGridViewCalc.Size = new System.Drawing.Size(458, 529);
 			this.dataGridViewCalc.TabIndex = 24;
-			this.dataGridViewCalc.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewCalc_ColumnHeaderMouseClick);
-			this.dataGridViewCalc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+			this.dataGridViewCalc.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewCalcColumnHeaderMouseClick);
+			this.dataGridViewCalc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCellClick);
 			// 
 			// ColumnOreCalc
 			// 
@@ -1378,7 +1378,7 @@ namespace EveMiner.Forms
 			this.btnCalculateBars.TabIndex = 23;
 			this.btnCalculateBars.Text = "Calculate";
 			this.btnCalculateBars.UseVisualStyleBackColor = true;
-			this.btnCalculateBars.Click += new System.EventHandler(this.btnCalculateBars_Click);
+			this.btnCalculateBars.Click += new System.EventHandler(this.BtnCalculateBarsClick);
 			// 
 			// textBoxProfit
 			// 
@@ -1400,7 +1400,7 @@ namespace EveMiner.Forms
 			this.comboStandTax.Name = "comboStandTax";
 			this.comboStandTax.Size = new System.Drawing.Size(93, 21);
 			this.comboStandTax.TabIndex = 27;
-			this.comboStandTax.SelectedIndexChanged += new System.EventHandler(this.comboStandTax_SelectedIndexChanged);
+			this.comboStandTax.SelectedIndexChanged += new System.EventHandler(this.ComboStandTaxSelectedIndexChanged);
 			// 
 			// btnExportXls
 			// 
@@ -1410,7 +1410,7 @@ namespace EveMiner.Forms
 			this.btnExportXls.TabIndex = 28;
 			this.btnExportXls.Text = "Export to Excel";
 			this.btnExportXls.UseVisualStyleBackColor = true;
-			this.btnExportXls.Click += new System.EventHandler(this.btnExportXls_Click);
+			this.btnExportXls.Click += new System.EventHandler(this.BtnExportXlsClick);
 			// 
 			// histogram1
 			// 
@@ -1421,8 +1421,8 @@ namespace EveMiner.Forms
 			this.histogram1.Suffix = null;
 			this.histogram1.TabIndex = 25;
 			this.histogram1.Text = "histogram1";
-			this.histogram1.BarLeaveEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.histogram1_BarLeaveEvent);
-			this.histogram1.BarEnterEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.histogram1_BarEnterEvent);
+			this.histogram1.BarLeaveEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.Histogram1BarLeaveEvent);
+			this.histogram1.BarEnterEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.Histogram1BarEnterEvent);
 			// 
 			// btnIskPerHour
 			// 
@@ -1432,7 +1432,7 @@ namespace EveMiner.Forms
 			this.btnIskPerHour.TabIndex = 23;
 			this.btnIskPerHour.Text = "Avg ISK per Hour";
 			this.btnIskPerHour.UseVisualStyleBackColor = true;
-			this.btnIskPerHour.Click += new System.EventHandler(this.buttonCalculate_Click);
+			this.btnIskPerHour.Click += new System.EventHandler(this.ButtonCalculateClick);
 			// 
 			// CalculatorForm
 			// 
