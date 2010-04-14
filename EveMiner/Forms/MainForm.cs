@@ -330,7 +330,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void comboBox_SelectionChangeCommitted(object sender, EventArgs e)
+		private void ComboBoxSelectionChangeCommitted(object sender, EventArgs e)
 		{
 			if (sender == comboBoxTurret)
 			{
@@ -543,7 +543,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void pictureBox_Click(object sender, EventArgs e)
+		private void PictureBoxClick(object sender, EventArgs e)
 		{
 			PictureBox pict = sender as PictureBox;
 			if (pict != null)
@@ -624,8 +624,7 @@ namespace EveMiner.Forms
 				else if (ctrl is PictureBox && ctrl.Tag is Ore)
 				{
 					toolTip1.ToolTipTitle = "Ore";
-					if (ctrl.Tag != null)
-						tooltip = ((Ore) ctrl.Tag).Name;
+					tooltip = ((Ore) ctrl.Tag).Name;
 				}
 				else if (ctrl is PictureBox && ctrl.Tag is string)
 				{
@@ -769,7 +768,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void radioButtonCrystals_CheckedChanged(object sender, EventArgs e)
+		private void RadioButtonCrystalsCheckedChanged(object sender, EventArgs e)
 		{
 			if (sender == radioButtonT1Crystals)
 				Config<Settings>.Instance.SelectedCrystals = 1;
@@ -783,7 +782,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void checkBox_CheckedChanged(object sender, EventArgs e)
+		private void CheckBoxCheckedChanged(object sender, EventArgs e)
 		{
 			if (sender == checkBoxMindLinkImp)
 				Config<Settings>.Instance.ImpMindLink = checkBoxMindLinkImp.Checked;
@@ -833,7 +832,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.Windows.Forms.MouseEventArgs"/> instance containing the event data.</param>
-		private void notifyIcon_MouseDblClick(object sender, MouseEventArgs e)
+		private void NotifyIconMouseDblClick(object sender, MouseEventArgs e)
 		{
 			ShowWindow(this);
 		}
@@ -843,7 +842,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void configurationToolStripMenuItem1_Click_1(object sender, EventArgs e)
+		private void ConfigurationToolStripMenuItem1Click1(object sender, EventArgs e)
 		{
 			ShowWindow(this);
 		}
@@ -853,7 +852,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void timersToolStripMenuItem_Click(object sender, EventArgs e)
+		private void TimersToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			ShowWindow(_timersForm);
 		}
@@ -863,7 +862,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void calculatorToolStripMenuItem_Click(object sender, EventArgs e)
+		private void CalculatorToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			ShowWindow(_calculatorForm);
 		}
@@ -873,7 +872,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+		private void ExitToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			_bExit = true;
 			Close();
@@ -932,7 +931,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+		private void AboutToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			AboutForm dlg = new AboutForm();
 			dlg.ShowDialog();
@@ -940,12 +939,12 @@ namespace EveMiner.Forms
 
 		#endregion
 
-		private void btnTimers_Click(object sender, EventArgs e)
+		private void BtnTimersClick(object sender, EventArgs e)
 		{
 			ShowWindow(_timersForm);
 		}
 
-		private void btnCalculator_Click(object sender, EventArgs e)
+		private void BtnCalculatorClick(object sender, EventArgs e)
 		{
 			ShowWindow(_calculatorForm);
 		}
@@ -955,7 +954,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void alwaysOnTopToolStripMenuItem_Click(object sender, EventArgs e)
+		private void AlwaysOnTopToolStripMenuItemClick(object sender, EventArgs e)
 		{
 			Config<Settings>.Instance.AlwaysOnTop = !alwaysOnTopToolStripMenuItem.Checked;
 			TopMost = Config<Settings>.Instance.AlwaysOnTop;
@@ -968,7 +967,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void viewToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+		private void ViewToolStripMenuItemDropDownOpening(object sender, EventArgs e)
 		{
 			alwaysOnTopToolStripMenuItem.Checked = Config<Settings>.Instance.AlwaysOnTop;
 		}
@@ -978,7 +977,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void comboBoxBoosterShip_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboBoxBoosterShipSelectedIndexChanged(object sender, EventArgs e)
 		{
 			BoosterShipType ship = (BoosterShipType) comboBoxBoosterShip.SelectedIndex;
 			Config<Settings>.Instance.BoosterShip = ship;

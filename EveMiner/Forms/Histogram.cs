@@ -115,7 +115,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Верхний цвет фона
 		/// </summary>
-		[DisplayName("Color Top")]
+		[DisplayName(@"Color Top")]
 		[Category("Histogram")]
 		[Description("Top color area of histogram")]
 		public Color TopColor
@@ -146,7 +146,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Нижний цвет фона
 		/// </summary>
-		[DisplayName("Color Bottom")]
+		[DisplayName(@"Color Bottom")]
 		[Category("Histogram")]
 		[Description("Bottom color area of histogram")]
 		public Color BottomColor
@@ -177,7 +177,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Цвет сетки
 		/// </summary>
-		[DisplayName("Grid Color")]
+		[DisplayName(@"Grid Color")]
 		[Category("Histogram")]
 		[Description("Grid Color")]
 		public Color GridColor
@@ -209,7 +209,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Расстояние между барами в пикселях
 		/// </summary>
-		[DisplayName("Delta")]
+		[DisplayName(@"Delta")]
 		[Category("Histogram")]
 		[Description("Interval in pixels between bars")]
 		[DefaultValue(DeltaDefault)]
@@ -226,7 +226,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Ширина области границы по Оси X
 		/// </summary>
-		[DisplayName("Border X")]
+		[DisplayName(@"Border X")]
 		[Category("Histogram")]
 		[Description("Width border left and right diagram")]
 		[DefaultValue(BorderDefault)]
@@ -243,7 +243,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Ширина области границы по Оси Y
 		/// </summary>
-		[DisplayName("Border Y")]
+		[DisplayName(@"Border Y")]
 		[Category("Histogram")]
 		[Description("Width border top and bottom diagram")]
 		[DefaultValue(BorderDefault)]
@@ -260,7 +260,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Список баров на гистограмме
 		/// </summary>
-		[DisplayName("Bars")]
+		[DisplayName(@"Bars")]
 		[Category("Histogram")]
 		[Description("Bars collection")]
 		public List<Bar> ListBars
@@ -282,7 +282,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Показывать или нет имена баров
 		/// </summary>
-		[DisplayName("Label Show")]
+		[DisplayName(@"Label Show")]
 		[Category("Histogram")]
 		[Description("Show names of bars on diagram")]
 		[DefaultValue(false)]
@@ -299,7 +299,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Показывать или нет значения
 		/// </summary>
-		[DisplayName("Values Show")]
+		[DisplayName(@"Values Show")]
 		[Category("Histogram")]
 		[Description("Show values on diagram")]
 		[DefaultValue(false)]
@@ -316,7 +316,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Шрифт подписей
 		/// </summary>
-		[DisplayName("Values Font")]
+		[DisplayName(@"Values Font")]
 		[Category("Histogram")]
 		[Description("Font for labels")]
 		public Font ValuesFont
@@ -347,7 +347,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Суффикс для значения
 		/// </summary>
-		[DisplayName("Suffix")]
+		[DisplayName(@"Suffix")]
 		[Category("Histogram")]
 		[Description("Value suffix")]
 		public string Suffix
@@ -556,7 +556,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Значение
 		/// </summary>
-		[DisplayName("Value")]
+		[DisplayName(@"Value")]
 		[DefaultValue(0.0)]
 		public double Value
 		{
@@ -567,7 +567,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Имя бара
 		/// </summary>
-		[DisplayName("Name")]
+		[DisplayName(@"Name")]
 		[DefaultValue(0.0)]
 		public string Name
 		{
@@ -578,7 +578,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Верхний цвет бара
 		/// </summary>
-		[DisplayName("Color 1")]
+		[DisplayName(@"Color 1")]
 		public Color Color1
 		{
 			get
@@ -603,7 +603,7 @@ namespace EveMiner.Forms
 		/// <summary>
 		/// Нижний цвет бара
 		/// </summary>
-		[DisplayName("Color 2")]
+		[DisplayName(@"Color 2")]
 		public Color Color2
 		{
 			get

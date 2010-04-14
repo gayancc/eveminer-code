@@ -210,7 +210,7 @@ namespace EveMiner.Forms
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
 			this.exitToolStripMenuItem.Text = "&Exit";
-			this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
 			// 
 			// viewToolStripMenuItem
 			// 
@@ -222,21 +222,21 @@ namespace EveMiner.Forms
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.viewToolStripMenuItem.Text = "&View";
-			this.viewToolStripMenuItem.DropDownOpening += new System.EventHandler(this.viewToolStripMenuItem_DropDownOpening);
+			this.viewToolStripMenuItem.DropDownOpening += new System.EventHandler(this.ViewToolStripMenuItemDropDownOpening);
 			// 
 			// timersToolStripMenuItem1
 			// 
 			this.timersToolStripMenuItem1.Name = "timersToolStripMenuItem1";
 			this.timersToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.timersToolStripMenuItem1.Text = "&Timers";
-			this.timersToolStripMenuItem1.Click += new System.EventHandler(this.timersToolStripMenuItem_Click);
+			this.timersToolStripMenuItem1.Click += new System.EventHandler(this.TimersToolStripMenuItemClick);
 			// 
 			// calculatorToolStripMenuItem1
 			// 
 			this.calculatorToolStripMenuItem1.Name = "calculatorToolStripMenuItem1";
 			this.calculatorToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.calculatorToolStripMenuItem1.Text = "&Calculator";
-			this.calculatorToolStripMenuItem1.Click += new System.EventHandler(this.calculatorToolStripMenuItem_Click);
+			this.calculatorToolStripMenuItem1.Click += new System.EventHandler(this.CalculatorToolStripMenuItemClick);
 			// 
 			// toolStripSeparator2
 			// 
@@ -248,7 +248,7 @@ namespace EveMiner.Forms
 			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
 			this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.alwaysOnTopToolStripMenuItem.Text = "Always on Top";
-			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.alwaysOnTopToolStripMenuItem_Click);
+			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.AlwaysOnTopToolStripMenuItemClick);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -263,7 +263,7 @@ namespace EveMiner.Forms
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.aboutToolStripMenuItem.Text = "&About...";
-			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
 			// 
 			// checkBoxUseGangBonus
 			// 
@@ -275,7 +275,7 @@ namespace EveMiner.Forms
 			this.checkBoxUseGangBonus.TabIndex = 2;
 			this.checkBoxUseGangBonus.Text = "Use Gang Boost";
 			this.checkBoxUseGangBonus.UseVisualStyleBackColor = true;
-			this.checkBoxUseGangBonus.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+			this.checkBoxUseGangBonus.CheckedChanged += new System.EventHandler(this.CheckBoxCheckedChanged);
 			// 
 			// groupBox3
 			// 
@@ -306,7 +306,7 @@ namespace EveMiner.Forms
 			this.radioButtonT2Crystals.TabStop = true;
 			this.radioButtonT2Crystals.Text = "T2 Crystals";
 			this.radioButtonT2Crystals.UseVisualStyleBackColor = true;
-			this.radioButtonT2Crystals.CheckedChanged += new System.EventHandler(this.radioButtonCrystals_CheckedChanged);
+			this.radioButtonT2Crystals.CheckedChanged += new System.EventHandler(this.RadioButtonCrystalsCheckedChanged);
 			// 
 			// radioButtonT1Crystals
 			// 
@@ -318,7 +318,7 @@ namespace EveMiner.Forms
 			this.radioButtonT1Crystals.TabStop = true;
 			this.radioButtonT1Crystals.Text = "T1 Crystals";
 			this.radioButtonT1Crystals.UseVisualStyleBackColor = true;
-			this.radioButtonT1Crystals.CheckedChanged += new System.EventHandler(this.radioButtonCrystals_CheckedChanged);
+			this.radioButtonT1Crystals.CheckedChanged += new System.EventHandler(this.RadioButtonCrystalsCheckedChanged);
 			// 
 			// comboBoxTurret
 			// 
@@ -330,7 +330,7 @@ namespace EveMiner.Forms
 			this.comboBoxTurret.Name = "comboBoxTurret";
 			this.comboBoxTurret.Size = new System.Drawing.Size(188, 21);
 			this.comboBoxTurret.TabIndex = 3;
-			this.comboBoxTurret.SelectionChangeCommitted += new System.EventHandler(this.comboBox_SelectionChangeCommitted);
+			this.comboBoxTurret.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxSelectionChangeCommitted);
 			// 
 			// label1
 			// 
@@ -349,7 +349,7 @@ namespace EveMiner.Forms
 			this.comboBoxShip.Name = "comboBoxShip";
 			this.comboBoxShip.Size = new System.Drawing.Size(188, 21);
 			this.comboBoxShip.TabIndex = 1;
-			this.comboBoxShip.SelectionChangeCommitted += new System.EventHandler(this.comboBox_SelectionChangeCommitted);
+			this.comboBoxShip.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxSelectionChangeCommitted);
 			// 
 			// label17
 			// 
@@ -370,7 +370,7 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU2.TabIndex = 30;
 			this.pictureBoxMLU2.TabStop = false;
 			this.pictureBoxMLU2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxMLU2.Click += new System.EventHandler(this.pictureBox_Click);
+			this.pictureBoxMLU2.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxMLU2.MouseEnter += new System.EventHandler(this.On_MouseEnter);
 			// 
 			// label14
@@ -392,7 +392,7 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU1.TabIndex = 31;
 			this.pictureBoxMLU1.TabStop = false;
 			this.pictureBoxMLU1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxMLU1.Click += new System.EventHandler(this.pictureBox_Click);
+			this.pictureBoxMLU1.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxMLU1.MouseEnter += new System.EventHandler(this.On_MouseEnter);
 			// 
 			// pictureBoxMLU3
@@ -405,7 +405,7 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU3.TabIndex = 29;
 			this.pictureBoxMLU3.TabStop = false;
 			this.pictureBoxMLU3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxMLU3.Click += new System.EventHandler(this.pictureBox_Click);
+			this.pictureBoxMLU3.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxMLU3.MouseEnter += new System.EventHandler(this.On_MouseEnter);
 			// 
 			// label15
@@ -581,7 +581,7 @@ namespace EveMiner.Forms
 			this.pictureBoxImpSlot7.TabIndex = 31;
 			this.pictureBoxImpSlot7.TabStop = false;
 			this.pictureBoxImpSlot7.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxImpSlot7.Click += new System.EventHandler(this.pictureBox_Click);
+			this.pictureBoxImpSlot7.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxImpSlot7.MouseEnter += new System.EventHandler(this.On_MouseEnter);
 			// 
 			// label9
@@ -603,7 +603,7 @@ namespace EveMiner.Forms
 			this.pictureBoxImpSlot10.TabIndex = 30;
 			this.pictureBoxImpSlot10.TabStop = false;
 			this.pictureBoxImpSlot10.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxImpSlot10.Click += new System.EventHandler(this.pictureBox_Click);
+			this.pictureBoxImpSlot10.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxImpSlot10.MouseEnter += new System.EventHandler(this.On_MouseEnter);
 			// 
 			// groupBoxGangBooster
@@ -635,7 +635,7 @@ namespace EveMiner.Forms
 			this.comboBoxBoosterShip.Name = "comboBoxBoosterShip";
 			this.comboBoxBoosterShip.Size = new System.Drawing.Size(107, 21);
 			this.comboBoxBoosterShip.TabIndex = 7;
-			this.comboBoxBoosterShip.SelectedIndexChanged += new System.EventHandler(this.comboBoxBoosterShip_SelectedIndexChanged);
+			this.comboBoxBoosterShip.SelectedIndexChanged += new System.EventHandler(this.ComboBoxBoosterShipSelectedIndexChanged);
 			// 
 			// tableLayoutPanel2
 			// 
@@ -720,7 +720,7 @@ namespace EveMiner.Forms
 			this.pictureBoxGang1.TabIndex = 6;
 			this.pictureBoxGang1.TabStop = false;
 			this.pictureBoxGang1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxGang1.Click += new System.EventHandler(this.pictureBox_Click);
+			this.pictureBoxGang1.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxGang1.MouseEnter += new System.EventHandler(this.On_MouseEnter);
 			// 
 			// pictureBoxGang3
@@ -733,7 +733,7 @@ namespace EveMiner.Forms
 			this.pictureBoxGang3.TabIndex = 6;
 			this.pictureBoxGang3.TabStop = false;
 			this.pictureBoxGang3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxGang3.Click += new System.EventHandler(this.pictureBox_Click);
+			this.pictureBoxGang3.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxGang3.MouseEnter += new System.EventHandler(this.On_MouseEnter);
 			// 
 			// checkBoxMindLinkImp
@@ -745,7 +745,7 @@ namespace EveMiner.Forms
 			this.checkBoxMindLinkImp.TabIndex = 1;
 			this.checkBoxMindLinkImp.Text = "Mining Foreman Mindlink (Slot 10)";
 			this.checkBoxMindLinkImp.UseVisualStyleBackColor = true;
-			this.checkBoxMindLinkImp.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
+			this.checkBoxMindLinkImp.CheckedChanged += new System.EventHandler(this.CheckBoxCheckedChanged);
 			// 
 			// pictureBoxGang2
 			// 
@@ -757,7 +757,7 @@ namespace EveMiner.Forms
 			this.pictureBoxGang2.TabIndex = 6;
 			this.pictureBoxGang2.TabStop = false;
 			this.pictureBoxGang2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxGang2.Click += new System.EventHandler(this.pictureBox_Click);
+			this.pictureBoxGang2.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxGang2.MouseEnter += new System.EventHandler(this.On_MouseEnter);
 			// 
 			// tableLayoutPanel7
@@ -1087,7 +1087,7 @@ namespace EveMiner.Forms
 			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
 			this.notifyIcon.Text = "Eve Miner";
 			this.notifyIcon.Visible = true;
-			this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDblClick);
+			this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIconMouseDblClick);
 			// 
 			// contextMenuTray
 			// 
@@ -1106,21 +1106,21 @@ namespace EveMiner.Forms
 			this.configurationToolStripMenuItem1.Name = "configurationToolStripMenuItem1";
 			this.configurationToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
 			this.configurationToolStripMenuItem1.Text = "Configuration";
-			this.configurationToolStripMenuItem1.Click += new System.EventHandler(this.configurationToolStripMenuItem1_Click_1);
+			this.configurationToolStripMenuItem1.Click += new System.EventHandler(this.ConfigurationToolStripMenuItem1Click1);
 			// 
 			// timersToolStripMenuItem
 			// 
 			this.timersToolStripMenuItem.Name = "timersToolStripMenuItem";
 			this.timersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
 			this.timersToolStripMenuItem.Text = "Timers";
-			this.timersToolStripMenuItem.Click += new System.EventHandler(this.timersToolStripMenuItem_Click);
+			this.timersToolStripMenuItem.Click += new System.EventHandler(this.TimersToolStripMenuItemClick);
 			// 
 			// calculatorToolStripMenuItem
 			// 
 			this.calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
 			this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
 			this.calculatorToolStripMenuItem.Text = "Calculator";
-			this.calculatorToolStripMenuItem.Click += new System.EventHandler(this.calculatorToolStripMenuItem_Click);
+			this.calculatorToolStripMenuItem.Click += new System.EventHandler(this.CalculatorToolStripMenuItemClick);
 			// 
 			// toolStripSeparator1
 			// 
@@ -1132,7 +1132,7 @@ namespace EveMiner.Forms
 			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
 			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
 			this.exitToolStripMenuItem1.Text = "Exit";
-			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
 			// 
 			// contextMenuStripImpS10
 			// 
@@ -1163,7 +1163,7 @@ namespace EveMiner.Forms
 			this.btnCalculator.Size = new System.Drawing.Size(52, 52);
 			this.btnCalculator.TabIndex = 36;
 			this.btnCalculator.UseVisualStyleBackColor = true;
-			this.btnCalculator.Click += new System.EventHandler(this.btnCalculator_Click);
+			this.btnCalculator.Click += new System.EventHandler(this.BtnCalculatorClick);
 			// 
 			// btnTimers
 			// 
@@ -1173,7 +1173,7 @@ namespace EveMiner.Forms
 			this.btnTimers.Size = new System.Drawing.Size(52, 52);
 			this.btnTimers.TabIndex = 36;
 			this.btnTimers.UseVisualStyleBackColor = true;
-			this.btnTimers.Click += new System.EventHandler(this.btnTimers_Click);
+			this.btnTimers.Click += new System.EventHandler(this.BtnTimersClick);
 			// 
 			// pictureBox7
 			// 
