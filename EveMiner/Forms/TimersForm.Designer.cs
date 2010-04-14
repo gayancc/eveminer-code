@@ -88,7 +88,7 @@ namespace EveMiner.Forms
 			this.dataGridViewTimers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
 			this.dataGridViewTimers.Size = new System.Drawing.Size(504, 182);
 			this.dataGridViewTimers.TabIndex = 8;
-			this.dataGridViewTimers.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTimers_CellValueChanged);
+			this.dataGridViewTimers.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTimersCellValueChanged);
 			this.dataGridViewTimers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewTimersCellClick);
 			// 
 			// textBoxStartValue
@@ -107,7 +107,7 @@ namespace EveMiner.Forms
 			this.buttonAdd.TabIndex = 6;
 			this.buttonAdd.Text = "Add";
 			this.buttonAdd.UseVisualStyleBackColor = true;
-			this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+			this.buttonAdd.Click += new System.EventHandler(this.ButtonAddClick);
 			// 
 			// comboBoxOre
 			// 
@@ -119,7 +119,7 @@ namespace EveMiner.Forms
 			this.comboBoxOre.Name = "comboBoxOre";
 			this.comboBoxOre.Size = new System.Drawing.Size(137, 21);
 			this.comboBoxOre.TabIndex = 1;
-			this.comboBoxOre.SelectedIndexChanged += new System.EventHandler(this.comboBoxOre_SelectedIndexChanged);
+			this.comboBoxOre.SelectedIndexChanged += new System.EventHandler(this.ComboBoxOreSelectedIndexChanged);
 			// 
 			// label3
 			// 
@@ -155,7 +155,7 @@ namespace EveMiner.Forms
 			this.buttonUpdate.Text = "Update";
 			this.buttonUpdate.UseVisualStyleBackColor = true;
 			this.buttonUpdate.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
-			this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+			this.buttonUpdate.Click += new System.EventHandler(this.ButtonUpdateClick);
 			this.buttonUpdate.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
 			// 
 			// progressBar1
@@ -181,9 +181,9 @@ namespace EveMiner.Forms
 			this.btnReset.Size = new System.Drawing.Size(29, 26);
 			this.btnReset.TabIndex = 10;
 			this.btnReset.UseVisualStyleBackColor = true;
-			this.btnReset.TextChanged += new System.EventHandler(this.textBoxCargo_TextChanged);
+			this.btnReset.TextChanged += new System.EventHandler(this.TextBoxCargoTextChanged);
 			this.btnReset.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
-			this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+			this.btnReset.Click += new System.EventHandler(this.BtnResetClick);
 			this.btnReset.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
 			// 
 			// textBoxCargo
@@ -193,7 +193,7 @@ namespace EveMiner.Forms
 			this.textBoxCargo.Name = "textBoxCargo";
 			this.textBoxCargo.Size = new System.Drawing.Size(100, 20);
 			this.textBoxCargo.TabIndex = 11;
-			this.textBoxCargo.TextChanged += new System.EventHandler(this.textBoxCargo_TextChanged);
+			this.textBoxCargo.TextChanged += new System.EventHandler(this.TextBoxCargoTextChanged);
 			this.textBoxCargo.MouseLeave += new System.EventHandler(this.OnMouseLeaveCtrl);
 			this.textBoxCargo.MouseEnter += new System.EventHandler(this.OnMouseEnterCtrl);
 			// 

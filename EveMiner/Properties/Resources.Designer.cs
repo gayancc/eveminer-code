@@ -421,6 +421,24 @@ namespace EveMiner.Properties {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to 0.
+        /// </summary>
+        internal static string TimersForm_ButtonAddClick__0 {
+            get {
+                return ResourceManager.GetString("TimersForm_ButtonAddClick__0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  m3.
+        /// </summary>
+        internal static string TimersForm_SetProgressCargo__m3 {
+            get {
+                return ResourceManager.GetString("TimersForm_SetProgressCargo__m3", resourceCulture);
+            }
+        }
+        
         internal static System.Drawing.Bitmap Tritanium {
             get {
                 object obj = ResourceManager.GetObject("Tritanium", resourceCulture);

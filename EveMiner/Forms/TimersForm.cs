@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using EveMiner.Ores;
+using EveMiner.Properties;
 
 namespace EveMiner.Forms
 {
@@ -45,7 +46,7 @@ namespace EveMiner.Forms
 			if (val > progressBar1.Maximum)
 				val = progressBar1.Maximum;
 			progressBar1.Value = val;
-			progressBar1.Text = _currentCargo.ToString("F2") + " m3";
+			progressBar1.Text = _currentCargo.ToString("F2") + Resources.TimersForm_SetProgressCargo__m3;
 		}
 
 		/// <summary>
@@ -100,7 +101,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.Windows.Forms.DataGridViewCellEventArgs"/> instance containing the event data.</param>
-		private void dataGridViewTimers_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+		private void DataGridViewTimersCellValueChanged(object sender, DataGridViewCellEventArgs e)
 		{
 			if (sender == dataGridViewTimers)
 			{
@@ -128,11 +129,11 @@ namespace EveMiner.Forms
 			tItem.EnableTurret(bState, count);
 	        if(bState)
 	        {
-	        	row.Cells[indexColumn].Value = Properties.Resources.stop_24;
+	        	row.Cells[indexColumn].Value = Resources.stop_24;
 	        }
 	        else
 	        {
-				row.Cells[indexColumn].Value = Properties.Resources.play_24;
+				row.Cells[indexColumn].Value = Resources.play_24;
 	        }
 			UpdateTimerListItem(row);
 	    }
@@ -171,7 +172,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void buttonAdd_Click(object sender, EventArgs e)
+		private void ButtonAddClick(object sender, EventArgs e)
 		{
 			Ore ore = OreList.Get(comboBoxOre.SelectedItem.ToString());
 			try
@@ -197,7 +198,7 @@ namespace EveMiner.Forms
 				                               			string.Format("{0:00}:{1:00}", Math.Floor(timerListItem.TimeToAsterEnd/60),
 				                               			              timerListItem.TimeToAsterEnd%60)
 				                               	};
-				cells[ColumnLaser1Start.Index] = new DataGridViewImageCell {Value = Properties.Resources.play_24};
+				cells[ColumnLaser1Start.Index] = new DataGridViewImageCell {Value = Resources.play_24};
 				cells[ColumnCycle.Index] = new DataGridViewTextBoxCell
 				                           	{
 				                           		Value =
@@ -212,7 +213,7 @@ namespace EveMiner.Forms
 				
 				
 				//cells[ColumnButtonDelete.Index] = new DataGridViewButtonCell {Value = "x"};
-				cells[ColumnButtonDelete.Index] = new DataGridViewImageCell {Value = Properties.Resources.close_24};
+				cells[ColumnButtonDelete.Index] = new DataGridViewImageCell {Value = Resources.close_24};
 
 				row.Cells.AddRange(cells);
 
@@ -225,7 +226,7 @@ namespace EveMiner.Forms
 			}
 			catch (FormatException)
 			{
-				textBoxStartValue.Text = "0";
+				textBoxStartValue.Text = Resources.TimersForm_ButtonAddClick__0;
 			}
 		}
 
@@ -268,7 +269,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void buttonUpdate_Click(object sender, EventArgs e)
+		private void ButtonUpdateClick(object sender, EventArgs e)
 		{
 			double miningYield = Config<Settings>.Instance.MiningAmount;
 			for (int n = 0; n < dataGridViewTimers.Rows.Count; n++)
@@ -355,7 +356,7 @@ namespace EveMiner.Forms
 				else if (ctrl == progressBar1)
 				{
 					toolTipInfo.ToolTipTitle = "";
-					tooltip = _currentCargo.ToString("F2") + " m3";
+					tooltip = _currentCargo.ToString("F2") + Resources.TimersForm_SetProgressCargo__m3;
 				}
 
 				if (tooltip.Length > 0)
@@ -381,7 +382,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void comboBoxOre_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboBoxOreSelectedIndexChanged(object sender, EventArgs e)
 		{
 			Config<Settings>.Instance.SelectedOre = comboBoxOre.SelectedItem.ToString();
 		}
@@ -391,7 +392,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
-		private void textBoxCargo_TextChanged(object sender, EventArgs e)
+		private void TextBoxCargoTextChanged(object sender, EventArgs e)
 		{
 			try
 			{
@@ -412,7 +413,7 @@ namespace EveMiner.Forms
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void btnReset_Click(object sender, EventArgs e)
+		private void BtnResetClick(object sender, EventArgs e)
 		{
 			_currentCargo = 0.0;
 			SetProgressCargo();

@@ -21,8 +21,8 @@ namespace EveMiner
 		private const int SW_RESTORE = 9;
 		public const int WakeupMessage = 121;
 		//private members 
-		private Mutex _processSync;
-		private bool _owned = false;
+		private readonly Mutex _processSync;
+		private bool _owned;
 
 
 		public SingleProgramInstance()

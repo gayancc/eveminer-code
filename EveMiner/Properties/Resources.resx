@@ -283,4 +283,10 @@
 	<data name="CalculatorForm_RefreshHistogram__ISK">
 		<value><![CDATA[ ISK]]></value>
 	</data>
+	<data name="TimersForm_SetProgressCargo__m3">
+		<value><![CDATA[ m3]]></value>
+	</data>
+	<data name="TimersForm_ButtonAddClick__0">
+		<value xml:space="preserve">0</value>
+	</data>
 </root>
