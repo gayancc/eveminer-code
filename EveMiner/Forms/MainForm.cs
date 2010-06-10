@@ -297,14 +297,14 @@ namespace EveMiner.Forms
 			_turretsList.Add(turret.Name, turret);
 			turret = new MiningTurret("Miner II", 60, 60.0, false);
 			_turretsList.Add(turret.Name, turret);
+			turret = new MiningTurret("Modulated Deep Core Miner II", 180, 120.0, true);
+			_turretsList.Add(turret.Name, turret);
 			turret = new MiningTurret("XeCl Drilling Beam I", 60, 47.0, false);
 			_turretsList.Add(turret.Name, turret);
+			//Strips
 			turret = new MiningTurret("Strip Miner I", 180, 540.0, false);
 			_turretsList.Add(turret.Name, turret);
 			turret = new MiningTurret("Modulated Strip Miner II", 180, 360.0, true);
-			_turretsList.Add(turret.Name, turret);
-
-			turret = new MiningTurret("Modulated Deep Core Miner II", 180, 120.0, true);
 			_turretsList.Add(turret.Name, turret);
 			turret = new MiningTurret("Modulated Deep Core Strip Miner II ", 180, 250.0, true);
 			_turretsList.Add(turret.Name, turret);
@@ -313,12 +313,6 @@ namespace EveMiner.Forms
 			_turretsList.Add(turret.Name, turret);
 			turret = new MiningTurret("Ice Harvester II", 500, 1.0, false);
 			_turretsList.Add(turret.Name, turret);
-
-			turret = new MiningTurret("Gas Cloud Harvester I", 30, 10.0, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Gas Cloud Harvester II", 40, 20.0, false);
-			_turretsList.Add(turret.Name, turret);
-
 
 
 			comboBoxTurret.BeginUpdate();
@@ -395,8 +389,6 @@ namespace EveMiner.Forms
 		private double GetCycleTime(MiningTurret turret)
 		{
 			double cycle = turret.CycleTime;
-			if(cycle < 60) //GAS
-				return cycle;
 
 			Skills skills = Config<Settings>.Instance.Skills;
 			//Если турелька лед роет
@@ -478,8 +470,6 @@ namespace EveMiner.Forms
 		private double GetYield(MiningTurret turret)
 		{
 			double yield = turret.MiningAmount;
-			if (yield < 30) // GAS
-				return yield;
 			Skills skills = Config<Settings>.Instance.Skills;
 
 			Ship ship = _dictShips[comboBoxShip.SelectedItem.ToString()];
@@ -488,7 +478,7 @@ namespace EveMiner.Forms
 
 			if (ship.Barge)
 				yield *= (1 + skills.MiningBarge*0.03);
-			if (ship.Exhumer && !(ship.Name == "Skif" && turret.UseCrystals))
+			if (ship.Exhumer && ship.Name != "Skif")
 				yield *= (1 + skills.Exhumers*0.03);
 
 			if (ship.Name.Contains("Frigate"))
