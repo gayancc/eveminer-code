@@ -83,35 +83,35 @@ namespace EveMiner.Ores
 			DictOre.Add(ore.Name, ore);
 
 			//Jaspet
-			mOut = new MineralsOut(259, 259, 518, 0, 259, 8, 0, 0);
+			mOut = new MineralsOut(259, 438, 518, 0, 259, 8, 0, 0);
 			ore = new Ore("Jaspet", 2.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(272, 272, 544, 0, 272, 8, 0, 0);
+			mOut = new MineralsOut(272, 460, 544, 0, 272, 8, 0, 0);
 			ore = new Ore("Pure Jaspet", 2.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(285, 285, 570, 0, 285, 9, 0, 0);
+			mOut = new MineralsOut(285, 482, 570, 0, 285, 9, 0, 0);
 			ore = new Ore("Pristine Jaspet", 2.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
 
 			//Hemorphite
-			mOut = new MineralsOut(212, 0, 0, 212, 424, 28, 0, 0);
+			mOut = new MineralsOut(650, 260, 60, 212, 424, 28, 0, 0);
 			ore = new Ore("Hemorphite", 3.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(223, 0, 0, 223, 445, 29, 0, 0);
+			mOut = new MineralsOut(683, 273, 63, 223, 445, 29, 0, 0);
 			ore = new Ore("Vivid Hemorphite", 3.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(233, 0, 0, 233, 466, 31, 0, 0);
+			mOut = new MineralsOut(715, 286, 66, 233, 466, 31, 0, 0);
 			ore = new Ore("Radiant Hemorphite", 3.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
 
 			//Hedbergite
-			mOut = new MineralsOut(0, 0, 0, 708, 354, 32, 0, 0);
+			mOut = new MineralsOut(0, 290, 0, 708, 354, 32, 0, 0);
 			ore = new Ore("Hedbergite", 3.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(0, 0, 0, 743, 372, 34, 0, 0);
+			mOut = new MineralsOut(0, 305, 0, 743, 372, 34, 0, 0);
 			ore = new Ore("Vitric Hedbergite", 3.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(0, 0, 0, 779, 389, 35, 0, 0);
+			mOut = new MineralsOut(0, 319, 0, 779, 389, 35, 0, 0);
 			ore = new Ore("Glazed Hedbergite", 3.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
 
@@ -138,13 +138,13 @@ namespace EveMiner.Ores
 			DictOre.Add(ore.Name, ore);
 
 			//Spodumain
-			mOut = new MineralsOut(700, 140, 0, 0, 0, 0, 140, 0);
+			mOut = new MineralsOut(3190, 140, 0, 0, 0, 0, 140, 0);
 			ore = new Ore("Spodumain", 16.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(735, 147, 0, 0, 0, 0, 147, 0);
+			mOut = new MineralsOut(3350, 147, 0, 0, 0, 0, 147, 0);
 			ore = new Ore("Bright Spodumain", 16.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(770, 154, 0, 0, 0, 0, 154, 0);
+			mOut = new MineralsOut(3509, 154, 0, 0, 0, 0, 154, 0);
 			ore = new Ore("Gleaming Spodumain", 16.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
 
@@ -197,6 +197,12 @@ namespace EveMiner.Ores
 			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 0);
 			ore = new Ore("Ice", 1000.0, 1, mOut);
 			DictOre.Add(ore.Name, ore);
+			//GAS
+			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 0);
+			ore = new Ore("Gas", 10.0, 1, mOut);
+			DictOre.Add(ore.Name, ore);
+
+
 		}
 
 		/// <summary>

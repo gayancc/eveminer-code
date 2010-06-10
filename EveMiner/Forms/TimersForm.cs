@@ -244,12 +244,13 @@ namespace EveMiner.Forms
 					row.DefaultCellStyle.BackColor = Color.FromArgb(255, 200, 200);
 					timerListItem.StopTurrets();
 				}
-				else if (timerListItem.LasersCount > 0)
+				else if (timerListItem.LasersCount > 0 && timerListItem.IsSatrted)
 				{
 					row.DefaultCellStyle.BackColor = timerListItem.IsEmptyClose
 					                                 	? Color.FromArgb(255, 255, 200)
 					                                 	: Color.FromArgb(200, 255, 200);
 				}
+				
 				
 
 

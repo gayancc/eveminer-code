@@ -54,6 +54,7 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU3 = new System.Windows.Forms.PictureBox();
 			this.label15 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.slotDevice1 = new EveMiner.Forms.SlotDevice();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label20 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -63,8 +64,18 @@ namespace EveMiner.Forms
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
+			this.skillValueMining = new EveMiner.Forms.SkillValue();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label18 = new System.Windows.Forms.Label();
+			this.skillValueAstrogeology = new EveMiner.Forms.SkillValue();
+			this.skillValueIceHarvesting = new EveMiner.Forms.SkillValue();
+			this.skillValueIceProcessing = new EveMiner.Forms.SkillValue();
+			this.skillValueRefining = new EveMiner.Forms.SkillValue();
+			this.skillValueEfficiency = new EveMiner.Forms.SkillValue();
+			this.skillValueFrigates = new EveMiner.Forms.SkillValue();
+			this.skillValueCruisers = new EveMiner.Forms.SkillValue();
+			this.skillValueMiningBarge = new EveMiner.Forms.SkillValue();
+			this.skillValueExhumers = new EveMiner.Forms.SkillValue();
 			this.pictureBoxImpSlot7 = new System.Windows.Forms.PictureBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.pictureBoxImpSlot10 = new System.Windows.Forms.PictureBox();
@@ -74,7 +85,11 @@ namespace EveMiner.Forms
 			this.label8 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
+			this.skillValueMiningForeman = new EveMiner.Forms.SkillValue();
+			this.skillValueMiningDirector = new EveMiner.Forms.SkillValue();
 			this.label10 = new System.Windows.Forms.Label();
+			this.skillValueIndustrialCommandShip = new EveMiner.Forms.SkillValue();
+			this.skillValueWarfareLinkSpec = new EveMiner.Forms.SkillValue();
 			this.label2 = new System.Windows.Forms.Label();
 			this.pictureBoxGang1 = new System.Windows.Forms.PictureBox();
 			this.pictureBoxGang3 = new System.Windows.Forms.PictureBox();
@@ -89,6 +104,14 @@ namespace EveMiner.Forms
 			this.pictureBoxBistot = new System.Windows.Forms.PictureBox();
 			this.pictureBoxArkonor = new System.Windows.Forms.PictureBox();
 			this.pictureBoxMercoxit = new System.Windows.Forms.PictureBox();
+			this.skillValueHedbergiteP = new EveMiner.Forms.SkillValue();
+			this.skillValueGneissP = new EveMiner.Forms.SkillValue();
+			this.skillValueDarkOchreP = new EveMiner.Forms.SkillValue();
+			this.skillValueSpodumainP = new EveMiner.Forms.SkillValue();
+			this.skillValueCrokiteP = new EveMiner.Forms.SkillValue();
+			this.skillValueBistotP = new EveMiner.Forms.SkillValue();
+			this.skillValueArkonorP = new EveMiner.Forms.SkillValue();
+			this.skillValueMercoxitP = new EveMiner.Forms.SkillValue();
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.pictureBoxVeldspar = new System.Windows.Forms.PictureBox();
 			this.pictureBoxScordite = new System.Windows.Forms.PictureBox();
@@ -98,6 +121,14 @@ namespace EveMiner.Forms
 			this.pictureBoxKernite = new System.Windows.Forms.PictureBox();
 			this.pictureBoxJaspet = new System.Windows.Forms.PictureBox();
 			this.pictureBoxHemorphite = new System.Windows.Forms.PictureBox();
+			this.skillValueVeldsparP = new EveMiner.Forms.SkillValue();
+			this.skillValueScorditeP = new EveMiner.Forms.SkillValue();
+			this.skillValuePyroxeresP = new EveMiner.Forms.SkillValue();
+			this.skillValuePlagioclaseP = new EveMiner.Forms.SkillValue();
+			this.skillValueOmberP = new EveMiner.Forms.SkillValue();
+			this.skillValueKerniteP = new EveMiner.Forms.SkillValue();
+			this.skillValueJaspetP = new EveMiner.Forms.SkillValue();
+			this.skillValueHemorphiteP = new EveMiner.Forms.SkillValue();
 			this.contextMenuStripMLU = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -116,36 +147,6 @@ namespace EveMiner.Forms
 			this.btnCalculator = new System.Windows.Forms.Button();
 			this.btnTimers = new System.Windows.Forms.Button();
 			this.pictureBox7 = new System.Windows.Forms.PictureBox();
-			this.skillValueMining = new EveMiner.Forms.SkillValue();
-			this.skillValueAstrogeology = new EveMiner.Forms.SkillValue();
-			this.skillValueIceHarvesting = new EveMiner.Forms.SkillValue();
-			this.skillValueIceProcessing = new EveMiner.Forms.SkillValue();
-			this.skillValueRefining = new EveMiner.Forms.SkillValue();
-			this.skillValueEfficiency = new EveMiner.Forms.SkillValue();
-			this.skillValueFrigates = new EveMiner.Forms.SkillValue();
-			this.skillValueCruisers = new EveMiner.Forms.SkillValue();
-			this.skillValueMiningBarge = new EveMiner.Forms.SkillValue();
-			this.skillValueExhumers = new EveMiner.Forms.SkillValue();
-			this.skillValueHedbergiteP = new EveMiner.Forms.SkillValue();
-			this.skillValueGneissP = new EveMiner.Forms.SkillValue();
-			this.skillValueDarkOchreP = new EveMiner.Forms.SkillValue();
-			this.skillValueSpodumainP = new EveMiner.Forms.SkillValue();
-			this.skillValueCrokiteP = new EveMiner.Forms.SkillValue();
-			this.skillValueBistotP = new EveMiner.Forms.SkillValue();
-			this.skillValueArkonorP = new EveMiner.Forms.SkillValue();
-			this.skillValueMercoxitP = new EveMiner.Forms.SkillValue();
-			this.skillValueVeldsparP = new EveMiner.Forms.SkillValue();
-			this.skillValueScorditeP = new EveMiner.Forms.SkillValue();
-			this.skillValuePyroxeresP = new EveMiner.Forms.SkillValue();
-			this.skillValuePlagioclaseP = new EveMiner.Forms.SkillValue();
-			this.skillValueOmberP = new EveMiner.Forms.SkillValue();
-			this.skillValueKerniteP = new EveMiner.Forms.SkillValue();
-			this.skillValueJaspetP = new EveMiner.Forms.SkillValue();
-			this.skillValueHemorphiteP = new EveMiner.Forms.SkillValue();
-			this.skillValueMiningForeman = new EveMiner.Forms.SkillValue();
-			this.skillValueMiningDirector = new EveMiner.Forms.SkillValue();
-			this.skillValueIndustrialCommandShip = new EveMiner.Forms.SkillValue();
-			this.skillValueWarfareLinkSpec = new EveMiner.Forms.SkillValue();
 			this.menuStripMain.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMLU2)).BeginInit();
@@ -210,7 +211,6 @@ namespace EveMiner.Forms
 			this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
 			this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
 			this.exitToolStripMenuItem.Text = "&Exit";
-			this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
 			// 
 			// viewToolStripMenuItem
 			// 
@@ -222,21 +222,18 @@ namespace EveMiner.Forms
 			this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
 			this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
 			this.viewToolStripMenuItem.Text = "&View";
-			this.viewToolStripMenuItem.DropDownOpening += new System.EventHandler(this.ViewToolStripMenuItemDropDownOpening);
 			// 
 			// timersToolStripMenuItem1
 			// 
 			this.timersToolStripMenuItem1.Name = "timersToolStripMenuItem1";
 			this.timersToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.timersToolStripMenuItem1.Text = "&Timers";
-			this.timersToolStripMenuItem1.Click += new System.EventHandler(this.TimersToolStripMenuItemClick);
 			// 
 			// calculatorToolStripMenuItem1
 			// 
 			this.calculatorToolStripMenuItem1.Name = "calculatorToolStripMenuItem1";
 			this.calculatorToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
 			this.calculatorToolStripMenuItem1.Text = "&Calculator";
-			this.calculatorToolStripMenuItem1.Click += new System.EventHandler(this.CalculatorToolStripMenuItemClick);
 			// 
 			// toolStripSeparator2
 			// 
@@ -248,7 +245,6 @@ namespace EveMiner.Forms
 			this.alwaysOnTopToolStripMenuItem.Name = "alwaysOnTopToolStripMenuItem";
 			this.alwaysOnTopToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.alwaysOnTopToolStripMenuItem.Text = "Always on Top";
-			this.alwaysOnTopToolStripMenuItem.Click += new System.EventHandler(this.AlwaysOnTopToolStripMenuItemClick);
 			// 
 			// helpToolStripMenuItem
 			// 
@@ -263,7 +259,6 @@ namespace EveMiner.Forms
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
 			this.aboutToolStripMenuItem.Text = "&About...";
-			this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItemClick);
 			// 
 			// checkBoxUseGangBonus
 			// 
@@ -275,7 +270,6 @@ namespace EveMiner.Forms
 			this.checkBoxUseGangBonus.TabIndex = 2;
 			this.checkBoxUseGangBonus.Text = "Use Gang Boost";
 			this.checkBoxUseGangBonus.UseVisualStyleBackColor = true;
-			this.checkBoxUseGangBonus.CheckedChanged += new System.EventHandler(this.CheckBoxCheckedChanged);
 			// 
 			// groupBox3
 			// 
@@ -306,7 +300,6 @@ namespace EveMiner.Forms
 			this.radioButtonT2Crystals.TabStop = true;
 			this.radioButtonT2Crystals.Text = "T2 Crystals";
 			this.radioButtonT2Crystals.UseVisualStyleBackColor = true;
-			this.radioButtonT2Crystals.CheckedChanged += new System.EventHandler(this.RadioButtonCrystalsCheckedChanged);
 			// 
 			// radioButtonT1Crystals
 			// 
@@ -318,7 +311,6 @@ namespace EveMiner.Forms
 			this.radioButtonT1Crystals.TabStop = true;
 			this.radioButtonT1Crystals.Text = "T1 Crystals";
 			this.radioButtonT1Crystals.UseVisualStyleBackColor = true;
-			this.radioButtonT1Crystals.CheckedChanged += new System.EventHandler(this.RadioButtonCrystalsCheckedChanged);
 			// 
 			// comboBoxTurret
 			// 
@@ -330,7 +322,6 @@ namespace EveMiner.Forms
 			this.comboBoxTurret.Name = "comboBoxTurret";
 			this.comboBoxTurret.Size = new System.Drawing.Size(188, 21);
 			this.comboBoxTurret.TabIndex = 3;
-			this.comboBoxTurret.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxSelectionChangeCommitted);
 			// 
 			// label1
 			// 
@@ -349,7 +340,6 @@ namespace EveMiner.Forms
 			this.comboBoxShip.Name = "comboBoxShip";
 			this.comboBoxShip.Size = new System.Drawing.Size(188, 21);
 			this.comboBoxShip.TabIndex = 1;
-			this.comboBoxShip.SelectionChangeCommitted += new System.EventHandler(this.ComboBoxSelectionChangeCommitted);
 			// 
 			// label17
 			// 
@@ -369,9 +359,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMLU2.TabIndex = 30;
 			this.pictureBoxMLU2.TabStop = false;
-			this.pictureBoxMLU2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxMLU2.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxMLU2.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxMLU2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// label14
 			// 
@@ -391,9 +380,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMLU1.TabIndex = 31;
 			this.pictureBoxMLU1.TabStop = false;
-			this.pictureBoxMLU1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxMLU1.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxMLU1.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxMLU1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxMLU3
 			// 
@@ -404,9 +392,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMLU3.TabIndex = 29;
 			this.pictureBoxMLU3.TabStop = false;
-			this.pictureBoxMLU3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxMLU3.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxMLU3.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxMLU3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// label15
 			// 
@@ -419,6 +406,7 @@ namespace EveMiner.Forms
 			// 
 			// groupBox2
 			// 
+			this.groupBox2.Controls.Add(this.slotDevice1);
 			this.groupBox2.Controls.Add(this.tableLayoutPanel1);
 			this.groupBox2.Controls.Add(this.pictureBoxImpSlot7);
 			this.groupBox2.Controls.Add(this.label9);
@@ -429,6 +417,15 @@ namespace EveMiner.Forms
 			this.groupBox2.TabIndex = 0;
 			this.groupBox2.TabStop = false;
 			this.groupBox2.Text = "Solo";
+			// 
+			// slotDevice1
+			// 
+			this.slotDevice1.ImageNone = global::EveMiner.Properties.Resources.Nocxium;
+			this.slotDevice1.Location = new System.Drawing.Point(101, 338);
+			this.slotDevice1.Name = "slotDevice1";
+			this.slotDevice1.Size = new System.Drawing.Size(34, 34);
+			this.slotDevice1.TabIndex = 32;
+			this.slotDevice1.Visible = false;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -551,6 +548,15 @@ namespace EveMiner.Forms
 			this.label7.TabIndex = 2;
 			this.label7.Text = "Astrogeology:";
 			// 
+			// skillValueMining
+			// 
+			this.skillValueMining.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueMining.Location = new System.Drawing.Point(89, 3);
+			this.skillValueMining.Name = "skillValueMining";
+			this.skillValueMining.Size = new System.Drawing.Size(84, 20);
+			this.skillValueMining.TabIndex = 36;
+			this.skillValueMining.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
 			// label12
 			// 
 			this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -570,630 +576,6 @@ namespace EveMiner.Forms
 			this.label18.Size = new System.Drawing.Size(47, 13);
 			this.label18.TabIndex = 12;
 			this.label18.Text = "Frigates:";
-			// 
-			// pictureBoxImpSlot7
-			// 
-			this.pictureBoxImpSlot7.Image = global::EveMiner.Properties.Resources.slot7;
-			this.pictureBoxImpSlot7.Location = new System.Drawing.Point(63, 299);
-			this.pictureBoxImpSlot7.Name = "pictureBoxImpSlot7";
-			this.pictureBoxImpSlot7.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxImpSlot7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxImpSlot7.TabIndex = 31;
-			this.pictureBoxImpSlot7.TabStop = false;
-			this.pictureBoxImpSlot7.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxImpSlot7.Click += new System.EventHandler(this.PictureBoxClick);
-			this.pictureBoxImpSlot7.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(8, 308);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(49, 13);
-			this.label9.TabIndex = 1;
-			this.label9.Text = "Implants:";
-			// 
-			// pictureBoxImpSlot10
-			// 
-			this.pictureBoxImpSlot10.Image = global::EveMiner.Properties.Resources.slot10;
-			this.pictureBoxImpSlot10.Location = new System.Drawing.Point(101, 299);
-			this.pictureBoxImpSlot10.Name = "pictureBoxImpSlot10";
-			this.pictureBoxImpSlot10.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxImpSlot10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxImpSlot10.TabIndex = 30;
-			this.pictureBoxImpSlot10.TabStop = false;
-			this.pictureBoxImpSlot10.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxImpSlot10.Click += new System.EventHandler(this.PictureBoxClick);
-			this.pictureBoxImpSlot10.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// groupBoxGangBooster
-			// 
-			this.groupBoxGangBooster.Controls.Add(this.comboBoxBoosterShip);
-			this.groupBoxGangBooster.Controls.Add(this.tableLayoutPanel2);
-			this.groupBoxGangBooster.Controls.Add(this.label2);
-			this.groupBoxGangBooster.Controls.Add(this.label15);
-			this.groupBoxGangBooster.Controls.Add(this.pictureBoxGang1);
-			this.groupBoxGangBooster.Controls.Add(this.pictureBoxGang3);
-			this.groupBoxGangBooster.Controls.Add(this.checkBoxMindLinkImp);
-			this.groupBoxGangBooster.Controls.Add(this.pictureBoxGang2);
-			this.groupBoxGangBooster.Location = new System.Drawing.Point(204, 202);
-			this.groupBoxGangBooster.Name = "groupBoxGangBooster";
-			this.groupBoxGangBooster.Size = new System.Drawing.Size(242, 219);
-			this.groupBoxGangBooster.TabIndex = 3;
-			this.groupBoxGangBooster.TabStop = false;
-			this.groupBoxGangBooster.Text = "Gang Booster";
-			// 
-			// comboBoxBoosterShip
-			// 
-			this.comboBoxBoosterShip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.comboBoxBoosterShip.FormattingEnabled = true;
-			this.comboBoxBoosterShip.Items.AddRange(new object[] {
-            "Common",
-            "Orca",
-            "Rorqual"});
-			this.comboBoxBoosterShip.Location = new System.Drawing.Point(129, 166);
-			this.comboBoxBoosterShip.Name = "comboBoxBoosterShip";
-			this.comboBoxBoosterShip.Size = new System.Drawing.Size(107, 21);
-			this.comboBoxBoosterShip.TabIndex = 7;
-			this.comboBoxBoosterShip.SelectedIndexChanged += new System.EventHandler(this.ComboBoxBoosterShipSelectedIndexChanged);
-			// 
-			// tableLayoutPanel2
-			// 
-			this.tableLayoutPanel2.ColumnCount = 2;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 1);
-			this.tableLayoutPanel2.Controls.Add(this.label11, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.label13, 0, 2);
-			this.tableLayoutPanel2.Controls.Add(this.skillValueMiningForeman, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.skillValueMiningDirector, 1, 1);
-			this.tableLayoutPanel2.Controls.Add(this.label10, 0, 3);
-			this.tableLayoutPanel2.Controls.Add(this.skillValueIndustrialCommandShip, 1, 3);
-			this.tableLayoutPanel2.Controls.Add(this.skillValueWarfareLinkSpec, 1, 2);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 19);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 4;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(228, 105);
-			this.tableLayoutPanel2.TabIndex = 0;
-			// 
-			// label8
-			// 
-			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(3, 32);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(81, 13);
-			this.label8.TabIndex = 2;
-			this.label8.Text = "Mining Director:";
-			// 
-			// label11
-			// 
-			this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label11.AutoSize = true;
-			this.label11.Location = new System.Drawing.Point(3, 6);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(85, 13);
-			this.label11.TabIndex = 0;
-			this.label11.Text = "Mining Foreman:";
-			// 
-			// label13
-			// 
-			this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(3, 59);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(113, 13);
-			this.label13.TabIndex = 4;
-			this.label13.Text = "Warfare link specialist:";
-			// 
-			// label10
-			// 
-			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(3, 85);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(126, 13);
-			this.label10.TabIndex = 4;
-			this.label10.Text = "Industrial Command Ship:";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(7, 169);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(70, 13);
-			this.label2.TabIndex = 0;
-			this.label2.Text = "Booster Ship:";
-			// 
-			// pictureBoxGang1
-			// 
-			this.pictureBoxGang1.Image = global::EveMiner.Properties.Resources.icon53_16;
-			this.pictureBoxGang1.Location = new System.Drawing.Point(129, 130);
-			this.pictureBoxGang1.Name = "pictureBoxGang1";
-			this.pictureBoxGang1.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxGang1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxGang1.TabIndex = 6;
-			this.pictureBoxGang1.TabStop = false;
-			this.pictureBoxGang1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxGang1.Click += new System.EventHandler(this.PictureBoxClick);
-			this.pictureBoxGang1.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxGang3
-			// 
-			this.pictureBoxGang3.Image = global::EveMiner.Properties.Resources.highSlot;
-			this.pictureBoxGang3.Location = new System.Drawing.Point(204, 130);
-			this.pictureBoxGang3.Name = "pictureBoxGang3";
-			this.pictureBoxGang3.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxGang3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxGang3.TabIndex = 6;
-			this.pictureBoxGang3.TabStop = false;
-			this.pictureBoxGang3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxGang3.Click += new System.EventHandler(this.PictureBoxClick);
-			this.pictureBoxGang3.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// checkBoxMindLinkImp
-			// 
-			this.checkBoxMindLinkImp.AutoSize = true;
-			this.checkBoxMindLinkImp.Location = new System.Drawing.Point(10, 197);
-			this.checkBoxMindLinkImp.Name = "checkBoxMindLinkImp";
-			this.checkBoxMindLinkImp.Size = new System.Drawing.Size(185, 17);
-			this.checkBoxMindLinkImp.TabIndex = 1;
-			this.checkBoxMindLinkImp.Text = "Mining Foreman Mindlink (Slot 10)";
-			this.checkBoxMindLinkImp.UseVisualStyleBackColor = true;
-			this.checkBoxMindLinkImp.CheckedChanged += new System.EventHandler(this.CheckBoxCheckedChanged);
-			// 
-			// pictureBoxGang2
-			// 
-			this.pictureBoxGang2.Image = global::EveMiner.Properties.Resources.highSlot;
-			this.pictureBoxGang2.Location = new System.Drawing.Point(166, 130);
-			this.pictureBoxGang2.Name = "pictureBoxGang2";
-			this.pictureBoxGang2.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxGang2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxGang2.TabIndex = 6;
-			this.pictureBoxGang2.TabStop = false;
-			this.pictureBoxGang2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxGang2.Click += new System.EventHandler(this.PictureBoxClick);
-			this.pictureBoxGang2.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// tableLayoutPanel7
-			// 
-			this.tableLayoutPanel7.ColumnCount = 2;
-			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel7.Controls.Add(this.pictureBoxHedbergite, 0, 0);
-			this.tableLayoutPanel7.Controls.Add(this.pictureBoxGneiss, 0, 1);
-			this.tableLayoutPanel7.Controls.Add(this.pictureBoxDarkOchre, 0, 2);
-			this.tableLayoutPanel7.Controls.Add(this.pictureBoxSpodumain, 0, 3);
-			this.tableLayoutPanel7.Controls.Add(this.pictureBoxCrokite, 0, 4);
-			this.tableLayoutPanel7.Controls.Add(this.pictureBoxBistot, 0, 5);
-			this.tableLayoutPanel7.Controls.Add(this.pictureBoxArkonor, 0, 6);
-			this.tableLayoutPanel7.Controls.Add(this.pictureBoxMercoxit, 0, 7);
-			this.tableLayoutPanel7.Controls.Add(this.skillValueHedbergiteP, 1, 0);
-			this.tableLayoutPanel7.Controls.Add(this.skillValueGneissP, 1, 1);
-			this.tableLayoutPanel7.Controls.Add(this.skillValueDarkOchreP, 1, 2);
-			this.tableLayoutPanel7.Controls.Add(this.skillValueSpodumainP, 1, 3);
-			this.tableLayoutPanel7.Controls.Add(this.skillValueCrokiteP, 1, 4);
-			this.tableLayoutPanel7.Controls.Add(this.skillValueBistotP, 1, 5);
-			this.tableLayoutPanel7.Controls.Add(this.skillValueArkonorP, 1, 6);
-			this.tableLayoutPanel7.Controls.Add(this.skillValueMercoxitP, 1, 7);
-			this.tableLayoutPanel7.Location = new System.Drawing.Point(142, 19);
-			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-			this.tableLayoutPanel7.RowCount = 8;
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel7.Size = new System.Drawing.Size(130, 304);
-			this.tableLayoutPanel7.TabIndex = 35;
-			// 
-			// pictureBoxHedbergite
-			// 
-			this.pictureBoxHedbergite.Image = global::EveMiner.Properties.Resources.Hedbergite;
-			this.pictureBoxHedbergite.Location = new System.Drawing.Point(3, 3);
-			this.pictureBoxHedbergite.Name = "pictureBoxHedbergite";
-			this.pictureBoxHedbergite.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxHedbergite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxHedbergite.TabIndex = 35;
-			this.pictureBoxHedbergite.TabStop = false;
-			this.pictureBoxHedbergite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxHedbergite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxGneiss
-			// 
-			this.pictureBoxGneiss.Image = global::EveMiner.Properties.Resources.Gneiss;
-			this.pictureBoxGneiss.Location = new System.Drawing.Point(3, 41);
-			this.pictureBoxGneiss.Name = "pictureBoxGneiss";
-			this.pictureBoxGneiss.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxGneiss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxGneiss.TabIndex = 35;
-			this.pictureBoxGneiss.TabStop = false;
-			this.pictureBoxGneiss.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxGneiss.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxDarkOchre
-			// 
-			this.pictureBoxDarkOchre.Image = global::EveMiner.Properties.Resources.DarkOchre;
-			this.pictureBoxDarkOchre.Location = new System.Drawing.Point(3, 79);
-			this.pictureBoxDarkOchre.Name = "pictureBoxDarkOchre";
-			this.pictureBoxDarkOchre.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxDarkOchre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxDarkOchre.TabIndex = 35;
-			this.pictureBoxDarkOchre.TabStop = false;
-			this.pictureBoxDarkOchre.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxDarkOchre.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxSpodumain
-			// 
-			this.pictureBoxSpodumain.Image = global::EveMiner.Properties.Resources.Spodumain;
-			this.pictureBoxSpodumain.Location = new System.Drawing.Point(3, 117);
-			this.pictureBoxSpodumain.Name = "pictureBoxSpodumain";
-			this.pictureBoxSpodumain.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxSpodumain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxSpodumain.TabIndex = 35;
-			this.pictureBoxSpodumain.TabStop = false;
-			this.pictureBoxSpodumain.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxSpodumain.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxCrokite
-			// 
-			this.pictureBoxCrokite.Image = global::EveMiner.Properties.Resources.Crokite;
-			this.pictureBoxCrokite.Location = new System.Drawing.Point(3, 155);
-			this.pictureBoxCrokite.Name = "pictureBoxCrokite";
-			this.pictureBoxCrokite.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxCrokite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxCrokite.TabIndex = 35;
-			this.pictureBoxCrokite.TabStop = false;
-			this.pictureBoxCrokite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxCrokite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxBistot
-			// 
-			this.pictureBoxBistot.Image = global::EveMiner.Properties.Resources.Bistot;
-			this.pictureBoxBistot.Location = new System.Drawing.Point(3, 193);
-			this.pictureBoxBistot.Name = "pictureBoxBistot";
-			this.pictureBoxBistot.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxBistot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxBistot.TabIndex = 35;
-			this.pictureBoxBistot.TabStop = false;
-			this.pictureBoxBistot.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxBistot.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxArkonor
-			// 
-			this.pictureBoxArkonor.Image = global::EveMiner.Properties.Resources.Arkonor;
-			this.pictureBoxArkonor.Location = new System.Drawing.Point(3, 231);
-			this.pictureBoxArkonor.Name = "pictureBoxArkonor";
-			this.pictureBoxArkonor.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxArkonor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxArkonor.TabIndex = 35;
-			this.pictureBoxArkonor.TabStop = false;
-			this.pictureBoxArkonor.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxArkonor.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxMercoxit
-			// 
-			this.pictureBoxMercoxit.Image = global::EveMiner.Properties.Resources.Mercoxit;
-			this.pictureBoxMercoxit.Location = new System.Drawing.Point(3, 269);
-			this.pictureBoxMercoxit.Name = "pictureBoxMercoxit";
-			this.pictureBoxMercoxit.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxMercoxit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxMercoxit.TabIndex = 35;
-			this.pictureBoxMercoxit.TabStop = false;
-			this.pictureBoxMercoxit.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxMercoxit.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// tableLayoutPanel6
-			// 
-			this.tableLayoutPanel6.ColumnCount = 2;
-			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxVeldspar, 0, 0);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxScordite, 0, 1);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPyroxeres, 0, 2);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPlagioclase, 0, 3);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxOmber, 0, 4);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxKernite, 0, 5);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxJaspet, 0, 6);
-			this.tableLayoutPanel6.Controls.Add(this.pictureBoxHemorphite, 0, 7);
-			this.tableLayoutPanel6.Controls.Add(this.skillValueVeldsparP, 1, 0);
-			this.tableLayoutPanel6.Controls.Add(this.skillValueScorditeP, 1, 1);
-			this.tableLayoutPanel6.Controls.Add(this.skillValuePyroxeresP, 1, 2);
-			this.tableLayoutPanel6.Controls.Add(this.skillValuePlagioclaseP, 1, 3);
-			this.tableLayoutPanel6.Controls.Add(this.skillValueOmberP, 1, 4);
-			this.tableLayoutPanel6.Controls.Add(this.skillValueKerniteP, 1, 5);
-			this.tableLayoutPanel6.Controls.Add(this.skillValueJaspetP, 1, 6);
-			this.tableLayoutPanel6.Controls.Add(this.skillValueHemorphiteP, 1, 7);
-			this.tableLayoutPanel6.Location = new System.Drawing.Point(6, 19);
-			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-			this.tableLayoutPanel6.RowCount = 8;
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel6.Size = new System.Drawing.Size(130, 304);
-			this.tableLayoutPanel6.TabIndex = 34;
-			// 
-			// pictureBoxVeldspar
-			// 
-			this.pictureBoxVeldspar.Image = global::EveMiner.Properties.Resources.Veldspar;
-			this.pictureBoxVeldspar.Location = new System.Drawing.Point(3, 3);
-			this.pictureBoxVeldspar.Name = "pictureBoxVeldspar";
-			this.pictureBoxVeldspar.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxVeldspar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxVeldspar.TabIndex = 35;
-			this.pictureBoxVeldspar.TabStop = false;
-			this.pictureBoxVeldspar.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxVeldspar.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxScordite
-			// 
-			this.pictureBoxScordite.Image = global::EveMiner.Properties.Resources.Scordite;
-			this.pictureBoxScordite.Location = new System.Drawing.Point(3, 41);
-			this.pictureBoxScordite.Name = "pictureBoxScordite";
-			this.pictureBoxScordite.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxScordite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxScordite.TabIndex = 35;
-			this.pictureBoxScordite.TabStop = false;
-			this.pictureBoxScordite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxScordite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxPyroxeres
-			// 
-			this.pictureBoxPyroxeres.Image = global::EveMiner.Properties.Resources.Pyroxeres;
-			this.pictureBoxPyroxeres.Location = new System.Drawing.Point(3, 79);
-			this.pictureBoxPyroxeres.Name = "pictureBoxPyroxeres";
-			this.pictureBoxPyroxeres.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxPyroxeres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxPyroxeres.TabIndex = 35;
-			this.pictureBoxPyroxeres.TabStop = false;
-			this.pictureBoxPyroxeres.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxPyroxeres.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxPlagioclase
-			// 
-			this.pictureBoxPlagioclase.Image = global::EveMiner.Properties.Resources.Plagioclase;
-			this.pictureBoxPlagioclase.Location = new System.Drawing.Point(3, 117);
-			this.pictureBoxPlagioclase.Name = "pictureBoxPlagioclase";
-			this.pictureBoxPlagioclase.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxPlagioclase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxPlagioclase.TabIndex = 35;
-			this.pictureBoxPlagioclase.TabStop = false;
-			this.pictureBoxPlagioclase.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxPlagioclase.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxOmber
-			// 
-			this.pictureBoxOmber.Image = global::EveMiner.Properties.Resources.Omber;
-			this.pictureBoxOmber.Location = new System.Drawing.Point(3, 155);
-			this.pictureBoxOmber.Name = "pictureBoxOmber";
-			this.pictureBoxOmber.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxOmber.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxOmber.TabIndex = 35;
-			this.pictureBoxOmber.TabStop = false;
-			this.pictureBoxOmber.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxOmber.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxKernite
-			// 
-			this.pictureBoxKernite.Image = global::EveMiner.Properties.Resources.Kernite;
-			this.pictureBoxKernite.Location = new System.Drawing.Point(3, 193);
-			this.pictureBoxKernite.Name = "pictureBoxKernite";
-			this.pictureBoxKernite.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxKernite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxKernite.TabIndex = 35;
-			this.pictureBoxKernite.TabStop = false;
-			this.pictureBoxKernite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxKernite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxJaspet
-			// 
-			this.pictureBoxJaspet.Image = global::EveMiner.Properties.Resources.Jaspet;
-			this.pictureBoxJaspet.Location = new System.Drawing.Point(3, 231);
-			this.pictureBoxJaspet.Name = "pictureBoxJaspet";
-			this.pictureBoxJaspet.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxJaspet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxJaspet.TabIndex = 35;
-			this.pictureBoxJaspet.TabStop = false;
-			this.pictureBoxJaspet.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxJaspet.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// pictureBoxHemorphite
-			// 
-			this.pictureBoxHemorphite.Image = global::EveMiner.Properties.Resources.Hemorphite;
-			this.pictureBoxHemorphite.Location = new System.Drawing.Point(3, 269);
-			this.pictureBoxHemorphite.Name = "pictureBoxHemorphite";
-			this.pictureBoxHemorphite.Size = new System.Drawing.Size(32, 32);
-			this.pictureBoxHemorphite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBoxHemorphite.TabIndex = 35;
-			this.pictureBoxHemorphite.TabStop = false;
-			this.pictureBoxHemorphite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
-			this.pictureBoxHemorphite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
-			// 
-			// contextMenuStripMLU
-			// 
-			this.contextMenuStripMLU.Name = "contextMenuStripMLU";
-			this.contextMenuStripMLU.Size = new System.Drawing.Size(61, 4);
-			// 
-			// toolTip1
-			// 
-			this.toolTip1.Active = false;
-			this.toolTip1.AutomaticDelay = 1500;
-			this.toolTip1.AutoPopDelay = 15000;
-			this.toolTip1.InitialDelay = 1500;
-			this.toolTip1.IsBalloon = true;
-			this.toolTip1.ReshowDelay = 900;
-			this.toolTip1.ShowAlways = true;
-			this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-			this.toolTip1.ToolTipTitle = "MLU";
-			// 
-			// tableLayoutPanel4
-			// 
-			this.tableLayoutPanel4.ColumnCount = 3;
-			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel4.Controls.Add(this.label16, 0, 1);
-			this.tableLayoutPanel4.Controls.Add(this.pictureBox6, 1, 0);
-			this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-			this.tableLayoutPanel4.RowCount = 2;
-			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel4.Size = new System.Drawing.Size(200, 100);
-			this.tableLayoutPanel4.TabIndex = 0;
-			// 
-			// label16
-			// 
-			this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(3, 53);
-			this.label16.Name = "label16";
-			this.label16.Size = new System.Drawing.Size(71, 13);
-			this.label16.TabIndex = 1;
-			this.label16.Text = "Astrogeology:";
-			// 
-			// pictureBox6
-			// 
-			this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.pictureBox6.Image = global::EveMiner.Properties.Resources.Tritanium;
-			this.pictureBox6.Location = new System.Drawing.Point(80, 3);
-			this.pictureBox6.Name = "pictureBox6";
-			this.pictureBox6.Size = new System.Drawing.Size(32, 14);
-			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBox6.TabIndex = 0;
-			this.pictureBox6.TabStop = false;
-			// 
-			// notifyIcon
-			// 
-			this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-			this.notifyIcon.BalloonTipText = "Eve Miner";
-			this.notifyIcon.BalloonTipTitle = "Eve Miner";
-			this.notifyIcon.ContextMenuStrip = this.contextMenuTray;
-			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-			this.notifyIcon.Text = "Eve Miner";
-			this.notifyIcon.Visible = true;
-			this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIconMouseDblClick);
-			// 
-			// contextMenuTray
-			// 
-			this.contextMenuTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configurationToolStripMenuItem1,
-            this.timersToolStripMenuItem,
-            this.calculatorToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem1});
-			this.contextMenuTray.Name = "contextMenuTray";
-			this.contextMenuTray.Size = new System.Drawing.Size(148, 98);
-			// 
-			// configurationToolStripMenuItem1
-			// 
-			this.configurationToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.configurationToolStripMenuItem1.Name = "configurationToolStripMenuItem1";
-			this.configurationToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
-			this.configurationToolStripMenuItem1.Text = "Configuration";
-			this.configurationToolStripMenuItem1.Click += new System.EventHandler(this.ConfigurationToolStripMenuItem1Click1);
-			// 
-			// timersToolStripMenuItem
-			// 
-			this.timersToolStripMenuItem.Name = "timersToolStripMenuItem";
-			this.timersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-			this.timersToolStripMenuItem.Text = "Timers";
-			this.timersToolStripMenuItem.Click += new System.EventHandler(this.TimersToolStripMenuItemClick);
-			// 
-			// calculatorToolStripMenuItem
-			// 
-			this.calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
-			this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-			this.calculatorToolStripMenuItem.Text = "Calculator";
-			this.calculatorToolStripMenuItem.Click += new System.EventHandler(this.CalculatorToolStripMenuItemClick);
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
-			// 
-			// exitToolStripMenuItem1
-			// 
-			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
-			this.exitToolStripMenuItem1.Text = "Exit";
-			this.exitToolStripMenuItem1.Click += new System.EventHandler(this.ExitToolStripMenuItemClick);
-			// 
-			// contextMenuStripImpS10
-			// 
-			this.contextMenuStripImpS10.Name = "contextMenuStripImpS10";
-			this.contextMenuStripImpS10.Size = new System.Drawing.Size(61, 4);
-			// 
-			// contextMenuStripImpS7
-			// 
-			this.contextMenuStripImpS7.Name = "contextMenuStripImpS7";
-			this.contextMenuStripImpS7.Size = new System.Drawing.Size(61, 4);
-			// 
-			// groupBox4
-			// 
-			this.groupBox4.Controls.Add(this.tableLayoutPanel7);
-			this.groupBox4.Controls.Add(this.tableLayoutPanel6);
-			this.groupBox4.Location = new System.Drawing.Point(452, 33);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(281, 331);
-			this.groupBox4.TabIndex = 4;
-			this.groupBox4.TabStop = false;
-			this.groupBox4.Text = "Ore Processing Skills";
-			// 
-			// btnCalculator
-			// 
-			this.btnCalculator.Image = global::EveMiner.Properties.Resources.calculator_48;
-			this.btnCalculator.Location = new System.Drawing.Point(516, 369);
-			this.btnCalculator.Name = "btnCalculator";
-			this.btnCalculator.Size = new System.Drawing.Size(52, 52);
-			this.btnCalculator.TabIndex = 36;
-			this.btnCalculator.UseVisualStyleBackColor = true;
-			this.btnCalculator.Click += new System.EventHandler(this.BtnCalculatorClick);
-			// 
-			// btnTimers
-			// 
-			this.btnTimers.Image = global::EveMiner.Properties.Resources.clock_48;
-			this.btnTimers.Location = new System.Drawing.Point(458, 369);
-			this.btnTimers.Name = "btnTimers";
-			this.btnTimers.Size = new System.Drawing.Size(52, 52);
-			this.btnTimers.TabIndex = 36;
-			this.btnTimers.UseVisualStyleBackColor = true;
-			this.btnTimers.Click += new System.EventHandler(this.BtnTimersClick);
-			// 
-			// pictureBox7
-			// 
-			this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.pictureBox7.Image = global::EveMiner.Properties.Resources.Pyerite;
-			this.pictureBox7.Location = new System.Drawing.Point(81, 41);
-			this.pictureBox7.Name = "pictureBox7";
-			this.pictureBox7.Size = new System.Drawing.Size(32, 32);
-			this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-			this.pictureBox7.TabIndex = 0;
-			this.pictureBox7.TabStop = false;
-			// 
-			// skillValueMining
-			// 
-			this.skillValueMining.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueMining.Location = new System.Drawing.Point(89, 3);
-			this.skillValueMining.Name = "skillValueMining";
-			this.skillValueMining.Size = new System.Drawing.Size(84, 20);
-			this.skillValueMining.TabIndex = 36;
-			this.skillValueMining.ValueChanged += new System.EventHandler(this.SkillValueChanged);
 			// 
 			// skillValueAstrogeology
 			// 
@@ -1276,6 +658,356 @@ namespace EveMiner.Forms
 			this.skillValueExhumers.TabIndex = 36;
 			this.skillValueExhumers.ValueChanged += new System.EventHandler(this.SkillValueChanged);
 			// 
+			// pictureBoxImpSlot7
+			// 
+			this.pictureBoxImpSlot7.Image = global::EveMiner.Properties.Resources.slot7;
+			this.pictureBoxImpSlot7.Location = new System.Drawing.Point(63, 299);
+			this.pictureBoxImpSlot7.Name = "pictureBoxImpSlot7";
+			this.pictureBoxImpSlot7.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxImpSlot7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxImpSlot7.TabIndex = 31;
+			this.pictureBoxImpSlot7.TabStop = false;
+			this.pictureBoxImpSlot7.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxImpSlot7.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(8, 308);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(49, 13);
+			this.label9.TabIndex = 1;
+			this.label9.Text = "Implants:";
+			// 
+			// pictureBoxImpSlot10
+			// 
+			this.pictureBoxImpSlot10.Image = global::EveMiner.Properties.Resources.slot10;
+			this.pictureBoxImpSlot10.Location = new System.Drawing.Point(101, 299);
+			this.pictureBoxImpSlot10.Name = "pictureBoxImpSlot10";
+			this.pictureBoxImpSlot10.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxImpSlot10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxImpSlot10.TabIndex = 30;
+			this.pictureBoxImpSlot10.TabStop = false;
+			this.pictureBoxImpSlot10.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxImpSlot10.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// groupBoxGangBooster
+			// 
+			this.groupBoxGangBooster.Controls.Add(this.comboBoxBoosterShip);
+			this.groupBoxGangBooster.Controls.Add(this.tableLayoutPanel2);
+			this.groupBoxGangBooster.Controls.Add(this.label2);
+			this.groupBoxGangBooster.Controls.Add(this.label15);
+			this.groupBoxGangBooster.Controls.Add(this.pictureBoxGang1);
+			this.groupBoxGangBooster.Controls.Add(this.pictureBoxGang3);
+			this.groupBoxGangBooster.Controls.Add(this.checkBoxMindLinkImp);
+			this.groupBoxGangBooster.Controls.Add(this.pictureBoxGang2);
+			this.groupBoxGangBooster.Location = new System.Drawing.Point(204, 202);
+			this.groupBoxGangBooster.Name = "groupBoxGangBooster";
+			this.groupBoxGangBooster.Size = new System.Drawing.Size(242, 219);
+			this.groupBoxGangBooster.TabIndex = 3;
+			this.groupBoxGangBooster.TabStop = false;
+			this.groupBoxGangBooster.Text = "Gang Booster";
+			// 
+			// comboBoxBoosterShip
+			// 
+			this.comboBoxBoosterShip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBoxBoosterShip.FormattingEnabled = true;
+			this.comboBoxBoosterShip.Items.AddRange(new object[] {
+            "Common",
+            "Orca",
+            "Rorqual"});
+			this.comboBoxBoosterShip.Location = new System.Drawing.Point(129, 166);
+			this.comboBoxBoosterShip.Name = "comboBoxBoosterShip";
+			this.comboBoxBoosterShip.Size = new System.Drawing.Size(107, 21);
+			this.comboBoxBoosterShip.TabIndex = 7;
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 2;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label11, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.label13, 0, 2);
+			this.tableLayoutPanel2.Controls.Add(this.skillValueMiningForeman, 1, 0);
+			this.tableLayoutPanel2.Controls.Add(this.skillValueMiningDirector, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label10, 0, 3);
+			this.tableLayoutPanel2.Controls.Add(this.skillValueIndustrialCommandShip, 1, 3);
+			this.tableLayoutPanel2.Controls.Add(this.skillValueWarfareLinkSpec, 1, 2);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 19);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 4;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(228, 105);
+			this.tableLayoutPanel2.TabIndex = 0;
+			// 
+			// label8
+			// 
+			this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(3, 32);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(81, 13);
+			this.label8.TabIndex = 2;
+			this.label8.Text = "Mining Director:";
+			// 
+			// label11
+			// 
+			this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label11.AutoSize = true;
+			this.label11.Location = new System.Drawing.Point(3, 6);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(85, 13);
+			this.label11.TabIndex = 0;
+			this.label11.Text = "Mining Foreman:";
+			// 
+			// label13
+			// 
+			this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label13.AutoSize = true;
+			this.label13.Location = new System.Drawing.Point(3, 59);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(113, 13);
+			this.label13.TabIndex = 4;
+			this.label13.Text = "Warfare link specialist:";
+			// 
+			// skillValueMiningForeman
+			// 
+			this.skillValueMiningForeman.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueMiningForeman.Location = new System.Drawing.Point(138, 3);
+			this.skillValueMiningForeman.Name = "skillValueMiningForeman";
+			this.skillValueMiningForeman.Size = new System.Drawing.Size(84, 20);
+			this.skillValueMiningForeman.TabIndex = 36;
+			this.skillValueMiningForeman.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueMiningDirector
+			// 
+			this.skillValueMiningDirector.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueMiningDirector.Location = new System.Drawing.Point(138, 29);
+			this.skillValueMiningDirector.Name = "skillValueMiningDirector";
+			this.skillValueMiningDirector.Size = new System.Drawing.Size(84, 20);
+			this.skillValueMiningDirector.TabIndex = 36;
+			this.skillValueMiningDirector.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// label10
+			// 
+			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(3, 85);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(126, 13);
+			this.label10.TabIndex = 4;
+			this.label10.Text = "Industrial Command Ship:";
+			// 
+			// skillValueIndustrialCommandShip
+			// 
+			this.skillValueIndustrialCommandShip.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueIndustrialCommandShip.Location = new System.Drawing.Point(138, 82);
+			this.skillValueIndustrialCommandShip.Name = "skillValueIndustrialCommandShip";
+			this.skillValueIndustrialCommandShip.Size = new System.Drawing.Size(84, 20);
+			this.skillValueIndustrialCommandShip.TabIndex = 36;
+			this.skillValueIndustrialCommandShip.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueWarfareLinkSpec
+			// 
+			this.skillValueWarfareLinkSpec.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueWarfareLinkSpec.Location = new System.Drawing.Point(138, 55);
+			this.skillValueWarfareLinkSpec.Name = "skillValueWarfareLinkSpec";
+			this.skillValueWarfareLinkSpec.Size = new System.Drawing.Size(84, 20);
+			this.skillValueWarfareLinkSpec.TabIndex = 36;
+			this.skillValueWarfareLinkSpec.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(7, 169);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(70, 13);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Booster Ship:";
+			// 
+			// pictureBoxGang1
+			// 
+			this.pictureBoxGang1.Image = global::EveMiner.Properties.Resources.icon53_16;
+			this.pictureBoxGang1.Location = new System.Drawing.Point(129, 130);
+			this.pictureBoxGang1.Name = "pictureBoxGang1";
+			this.pictureBoxGang1.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxGang1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxGang1.TabIndex = 6;
+			this.pictureBoxGang1.TabStop = false;
+			this.pictureBoxGang1.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxGang1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxGang3
+			// 
+			this.pictureBoxGang3.Image = global::EveMiner.Properties.Resources.highSlot;
+			this.pictureBoxGang3.Location = new System.Drawing.Point(204, 130);
+			this.pictureBoxGang3.Name = "pictureBoxGang3";
+			this.pictureBoxGang3.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxGang3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxGang3.TabIndex = 6;
+			this.pictureBoxGang3.TabStop = false;
+			this.pictureBoxGang3.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxGang3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// checkBoxMindLinkImp
+			// 
+			this.checkBoxMindLinkImp.AutoSize = true;
+			this.checkBoxMindLinkImp.Location = new System.Drawing.Point(10, 197);
+			this.checkBoxMindLinkImp.Name = "checkBoxMindLinkImp";
+			this.checkBoxMindLinkImp.Size = new System.Drawing.Size(185, 17);
+			this.checkBoxMindLinkImp.TabIndex = 1;
+			this.checkBoxMindLinkImp.Text = "Mining Foreman Mindlink (Slot 10)";
+			this.checkBoxMindLinkImp.UseVisualStyleBackColor = true;
+			// 
+			// pictureBoxGang2
+			// 
+			this.pictureBoxGang2.Image = global::EveMiner.Properties.Resources.highSlot;
+			this.pictureBoxGang2.Location = new System.Drawing.Point(166, 130);
+			this.pictureBoxGang2.Name = "pictureBoxGang2";
+			this.pictureBoxGang2.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxGang2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxGang2.TabIndex = 6;
+			this.pictureBoxGang2.TabStop = false;
+			this.pictureBoxGang2.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxGang2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// tableLayoutPanel7
+			// 
+			this.tableLayoutPanel7.ColumnCount = 2;
+			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel7.Controls.Add(this.pictureBoxHedbergite, 0, 0);
+			this.tableLayoutPanel7.Controls.Add(this.pictureBoxGneiss, 0, 1);
+			this.tableLayoutPanel7.Controls.Add(this.pictureBoxDarkOchre, 0, 2);
+			this.tableLayoutPanel7.Controls.Add(this.pictureBoxSpodumain, 0, 3);
+			this.tableLayoutPanel7.Controls.Add(this.pictureBoxCrokite, 0, 4);
+			this.tableLayoutPanel7.Controls.Add(this.pictureBoxBistot, 0, 5);
+			this.tableLayoutPanel7.Controls.Add(this.pictureBoxArkonor, 0, 6);
+			this.tableLayoutPanel7.Controls.Add(this.pictureBoxMercoxit, 0, 7);
+			this.tableLayoutPanel7.Controls.Add(this.skillValueHedbergiteP, 1, 0);
+			this.tableLayoutPanel7.Controls.Add(this.skillValueGneissP, 1, 1);
+			this.tableLayoutPanel7.Controls.Add(this.skillValueDarkOchreP, 1, 2);
+			this.tableLayoutPanel7.Controls.Add(this.skillValueSpodumainP, 1, 3);
+			this.tableLayoutPanel7.Controls.Add(this.skillValueCrokiteP, 1, 4);
+			this.tableLayoutPanel7.Controls.Add(this.skillValueBistotP, 1, 5);
+			this.tableLayoutPanel7.Controls.Add(this.skillValueArkonorP, 1, 6);
+			this.tableLayoutPanel7.Controls.Add(this.skillValueMercoxitP, 1, 7);
+			this.tableLayoutPanel7.Location = new System.Drawing.Point(142, 19);
+			this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+			this.tableLayoutPanel7.RowCount = 8;
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel7.Size = new System.Drawing.Size(130, 304);
+			this.tableLayoutPanel7.TabIndex = 35;
+			// 
+			// pictureBoxHedbergite
+			// 
+			this.pictureBoxHedbergite.Image = global::EveMiner.Properties.Resources.Hedbergite;
+			this.pictureBoxHedbergite.Location = new System.Drawing.Point(3, 3);
+			this.pictureBoxHedbergite.Name = "pictureBoxHedbergite";
+			this.pictureBoxHedbergite.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxHedbergite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxHedbergite.TabIndex = 35;
+			this.pictureBoxHedbergite.TabStop = false;
+			this.pictureBoxHedbergite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxHedbergite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxGneiss
+			// 
+			this.pictureBoxGneiss.Image = global::EveMiner.Properties.Resources.Gneiss;
+			this.pictureBoxGneiss.Location = new System.Drawing.Point(3, 41);
+			this.pictureBoxGneiss.Name = "pictureBoxGneiss";
+			this.pictureBoxGneiss.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxGneiss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxGneiss.TabIndex = 35;
+			this.pictureBoxGneiss.TabStop = false;
+			this.pictureBoxGneiss.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxGneiss.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxDarkOchre
+			// 
+			this.pictureBoxDarkOchre.Image = global::EveMiner.Properties.Resources.DarkOchre;
+			this.pictureBoxDarkOchre.Location = new System.Drawing.Point(3, 79);
+			this.pictureBoxDarkOchre.Name = "pictureBoxDarkOchre";
+			this.pictureBoxDarkOchre.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxDarkOchre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxDarkOchre.TabIndex = 35;
+			this.pictureBoxDarkOchre.TabStop = false;
+			this.pictureBoxDarkOchre.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxDarkOchre.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxSpodumain
+			// 
+			this.pictureBoxSpodumain.Image = global::EveMiner.Properties.Resources.Spodumain;
+			this.pictureBoxSpodumain.Location = new System.Drawing.Point(3, 117);
+			this.pictureBoxSpodumain.Name = "pictureBoxSpodumain";
+			this.pictureBoxSpodumain.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxSpodumain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxSpodumain.TabIndex = 35;
+			this.pictureBoxSpodumain.TabStop = false;
+			this.pictureBoxSpodumain.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxSpodumain.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxCrokite
+			// 
+			this.pictureBoxCrokite.Image = global::EveMiner.Properties.Resources.Crokite;
+			this.pictureBoxCrokite.Location = new System.Drawing.Point(3, 155);
+			this.pictureBoxCrokite.Name = "pictureBoxCrokite";
+			this.pictureBoxCrokite.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxCrokite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxCrokite.TabIndex = 35;
+			this.pictureBoxCrokite.TabStop = false;
+			this.pictureBoxCrokite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxCrokite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxBistot
+			// 
+			this.pictureBoxBistot.Image = global::EveMiner.Properties.Resources.Bistot;
+			this.pictureBoxBistot.Location = new System.Drawing.Point(3, 193);
+			this.pictureBoxBistot.Name = "pictureBoxBistot";
+			this.pictureBoxBistot.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxBistot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxBistot.TabIndex = 35;
+			this.pictureBoxBistot.TabStop = false;
+			this.pictureBoxBistot.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxBistot.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxArkonor
+			// 
+			this.pictureBoxArkonor.Image = global::EveMiner.Properties.Resources.Arkonor;
+			this.pictureBoxArkonor.Location = new System.Drawing.Point(3, 231);
+			this.pictureBoxArkonor.Name = "pictureBoxArkonor";
+			this.pictureBoxArkonor.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxArkonor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxArkonor.TabIndex = 35;
+			this.pictureBoxArkonor.TabStop = false;
+			this.pictureBoxArkonor.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxArkonor.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxMercoxit
+			// 
+			this.pictureBoxMercoxit.Image = global::EveMiner.Properties.Resources.Mercoxit;
+			this.pictureBoxMercoxit.Location = new System.Drawing.Point(3, 269);
+			this.pictureBoxMercoxit.Name = "pictureBoxMercoxit";
+			this.pictureBoxMercoxit.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxMercoxit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxMercoxit.TabIndex = 35;
+			this.pictureBoxMercoxit.TabStop = false;
+			this.pictureBoxMercoxit.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxMercoxit.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
 			// skillValueHedbergiteP
 			// 
 			this.skillValueHedbergiteP.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1347,6 +1079,138 @@ namespace EveMiner.Forms
 			this.skillValueMercoxitP.Size = new System.Drawing.Size(84, 20);
 			this.skillValueMercoxitP.TabIndex = 36;
 			this.skillValueMercoxitP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// tableLayoutPanel6
+			// 
+			this.tableLayoutPanel6.ColumnCount = 2;
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxVeldspar, 0, 0);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxScordite, 0, 1);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPyroxeres, 0, 2);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxPlagioclase, 0, 3);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxOmber, 0, 4);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxKernite, 0, 5);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxJaspet, 0, 6);
+			this.tableLayoutPanel6.Controls.Add(this.pictureBoxHemorphite, 0, 7);
+			this.tableLayoutPanel6.Controls.Add(this.skillValueVeldsparP, 1, 0);
+			this.tableLayoutPanel6.Controls.Add(this.skillValueScorditeP, 1, 1);
+			this.tableLayoutPanel6.Controls.Add(this.skillValuePyroxeresP, 1, 2);
+			this.tableLayoutPanel6.Controls.Add(this.skillValuePlagioclaseP, 1, 3);
+			this.tableLayoutPanel6.Controls.Add(this.skillValueOmberP, 1, 4);
+			this.tableLayoutPanel6.Controls.Add(this.skillValueKerniteP, 1, 5);
+			this.tableLayoutPanel6.Controls.Add(this.skillValueJaspetP, 1, 6);
+			this.tableLayoutPanel6.Controls.Add(this.skillValueHemorphiteP, 1, 7);
+			this.tableLayoutPanel6.Location = new System.Drawing.Point(6, 19);
+			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+			this.tableLayoutPanel6.RowCount = 8;
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel6.Size = new System.Drawing.Size(130, 304);
+			this.tableLayoutPanel6.TabIndex = 34;
+			// 
+			// pictureBoxVeldspar
+			// 
+			this.pictureBoxVeldspar.Image = global::EveMiner.Properties.Resources.Veldspar;
+			this.pictureBoxVeldspar.Location = new System.Drawing.Point(3, 3);
+			this.pictureBoxVeldspar.Name = "pictureBoxVeldspar";
+			this.pictureBoxVeldspar.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxVeldspar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxVeldspar.TabIndex = 35;
+			this.pictureBoxVeldspar.TabStop = false;
+			this.pictureBoxVeldspar.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxVeldspar.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxScordite
+			// 
+			this.pictureBoxScordite.Image = global::EveMiner.Properties.Resources.Scordite;
+			this.pictureBoxScordite.Location = new System.Drawing.Point(3, 41);
+			this.pictureBoxScordite.Name = "pictureBoxScordite";
+			this.pictureBoxScordite.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxScordite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxScordite.TabIndex = 35;
+			this.pictureBoxScordite.TabStop = false;
+			this.pictureBoxScordite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxScordite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxPyroxeres
+			// 
+			this.pictureBoxPyroxeres.Image = global::EveMiner.Properties.Resources.Pyroxeres;
+			this.pictureBoxPyroxeres.Location = new System.Drawing.Point(3, 79);
+			this.pictureBoxPyroxeres.Name = "pictureBoxPyroxeres";
+			this.pictureBoxPyroxeres.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxPyroxeres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxPyroxeres.TabIndex = 35;
+			this.pictureBoxPyroxeres.TabStop = false;
+			this.pictureBoxPyroxeres.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxPyroxeres.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxPlagioclase
+			// 
+			this.pictureBoxPlagioclase.Image = global::EveMiner.Properties.Resources.Plagioclase;
+			this.pictureBoxPlagioclase.Location = new System.Drawing.Point(3, 117);
+			this.pictureBoxPlagioclase.Name = "pictureBoxPlagioclase";
+			this.pictureBoxPlagioclase.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxPlagioclase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxPlagioclase.TabIndex = 35;
+			this.pictureBoxPlagioclase.TabStop = false;
+			this.pictureBoxPlagioclase.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxPlagioclase.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxOmber
+			// 
+			this.pictureBoxOmber.Image = global::EveMiner.Properties.Resources.Omber;
+			this.pictureBoxOmber.Location = new System.Drawing.Point(3, 155);
+			this.pictureBoxOmber.Name = "pictureBoxOmber";
+			this.pictureBoxOmber.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxOmber.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxOmber.TabIndex = 35;
+			this.pictureBoxOmber.TabStop = false;
+			this.pictureBoxOmber.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxOmber.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxKernite
+			// 
+			this.pictureBoxKernite.Image = global::EveMiner.Properties.Resources.Kernite;
+			this.pictureBoxKernite.Location = new System.Drawing.Point(3, 193);
+			this.pictureBoxKernite.Name = "pictureBoxKernite";
+			this.pictureBoxKernite.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxKernite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxKernite.TabIndex = 35;
+			this.pictureBoxKernite.TabStop = false;
+			this.pictureBoxKernite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxKernite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxJaspet
+			// 
+			this.pictureBoxJaspet.Image = global::EveMiner.Properties.Resources.Jaspet;
+			this.pictureBoxJaspet.Location = new System.Drawing.Point(3, 231);
+			this.pictureBoxJaspet.Name = "pictureBoxJaspet";
+			this.pictureBoxJaspet.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxJaspet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxJaspet.TabIndex = 35;
+			this.pictureBoxJaspet.TabStop = false;
+			this.pictureBoxJaspet.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxJaspet.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// pictureBoxHemorphite
+			// 
+			this.pictureBoxHemorphite.Image = global::EveMiner.Properties.Resources.Hemorphite;
+			this.pictureBoxHemorphite.Location = new System.Drawing.Point(3, 269);
+			this.pictureBoxHemorphite.Name = "pictureBoxHemorphite";
+			this.pictureBoxHemorphite.Size = new System.Drawing.Size(32, 32);
+			this.pictureBoxHemorphite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBoxHemorphite.TabIndex = 35;
+			this.pictureBoxHemorphite.TabStop = false;
+			this.pictureBoxHemorphite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxHemorphite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// skillValueVeldsparP
 			// 
@@ -1420,41 +1284,160 @@ namespace EveMiner.Forms
 			this.skillValueHemorphiteP.TabIndex = 36;
 			this.skillValueHemorphiteP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
 			// 
-			// skillValueMiningForeman
+			// contextMenuStripMLU
 			// 
-			this.skillValueMiningForeman.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueMiningForeman.Location = new System.Drawing.Point(138, 3);
-			this.skillValueMiningForeman.Name = "skillValueMiningForeman";
-			this.skillValueMiningForeman.Size = new System.Drawing.Size(84, 20);
-			this.skillValueMiningForeman.TabIndex = 36;
-			this.skillValueMiningForeman.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			this.contextMenuStripMLU.Name = "contextMenuStripMLU";
+			this.contextMenuStripMLU.Size = new System.Drawing.Size(61, 4);
 			// 
-			// skillValueMiningDirector
+			// toolTip1
 			// 
-			this.skillValueMiningDirector.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueMiningDirector.Location = new System.Drawing.Point(138, 29);
-			this.skillValueMiningDirector.Name = "skillValueMiningDirector";
-			this.skillValueMiningDirector.Size = new System.Drawing.Size(84, 20);
-			this.skillValueMiningDirector.TabIndex = 36;
-			this.skillValueMiningDirector.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			this.toolTip1.Active = false;
+			this.toolTip1.AutomaticDelay = 1500;
+			this.toolTip1.AutoPopDelay = 15000;
+			this.toolTip1.InitialDelay = 1500;
+			this.toolTip1.IsBalloon = true;
+			this.toolTip1.ReshowDelay = 900;
+			this.toolTip1.ShowAlways = true;
+			this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			this.toolTip1.ToolTipTitle = "MLU";
 			// 
-			// skillValueIndustrialCommandShip
+			// tableLayoutPanel4
 			// 
-			this.skillValueIndustrialCommandShip.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueIndustrialCommandShip.Location = new System.Drawing.Point(138, 82);
-			this.skillValueIndustrialCommandShip.Name = "skillValueIndustrialCommandShip";
-			this.skillValueIndustrialCommandShip.Size = new System.Drawing.Size(84, 20);
-			this.skillValueIndustrialCommandShip.TabIndex = 36;
-			this.skillValueIndustrialCommandShip.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			this.tableLayoutPanel4.ColumnCount = 3;
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+			this.tableLayoutPanel4.Controls.Add(this.label16, 0, 1);
+			this.tableLayoutPanel4.Controls.Add(this.pictureBox6, 1, 0);
+			this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+			this.tableLayoutPanel4.RowCount = 2;
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(200, 100);
+			this.tableLayoutPanel4.TabIndex = 0;
 			// 
-			// skillValueWarfareLinkSpec
+			// label16
 			// 
-			this.skillValueWarfareLinkSpec.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueWarfareLinkSpec.Location = new System.Drawing.Point(138, 55);
-			this.skillValueWarfareLinkSpec.Name = "skillValueWarfareLinkSpec";
-			this.skillValueWarfareLinkSpec.Size = new System.Drawing.Size(84, 20);
-			this.skillValueWarfareLinkSpec.TabIndex = 36;
-			this.skillValueWarfareLinkSpec.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			this.label16.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.label16.AutoSize = true;
+			this.label16.Location = new System.Drawing.Point(3, 53);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(71, 13);
+			this.label16.TabIndex = 1;
+			this.label16.Text = "Astrogeology:";
+			// 
+			// pictureBox6
+			// 
+			this.pictureBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.pictureBox6.Image = global::EveMiner.Properties.Resources.Tritanium;
+			this.pictureBox6.Location = new System.Drawing.Point(80, 3);
+			this.pictureBox6.Name = "pictureBox6";
+			this.pictureBox6.Size = new System.Drawing.Size(32, 14);
+			this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox6.TabIndex = 0;
+			this.pictureBox6.TabStop = false;
+			// 
+			// notifyIcon
+			// 
+			this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+			this.notifyIcon.BalloonTipText = "Eve Miner";
+			this.notifyIcon.BalloonTipTitle = "Eve Miner";
+			this.notifyIcon.ContextMenuStrip = this.contextMenuTray;
+			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+			this.notifyIcon.Text = "Eve Miner";
+			this.notifyIcon.Visible = true;
+			// 
+			// contextMenuTray
+			// 
+			this.contextMenuTray.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configurationToolStripMenuItem1,
+            this.timersToolStripMenuItem,
+            this.calculatorToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.exitToolStripMenuItem1});
+			this.contextMenuTray.Name = "contextMenuTray";
+			this.contextMenuTray.Size = new System.Drawing.Size(148, 98);
+			// 
+			// configurationToolStripMenuItem1
+			// 
+			this.configurationToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.configurationToolStripMenuItem1.Name = "configurationToolStripMenuItem1";
+			this.configurationToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
+			this.configurationToolStripMenuItem1.Text = "Configuration";
+			// 
+			// timersToolStripMenuItem
+			// 
+			this.timersToolStripMenuItem.Name = "timersToolStripMenuItem";
+			this.timersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.timersToolStripMenuItem.Text = "Timers";
+			// 
+			// calculatorToolStripMenuItem
+			// 
+			this.calculatorToolStripMenuItem.Name = "calculatorToolStripMenuItem";
+			this.calculatorToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+			this.calculatorToolStripMenuItem.Text = "Calculator";
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(144, 6);
+			// 
+			// exitToolStripMenuItem1
+			// 
+			this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+			this.exitToolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
+			this.exitToolStripMenuItem1.Text = "Exit";
+			// 
+			// contextMenuStripImpS10
+			// 
+			this.contextMenuStripImpS10.Name = "contextMenuStripImpS10";
+			this.contextMenuStripImpS10.Size = new System.Drawing.Size(61, 4);
+			// 
+			// contextMenuStripImpS7
+			// 
+			this.contextMenuStripImpS7.Name = "contextMenuStripImpS7";
+			this.contextMenuStripImpS7.Size = new System.Drawing.Size(61, 4);
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Controls.Add(this.tableLayoutPanel7);
+			this.groupBox4.Controls.Add(this.tableLayoutPanel6);
+			this.groupBox4.Location = new System.Drawing.Point(452, 33);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(281, 331);
+			this.groupBox4.TabIndex = 4;
+			this.groupBox4.TabStop = false;
+			this.groupBox4.Text = "Ore Processing Skills";
+			// 
+			// btnCalculator
+			// 
+			this.btnCalculator.Image = global::EveMiner.Properties.Resources.calculator_48;
+			this.btnCalculator.Location = new System.Drawing.Point(516, 369);
+			this.btnCalculator.Name = "btnCalculator";
+			this.btnCalculator.Size = new System.Drawing.Size(52, 52);
+			this.btnCalculator.TabIndex = 36;
+			this.btnCalculator.UseVisualStyleBackColor = true;
+			// 
+			// btnTimers
+			// 
+			this.btnTimers.Image = global::EveMiner.Properties.Resources.clock_48;
+			this.btnTimers.Location = new System.Drawing.Point(458, 369);
+			this.btnTimers.Name = "btnTimers";
+			this.btnTimers.Size = new System.Drawing.Size(52, 52);
+			this.btnTimers.TabIndex = 36;
+			this.btnTimers.UseVisualStyleBackColor = true;
+			// 
+			// pictureBox7
+			// 
+			this.pictureBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.pictureBox7.Image = global::EveMiner.Properties.Resources.Pyerite;
+			this.pictureBox7.Location = new System.Drawing.Point(81, 41);
+			this.pictureBox7.Name = "pictureBox7";
+			this.pictureBox7.Size = new System.Drawing.Size(32, 32);
+			this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox7.TabIndex = 0;
+			this.pictureBox7.TabStop = false;
 			// 
 			// MainForm
 			// 
@@ -1647,6 +1630,7 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.ToolStripMenuItem alwaysOnTopToolStripMenuItem;
 		private System.Windows.Forms.ComboBox comboBoxBoosterShip;
 		private System.Windows.Forms.Label label2;
+		private SlotDevice slotDevice1;
 
 	}
 }
