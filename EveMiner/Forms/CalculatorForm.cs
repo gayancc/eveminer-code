@@ -137,11 +137,12 @@ namespace EveMiner.Forms
                 WebClient httpClient = new WebClient();
                 HttpWebResponse httpWResp = (HttpWebResponse) httpWReq.GetResponse();
                 // Проверяем,  действительно ли по данному адресу находится xml
-                if (httpWResp.ContentType == "text/xml")
-                {
+				//string type = httpWResp.ContentType.Substring(0, "text/xml".Length);
+                //if (type == "text/xml")
+                //{
                     // Скачиваем
                     httpClient.DownloadFile(webAddress, localAddress);
-                }
+                //}
                 httpWResp.Close();
             }
             catch (WebException ex)
