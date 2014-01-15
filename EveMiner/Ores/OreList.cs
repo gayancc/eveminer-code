@@ -83,13 +83,13 @@ namespace EveMiner.Ores
 			DictOre.Add(ore.Name, ore);
 
 			//Jaspet
-			mOut = new MineralsOut(259, 438, 518, 0, 259, 8, 0, 0);
+			mOut = new MineralsOut(259, 437, 518, 0, 259, 8, 0, 0);
 			ore = new Ore("Jaspet", 2.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(272, 460, 544, 0, 272, 8, 0, 0);
+			mOut = new MineralsOut(272, 459, 544, 0, 272, 8, 0, 0);
 			ore = new Ore("Pure Jaspet", 2.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(285, 482, 570, 0, 285, 9, 0, 0);
+			mOut = new MineralsOut(285, 481, 570, 0, 285, 9, 0, 0);
 			ore = new Ore("Pristine Jaspet", 2.0, 500, mOut);
 			DictOre.Add(ore.Name, ore);
 
@@ -116,79 +116,79 @@ namespace EveMiner.Ores
 			DictOre.Add(ore.Name, ore);
 
 			//Gneiss
-			mOut = new MineralsOut(171, 0, 171, 343, 0, 171, 0, 0);
+			mOut = new MineralsOut(3700, 0, 3700, 700, 0, 171, 0, 0);
 			ore = new Ore("Gneiss", 5.0, 400, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(180, 0, 180, 360, 0, 180, 0, 0);
+			mOut = new MineralsOut(3885, 0, 3885, 735, 0, 180, 0, 0);
 			ore = new Ore("Iridescent Gneiss", 5.0, 400, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(188, 0, 188, 371, 0, 188, 0, 0);
+			mOut = new MineralsOut(4070, 0, 4070, 770, 0, 188, 0, 0);
 			ore = new Ore("Prismatic Gneiss", 5.0, 400, mOut);
 			DictOre.Add(ore.Name, ore);
 
 			//Dark Ochre
-			mOut = new MineralsOut(250, 0, 0, 0, 500, 250, 0, 0);
+			mOut = new MineralsOut(25500, 0, 0, 0, 500, 250, 0, 0);
 			ore = new Ore("Dark Ochre", 8.0, 400, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(263, 0, 0, 0, 525, 263, 0, 0);
+			mOut = new MineralsOut(26775, 0, 0, 0, 525, 263, 0, 0);
 			ore = new Ore("Onyx Ochre", 8.0, 400, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(275, 0, 0, 0, 550, 275, 0, 0);
+			mOut = new MineralsOut(28050, 0, 0, 0, 550, 275, 0, 0);
 			ore = new Ore("Obsidian Ochre", 8.0, 400, mOut);
 			DictOre.Add(ore.Name, ore);
 
 			//Spodumain
-			mOut = new MineralsOut(3190, 140, 0, 0, 0, 0, 140, 0);
+			mOut = new MineralsOut(71000, 9000, 0, 0, 0, 0, 140, 0);
 			ore = new Ore("Spodumain", 16.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(3350, 147, 0, 0, 0, 0, 147, 0);
+			mOut = new MineralsOut(74550, 9450, 0, 0, 0, 0, 147, 0);
 			ore = new Ore("Bright Spodumain", 16.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(3509, 154, 0, 0, 0, 0, 154, 0);
+			mOut = new MineralsOut(78100, 9900, 0, 0, 0, 0, 154, 0);
 			ore = new Ore("Gleaming Spodumain", 16.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
 
 			//Crokite
-			mOut = new MineralsOut(331, 0, 0, 0, 331, 663, 0, 0);
+			mOut = new MineralsOut(38000, 0, 0, 0, 331, 663, 0, 0);
 			ore = new Ore("Crokite", 16.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(348, 0, 0, 0, 348, 696, 0, 0);
+			mOut = new MineralsOut(39900, 0, 0, 0, 348, 696, 0, 0);
 			ore = new Ore("Sharp Crokite", 16.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(364, 0, 0, 0, 364, 729, 0, 0);
+			mOut = new MineralsOut(41800, 0, 0, 0, 364, 729, 0, 0);
 			ore = new Ore("Crystalline Crokite", 16.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
 
 			//Bistot
-			mOut = new MineralsOut(0, 170, 0, 0, 0, 341, 170, 0);
+			mOut = new MineralsOut(0, 12000, 0, 0, 0, 341, 170, 0);
 			ore = new Ore("Bistot", 16.0, 200, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(0, 179, 0, 0, 0, 358, 179, 0);
+			mOut = new MineralsOut(0, 12600, 0, 0, 0, 358, 179, 0);
 			ore = new Ore("Triclinic Bistot", 16.0, 200, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(0, 187, 0, 0, 0, 375, 187, 0);
+			mOut = new MineralsOut(0, 13200, 0, 0, 0, 375, 187, 0);
 			ore = new Ore("Monoclinic Bistot", 16.0, 200, mOut);
 			DictOre.Add(ore.Name, ore);
 
 			//Arkonor
-			mOut = new MineralsOut(300, 0, 0, 0, 0, 166, 333, 0);
+			mOut = new MineralsOut(10000, 0, 0, 0, 0, 166, 333, 0);
 			ore = new Ore("Arkonor", 16.0, 200, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(315, 0, 0, 0, 0, 174, 350, 0);
+			mOut = new MineralsOut(10500, 0, 0, 0, 0, 174, 350, 0);
 			ore = new Ore("Crimson Arkonor", 16.0, 200, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(330, 0, 0, 0, 0, 183, 366, 0);
+			mOut = new MineralsOut(11000, 0, 0, 0, 0, 183, 366, 0);
 			ore = new Ore("Prime Arkonor", 16.0, 200, mOut);
 			DictOre.Add(ore.Name, ore);
 
 			//Mercoxit
-			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 509);
+			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 530);
 			ore = new Ore("Mercoxit", 40.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 535);
+			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 557);
 			ore = new Ore("Magma Mercoxit", 40.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
-			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 560);
+			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 583);
 			ore = new Ore("Vitreous Mercoxit", 40.0, 250, mOut);
 			DictOre.Add(ore.Name, ore);
 

@@ -21,7 +21,7 @@ namespace EveMiner.Forms
 
 		//Выбранный MLU
 		private PictureBox _mluPictureClicked;
-		private bool _bExit;
+		private bool _bExit = true;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MainForm"/> class.
