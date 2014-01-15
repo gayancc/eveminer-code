@@ -10,8 +10,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sleepwalker Inc.")]
-[assembly: AssemblyProduct("EVEMiner v0.2")]
-[assembly: AssemblyCopyright("Copyright © Sleepwalker Inc. 2009")]
+[assembly: AssemblyProduct("EVEMiner v0.2.2")]
+[assembly: AssemblyCopyright("Copyright © Sleepwalker Inc. 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 
-[assembly: AssemblyVersion("0.2.*")]
+[assembly: AssemblyVersion("0.2.2")]
 [assembly: AssemblyFileVersion("0.2.*")]
