@@ -44,8 +44,9 @@ namespace EveMiner
 		/// Полное имя файла конфига
 		/// </summary>
 		private static string _configFileName = Path.Combine(
-			Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/" +
-			Application.ProductName, typeof (T).Name + ".xml");
+			//Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "/" + Application.ProductName, 
+			Directory.GetCurrentDirectory(),
+			typeof (T).Name + ".xml");
 
 		/// <summary>
 		/// Переменная хранящая значение синглтона.
