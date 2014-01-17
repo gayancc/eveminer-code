@@ -118,6 +118,15 @@ namespace EveMiner.Forms
 					if (comboBoxShip.Items[n] == ship)
 						comboBoxShip.SelectedIndex = n;
 				}
+				if (ship.LowSlots > 1)
+					pictureBoxMLU2.Show();
+				if (ship.LowSlots > 2)
+					pictureBoxMLU3.Show();
+				if (ship.LowSlots < 3)
+					pictureBoxMLU3.Hide();
+				if (ship.LowSlots < 2)
+					pictureBoxMLU2.Hide();
+
 			}
 
 			if (Config<Settings>.Instance.SelectedCrystals == 2)
@@ -360,6 +369,15 @@ namespace EveMiner.Forms
 				{
 					Ship currentShip = _dictShips[Config<Settings>.Instance.SelectedShip];
 					Ship newShip = _dictShips[comboBoxShip.SelectedItem.ToString()];
+					if(newShip.LowSlots > 1)
+						pictureBoxMLU2.Show();
+					if(newShip.LowSlots > 2)
+						pictureBoxMLU3.Show();
+					if (newShip.LowSlots < 3)
+						pictureBoxMLU3.Hide();
+					if (newShip.LowSlots < 2)
+						pictureBoxMLU2.Hide();
+
 					Config<Settings>.Instance.SelectedShip = comboBoxShip.SelectedItem.ToString();
 					
 					if(currentShip.Type != newShip.Type)
@@ -396,8 +414,11 @@ namespace EveMiner.Forms
 			_timersForm.SetYieldCycle(yield, cycleTime, turret);
 			Config<Settings>.Instance.MiningAmount = yield;
 			Config<Settings>.Instance.Cycle = cycleTime;
+			Ship ship = _dictShips[comboBoxShip.SelectedItem.ToString()];
 
-			Text = string.Format("Eve Miner - {0}m3 / {1}sec - {2}", yield.ToString("F2"), cycleTime.ToString("F2"), turret);
+			double yieldHour = yield * 3600 / cycleTime * ship.TurretSlots;
+			Text = string.Format("Eve Miner - {0}m3/{1}sec(1 turret) - {2}m3/hour({3} turret)",
+				yield.ToString("F2"), cycleTime.ToString("F2"), yieldHour.ToString("F2"), ship.TurretSlots);
 		}
 
 		/// <summary>
@@ -514,11 +535,11 @@ namespace EveMiner.Forms
 				yield *= (1 + mlu.OreYieldBonus/100);
 
 			mlu = pictureBoxMLU2.Tag as DeviceBonus;
-			if (mlu != null)
+			if (mlu != null && ship.LowSlots > 1)
 				yield *= (1 + mlu.OreYieldBonus/100);
 
 			mlu = pictureBoxMLU3.Tag as DeviceBonus;
-			if (mlu != null)
+			if (mlu != null && ship.LowSlots > 2)
 				yield *= (1 + mlu.OreYieldBonus/100);
 
 			if (turret.UseCrystals)
