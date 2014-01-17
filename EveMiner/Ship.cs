@@ -13,49 +13,29 @@ namespace EveMiner
 			TurretSlots = turretSlots;
 		}
 
-		public bool Barge
+		public ShipType Type
 		{
 			get
 			{
 				switch (Name)
 				{
-					case "Procurer" :
-						return true;
-					case "Retriever" :
-						return true;
+					case "Venture":
+						return ShipType.MiningFrigate;
+					case "Procurer":
+						return ShipType.Barge;
+					case "Retriever":
+						return ShipType.Barge;
 					case "Covetor":
-						return true;
-				}
-				return false;
-			}
-		}
-
-		public bool Exhumer
-		{
-			get
-			{
-				switch (Name)
-				{
+						return ShipType.Barge;
 					case "Skiff":
-						return true;
+						return ShipType.Exhumer;
 					case "Mackinaw":
-						return true;
+						return ShipType.Exhumer;
 					case "Hulk":
-						return true;
+						return ShipType.Exhumer;
 				}
-				return false;
-			}
-		}
-
-		public string Type
-		{
-			get
-			{
-				if(Barge)
-					return "Barge";
-				if(Exhumer)
-					return "Exhumer";
-				return "Frigate";
+					
+				return ShipType.Common;
 			}
 		}
 

@@ -6,7 +6,7 @@ namespace EveMiner
 	/// <summary>
 	/// “ип корабл€ , который бустит
 	/// </summary>
-	public enum BoosterShipType
+	public enum ShipType
 	{
 		/// <summary>
 		/// Ќеопределенный корабль без бонусов
@@ -19,7 +19,10 @@ namespace EveMiner
 		/// <summary>
 		/// Rorqual бонус 5%на каждый уровень
 		/// </summary>
-		Rorqual = 2
+		Rorqual = 2,
+		MiningFrigate = 3,
+		Barge = 4,
+		Exhumer = 5
 	}
 
 	/// <summary>
@@ -75,7 +78,7 @@ namespace EveMiner
 		public double PriceMegacyte = 2500;
 		public double PriceMorphite = 8000;
 
-		public BoosterShipType BoosterShip = BoosterShipType.Common;
+		public ShipType BoosterShip = ShipType.Common;
 
 
 		[DefaultValue("None")]

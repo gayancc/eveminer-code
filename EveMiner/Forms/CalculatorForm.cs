@@ -15,7 +15,9 @@ namespace EveMiner.Forms
     /// </summary>
     public partial class CalculatorForm : Form
     {
-        private class RowComparer : IComparer
+	    private Ship _ship;
+
+	    private class RowComparer : IComparer
         {
             private static int _sortOrderModifier = 1;
             private readonly int _column;
@@ -209,7 +211,7 @@ namespace EveMiner.Forms
                 cargohold = Convert.ToDouble(textBoxCargohold.Text);
 				if(sender == btnIskPerHour)
 				{
-					cargohold = Config<Settings>.Instance.MiningAmount * 3600 / Config<Settings>.Instance.Cycle;
+					cargohold = Config<Settings>.Instance.MiningAmount * 3600 / Config<Settings>.Instance.Cycle * _ship.TurretSlots;
 				}
 
             }
@@ -848,5 +850,12 @@ namespace EveMiner.Forms
                 
             }
 		}
+
+	    public void SetShip(Ship ship)
+	    {
+		    _ship = ship;
+			Text = string.Format("Calculator - {0} - {1} turrets",
+			ship.Name, ship.TurretSlots);
+	    }
     }
 }

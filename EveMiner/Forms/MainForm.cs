@@ -113,6 +113,7 @@ namespace EveMiner.Forms
 			if (_dictShips.ContainsKey(Config<Settings>.Instance.SelectedShip))
 			{
 				Ship ship = _dictShips[Config<Settings>.Instance.SelectedShip];
+				_calculatorForm.SetShip(ship);
 				for (int n = 0; n < comboBoxShip.Items.Count; n++)
 				{
 					if (comboBoxShip.Items[n] == ship)
@@ -297,7 +298,7 @@ namespace EveMiner.Forms
 		{
 			Ship ship = _dictShips[Config<Settings>.Instance.SelectedShip];
 			_turretsList.Clear();
-			if(!ship.Barge && !ship.Exhumer)
+			if (ship.Type != ShipType.Barge && ship.Type != ShipType.Exhumer)
 			{
 				//Mining Turrets
 				MiningTurret turret = new MiningTurret("Basic Miner", 60, 30.0, false);
@@ -379,9 +380,11 @@ namespace EveMiner.Forms
 						pictureBoxMLU2.Hide();
 
 					Config<Settings>.Instance.SelectedShip = comboBoxShip.SelectedItem.ToString();
-					
-					if(currentShip.Type != newShip.Type)
+
+					if (currentShip.Type != newShip.Type && 
+						((currentShip.Type == ShipType.MiningFrigate) || (newShip.Type == ShipType.MiningFrigate)))
 						FillTurretList();
+					_calculatorForm.SetShip(newShip);
 				}
 				CalculateMining();
 			}
@@ -481,10 +484,10 @@ namespace EveMiner.Forms
 				double bonusIndustrial = 0.0;
 				switch (Config<Settings>.Instance.BoosterShip)
 				{
-					case BoosterShipType.Orca:
+					case ShipType.Orca:
 						bonusIndustrial = 0.03;
 						break;
-					case BoosterShipType.Rorqual:
+					case ShipType.Rorqual:
 						bonusIndustrial = 0.05;
 						break;
 				}
@@ -1020,7 +1023,7 @@ namespace EveMiner.Forms
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		private void ComboBoxBoosterShipSelectedIndexChanged(object sender, EventArgs e)
 		{
-			BoosterShipType ship = (BoosterShipType) comboBoxBoosterShip.SelectedIndex;
+			ShipType ship = (ShipType) comboBoxBoosterShip.SelectedIndex;
 			Config<Settings>.Instance.BoosterShip = ship;
 			CalculateMining();
 		}
