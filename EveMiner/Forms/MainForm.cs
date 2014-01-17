@@ -436,9 +436,11 @@ namespace EveMiner.Forms
 			double cycle = turret.CycleTime;
 
 			Skills skills = Config<Settings>.Instance.Skills;
+			Ship ship = _dictShips[comboBoxShip.SelectedItem.ToString()];
 			//Если турелька лед роет
 			if (turret.CycleTime > 200)
 			{
+
 				cycle *= (1 - skills.IceHarvesting*0.05);
 
 				DeviceBonus mlu = pictureBoxMLU1.Tag as DeviceBonus;
@@ -446,14 +448,14 @@ namespace EveMiner.Forms
 					cycle *= (1 - mlu.TimeBonus/100);
 
 				mlu = pictureBoxMLU2.Tag as DeviceBonus;
-				if (mlu != null)
+				if (mlu != null && ship.LowSlots > 1)
 					cycle *= (1 - mlu.TimeBonus/100);
 
 				mlu = pictureBoxMLU3.Tag as DeviceBonus;
-				if (mlu != null)
+				if (mlu != null && ship.LowSlots > 2)
 					cycle *= (1 - mlu.TimeBonus/100);
 
-				Ship ship = _dictShips[comboBoxShip.SelectedItem.ToString()];
+				
 				cycle *= ship.IceHarvestTimeBonus();
 				////Если макинаву юзаем
 				//if (Config<Settings>.Instance.SelectedShip == "Mackinaw")
