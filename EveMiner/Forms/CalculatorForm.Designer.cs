@@ -141,8 +141,8 @@ namespace EveMiner.Forms
 			this.textBoxProfit = new System.Windows.Forms.TextBox();
 			this.comboStandTax = new System.Windows.Forms.ComboBox();
 			this.btnExportXls = new System.Windows.Forms.Button();
-			this.histogram1 = new EveMiner.Forms.Histogram();
 			this.btnIskPerHour = new System.Windows.Forms.Button();
+			this.histogram1 = new EveMiner.Forms.Histogram();
 			this.tableLayoutPanel7.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMercoxit)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxArkonor)).BeginInit();
@@ -486,8 +486,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMercoxit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMercoxit.TabIndex = 35;
 			this.pictureBoxMercoxit.TabStop = false;
-			this.pictureBoxMercoxit.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxMercoxit.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxMercoxit.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxArkonor
 			// 
@@ -498,8 +498,8 @@ namespace EveMiner.Forms
 			this.pictureBoxArkonor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxArkonor.TabIndex = 35;
 			this.pictureBoxArkonor.TabStop = false;
-			this.pictureBoxArkonor.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxArkonor.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxArkonor.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxBistot
 			// 
@@ -510,8 +510,8 @@ namespace EveMiner.Forms
 			this.pictureBoxBistot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxBistot.TabIndex = 35;
 			this.pictureBoxBistot.TabStop = false;
-			this.pictureBoxBistot.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxBistot.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxBistot.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxCrokite
 			// 
@@ -522,8 +522,8 @@ namespace EveMiner.Forms
 			this.pictureBoxCrokite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxCrokite.TabIndex = 35;
 			this.pictureBoxCrokite.TabStop = false;
-			this.pictureBoxCrokite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxCrokite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxCrokite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxSpodumain
 			// 
@@ -534,8 +534,8 @@ namespace EveMiner.Forms
 			this.pictureBoxSpodumain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxSpodumain.TabIndex = 35;
 			this.pictureBoxSpodumain.TabStop = false;
-			this.pictureBoxSpodumain.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxSpodumain.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxSpodumain.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxDarkOchre
 			// 
@@ -546,8 +546,8 @@ namespace EveMiner.Forms
 			this.pictureBoxDarkOchre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxDarkOchre.TabIndex = 35;
 			this.pictureBoxDarkOchre.TabStop = false;
-			this.pictureBoxDarkOchre.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxDarkOchre.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxDarkOchre.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxGneiss
 			// 
@@ -558,8 +558,8 @@ namespace EveMiner.Forms
 			this.pictureBoxGneiss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxGneiss.TabIndex = 35;
 			this.pictureBoxGneiss.TabStop = false;
-			this.pictureBoxGneiss.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxGneiss.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxGneiss.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxHedbergite
 			// 
@@ -570,8 +570,8 @@ namespace EveMiner.Forms
 			this.pictureBoxHedbergite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxHedbergite.TabIndex = 35;
 			this.pictureBoxHedbergite.TabStop = false;
-			this.pictureBoxHedbergite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxHedbergite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxHedbergite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// tableLayoutPanel6
 			// 
@@ -885,8 +885,8 @@ namespace EveMiner.Forms
 			this.pictureBoxHemorphite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxHemorphite.TabIndex = 35;
 			this.pictureBoxHemorphite.TabStop = false;
-			this.pictureBoxHemorphite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxHemorphite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxHemorphite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxJaspet
 			// 
@@ -897,8 +897,8 @@ namespace EveMiner.Forms
 			this.pictureBoxJaspet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxJaspet.TabIndex = 35;
 			this.pictureBoxJaspet.TabStop = false;
-			this.pictureBoxJaspet.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxJaspet.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxJaspet.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxKernite
 			// 
@@ -909,8 +909,8 @@ namespace EveMiner.Forms
 			this.pictureBoxKernite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxKernite.TabIndex = 35;
 			this.pictureBoxKernite.TabStop = false;
-			this.pictureBoxKernite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxKernite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxKernite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxOmber
 			// 
@@ -921,8 +921,8 @@ namespace EveMiner.Forms
 			this.pictureBoxOmber.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxOmber.TabIndex = 35;
 			this.pictureBoxOmber.TabStop = false;
-			this.pictureBoxOmber.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxOmber.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxOmber.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxPlagioclase
 			// 
@@ -933,8 +933,8 @@ namespace EveMiner.Forms
 			this.pictureBoxPlagioclase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxPlagioclase.TabIndex = 35;
 			this.pictureBoxPlagioclase.TabStop = false;
-			this.pictureBoxPlagioclase.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxPlagioclase.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxPlagioclase.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxPyroxeres
 			// 
@@ -945,8 +945,8 @@ namespace EveMiner.Forms
 			this.pictureBoxPyroxeres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxPyroxeres.TabIndex = 35;
 			this.pictureBoxPyroxeres.TabStop = false;
-			this.pictureBoxPyroxeres.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxPyroxeres.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxPyroxeres.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxScordite
 			// 
@@ -957,8 +957,8 @@ namespace EveMiner.Forms
 			this.pictureBoxScordite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxScordite.TabIndex = 35;
 			this.pictureBoxScordite.TabStop = false;
-			this.pictureBoxScordite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxScordite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxScordite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxVeldspar
 			// 
@@ -969,8 +969,8 @@ namespace EveMiner.Forms
 			this.pictureBoxVeldspar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxVeldspar.TabIndex = 35;
 			this.pictureBoxVeldspar.TabStop = false;
-			this.pictureBoxVeldspar.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxVeldspar.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxVeldspar.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// tableLayoutPanel8
 			// 
@@ -1018,8 +1018,8 @@ namespace EveMiner.Forms
 			this.pictureBoxNocxium.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxNocxium.TabIndex = 40;
 			this.pictureBoxNocxium.TabStop = false;
-			this.pictureBoxNocxium.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxNocxium.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxNocxium.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// pictureBoxTritanium
 			// 
@@ -1031,8 +1031,8 @@ namespace EveMiner.Forms
 			this.pictureBoxTritanium.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxTritanium.TabIndex = 36;
 			this.pictureBoxTritanium.TabStop = false;
-			this.pictureBoxTritanium.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxTritanium.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxTritanium.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// textBoxPriceTritanium
 			// 
@@ -1064,8 +1064,8 @@ namespace EveMiner.Forms
 			this.pictureBoxPyerite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxPyerite.TabIndex = 36;
 			this.pictureBoxPyerite.TabStop = false;
-			this.pictureBoxPyerite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxPyerite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxPyerite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// textBoxPricePyerite
 			// 
@@ -1087,8 +1087,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMexallon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMexallon.TabIndex = 38;
 			this.pictureBoxMexallon.TabStop = false;
-			this.pictureBoxMexallon.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxMexallon.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxMexallon.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// textBoxPriceMexallon
 			// 
@@ -1110,8 +1110,8 @@ namespace EveMiner.Forms
 			this.pictureBoxIsogen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxIsogen.TabIndex = 36;
 			this.pictureBoxIsogen.TabStop = false;
-			this.pictureBoxIsogen.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxIsogen.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxIsogen.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// textBoxPriceIsogen
 			// 
@@ -1133,8 +1133,8 @@ namespace EveMiner.Forms
 			this.pictureBoxZydrine.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxZydrine.TabIndex = 37;
 			this.pictureBoxZydrine.TabStop = false;
-			this.pictureBoxZydrine.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxZydrine.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxZydrine.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// textBoxPriceZydrine
 			// 
@@ -1156,8 +1156,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMegacyte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMegacyte.TabIndex = 41;
 			this.pictureBoxMegacyte.TabStop = false;
-			this.pictureBoxMegacyte.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxMegacyte.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxMegacyte.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// textBoxPriceMegacyte
 			// 
@@ -1179,8 +1179,8 @@ namespace EveMiner.Forms
 			this.pictureBoxMorphite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMorphite.TabIndex = 39;
 			this.pictureBoxMorphite.TabStop = false;
-			this.pictureBoxMorphite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			this.pictureBoxMorphite.MouseEnter += new System.EventHandler(this.OnMouseEnter);
+			this.pictureBoxMorphite.MouseLeave += new System.EventHandler(this.OnMouseLeave);
 			// 
 			// textBoxPriceMorphite
 			// 
@@ -1302,6 +1302,9 @@ namespace EveMiner.Forms
 			this.dataGridViewCalc.AllowUserToDeleteRows = false;
 			this.dataGridViewCalc.AllowUserToOrderColumns = true;
 			this.dataGridViewCalc.AllowUserToResizeRows = false;
+			this.dataGridViewCalc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.dataGridViewCalc.BackgroundColor = System.Drawing.SystemColors.Control;
 			this.dataGridViewCalc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.dataGridViewCalc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -1317,10 +1320,10 @@ namespace EveMiner.Forms
 			this.dataGridViewCalc.ReadOnly = true;
 			this.dataGridViewCalc.RowHeadersVisible = false;
 			this.dataGridViewCalc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridViewCalc.Size = new System.Drawing.Size(458, 529);
+			this.dataGridViewCalc.Size = new System.Drawing.Size(458, 343);
 			this.dataGridViewCalc.TabIndex = 24;
-			this.dataGridViewCalc.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewCalcColumnHeaderMouseClick);
 			this.dataGridViewCalc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridViewCellClick);
+			this.dataGridViewCalc.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridViewCalcColumnHeaderMouseClick);
 			// 
 			// ColumnOreCalc
 			// 
@@ -1412,18 +1415,6 @@ namespace EveMiner.Forms
 			this.btnExportXls.UseVisualStyleBackColor = true;
 			this.btnExportXls.Click += new System.EventHandler(this.BtnExportXlsClick);
 			// 
-			// histogram1
-			// 
-			this.histogram1.BottomColor = System.Drawing.Color.SlateGray;
-			this.histogram1.Location = new System.Drawing.Point(12, 365);
-			this.histogram1.Name = "histogram1";
-			this.histogram1.Size = new System.Drawing.Size(521, 370);
-			this.histogram1.Suffix = null;
-			this.histogram1.TabIndex = 25;
-			this.histogram1.Text = "histogram1";
-			this.histogram1.BarLeaveEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.Histogram1BarLeaveEvent);
-			this.histogram1.BarEnterEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.Histogram1BarEnterEvent);
-			// 
 			// btnIskPerHour
 			// 
 			this.btnIskPerHour.Location = new System.Drawing.Point(877, 149);
@@ -1434,11 +1425,25 @@ namespace EveMiner.Forms
 			this.btnIskPerHour.UseVisualStyleBackColor = true;
 			this.btnIskPerHour.Click += new System.EventHandler(this.ButtonCalculateClick);
 			// 
+			// histogram1
+			// 
+			this.histogram1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+			this.histogram1.BottomColor = System.Drawing.Color.SlateGray;
+			this.histogram1.Location = new System.Drawing.Point(12, 365);
+			this.histogram1.Name = "histogram1";
+			this.histogram1.Size = new System.Drawing.Size(521, 184);
+			this.histogram1.Suffix = null;
+			this.histogram1.TabIndex = 25;
+			this.histogram1.Text = "histogram1";
+			this.histogram1.BarEnterEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.Histogram1BarEnterEvent);
+			this.histogram1.BarLeaveEvent += new EveMiner.Forms.HistogramEnterEventHandler(this.Histogram1BarLeaveEvent);
+			// 
 			// CalculatorForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1006, 748);
+			this.ClientSize = new System.Drawing.Size(1006, 562);
 			this.Controls.Add(this.btnExportXls);
 			this.Controls.Add(this.comboStandTax);
 			this.Controls.Add(this.textBoxProfit);
@@ -1460,9 +1465,8 @@ namespace EveMiner.Forms
 			this.Controls.Add(this.tableLayoutPanel6);
 			this.Controls.Add(this.tableLayoutPanel7);
 			this.Controls.Add(this.tableLayoutPanel8);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MaximizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(1022, 500);
 			this.Name = "CalculatorForm";
 			this.Text = "Calculator";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CalculatorForm_FormClosing);

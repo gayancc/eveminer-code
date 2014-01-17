@@ -2,25 +2,125 @@ namespace EveMiner
 {
 	public class Ship
 	{
-		public string Name;
-		public double MiningBonusPerLevel;
-		public double TimeBonusPerLevel;
-		public bool Barge;
-		public bool Exhumer;
+		public readonly string Name;
+		public double LowSlots;
+		public double TurretSlots;
 
-
-		public Ship(string name, double miningBonusPerLevel, double timeBonusPerLevel, bool barge, bool exhumer)
+		public Ship(string name, int lowSlots, int turretSlots)
 		{
 			Name = name;
-			MiningBonusPerLevel = miningBonusPerLevel;
-			TimeBonusPerLevel = timeBonusPerLevel;
-			Barge = barge;
-			Exhumer = exhumer;
+			LowSlots = lowSlots;
+			TurretSlots = turretSlots;
+		}
+
+		public bool Barge
+		{
+			get
+			{
+				switch (Name)
+				{
+					case "Procurer" :
+						return true;
+					case "Retriever" :
+						return true;
+					case "Covetor":
+						return true;
+				}
+				return false;
+			}
+		}
+
+		public bool Exhumer
+		{
+			get
+			{
+				switch (Name)
+				{
+					case "Skiff":
+						return true;
+					case "Mackinaw":
+						return true;
+					case "Hulk":
+						return true;
+				}
+				return false;
+			}
+		}
+
+		public string Type
+		{
+			get
+			{
+				if(Barge)
+					return "Barge";
+				if(Exhumer)
+					return "Exhumer";
+				return "Frigate";
+			}
 		}
 
 		public override string ToString()
 		{
 			return Name;
 		}
+
+		public double YieldBonus()
+		{
+			var bonus = 1.0; 
+			Skills skills = Config<Settings>.Instance.Skills;
+			switch(Name)
+			{
+				case "Venture":
+					bonus *= (1 + skills.MiningFrigates * 0.05) * 2;
+					break;
+				case "Procurer":
+					bonus *= 3;//(1 + skills.MiningBarge * 0.03);
+					break;
+				case "Retriver":
+					bonus *= 1.5;//(1 + skills.MiningBarge * 0.03);
+					break;
+				case "Covetor":
+					bonus *= (1 + skills.MiningBarge * 0.04);
+					break;
+				case "Skiff":
+					bonus *= (1 + skills.Exhumers * 0.01) * 3;
+					break;
+				case "Mackinaw":
+					bonus *= (1 + skills.Exhumers * 0.01)*1.5;
+					break;
+				case "Hulk":
+					bonus *= (1 + skills.MiningBarge * 0.03) * (1 + skills.Exhumers * 0.03);
+					break;
+			}
+			return bonus;
+		}
+		public double IceHarvestTimeBonus()
+		{
+			var bonus = 1.0;
+			Skills skills = Config<Settings>.Instance.Skills;
+			switch (Name)
+			{
+				case "Procurer":
+					bonus *= (1 - 0.6666);
+					break;
+				case "Retriver":
+					bonus *= (1 - 0.3333);
+					break;
+				case "Covetor":
+					bonus *= (1 - skills.MiningBarge * 0.03);
+					break;
+				case "Skiff":
+					bonus *= (1 - skills.Exhumers * 0.01) * (1 - 0.6666);
+					break;
+				case "Mackinaw":
+					bonus *= (1 - skills.Exhumers * 0.01) * (1 - 0.3333);
+					break;
+				case "Hulk":
+					bonus *= (1 - skills.Exhumers * 0.04);
+					break;
+			}
+			return bonus;
+		}
+
 	}
 }

@@ -16,7 +16,7 @@ namespace EveMiner
 		private int miningDirector;
 		private int iceHarvesting;
 		private int warfareLinkSpec;
-		private int frigates;
+		private int miningFrigates;
 		private int cruisers;
 		private int _industrialCommandShip;
 		private int veldsparProcessing;
@@ -118,16 +118,6 @@ namespace EveMiner
 		{
 			get { return warfareLinkSpec; }
 			set { warfareLinkSpec = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the frigates.
-		/// </summary>
-		/// <value>The frigates.</value>
-		public int Frigates
-		{
-			get { return frigates; }
-			set { frigates = value; }
 		}
 
 		/// <summary>
@@ -338,6 +328,15 @@ namespace EveMiner
 		{
 			get { return _industrialCommandShip; }
 			set { _industrialCommandShip = value; }
+		}
+
+		/// <summary>
+		/// Skill of mining MiningFrigates.
+		/// </summary>
+		public int MiningFrigates
+		{
+			get { return miningFrigates; }
+			set { miningFrigates = value; }
 		}
 
 		/// <summary>

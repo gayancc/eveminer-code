@@ -31,8 +31,11 @@ namespace EveMiner.Forms
 			InitializeComponent();
 			FillMinigLaserUpgrades();
 			FillImplantsMenu();
-			FillTurretList();
 			FillShips();
+			
+			FillTurretList();
+			
+			
 			LoadCfg();
 		}
 		/// <summary>
@@ -145,8 +148,7 @@ namespace EveMiner.Forms
 			skillValueMiningBarge.Value = Config<Settings>.Instance.Skills.MiningBarge;
 			skillValueExhumers.Value = Config<Settings>.Instance.Skills.Exhumers;
 			skillValueIceHarvesting.Value = Config<Settings>.Instance.Skills.IceHarvesting;
-			skillValueFrigates.Value = Config<Settings>.Instance.Skills.Frigates;
-			skillValueCruisers.Value = Config<Settings>.Instance.Skills.Cruisers;
+			skillValueMinigFrigates.Value = Config<Settings>.Instance.Skills.MiningFrigates;
 			skillValueRefining.Value = Config<Settings>.Instance.Skills.Refining;
 			skillValueEfficiency.Value = Config<Settings>.Instance.Skills.EfficiencyRefining;
 			skillValueIceProcessing.Value = Config<Settings>.Instance.Skills.IceProcessing;
@@ -207,19 +209,21 @@ namespace EveMiner.Forms
 		/// </summary>
 		private void FillShips()
 		{
-			Ship ship = new Ship("Not Miner", 0, 0, false, false);
+			Ship ship = new Ship("Venture", 1, 2);
 			_dictShips.Add(ship.Name, ship);
-			ship = new Ship("Frigate (+20% mining yield per lvl)", 20, 0, false, false);
+	
+			ship = new Ship("Procurer", 2, 1);
 			_dictShips.Add(ship.Name, ship);
-			ship = new Ship("Cruiser (+20% mining yield per lvl)", 20, 0, false, false);
+			ship = new Ship("Retriever", 3, 2);
 			_dictShips.Add(ship.Name, ship);
-			ship = new Ship("Mining Barge", 3, 0, true, false);
+			ship = new Ship("Covetor", 2, 3);
 			_dictShips.Add(ship.Name, ship);
-			ship = new Ship("Mackinaw", 3, 5, true, true);
+
+			ship = new Ship("Skiff", 2, 1);
 			_dictShips.Add(ship.Name, ship);
-			ship = new Ship("Hulk", 3, 3, true, true);
+			ship = new Ship("Mackinaw", 3, 2);
 			_dictShips.Add(ship.Name, ship);
-			ship = new Ship("Skif", 3, 3, true, true);
+			ship = new Ship("Hulk", 2, 3);
 			_dictShips.Add(ship.Name, ship);
 
 			comboBoxShip.BeginUpdate();
@@ -282,40 +286,49 @@ namespace EveMiner.Forms
 		/// </summary>
 		private void FillTurretList()
 		{
-			//Mining Turrets
-			MiningTurret turret = new MiningTurret("Basic Miner", 60, 30.0, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Cu Vapor Particle Bore Stream I", 60, 49.0, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Deep Core Mining Laser I", 60, 40.0, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Dual Diode Mining Laser I", 60, 44.0, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("EP-S Gaussian I Excavation Pulse", 60, 42, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Miner I", 60, 40, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Miner II", 60, 60.0, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Modulated Deep Core Miner II", 180, 120.0, true);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("XeCl Drilling Beam I", 60, 47.0, false);
-			_turretsList.Add(turret.Name, turret);
-			//Strips
-			turret = new MiningTurret("Strip Miner I", 180, 540.0, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Modulated Strip Miner II", 180, 360.0, true);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Modulated Deep Core Strip Miner II ", 180, 250.0, true);
-			_turretsList.Add(turret.Name, turret);
-			//Ice Harvesters
-			turret = new MiningTurret("Ice Harvester I", 600, 1.0, false);
-			_turretsList.Add(turret.Name, turret);
-			turret = new MiningTurret("Ice Harvester II", 500, 1.0, false);
-			_turretsList.Add(turret.Name, turret);
+			Ship ship = _dictShips[Config<Settings>.Instance.SelectedShip];
+			_turretsList.Clear();
+			if(!ship.Barge && !ship.Exhumer)
+			{
+				//Mining Turrets
+				MiningTurret turret = new MiningTurret("Basic Miner", 60, 30.0, false);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("Cu Vapor Particle Bore Stream I", 60, 49.0, false);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("Deep Core Mining Laser I", 60, 40.0, false);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("Dual Diode Mining Laser I", 60, 44.0, false);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("EP-S Gaussian I Excavation Pulse", 60, 42, false);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("Miner I", 60, 40, false);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("Miner II", 60, 60.0, false);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("Modulated Deep Core Miner II", 180, 120.0, true);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("XeCl Drilling Beam I", 60, 47.0, false);
+				_turretsList.Add(turret.Name, turret);
+			}
+			else
+			{
+				//Strips
+				MiningTurret turret = new MiningTurret("Strip Miner I", 180, 540.0, false);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("Modulated Strip Miner II", 180, 360.0, true);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("Modulated Deep Core Strip Miner II ", 180, 250.0, true);
+				_turretsList.Add(turret.Name, turret);
+				//Ice Harvesters
+				turret = new MiningTurret("Ice Harvester I", 300, 1.0, false);
+				_turretsList.Add(turret.Name, turret);
+				turret = new MiningTurret("Ice Harvester II", 250, 1.0, false);
+				_turretsList.Add(turret.Name, turret);
+			}
 
 
 			comboBoxTurret.BeginUpdate();
+			comboBoxTurret.Items.Clear();
 			foreach (KeyValuePair<string, MiningTurret> pair in _turretsList)
 			{
 				comboBoxTurret.Items.Add(pair.Value);
@@ -343,9 +356,15 @@ namespace EveMiner.Forms
 			}
 			else if (sender == comboBoxShip)
 			{
-				if (_dictShips.ContainsKey(comboBoxShip.SelectedItem.ToString()))
+				if(_dictShips.ContainsKey(comboBoxShip.SelectedItem.ToString()))
+				{
+					Ship currentShip = _dictShips[Config<Settings>.Instance.SelectedShip];
+					Ship newShip = _dictShips[comboBoxShip.SelectedItem.ToString()];
 					Config<Settings>.Instance.SelectedShip = comboBoxShip.SelectedItem.ToString();
-
+					
+					if(currentShip.Type != newShip.Type)
+						FillTurretList();
+				}
 				CalculateMining();
 			}
 		}
@@ -371,8 +390,8 @@ namespace EveMiner.Forms
 			double cycleTime = GetCycleTime(turret);
 			if (turret.CycleTime < 200)
 				yield = GetYield(turret);
-			else if (Config<Settings>.Instance.SelectedShip == "Mackinaw")
-				yield = 2000.0;
+			//else if (Config<Settings>.Instance.SelectedShip == "Mackinaw")
+			//	yield = 2000.0;
 
 			_timersForm.SetYieldCycle(yield, cycleTime, turret);
 			Config<Settings>.Instance.MiningAmount = yield;
@@ -408,17 +427,19 @@ namespace EveMiner.Forms
 				if (mlu != null)
 					cycle *= (1 - mlu.TimeBonus/100);
 
-				//Если макинаву юзаем
-				if (Config<Settings>.Instance.SelectedShip == "Mackinaw")
-				{
-					cycle *= 1.25;
-					cycle *= (1 - skills.Exhumers*0.05);
-				}
-				//Если халк
-				else if (Config<Settings>.Instance.SelectedShip == "Hulk")
-				{
-					cycle *= (1 - skills.Exhumers*0.03);
-				}
+				Ship ship = _dictShips[comboBoxShip.SelectedItem.ToString()];
+				cycle *= ship.IceHarvestTimeBonus();
+				////Если макинаву юзаем
+				//if (Config<Settings>.Instance.SelectedShip == "Mackinaw")
+				//{
+				//	cycle *= 1.25;
+				//	cycle *= (1 - skills.Exhumers*0.05);
+				//}
+				////Если халк
+				//else if (Config<Settings>.Instance.SelectedShip == "Hulk")
+				//{
+				//	cycle *= (1 - skills.Exhumers*0.03);
+				//}
 				//учет имплантов но только для Ice харвестеров	
 				DeviceBonus db = _dictImpS10[Config<Settings>.Instance.ImplantS10];
 				double bonus = 1 - db.TimeBonus / 100;
@@ -476,16 +497,17 @@ namespace EveMiner.Forms
 
 			yield *= (1 + skills.Mining*0.05)*(1 + skills.Astrogeology*0.05);
 
-			if (ship.Barge)
-				yield *= (1 + skills.MiningBarge*0.03);
-			if (ship.Exhumer && ship.Name != "Skif")
-				yield *= (1 + skills.Exhumers*0.03);
+			yield *= ship.YieldBonus();
+			//if (ship.Barge)
+			//	yield *= (1 + skills.MiningBarge*0.03);
+			//if (ship.Exhumer && ship.Name != "Hulk")
+			//	yield *= (1 + skills.Exhumers*0.03);
 
-			if (ship.Name.Contains("Frigate"))
-				yield *= (1 + skills.Frigates*0.2);
+			//if (ship.Name.Contains("Frigate"))
+			//	yield *= (1 + skills.MiningFrigates*0.2);
 
-			else if (ship.Name.Contains("Cruiser"))
-				yield *= (1 + skills.Cruisers*0.2);
+			//else if (ship.Name.Contains("Cruiser"))
+			//	yield *= (1 + skills.Cruisers*0.2);
 
 			DeviceBonus mlu = pictureBoxMLU1.Tag as DeviceBonus;
 			if (mlu != null)
@@ -701,10 +723,8 @@ namespace EveMiner.Forms
 				Config<Settings>.Instance.Skills.Exhumers = skillValueExhumers.Value;
 			else if (sender == skillValueIceHarvesting)
 				Config<Settings>.Instance.Skills.IceHarvesting = skillValueIceHarvesting.Value;
-			else if (sender == skillValueFrigates)
-				Config<Settings>.Instance.Skills.Frigates = skillValueFrigates.Value;
-			else if (sender == skillValueCruisers)
-				Config<Settings>.Instance.Skills.Cruisers = skillValueCruisers.Value;
+			else if (sender == skillValueMinigFrigates)
+				Config<Settings>.Instance.Skills.MiningFrigates = skillValueMinigFrigates.Value;
 			else if (sender == skillValueRefining)
 				Config<Settings>.Instance.Skills.Refining = skillValueRefining.Value;
 			else if (sender == skillValueEfficiency)

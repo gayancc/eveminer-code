@@ -59,12 +59,20 @@ namespace EveMiner.Forms
 			this.label4 = new System.Windows.Forms.Label();
 			this.label21 = new System.Windows.Forms.Label();
 			this.label31 = new System.Windows.Forms.Label();
-			this.label19 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label7 = new System.Windows.Forms.Label();
+			this.skillValueMining = new EveMiner.Forms.SkillValue();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label18 = new System.Windows.Forms.Label();
+			this.skillValueAstrogeology = new EveMiner.Forms.SkillValue();
+			this.skillValueIceHarvesting = new EveMiner.Forms.SkillValue();
+			this.skillValueIceProcessing = new EveMiner.Forms.SkillValue();
+			this.skillValueRefining = new EveMiner.Forms.SkillValue();
+			this.skillValueEfficiency = new EveMiner.Forms.SkillValue();
+			this.skillValueMinigFrigates = new EveMiner.Forms.SkillValue();
+			this.skillValueMiningBarge = new EveMiner.Forms.SkillValue();
+			this.skillValueExhumers = new EveMiner.Forms.SkillValue();
 			this.pictureBoxImpSlot7 = new System.Windows.Forms.PictureBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.pictureBoxImpSlot10 = new System.Windows.Forms.PictureBox();
@@ -74,7 +82,11 @@ namespace EveMiner.Forms
 			this.label8 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label13 = new System.Windows.Forms.Label();
+			this.skillValueMiningForeman = new EveMiner.Forms.SkillValue();
+			this.skillValueMiningDirector = new EveMiner.Forms.SkillValue();
 			this.label10 = new System.Windows.Forms.Label();
+			this.skillValueIndustrialCommandShip = new EveMiner.Forms.SkillValue();
+			this.skillValueWarfareLinkSpec = new EveMiner.Forms.SkillValue();
 			this.label2 = new System.Windows.Forms.Label();
 			this.pictureBoxGang1 = new System.Windows.Forms.PictureBox();
 			this.pictureBoxGang3 = new System.Windows.Forms.PictureBox();
@@ -89,6 +101,14 @@ namespace EveMiner.Forms
 			this.pictureBoxBistot = new System.Windows.Forms.PictureBox();
 			this.pictureBoxArkonor = new System.Windows.Forms.PictureBox();
 			this.pictureBoxMercoxit = new System.Windows.Forms.PictureBox();
+			this.skillValueHedbergiteP = new EveMiner.Forms.SkillValue();
+			this.skillValueGneissP = new EveMiner.Forms.SkillValue();
+			this.skillValueDarkOchreP = new EveMiner.Forms.SkillValue();
+			this.skillValueSpodumainP = new EveMiner.Forms.SkillValue();
+			this.skillValueCrokiteP = new EveMiner.Forms.SkillValue();
+			this.skillValueBistotP = new EveMiner.Forms.SkillValue();
+			this.skillValueArkonorP = new EveMiner.Forms.SkillValue();
+			this.skillValueMercoxitP = new EveMiner.Forms.SkillValue();
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.pictureBoxVeldspar = new System.Windows.Forms.PictureBox();
 			this.pictureBoxScordite = new System.Windows.Forms.PictureBox();
@@ -98,6 +118,14 @@ namespace EveMiner.Forms
 			this.pictureBoxKernite = new System.Windows.Forms.PictureBox();
 			this.pictureBoxJaspet = new System.Windows.Forms.PictureBox();
 			this.pictureBoxHemorphite = new System.Windows.Forms.PictureBox();
+			this.skillValueVeldsparP = new EveMiner.Forms.SkillValue();
+			this.skillValueScorditeP = new EveMiner.Forms.SkillValue();
+			this.skillValuePyroxeresP = new EveMiner.Forms.SkillValue();
+			this.skillValuePlagioclaseP = new EveMiner.Forms.SkillValue();
+			this.skillValueOmberP = new EveMiner.Forms.SkillValue();
+			this.skillValueKerniteP = new EveMiner.Forms.SkillValue();
+			this.skillValueJaspetP = new EveMiner.Forms.SkillValue();
+			this.skillValueHemorphiteP = new EveMiner.Forms.SkillValue();
 			this.contextMenuStripMLU = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -116,36 +144,6 @@ namespace EveMiner.Forms
 			this.btnCalculator = new System.Windows.Forms.Button();
 			this.btnTimers = new System.Windows.Forms.Button();
 			this.pictureBox7 = new System.Windows.Forms.PictureBox();
-			this.skillValueMining = new EveMiner.Forms.SkillValue();
-			this.skillValueAstrogeology = new EveMiner.Forms.SkillValue();
-			this.skillValueIceHarvesting = new EveMiner.Forms.SkillValue();
-			this.skillValueIceProcessing = new EveMiner.Forms.SkillValue();
-			this.skillValueRefining = new EveMiner.Forms.SkillValue();
-			this.skillValueEfficiency = new EveMiner.Forms.SkillValue();
-			this.skillValueFrigates = new EveMiner.Forms.SkillValue();
-			this.skillValueCruisers = new EveMiner.Forms.SkillValue();
-			this.skillValueMiningBarge = new EveMiner.Forms.SkillValue();
-			this.skillValueExhumers = new EveMiner.Forms.SkillValue();
-			this.skillValueHedbergiteP = new EveMiner.Forms.SkillValue();
-			this.skillValueGneissP = new EveMiner.Forms.SkillValue();
-			this.skillValueDarkOchreP = new EveMiner.Forms.SkillValue();
-			this.skillValueSpodumainP = new EveMiner.Forms.SkillValue();
-			this.skillValueCrokiteP = new EveMiner.Forms.SkillValue();
-			this.skillValueBistotP = new EveMiner.Forms.SkillValue();
-			this.skillValueArkonorP = new EveMiner.Forms.SkillValue();
-			this.skillValueMercoxitP = new EveMiner.Forms.SkillValue();
-			this.skillValueVeldsparP = new EveMiner.Forms.SkillValue();
-			this.skillValueScorditeP = new EveMiner.Forms.SkillValue();
-			this.skillValuePyroxeresP = new EveMiner.Forms.SkillValue();
-			this.skillValuePlagioclaseP = new EveMiner.Forms.SkillValue();
-			this.skillValueOmberP = new EveMiner.Forms.SkillValue();
-			this.skillValueKerniteP = new EveMiner.Forms.SkillValue();
-			this.skillValueJaspetP = new EveMiner.Forms.SkillValue();
-			this.skillValueHemorphiteP = new EveMiner.Forms.SkillValue();
-			this.skillValueMiningForeman = new EveMiner.Forms.SkillValue();
-			this.skillValueMiningDirector = new EveMiner.Forms.SkillValue();
-			this.skillValueIndustrialCommandShip = new EveMiner.Forms.SkillValue();
-			this.skillValueWarfareLinkSpec = new EveMiner.Forms.SkillValue();
 			this.menuStripMain.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxMLU2)).BeginInit();
@@ -369,9 +367,9 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMLU2.TabIndex = 30;
 			this.pictureBoxMLU2.TabStop = false;
-			this.pictureBoxMLU2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxMLU2.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxMLU2.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxMLU2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// label14
 			// 
@@ -391,9 +389,9 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMLU1.TabIndex = 31;
 			this.pictureBoxMLU1.TabStop = false;
-			this.pictureBoxMLU1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxMLU1.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxMLU1.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxMLU1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxMLU3
 			// 
@@ -404,9 +402,9 @@ namespace EveMiner.Forms
 			this.pictureBoxMLU3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMLU3.TabIndex = 29;
 			this.pictureBoxMLU3.TabStop = false;
-			this.pictureBoxMLU3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxMLU3.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxMLU3.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxMLU3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// label15
 			// 
@@ -439,7 +437,6 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label21, 0, 4);
 			this.tableLayoutPanel1.Controls.Add(this.label31, 0, 3);
-			this.tableLayoutPanel1.Controls.Add(this.label19, 0, 7);
 			this.tableLayoutPanel1.Controls.Add(this.label6, 0, 9);
 			this.tableLayoutPanel1.Controls.Add(this.label5, 0, 8);
 			this.tableLayoutPanel1.Controls.Add(this.label7, 0, 1);
@@ -451,8 +448,7 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel1.Controls.Add(this.skillValueIceProcessing, 1, 3);
 			this.tableLayoutPanel1.Controls.Add(this.skillValueRefining, 1, 4);
 			this.tableLayoutPanel1.Controls.Add(this.skillValueEfficiency, 1, 5);
-			this.tableLayoutPanel1.Controls.Add(this.skillValueFrigates, 1, 6);
-			this.tableLayoutPanel1.Controls.Add(this.skillValueCruisers, 1, 7);
+			this.tableLayoutPanel1.Controls.Add(this.skillValueMinigFrigates, 1, 6);
 			this.tableLayoutPanel1.Controls.Add(this.skillValueMiningBarge, 1, 8);
 			this.tableLayoutPanel1.Controls.Add(this.skillValueExhumers, 1, 9);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 19);
@@ -468,7 +464,7 @@ namespace EveMiner.Forms
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(175, 262);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(175, 241);
 			this.tableLayoutPanel1.TabIndex = 0;
 			// 
 			// label20
@@ -511,21 +507,11 @@ namespace EveMiner.Forms
 			this.label31.TabIndex = 6;
 			this.label31.Text = "Ice Processing:";
 			// 
-			// label19
-			// 
-			this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(3, 188);
-			this.label19.Name = "label19";
-			this.label19.Size = new System.Drawing.Size(47, 13);
-			this.label19.TabIndex = 14;
-			this.label19.Text = "Cruisers:";
-			// 
 			// label6
 			// 
 			this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(3, 241);
+			this.label6.Location = new System.Drawing.Point(3, 218);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(56, 13);
 			this.label6.TabIndex = 18;
@@ -535,7 +521,7 @@ namespace EveMiner.Forms
 			// 
 			this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.label5.AutoSize = true;
-			this.label5.Location = new System.Drawing.Point(3, 214);
+			this.label5.Location = new System.Drawing.Point(3, 188);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(72, 13);
 			this.label5.TabIndex = 16;
@@ -550,6 +536,15 @@ namespace EveMiner.Forms
 			this.label7.Size = new System.Drawing.Size(71, 13);
 			this.label7.TabIndex = 2;
 			this.label7.Text = "Astrogeology:";
+			// 
+			// skillValueMining
+			// 
+			this.skillValueMining.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueMining.Location = new System.Drawing.Point(89, 3);
+			this.skillValueMining.Name = "skillValueMining";
+			this.skillValueMining.Size = new System.Drawing.Size(84, 20);
+			this.skillValueMining.TabIndex = 36;
+			this.skillValueMining.ValueChanged += new System.EventHandler(this.SkillValueChanged);
 			// 
 			// label12
 			// 
@@ -567,9 +562,81 @@ namespace EveMiner.Forms
 			this.label18.AutoSize = true;
 			this.label18.Location = new System.Drawing.Point(3, 162);
 			this.label18.Name = "label18";
-			this.label18.Size = new System.Drawing.Size(47, 13);
+			this.label18.Size = new System.Drawing.Size(78, 13);
 			this.label18.TabIndex = 12;
-			this.label18.Text = "Frigates:";
+			this.label18.Text = "MiningFrigates:";
+			// 
+			// skillValueAstrogeology
+			// 
+			this.skillValueAstrogeology.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueAstrogeology.Location = new System.Drawing.Point(89, 29);
+			this.skillValueAstrogeology.Name = "skillValueAstrogeology";
+			this.skillValueAstrogeology.Size = new System.Drawing.Size(84, 20);
+			this.skillValueAstrogeology.TabIndex = 36;
+			this.skillValueAstrogeology.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueIceHarvesting
+			// 
+			this.skillValueIceHarvesting.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueIceHarvesting.Location = new System.Drawing.Point(89, 55);
+			this.skillValueIceHarvesting.Name = "skillValueIceHarvesting";
+			this.skillValueIceHarvesting.Size = new System.Drawing.Size(84, 20);
+			this.skillValueIceHarvesting.TabIndex = 36;
+			this.skillValueIceHarvesting.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueIceProcessing
+			// 
+			this.skillValueIceProcessing.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueIceProcessing.Location = new System.Drawing.Point(89, 81);
+			this.skillValueIceProcessing.Name = "skillValueIceProcessing";
+			this.skillValueIceProcessing.Size = new System.Drawing.Size(84, 20);
+			this.skillValueIceProcessing.TabIndex = 36;
+			this.skillValueIceProcessing.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueRefining
+			// 
+			this.skillValueRefining.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueRefining.Location = new System.Drawing.Point(89, 107);
+			this.skillValueRefining.Name = "skillValueRefining";
+			this.skillValueRefining.Size = new System.Drawing.Size(84, 20);
+			this.skillValueRefining.TabIndex = 36;
+			this.skillValueRefining.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueEfficiency
+			// 
+			this.skillValueEfficiency.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueEfficiency.Location = new System.Drawing.Point(89, 133);
+			this.skillValueEfficiency.Name = "skillValueEfficiency";
+			this.skillValueEfficiency.Size = new System.Drawing.Size(84, 20);
+			this.skillValueEfficiency.TabIndex = 36;
+			this.skillValueEfficiency.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueMinigFrigates
+			// 
+			this.skillValueMinigFrigates.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueMinigFrigates.Location = new System.Drawing.Point(89, 159);
+			this.skillValueMinigFrigates.Name = "skillValueMinigFrigates";
+			this.skillValueMinigFrigates.Size = new System.Drawing.Size(84, 20);
+			this.skillValueMinigFrigates.TabIndex = 36;
+			this.skillValueMinigFrigates.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueMiningBarge
+			// 
+			this.skillValueMiningBarge.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueMiningBarge.Location = new System.Drawing.Point(89, 185);
+			this.skillValueMiningBarge.Name = "skillValueMiningBarge";
+			this.skillValueMiningBarge.Size = new System.Drawing.Size(84, 20);
+			this.skillValueMiningBarge.TabIndex = 36;
+			this.skillValueMiningBarge.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueExhumers
+			// 
+			this.skillValueExhumers.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueExhumers.Location = new System.Drawing.Point(89, 214);
+			this.skillValueExhumers.Name = "skillValueExhumers";
+			this.skillValueExhumers.Size = new System.Drawing.Size(84, 20);
+			this.skillValueExhumers.TabIndex = 36;
+			this.skillValueExhumers.ValueChanged += new System.EventHandler(this.SkillValueChanged);
 			// 
 			// pictureBoxImpSlot7
 			// 
@@ -580,9 +647,9 @@ namespace EveMiner.Forms
 			this.pictureBoxImpSlot7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxImpSlot7.TabIndex = 31;
 			this.pictureBoxImpSlot7.TabStop = false;
-			this.pictureBoxImpSlot7.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxImpSlot7.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxImpSlot7.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxImpSlot7.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// label9
 			// 
@@ -602,9 +669,9 @@ namespace EveMiner.Forms
 			this.pictureBoxImpSlot10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxImpSlot10.TabIndex = 30;
 			this.pictureBoxImpSlot10.TabStop = false;
-			this.pictureBoxImpSlot10.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxImpSlot10.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxImpSlot10.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxImpSlot10.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// groupBoxGangBooster
 			// 
@@ -691,6 +758,24 @@ namespace EveMiner.Forms
 			this.label13.TabIndex = 4;
 			this.label13.Text = "Warfare link specialist:";
 			// 
+			// skillValueMiningForeman
+			// 
+			this.skillValueMiningForeman.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueMiningForeman.Location = new System.Drawing.Point(138, 3);
+			this.skillValueMiningForeman.Name = "skillValueMiningForeman";
+			this.skillValueMiningForeman.Size = new System.Drawing.Size(84, 20);
+			this.skillValueMiningForeman.TabIndex = 36;
+			this.skillValueMiningForeman.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueMiningDirector
+			// 
+			this.skillValueMiningDirector.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueMiningDirector.Location = new System.Drawing.Point(138, 29);
+			this.skillValueMiningDirector.Name = "skillValueMiningDirector";
+			this.skillValueMiningDirector.Size = new System.Drawing.Size(84, 20);
+			this.skillValueMiningDirector.TabIndex = 36;
+			this.skillValueMiningDirector.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
 			// label10
 			// 
 			this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -700,6 +785,24 @@ namespace EveMiner.Forms
 			this.label10.Size = new System.Drawing.Size(126, 13);
 			this.label10.TabIndex = 4;
 			this.label10.Text = "Industrial Command Ship:";
+			// 
+			// skillValueIndustrialCommandShip
+			// 
+			this.skillValueIndustrialCommandShip.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueIndustrialCommandShip.Location = new System.Drawing.Point(138, 82);
+			this.skillValueIndustrialCommandShip.Name = "skillValueIndustrialCommandShip";
+			this.skillValueIndustrialCommandShip.Size = new System.Drawing.Size(84, 20);
+			this.skillValueIndustrialCommandShip.TabIndex = 36;
+			this.skillValueIndustrialCommandShip.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueWarfareLinkSpec
+			// 
+			this.skillValueWarfareLinkSpec.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueWarfareLinkSpec.Location = new System.Drawing.Point(138, 55);
+			this.skillValueWarfareLinkSpec.Name = "skillValueWarfareLinkSpec";
+			this.skillValueWarfareLinkSpec.Size = new System.Drawing.Size(84, 20);
+			this.skillValueWarfareLinkSpec.TabIndex = 36;
+			this.skillValueWarfareLinkSpec.ValueChanged += new System.EventHandler(this.SkillValueChanged);
 			// 
 			// label2
 			// 
@@ -719,9 +822,9 @@ namespace EveMiner.Forms
 			this.pictureBoxGang1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxGang1.TabIndex = 6;
 			this.pictureBoxGang1.TabStop = false;
-			this.pictureBoxGang1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxGang1.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxGang1.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxGang1.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxGang3
 			// 
@@ -732,9 +835,9 @@ namespace EveMiner.Forms
 			this.pictureBoxGang3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxGang3.TabIndex = 6;
 			this.pictureBoxGang3.TabStop = false;
-			this.pictureBoxGang3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxGang3.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxGang3.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxGang3.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// checkBoxMindLinkImp
 			// 
@@ -756,9 +859,9 @@ namespace EveMiner.Forms
 			this.pictureBoxGang2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxGang2.TabIndex = 6;
 			this.pictureBoxGang2.TabStop = false;
-			this.pictureBoxGang2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxGang2.Click += new System.EventHandler(this.PictureBoxClick);
 			this.pictureBoxGang2.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxGang2.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// tableLayoutPanel7
 			// 
@@ -805,8 +908,8 @@ namespace EveMiner.Forms
 			this.pictureBoxHedbergite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxHedbergite.TabIndex = 35;
 			this.pictureBoxHedbergite.TabStop = false;
-			this.pictureBoxHedbergite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxHedbergite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxHedbergite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxGneiss
 			// 
@@ -817,8 +920,8 @@ namespace EveMiner.Forms
 			this.pictureBoxGneiss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxGneiss.TabIndex = 35;
 			this.pictureBoxGneiss.TabStop = false;
-			this.pictureBoxGneiss.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxGneiss.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxGneiss.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxDarkOchre
 			// 
@@ -829,8 +932,8 @@ namespace EveMiner.Forms
 			this.pictureBoxDarkOchre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxDarkOchre.TabIndex = 35;
 			this.pictureBoxDarkOchre.TabStop = false;
-			this.pictureBoxDarkOchre.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxDarkOchre.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxDarkOchre.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxSpodumain
 			// 
@@ -841,8 +944,8 @@ namespace EveMiner.Forms
 			this.pictureBoxSpodumain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxSpodumain.TabIndex = 35;
 			this.pictureBoxSpodumain.TabStop = false;
-			this.pictureBoxSpodumain.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxSpodumain.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxSpodumain.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxCrokite
 			// 
@@ -853,8 +956,8 @@ namespace EveMiner.Forms
 			this.pictureBoxCrokite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxCrokite.TabIndex = 35;
 			this.pictureBoxCrokite.TabStop = false;
-			this.pictureBoxCrokite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxCrokite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxCrokite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxBistot
 			// 
@@ -865,8 +968,8 @@ namespace EveMiner.Forms
 			this.pictureBoxBistot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxBistot.TabIndex = 35;
 			this.pictureBoxBistot.TabStop = false;
-			this.pictureBoxBistot.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxBistot.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxBistot.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxArkonor
 			// 
@@ -877,8 +980,8 @@ namespace EveMiner.Forms
 			this.pictureBoxArkonor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxArkonor.TabIndex = 35;
 			this.pictureBoxArkonor.TabStop = false;
-			this.pictureBoxArkonor.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxArkonor.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxArkonor.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxMercoxit
 			// 
@@ -889,8 +992,80 @@ namespace EveMiner.Forms
 			this.pictureBoxMercoxit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxMercoxit.TabIndex = 35;
 			this.pictureBoxMercoxit.TabStop = false;
-			this.pictureBoxMercoxit.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxMercoxit.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxMercoxit.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// skillValueHedbergiteP
+			// 
+			this.skillValueHedbergiteP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueHedbergiteP.Location = new System.Drawing.Point(42, 9);
+			this.skillValueHedbergiteP.Name = "skillValueHedbergiteP";
+			this.skillValueHedbergiteP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueHedbergiteP.TabIndex = 36;
+			this.skillValueHedbergiteP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueGneissP
+			// 
+			this.skillValueGneissP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueGneissP.Location = new System.Drawing.Point(42, 47);
+			this.skillValueGneissP.Name = "skillValueGneissP";
+			this.skillValueGneissP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueGneissP.TabIndex = 36;
+			this.skillValueGneissP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueDarkOchreP
+			// 
+			this.skillValueDarkOchreP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueDarkOchreP.Location = new System.Drawing.Point(42, 85);
+			this.skillValueDarkOchreP.Name = "skillValueDarkOchreP";
+			this.skillValueDarkOchreP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueDarkOchreP.TabIndex = 36;
+			this.skillValueDarkOchreP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueSpodumainP
+			// 
+			this.skillValueSpodumainP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueSpodumainP.Location = new System.Drawing.Point(42, 123);
+			this.skillValueSpodumainP.Name = "skillValueSpodumainP";
+			this.skillValueSpodumainP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueSpodumainP.TabIndex = 36;
+			this.skillValueSpodumainP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueCrokiteP
+			// 
+			this.skillValueCrokiteP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueCrokiteP.Location = new System.Drawing.Point(42, 161);
+			this.skillValueCrokiteP.Name = "skillValueCrokiteP";
+			this.skillValueCrokiteP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueCrokiteP.TabIndex = 36;
+			this.skillValueCrokiteP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueBistotP
+			// 
+			this.skillValueBistotP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueBistotP.Location = new System.Drawing.Point(42, 199);
+			this.skillValueBistotP.Name = "skillValueBistotP";
+			this.skillValueBistotP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueBistotP.TabIndex = 36;
+			this.skillValueBistotP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueArkonorP
+			// 
+			this.skillValueArkonorP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueArkonorP.Location = new System.Drawing.Point(42, 237);
+			this.skillValueArkonorP.Name = "skillValueArkonorP";
+			this.skillValueArkonorP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueArkonorP.TabIndex = 36;
+			this.skillValueArkonorP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueMercoxitP
+			// 
+			this.skillValueMercoxitP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueMercoxitP.Location = new System.Drawing.Point(42, 275);
+			this.skillValueMercoxitP.Name = "skillValueMercoxitP";
+			this.skillValueMercoxitP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueMercoxitP.TabIndex = 36;
+			this.skillValueMercoxitP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
 			// 
 			// tableLayoutPanel6
 			// 
@@ -937,8 +1112,8 @@ namespace EveMiner.Forms
 			this.pictureBoxVeldspar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxVeldspar.TabIndex = 35;
 			this.pictureBoxVeldspar.TabStop = false;
-			this.pictureBoxVeldspar.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxVeldspar.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxVeldspar.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxScordite
 			// 
@@ -949,8 +1124,8 @@ namespace EveMiner.Forms
 			this.pictureBoxScordite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxScordite.TabIndex = 35;
 			this.pictureBoxScordite.TabStop = false;
-			this.pictureBoxScordite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxScordite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxScordite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxPyroxeres
 			// 
@@ -961,8 +1136,8 @@ namespace EveMiner.Forms
 			this.pictureBoxPyroxeres.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxPyroxeres.TabIndex = 35;
 			this.pictureBoxPyroxeres.TabStop = false;
-			this.pictureBoxPyroxeres.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxPyroxeres.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxPyroxeres.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxPlagioclase
 			// 
@@ -973,8 +1148,8 @@ namespace EveMiner.Forms
 			this.pictureBoxPlagioclase.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxPlagioclase.TabIndex = 35;
 			this.pictureBoxPlagioclase.TabStop = false;
-			this.pictureBoxPlagioclase.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxPlagioclase.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxPlagioclase.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxOmber
 			// 
@@ -985,8 +1160,8 @@ namespace EveMiner.Forms
 			this.pictureBoxOmber.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxOmber.TabIndex = 35;
 			this.pictureBoxOmber.TabStop = false;
-			this.pictureBoxOmber.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxOmber.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxOmber.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxKernite
 			// 
@@ -997,8 +1172,8 @@ namespace EveMiner.Forms
 			this.pictureBoxKernite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxKernite.TabIndex = 35;
 			this.pictureBoxKernite.TabStop = false;
-			this.pictureBoxKernite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxKernite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxKernite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxJaspet
 			// 
@@ -1009,8 +1184,8 @@ namespace EveMiner.Forms
 			this.pictureBoxJaspet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxJaspet.TabIndex = 35;
 			this.pictureBoxJaspet.TabStop = false;
-			this.pictureBoxJaspet.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxJaspet.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxJaspet.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			// 
 			// pictureBoxHemorphite
 			// 
@@ -1021,8 +1196,80 @@ namespace EveMiner.Forms
 			this.pictureBoxHemorphite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
 			this.pictureBoxHemorphite.TabIndex = 35;
 			this.pictureBoxHemorphite.TabStop = false;
-			this.pictureBoxHemorphite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
 			this.pictureBoxHemorphite.MouseEnter += new System.EventHandler(this.On_MouseEnter);
+			this.pictureBoxHemorphite.MouseLeave += new System.EventHandler(this.On_MouseLeave);
+			// 
+			// skillValueVeldsparP
+			// 
+			this.skillValueVeldsparP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueVeldsparP.Location = new System.Drawing.Point(42, 9);
+			this.skillValueVeldsparP.Name = "skillValueVeldsparP";
+			this.skillValueVeldsparP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueVeldsparP.TabIndex = 36;
+			this.skillValueVeldsparP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueScorditeP
+			// 
+			this.skillValueScorditeP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueScorditeP.Location = new System.Drawing.Point(42, 47);
+			this.skillValueScorditeP.Name = "skillValueScorditeP";
+			this.skillValueScorditeP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueScorditeP.TabIndex = 36;
+			this.skillValueScorditeP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValuePyroxeresP
+			// 
+			this.skillValuePyroxeresP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValuePyroxeresP.Location = new System.Drawing.Point(42, 85);
+			this.skillValuePyroxeresP.Name = "skillValuePyroxeresP";
+			this.skillValuePyroxeresP.Size = new System.Drawing.Size(84, 20);
+			this.skillValuePyroxeresP.TabIndex = 36;
+			this.skillValuePyroxeresP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValuePlagioclaseP
+			// 
+			this.skillValuePlagioclaseP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValuePlagioclaseP.Location = new System.Drawing.Point(42, 123);
+			this.skillValuePlagioclaseP.Name = "skillValuePlagioclaseP";
+			this.skillValuePlagioclaseP.Size = new System.Drawing.Size(84, 20);
+			this.skillValuePlagioclaseP.TabIndex = 36;
+			this.skillValuePlagioclaseP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueOmberP
+			// 
+			this.skillValueOmberP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueOmberP.Location = new System.Drawing.Point(42, 161);
+			this.skillValueOmberP.Name = "skillValueOmberP";
+			this.skillValueOmberP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueOmberP.TabIndex = 36;
+			this.skillValueOmberP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueKerniteP
+			// 
+			this.skillValueKerniteP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueKerniteP.Location = new System.Drawing.Point(42, 199);
+			this.skillValueKerniteP.Name = "skillValueKerniteP";
+			this.skillValueKerniteP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueKerniteP.TabIndex = 36;
+			this.skillValueKerniteP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueJaspetP
+			// 
+			this.skillValueJaspetP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueJaspetP.Location = new System.Drawing.Point(42, 237);
+			this.skillValueJaspetP.Name = "skillValueJaspetP";
+			this.skillValueJaspetP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueJaspetP.TabIndex = 36;
+			this.skillValueJaspetP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
+			// 
+			// skillValueHemorphiteP
+			// 
+			this.skillValueHemorphiteP.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.skillValueHemorphiteP.Location = new System.Drawing.Point(42, 275);
+			this.skillValueHemorphiteP.Name = "skillValueHemorphiteP";
+			this.skillValueHemorphiteP.Size = new System.Drawing.Size(84, 20);
+			this.skillValueHemorphiteP.TabIndex = 36;
+			this.skillValueHemorphiteP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
 			// 
 			// contextMenuStripMLU
 			// 
@@ -1186,276 +1433,6 @@ namespace EveMiner.Forms
 			this.pictureBox7.TabIndex = 0;
 			this.pictureBox7.TabStop = false;
 			// 
-			// skillValueMining
-			// 
-			this.skillValueMining.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueMining.Location = new System.Drawing.Point(89, 3);
-			this.skillValueMining.Name = "skillValueMining";
-			this.skillValueMining.Size = new System.Drawing.Size(84, 20);
-			this.skillValueMining.TabIndex = 36;
-			this.skillValueMining.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueAstrogeology
-			// 
-			this.skillValueAstrogeology.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueAstrogeology.Location = new System.Drawing.Point(89, 29);
-			this.skillValueAstrogeology.Name = "skillValueAstrogeology";
-			this.skillValueAstrogeology.Size = new System.Drawing.Size(84, 20);
-			this.skillValueAstrogeology.TabIndex = 36;
-			this.skillValueAstrogeology.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueIceHarvesting
-			// 
-			this.skillValueIceHarvesting.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueIceHarvesting.Location = new System.Drawing.Point(89, 55);
-			this.skillValueIceHarvesting.Name = "skillValueIceHarvesting";
-			this.skillValueIceHarvesting.Size = new System.Drawing.Size(84, 20);
-			this.skillValueIceHarvesting.TabIndex = 36;
-			this.skillValueIceHarvesting.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueIceProcessing
-			// 
-			this.skillValueIceProcessing.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueIceProcessing.Location = new System.Drawing.Point(89, 81);
-			this.skillValueIceProcessing.Name = "skillValueIceProcessing";
-			this.skillValueIceProcessing.Size = new System.Drawing.Size(84, 20);
-			this.skillValueIceProcessing.TabIndex = 36;
-			this.skillValueIceProcessing.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueRefining
-			// 
-			this.skillValueRefining.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueRefining.Location = new System.Drawing.Point(89, 107);
-			this.skillValueRefining.Name = "skillValueRefining";
-			this.skillValueRefining.Size = new System.Drawing.Size(84, 20);
-			this.skillValueRefining.TabIndex = 36;
-			this.skillValueRefining.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueEfficiency
-			// 
-			this.skillValueEfficiency.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueEfficiency.Location = new System.Drawing.Point(89, 133);
-			this.skillValueEfficiency.Name = "skillValueEfficiency";
-			this.skillValueEfficiency.Size = new System.Drawing.Size(84, 20);
-			this.skillValueEfficiency.TabIndex = 36;
-			this.skillValueEfficiency.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueFrigates
-			// 
-			this.skillValueFrigates.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueFrigates.Location = new System.Drawing.Point(89, 159);
-			this.skillValueFrigates.Name = "skillValueFrigates";
-			this.skillValueFrigates.Size = new System.Drawing.Size(84, 20);
-			this.skillValueFrigates.TabIndex = 36;
-			this.skillValueFrigates.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueCruisers
-			// 
-			this.skillValueCruisers.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueCruisers.Location = new System.Drawing.Point(89, 185);
-			this.skillValueCruisers.Name = "skillValueCruisers";
-			this.skillValueCruisers.Size = new System.Drawing.Size(84, 20);
-			this.skillValueCruisers.TabIndex = 36;
-			this.skillValueCruisers.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueMiningBarge
-			// 
-			this.skillValueMiningBarge.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueMiningBarge.Location = new System.Drawing.Point(89, 211);
-			this.skillValueMiningBarge.Name = "skillValueMiningBarge";
-			this.skillValueMiningBarge.Size = new System.Drawing.Size(84, 20);
-			this.skillValueMiningBarge.TabIndex = 36;
-			this.skillValueMiningBarge.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueExhumers
-			// 
-			this.skillValueExhumers.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueExhumers.Location = new System.Drawing.Point(89, 238);
-			this.skillValueExhumers.Name = "skillValueExhumers";
-			this.skillValueExhumers.Size = new System.Drawing.Size(84, 20);
-			this.skillValueExhumers.TabIndex = 36;
-			this.skillValueExhumers.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueHedbergiteP
-			// 
-			this.skillValueHedbergiteP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueHedbergiteP.Location = new System.Drawing.Point(42, 9);
-			this.skillValueHedbergiteP.Name = "skillValueHedbergiteP";
-			this.skillValueHedbergiteP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueHedbergiteP.TabIndex = 36;
-			this.skillValueHedbergiteP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueGneissP
-			// 
-			this.skillValueGneissP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueGneissP.Location = new System.Drawing.Point(42, 47);
-			this.skillValueGneissP.Name = "skillValueGneissP";
-			this.skillValueGneissP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueGneissP.TabIndex = 36;
-			this.skillValueGneissP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueDarkOchreP
-			// 
-			this.skillValueDarkOchreP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueDarkOchreP.Location = new System.Drawing.Point(42, 85);
-			this.skillValueDarkOchreP.Name = "skillValueDarkOchreP";
-			this.skillValueDarkOchreP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueDarkOchreP.TabIndex = 36;
-			this.skillValueDarkOchreP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueSpodumainP
-			// 
-			this.skillValueSpodumainP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueSpodumainP.Location = new System.Drawing.Point(42, 123);
-			this.skillValueSpodumainP.Name = "skillValueSpodumainP";
-			this.skillValueSpodumainP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueSpodumainP.TabIndex = 36;
-			this.skillValueSpodumainP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueCrokiteP
-			// 
-			this.skillValueCrokiteP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueCrokiteP.Location = new System.Drawing.Point(42, 161);
-			this.skillValueCrokiteP.Name = "skillValueCrokiteP";
-			this.skillValueCrokiteP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueCrokiteP.TabIndex = 36;
-			this.skillValueCrokiteP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueBistotP
-			// 
-			this.skillValueBistotP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueBistotP.Location = new System.Drawing.Point(42, 199);
-			this.skillValueBistotP.Name = "skillValueBistotP";
-			this.skillValueBistotP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueBistotP.TabIndex = 36;
-			this.skillValueBistotP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueArkonorP
-			// 
-			this.skillValueArkonorP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueArkonorP.Location = new System.Drawing.Point(42, 237);
-			this.skillValueArkonorP.Name = "skillValueArkonorP";
-			this.skillValueArkonorP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueArkonorP.TabIndex = 36;
-			this.skillValueArkonorP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueMercoxitP
-			// 
-			this.skillValueMercoxitP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueMercoxitP.Location = new System.Drawing.Point(42, 275);
-			this.skillValueMercoxitP.Name = "skillValueMercoxitP";
-			this.skillValueMercoxitP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueMercoxitP.TabIndex = 36;
-			this.skillValueMercoxitP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueVeldsparP
-			// 
-			this.skillValueVeldsparP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueVeldsparP.Location = new System.Drawing.Point(42, 9);
-			this.skillValueVeldsparP.Name = "skillValueVeldsparP";
-			this.skillValueVeldsparP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueVeldsparP.TabIndex = 36;
-			this.skillValueVeldsparP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueScorditeP
-			// 
-			this.skillValueScorditeP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueScorditeP.Location = new System.Drawing.Point(42, 47);
-			this.skillValueScorditeP.Name = "skillValueScorditeP";
-			this.skillValueScorditeP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueScorditeP.TabIndex = 36;
-			this.skillValueScorditeP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValuePyroxeresP
-			// 
-			this.skillValuePyroxeresP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValuePyroxeresP.Location = new System.Drawing.Point(42, 85);
-			this.skillValuePyroxeresP.Name = "skillValuePyroxeresP";
-			this.skillValuePyroxeresP.Size = new System.Drawing.Size(84, 20);
-			this.skillValuePyroxeresP.TabIndex = 36;
-			this.skillValuePyroxeresP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValuePlagioclaseP
-			// 
-			this.skillValuePlagioclaseP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValuePlagioclaseP.Location = new System.Drawing.Point(42, 123);
-			this.skillValuePlagioclaseP.Name = "skillValuePlagioclaseP";
-			this.skillValuePlagioclaseP.Size = new System.Drawing.Size(84, 20);
-			this.skillValuePlagioclaseP.TabIndex = 36;
-			this.skillValuePlagioclaseP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueOmberP
-			// 
-			this.skillValueOmberP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueOmberP.Location = new System.Drawing.Point(42, 161);
-			this.skillValueOmberP.Name = "skillValueOmberP";
-			this.skillValueOmberP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueOmberP.TabIndex = 36;
-			this.skillValueOmberP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueKerniteP
-			// 
-			this.skillValueKerniteP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueKerniteP.Location = new System.Drawing.Point(42, 199);
-			this.skillValueKerniteP.Name = "skillValueKerniteP";
-			this.skillValueKerniteP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueKerniteP.TabIndex = 36;
-			this.skillValueKerniteP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueJaspetP
-			// 
-			this.skillValueJaspetP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueJaspetP.Location = new System.Drawing.Point(42, 237);
-			this.skillValueJaspetP.Name = "skillValueJaspetP";
-			this.skillValueJaspetP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueJaspetP.TabIndex = 36;
-			this.skillValueJaspetP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueHemorphiteP
-			// 
-			this.skillValueHemorphiteP.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueHemorphiteP.Location = new System.Drawing.Point(42, 275);
-			this.skillValueHemorphiteP.Name = "skillValueHemorphiteP";
-			this.skillValueHemorphiteP.Size = new System.Drawing.Size(84, 20);
-			this.skillValueHemorphiteP.TabIndex = 36;
-			this.skillValueHemorphiteP.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueMiningForeman
-			// 
-			this.skillValueMiningForeman.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueMiningForeman.Location = new System.Drawing.Point(138, 3);
-			this.skillValueMiningForeman.Name = "skillValueMiningForeman";
-			this.skillValueMiningForeman.Size = new System.Drawing.Size(84, 20);
-			this.skillValueMiningForeman.TabIndex = 36;
-			this.skillValueMiningForeman.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueMiningDirector
-			// 
-			this.skillValueMiningDirector.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueMiningDirector.Location = new System.Drawing.Point(138, 29);
-			this.skillValueMiningDirector.Name = "skillValueMiningDirector";
-			this.skillValueMiningDirector.Size = new System.Drawing.Size(84, 20);
-			this.skillValueMiningDirector.TabIndex = 36;
-			this.skillValueMiningDirector.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueIndustrialCommandShip
-			// 
-			this.skillValueIndustrialCommandShip.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueIndustrialCommandShip.Location = new System.Drawing.Point(138, 82);
-			this.skillValueIndustrialCommandShip.Name = "skillValueIndustrialCommandShip";
-			this.skillValueIndustrialCommandShip.Size = new System.Drawing.Size(84, 20);
-			this.skillValueIndustrialCommandShip.TabIndex = 36;
-			this.skillValueIndustrialCommandShip.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
-			// skillValueWarfareLinkSpec
-			// 
-			this.skillValueWarfareLinkSpec.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.skillValueWarfareLinkSpec.Location = new System.Drawing.Point(138, 55);
-			this.skillValueWarfareLinkSpec.Name = "skillValueWarfareLinkSpec";
-			this.skillValueWarfareLinkSpec.Size = new System.Drawing.Size(84, 20);
-			this.skillValueWarfareLinkSpec.TabIndex = 36;
-			this.skillValueWarfareLinkSpec.ValueChanged += new System.EventHandler(this.SkillValueChanged);
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1567,7 +1544,6 @@ namespace EveMiner.Forms
 		private System.Windows.Forms.ComboBox comboBoxShip;
 		private System.Windows.Forms.Label label17;
 		private System.Windows.Forms.Label label18;
-		private System.Windows.Forms.Label label19;
 		private System.Windows.Forms.ComboBox comboBoxTurret;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.CheckBox checkBoxUseGangBonus;
@@ -1611,8 +1587,7 @@ namespace EveMiner.Forms
 		private SkillValue skillValueIceProcessing;
 		private SkillValue skillValueRefining;
 		private SkillValue skillValueEfficiency;
-		private SkillValue skillValueFrigates;
-		private SkillValue skillValueCruisers;
+		private SkillValue skillValueMinigFrigates;
 		private SkillValue skillValueMiningBarge;
 		private SkillValue skillValueExhumers;
 		private SkillValue skillValueMiningForeman;
