@@ -296,6 +296,8 @@ namespace EveMiner.Forms
 		/// </summary>
 		private void FillTurretList()
 		{
+			if(Config<Settings>.Instance.SelectedShip.Length == 0)
+				Config<Settings>.Instance.SelectedShip = "Venture";
 			Ship ship = _dictShips[Config<Settings>.Instance.SelectedShip];
 			_turretsList.Clear();
 			if (ship.Type != ShipType.Barge && ship.Type != ShipType.Exhumer)
