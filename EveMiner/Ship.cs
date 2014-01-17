@@ -56,7 +56,7 @@ namespace EveMiner
 				case "Procurer":
 					bonus *= 3;//(1 + skills.MiningBarge * 0.03);
 					break;
-				case "Retriver":
+				case "Retriever":
 					bonus *= 1.5;//(1 + skills.MiningBarge * 0.03);
 					break;
 				case "Covetor":
@@ -83,7 +83,7 @@ namespace EveMiner
 				case "Procurer":
 					bonus *= (1 - 0.6666);
 					break;
-				case "Retriver":
+				case "Retriever":
 					bonus *= (1 - 0.3333);
 					break;
 				case "Covetor":
