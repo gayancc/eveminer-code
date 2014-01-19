@@ -193,7 +193,7 @@ namespace EveMiner.Ores
 			DictOre.Add(ore.Name, ore);
 
 
-			///ICE
+			//ICE
 			mOut = new MineralsOut(0, 0, 0, 0, 0, 0, 0, 0);
 			ore = new Ore("Ice", 1000.0, 1, mOut);
 			DictOre.Add(ore.Name, ore);
