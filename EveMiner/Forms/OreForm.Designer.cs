@@ -1,4 +1,4 @@
-using OreType=EveMiner.Ores.OreType;
+using OreType=EveMiner.EveDatabase.OreType;
 
 namespace EveMiner.Forms
 {

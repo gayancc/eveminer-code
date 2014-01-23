@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using EveMiner.Ores;
+using EveMiner.EveDatabase;
 using EveMiner.Properties;
 
 namespace EveMiner.Forms

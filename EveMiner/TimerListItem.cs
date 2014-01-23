@@ -1,5 +1,5 @@
 using System;
-using EveMiner.Ores;
+using EveMiner.EveDatabase;
 
 namespace EveMiner
 {

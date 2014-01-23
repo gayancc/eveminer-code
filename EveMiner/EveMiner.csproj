@@ -106,6 +106,12 @@
     <Compile Include="Forms\OreForm.Designer.cs">
       <DependentUpon>OreForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PricesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PricesForm.Designer.cs">
+      <DependentUpon>PricesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SkillValue.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,13 +125,13 @@
       <DependentUpon>SlotDevice.cs</DependentUpon>
     </Compile>
     <Compile Include="GridToXmlConverter.cs" />
-    <Compile Include="Ores\Mineral.cs" />
-    <Compile Include="Ores\MineralList.cs" />
-    <Compile Include="Ores\MineralsOut.cs" />
+    <Compile Include="EveDatabase\Mineral.cs" />
+    <Compile Include="EveDatabase\MineralList.cs" />
+    <Compile Include="EveDatabase\MineralsOut.cs" />
     <Compile Include="DeviceBonus.cs" />
     <Compile Include="MiningTurret.cs" />
-    <Compile Include="Ores\Ore.cs" />
-    <Compile Include="Ores\OreList.cs" />
+    <Compile Include="EveDatabase\Ore.cs" />
+    <Compile Include="EveDatabase\OreList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AboutForm.resx">
@@ -151,6 +157,9 @@
     <EmbeddedResource Include="Forms\OreForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>OreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PricesForm.resx">
+      <DependentUpon>PricesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SkillValue.resx">
       <DependentUpon>SkillValue.cs</DependentUpon>

@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using EveMiner.Ores;
+using EveMiner.EveDatabase;
 
 namespace EveMiner.Forms
 {

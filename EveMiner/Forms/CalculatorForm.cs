@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Net;
 using System.Windows.Forms;
 using System.Xml;
-using EveMiner.Ores;
+using EveMiner.EveDatabase;
 using EveMiner.Properties;
 
 namespace EveMiner.Forms

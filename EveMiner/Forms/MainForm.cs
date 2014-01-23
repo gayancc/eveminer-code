@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using EveMiner.Ores;
+using EveMiner.EveDatabase;
 using EveMiner.Properties;
 
 namespace EveMiner.Forms
@@ -18,10 +18,12 @@ namespace EveMiner.Forms
 
 		private readonly TimersForm _timersForm = new TimersForm();
 		private readonly CalculatorForm _calculatorForm = new CalculatorForm();
+		private readonly PricesForm _pricesForm = new PricesForm();
 
 		//Выбранный MLU
 		private PictureBox _mluPictureClicked;
 		private bool _bExit = true;
+		
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="MainForm"/> class.
@@ -996,6 +998,11 @@ namespace EveMiner.Forms
 		{
 			ShowWindow(_calculatorForm);
 		}
+		private void BtnPricesClick(object sender, EventArgs e)
+		{
+			ShowWindow(_pricesForm);
+		}
+
 
 		/// <summary>
 		/// Handles the Click event of the alwaysOnTopToolStripMenuItem control.
@@ -1031,5 +1038,6 @@ namespace EveMiner.Forms
 			Config<Settings>.Instance.BoosterShip = ship;
 			CalculateMining();
 		}
+
 	}
 }
