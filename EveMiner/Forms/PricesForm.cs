@@ -32,12 +32,51 @@ namespace EveMiner.Forms
 			const string webAddress = "http://eve-central.com/api/evemon";
 			const string localAddress = "EveCentral.xml";
 
+			if(LoadXmlData(webAddress, localAddress))
+			{
+				try
+				{
+					System.Globalization.NumberFormatInfo info = new System.Globalization.NumberFormatInfo
+					{
+						NumberDecimalSeparator = "."
+					};
+
+					using(XmlTextReader reader = new XmlTextReader(localAddress))
+					{
+						Mineral min = null;
+						while(reader.Read())
+						{
+							switch(reader.NodeType)
+							{
+								case XmlNodeType.Text:
+								{
+									if(min == null)
+										min = MineralList.Get(reader.Value);
+									else
+									{
+										min.Price = Convert.ToDouble(reader.Value, info);
+										min = null;
+									}
+									break;
+								}
+							}
+						}
+					}
+				}
+				catch(XmlException)
+				{
+				}
+			}
+		}
+
+		private static bool LoadXmlData(string webAddress, string localAddress)
+		{
 			try
 			{
 				// Два объекта для получения информации о предполагаемом скачиваемом xml
-				HttpWebRequest httpWReq = (HttpWebRequest)WebRequest.Create(webAddress);
+				HttpWebRequest httpWReq = (HttpWebRequest) WebRequest.Create(webAddress);
 				WebClient httpClient = new WebClient();
-				HttpWebResponse httpWResp = (HttpWebResponse)httpWReq.GetResponse();
+				HttpWebResponse httpWResp = (HttpWebResponse) httpWReq.GetResponse();
 				// Проверяем,  действительно ли по данному адресу находится xml
 				//string type = httpWResp.ContentType.Substring(0, "text/xml".Length);
 				//if (type == "text/xml")
@@ -47,42 +86,12 @@ namespace EveMiner.Forms
 				//}
 				httpWResp.Close();
 			}
-			catch (WebException ex)
+			catch(WebException ex)
 			{
 				MessageBox.Show(ex.Message);
-				return;
+				return false;
 			}
-
-			try
-			{
-				System.Globalization.NumberFormatInfo info = new System.Globalization.NumberFormatInfo();
-				info.NumberDecimalSeparator = ".";
-
-				using (XmlTextReader reader = new XmlTextReader(localAddress))
-				{
-					Mineral min = null;
-					while (reader.Read())
-					{
-						switch (reader.NodeType)
-						{
-							case XmlNodeType.Text:
-								{
-									if (min == null)
-										min = MineralList.Get(reader.Value);
-									else
-									{
-										min.Price = Convert.ToDouble(reader.Value, info);
-										min = null;
-									}
-									break;
-								}
-						}
-					}
-				}
-			}
-			catch (XmlException)
-			{
-			}			
+			return true;
 		}
 
 		private void PutMineralPrices()

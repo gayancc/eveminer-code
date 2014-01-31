@@ -233,10 +233,7 @@ namespace EveMiner.Forms
 
                 if (sender == buttonCalculateCargoHold || sender == btnIskPerHour)
                     quantity = (int) (cargohold/ore.Volume);
-
-                int unitProcess = quantity - quantity%ore.UnitsToRefine;
-                int numberOfCycles = quantity/ore.UnitsToRefine;
-                double prof = InsertProfitLine(ore, netYield, numberOfCycles, unitProcess);
+	            double prof = InsertProfitLine(ore, netYield, quantity);
                 if (prof > maxprofit)
                 {
                     maxprofit = prof;
@@ -256,34 +253,19 @@ namespace EveMiner.Forms
             }
         }
 
-        /// <summary>
-        /// Возвращает текущий налог
-        /// </summary>
-        /// <returns></returns>
-        private static double GetTaxRate()
-        {
-            double tax;
-            if (Config<Settings>.Instance.StandTaxe == Settings.Stand)
-                tax = (5 - Config<Settings>.Instance.Standing*5/6.66666)/100;
-            else
-                tax = Config<Settings>.Instance.TaxRate/100;
-
-            if (tax < 0)
-                tax = 0;
-            return tax;
-        }
-
-        /// <summary>
+	    /// <summary>
         /// Вычилсить прибыль и добавить строчку в таблицу
         /// </summary>
         /// <param name="ore">тип руды</param>
         /// <param name="netYield">The net yield.</param>
-        /// <param name="p">число циклов рефайна</param>
-        /// <param name="unitProcess">количество руды для процессинга</param>
-        private double InsertProfitLine(Ore ore, double netYield, int p, int unitProcess)
+        /// <param name="quantity">количество руды для процессинга</param>
+        private double InsertProfitLine(Ore ore, double netYield, int quantity)
         {
-            MineralsOut minout = GetMineralsOut(ore, netYield, p);
-            double profit = GetMineralProfit(minout);
+			int unitProcess = quantity - quantity % ore.UnitsToRefine;
+			int numberOfCycles = quantity / ore.UnitsToRefine;
+
+			MineralsOut minout = ore.GetMineralsOut(netYield, quantity);
+            double profit = minout.GetMineralProfit();
 
             //Добавляем строчку
             DataGridViewRow row = new DataGridViewRow();
@@ -295,64 +277,23 @@ namespace EveMiner.Forms
                                                 Value = (unitProcess*ore.Volume).ToString("F2") // + " m3"
                                             };
             cells[ColumnRefVolume.Index] = new DataGridViewTextBoxCell
-                                               {
-                                                   Value = ((ore.MineralsOut.Tritanium +
-                                                             ore.MineralsOut.Pyerite +
-                                                             ore.MineralsOut.Mexallon +
-                                                             ore.MineralsOut.Isogen +
-                                                             ore.MineralsOut.Nocxium +
-                                                             ore.MineralsOut.Zydrine +
-                                                             ore.MineralsOut.Megacyte +
-                                                             ore.MineralsOut.Morphite)*p*
-                                                            OreList.GetEfficiency(ore, netYield)*0.01).ToString("F2")
-                                                   // + " m3"
-                                               };
+            {
+                Value = ((ore.MineralsOut.Tritanium +
+                            ore.MineralsOut.Pyerite +
+                            ore.MineralsOut.Mexallon +
+                            ore.MineralsOut.Isogen +
+                            ore.MineralsOut.Nocxium +
+                            ore.MineralsOut.Zydrine +
+                            ore.MineralsOut.Megacyte +
+							ore.MineralsOut.Morphite) * numberOfCycles *
+							ore.GetEfficiency(netYield) * 0.01).ToString("F2")
+            };
 
             cells[ColumnProfit.Index] = new DataGridViewTextBoxCell {Value = profit.ToString("#,#.##")}; // + " ISK"};
             cells[ColumnDelete2.Index] = new DataGridViewButtonCell {Value = "x"};
 
             row.Cells.AddRange(cells);
             dataGridViewCalc.Rows.Add(row);
-            return profit;
-        }
-
-        /// <summary>
-        /// Вычилсить количество минералов которое выйдет с руды
-        /// </summary>
-        /// <param name="ore">тип руды</param>
-        /// <param name="netYield">The net yield.</param>
-        /// <param name="p">число циклов рефайна</param>
-        /// <returns></returns>
-        private static MineralsOut GetMineralsOut(Ore ore, double netYield, int p)
-        {
-            double coeff = p*OreList.GetEfficiency(ore, netYield)*(1 - GetTaxRate());
-            int tritaniumOut = (int) (ore.MineralsOut.Tritanium*coeff);
-            int pyeriteOut = (int) (ore.MineralsOut.Pyerite*coeff);
-            int mexallonOut = (int) (ore.MineralsOut.Mexallon*coeff);
-            int isogenOut = (int) (ore.MineralsOut.Isogen*coeff);
-            int nocxiumOut = (int) (ore.MineralsOut.Nocxium*coeff);
-            int zydrineOut = (int) (ore.MineralsOut.Zydrine*coeff);
-            int megcyteOut = (int) (ore.MineralsOut.Megacyte*coeff);
-            int morphiteOut = (int) (ore.MineralsOut.Morphite*coeff);
-            return new MineralsOut(tritaniumOut, pyeriteOut, mexallonOut, isogenOut,
-                                   nocxiumOut, zydrineOut, megcyteOut, morphiteOut);
-        }
-
-        /// <summary>
-        /// Gets the mineral profit.
-        /// </summary>
-        /// <param name="minerals">The minerals.</param>
-        /// <returns></returns>
-        private static double GetMineralProfit(MineralsOut minerals)
-        {
-            double profit = minerals.Tritanium*Config<Settings>.Instance.PriceTritanium;
-            profit += minerals.Pyerite*Config<Settings>.Instance.PricePyerite;
-            profit += minerals.Mexallon*Config<Settings>.Instance.PriceMexallon;
-            profit += minerals.Isogen*Config<Settings>.Instance.PriceIsogen;
-            profit += minerals.Nocxium*Config<Settings>.Instance.PriceNocxium;
-            profit += minerals.Zydrine*Config<Settings>.Instance.PriceZydrine;
-            profit += minerals.Megacyte*Config<Settings>.Instance.PriceMegacyte;
-            profit += minerals.Morphite*Config<Settings>.Instance.PriceMorphite;
             return profit;
         }
 
@@ -461,7 +402,7 @@ namespace EveMiner.Forms
             		try
             		{
             			double netYield = Convert.ToDouble(textBoxNetYield.Text)/100;
-            			tooltip += string.Format(Environment.NewLine + "Efficiency: {0}", OreList.GetEfficiency(ore, netYield));
+            			tooltip += string.Format(Environment.NewLine + "Efficiency: {0}", ore.GetEfficiency(netYield));
             		}
             		catch (FormatException)
             		{}
@@ -555,178 +496,178 @@ namespace EveMiner.Forms
             //Veldspar
             int quantity = GetQuantity(textBoxVeldspar0);
             Ore ore = OreList.Get("Veldspar");
-            MineralsOut minerals = GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+            MineralsOut minerals = ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxVeldspar5);
             ore = OreList.Get("Concentrated Veldspar");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+            minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxVeldspar10);
             ore = OreList.Get("Dense Veldspar");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Scordite
             quantity = GetQuantity(textBoxScordite0);
             ore = OreList.Get("Scordite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxScordite5);
             ore = OreList.Get("Condensed Scordite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxScordite10);
             ore = OreList.Get("Massive Scordite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Pyroxeres
             quantity = GetQuantity(textBoxPyroxeres0);
             ore = OreList.Get("Pyroxeres");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxPyroxeres5);
             ore = OreList.Get("Solid Pyroxeres");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxPyroxeres10);
             ore = OreList.Get("Viscous Pyroxeres");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Plagioclase
             quantity = GetQuantity(textBoxPlagioclase0);
             ore = OreList.Get("Plagioclase");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxPlagioclase5);
             ore = OreList.Get("Azure Plagioclase");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxPlagioclase10);
             ore = OreList.Get("Rich Plagioclase");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Omber
             quantity = GetQuantity(textBoxOmber0);
             ore = OreList.Get("Omber");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxOmber5);
             ore = OreList.Get("Silvery Omber");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxOmber10);
             ore = OreList.Get("Golden Omber");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Kernite
             quantity = GetQuantity(textBoxKernite0);
             ore = OreList.Get("Kernite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxKernite5);
             ore = OreList.Get("Luminous Kernite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxKernite10);
             ore = OreList.Get("Fiery Kernite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Jaspet
             quantity = GetQuantity(textBoxJaspet0);
             ore = OreList.Get("Jaspet");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxJaspet5);
             ore = OreList.Get("Pure Jaspet");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxJaspet10);
             ore = OreList.Get("Pristine Jaspet");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Hemorphite
             quantity = GetQuantity(textBoxHemorphite0);
             ore = OreList.Get("Hemorphite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxHemorphite5);
             ore = OreList.Get("Vivid Hemorphite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxHemorphite10);
             ore = OreList.Get("Radiant Hemorphite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Hedbergite
             quantity = GetQuantity(textBoxHedbergite0);
             ore = OreList.Get("Hedbergite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxHedbergite5);
             ore = OreList.Get("Vitric Hedbergite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxHedbergite10);
             ore = OreList.Get("Glazed Hedbergite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Gneiss
             quantity = GetQuantity(textBoxGneiss0);
             ore = OreList.Get("Gneiss");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxGneiss5);
             ore = OreList.Get("Iridescent Gneiss");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxGneiss10);
             ore = OreList.Get("Prismatic Gneiss");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //DarkOchre
             quantity = GetQuantity(textBoxDarkOchre0);
             ore = OreList.Get("Dark Ochre");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxDarkOchre5);
             ore = OreList.Get("Onyx Ochre");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxDarkOchre10);
             ore = OreList.Get("Obsidian Ochre");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Spodumain
             quantity = GetQuantity(textBoxSpodumain0);
             ore = OreList.Get("Spodumain");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxSpodumain5);
             ore = OreList.Get("Bright Spodumain");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxSpodumain10);
             ore = OreList.Get("Gleaming Spodumain");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Crokite
             quantity = GetQuantity(textBoxCrockite0);
             ore = OreList.Get("Crokite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxCrockite5);
             ore = OreList.Get("Sharp Crokite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxCrockite10);
             ore = OreList.Get("Crystalline Crokite");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Bistot
             quantity = GetQuantity(textBoxBistot0);
             ore = OreList.Get("Bistot");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxBistot5);
             ore = OreList.Get("Triclinic Bistot");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxBistot10);
             ore = OreList.Get("Monoclinic Bistot");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Arkonor
             quantity = GetQuantity(textBoxArkonor0);
             ore = OreList.Get("Arkonor");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxArkonor5);
             ore = OreList.Get("Crimson Arkonor");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxArkonor10);
             ore = OreList.Get("Prime Arkonor");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
             //Mercoxit
             quantity = GetQuantity(textBoxMercoxit0);
             ore = OreList.Get("Mercoxit");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxMercoxit5);
             ore = OreList.Get("Magma Mercoxit");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
             quantity = GetQuantity(textBoxMercoxit10);
             ore = OreList.Get("Vitreous Mercoxit");
-            minerals += GetMineralsOut(ore, netYield, quantity/ore.UnitsToRefine);
+			minerals += ore.GetMineralsOut(netYield, quantity);
 
 
             RefreshHistogram(minerals);
@@ -811,7 +752,7 @@ namespace EveMiner.Forms
 
 
             histogram1.Invalidate();
-            textBoxProfit.Text = Resources.CalculatorForm_RefreshHistogram_Total_Profit__ + GetMineralProfit(minerals).ToString("#,#.##") + Resources.CalculatorForm_RefreshHistogram__ISK;
+			textBoxProfit.Text = Resources.CalculatorForm_RefreshHistogram_Total_Profit__ + minerals.GetMineralProfit().ToString("#,#.##") + Resources.CalculatorForm_RefreshHistogram__ISK;
         }
 
         /// <summary>

@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Heimatar");
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.textBoxVeldspar0 = new System.Windows.Forms.TextBox();
 			this.textBoxVeldspar5 = new System.Windows.Forms.TextBox();
@@ -120,6 +121,8 @@
 			this.textBoxPriceMorphite = new System.Windows.Forms.TextBox();
 			this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
 			this.btnEveCentral = new System.Windows.Forms.Button();
+			this.listView1 = new System.Windows.Forms.ListView();
+			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tableLayoutPanel6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxHemorphite)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxJaspet)).BeginInit();
@@ -1128,11 +1131,34 @@
 			this.btnEveCentral.UseVisualStyleBackColor = true;
 			this.btnEveCentral.Click += new System.EventHandler(this.btnEveCentral_Click);
 			// 
+			// listView1
+			// 
+			this.listView1.CheckBoxes = true;
+			this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
+			this.listView1.FullRowSelect = true;
+			listViewItem1.Checked = true;
+			listViewItem1.StateImageIndex = 1;
+			this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+			this.listView1.Location = new System.Drawing.Point(541, 12);
+			this.listView1.Name = "listView1";
+			this.listView1.Size = new System.Drawing.Size(133, 318);
+			this.listView1.TabIndex = 6;
+			this.listView1.UseCompatibleStateImageBehavior = false;
+			this.listView1.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader1
+			// 
+			this.columnHeader1.Text = "Region";
+			this.columnHeader1.Width = 109;
+			// 
 			// PricesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(847, 451);
+			this.Controls.Add(this.listView1);
 			this.Controls.Add(this.btnEveCentral);
 			this.Controls.Add(this.tableLayoutPanel8);
 			this.Controls.Add(this.tableLayoutPanel7);
@@ -1267,5 +1293,7 @@
 		private System.Windows.Forms.TextBox textBoxPriceMorphite;
 		private System.Windows.Forms.ToolTip toolTipInfo;
 		private System.Windows.Forms.Button btnEveCentral;
+		private System.Windows.Forms.ListView listView1;
+		private System.Windows.Forms.ColumnHeader columnHeader1;
 	}
 }

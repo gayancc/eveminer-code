@@ -114,5 +114,22 @@ namespace EveMiner
 			get { return _alwaysOnTop; }
 			set { _alwaysOnTop = value; }
 		}
+
+		/// <summary>
+		/// Возвращает текущий налог
+		/// </summary>
+		/// <returns></returns>
+		public static double GetTaxRate()
+		{
+			double tax;
+			if (Config<Settings>.Instance.StandTaxe == Stand)
+				tax = (5 - Config<Settings>.Instance.Standing*5/6.66666)/100;
+			else //if(Config<Settings>.Instance.StandTaxe == Tax)
+				tax = Config<Settings>.Instance.TaxRate/100;
+
+			if (tax < 0)
+				tax = 0;
+			return tax;
+		}
 	}
 }

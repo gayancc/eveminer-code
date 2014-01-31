@@ -150,5 +150,22 @@ namespace EveMiner.EveDatabase
 			                       mo1.Megacyte + mo2.Megacyte,
 			                       mo1.Morphite + mo2.Morphite);
 		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public double GetMineralProfit()
+		{
+			double profit = Tritanium * Config<Settings>.Instance.PriceTritanium;
+			profit += Pyerite * Config<Settings>.Instance.PricePyerite;
+			profit += Mexallon * Config<Settings>.Instance.PriceMexallon;
+			profit += Isogen * Config<Settings>.Instance.PriceIsogen;
+			profit += Nocxium * Config<Settings>.Instance.PriceNocxium;
+			profit += Zydrine * Config<Settings>.Instance.PriceZydrine;
+			profit += Megacyte * Config<Settings>.Instance.PriceMegacyte;
+			profit += Morphite * Config<Settings>.Instance.PriceMorphite;
+			return profit;
+		}
+
 	}
 }
